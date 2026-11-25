@@ -23,9 +23,9 @@ The manuscript has been expanded into an exhaustive, 18-page transaction-grade j
 
 - **Author Lineup Added:**
   - Meghraj Dhakal (Scholar ID: 2023/BCSE/0027)
-  - Mustafizur Rahman Choudhury (Scholar ID: 2023/BCSE/0054)
-  - Kingshuk Das (Scholar ID: 2023/BCSE/0043)
   - Lakshman Sharma (Scholar ID: 2023/BCSE/0041)
+  - Kingshuk Das (Scholar ID: 2023/BCSE/0043)
+  - Mustafizur Rahman Choudhury (Scholar ID: 2023/BCSE/0054)
   - Under the Supervision of: Dr. Manashee Kalita, Assistant Professor
   - Affiliation: Department of Computer Science & Engineering, University of Science and Technology Meghalaya (USTM), Ri-Bhoi, Meghalaya 793101, India.
 - **Deep Explanatory Scope (17 Pages Without References):**

@@ -187,10 +187,10 @@ centered(doc, "Computer Science & Engineering", 13, True, 12)
 centered(doc, "Submitted by", 12, True, 6)
 
 authors = [
-    ("Mustafizur Rahman Choudhury", "2023/BCSE/0054"),
-    ("Kingshuk Das", "2023/BCSE/0043"),
-    ("Lakshman Sharma", "2023/BCSE/0041"),
     ("Meghraj Dhakal", "2023/BCSE/0027"),
+    ("Lakshman Sharma", "2023/BCSE/0041"),
+    ("Kingshuk Das", "2023/BCSE/0043"),
+    ("Mustafizur Rahman Choudhury", "2023/BCSE/0054"),
 ]
 for name, roll in authors:
     centered(doc, f"{name}, Roll No. {roll}", 12)
@@ -214,8 +214,8 @@ centered(doc, "CERTIFICATE", 14, True, 12)
 body(doc, (
     "This is to certify that the work contained in the project report titled "
     '"Explainable AI-Based Earthquake Early Warning System for Northeast India," '
-    "submitted by Mustafizur Rahman Choudhury (2023/BCSE/0054), Kingshuk Das (2023/BCSE/0043), "
-    "Lakshman Sharma (2023/BCSE/0041), and Meghraj Dhakal (2023/BCSE/0027), students of the "
+    "submitted by Meghraj Dhakal (2023/BCSE/0027), Lakshman Sharma (2023/BCSE/0041), "
+    "Kingshuk Das (2023/BCSE/0043), and Mustafizur Rahman Choudhury (2023/BCSE/0054), students of the "
     "Department of Computer Science and Engineering, University of Science and Technology Meghalaya "
     "(USTM), has been carried out under my supervision in partial fulfilment of the requirements for "
     "the award of the degree of Bachelor of Technology (B.Tech.) in Computer Science and Engineering. "
@@ -261,8 +261,8 @@ centered(doc, "APPROVAL CERTIFICATE", 14, True, 12)
 body(doc, (
     "This is to certify that the project entitled "
     '"Explainable AI-Based Earthquake Early Warning System for Northeast India" '
-    "submitted by Mustafizur Rahman Choudhury (2023/BCSE/0054), Kingshuk Das (2023/BCSE/0043), "
-    "Lakshman Sharma (2023/BCSE/0041), and Meghraj Dhakal (2023/BCSE/0027), students of the "
+    "submitted by Meghraj Dhakal (2023/BCSE/0027), Lakshman Sharma (2023/BCSE/0041), "
+    "Kingshuk Das (2023/BCSE/0043), and Mustafizur Rahman Choudhury (2023/BCSE/0054), students of the "
     "5th Semester, is approved for the degree of Bachelor of Technology (B.Tech.) in "
     "Computer Science and Engineering, University of Science and Technology Meghalaya (USTM), "
     "in partial fulfilment of the requirement for the award of the said degree."

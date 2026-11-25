@@ -23,10 +23,10 @@ This repository implements an end-to-end **physics-informed synthetic seismic wa
 
 | Scholar Name | Roll / Scholar ID |
 | :--- | :--- |
-| **Mustafizur Rahman Choudhury** | `2023/BCSE/0054` |
-| **Kingshuk Das** | `2023/BCSE/0043` |
-| **Lakshman Sharma** | `2023/BCSE/0041` |
 | **Meghraj Dhakal** | `2023/BCSE/0027` |
+| **Lakshman Sharma** | `2023/BCSE/0041` |
+| **Kingshuk Das** | `2023/BCSE/0043` |
+| **Mustafizur Rahman Choudhury** | `2023/BCSE/0054` |
 
 ---
 
