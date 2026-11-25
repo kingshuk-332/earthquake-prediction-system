@@ -1,0 +1,463 @@
+[
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/config.py",
+    "sha256": "ec01fa31342cb33920dcacce0ef18af9707e942c78222fb7067544b01d1476b4",
+    "doc": "Centralized Configuration Module for Physics-Informed Synthetic Seismic Waveform Generator\nResearch Title: Physics-Informed Synthetic Seismic Waveform Generation for Earthquake Detection Using Deep Learning",
+    "symbols": [
+      {
+        "name": "SimulationConfig",
+        "line": 11,
+        "doc": null
+      },
+      {
+        "name": "create_directories",
+        "line": 69,
+        "doc": "Create all output directories if they do not exist."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/improved_simulation_qc.py",
+    "sha256": "9b2bba64262263141c8266ba3d3d18db91a7d19c8cc546702d2ccb0efc3f9e20",
+    "doc": "Phase 8: Improved Simulation, Rigorous Quality Control & Scientific Audit\nModule: improved_simulation_qc.py",
+    "symbols": [
+      {
+        "name": "compute_waveform_metrics",
+        "line": 33,
+        "doc": "Computes rigorous numerical, energy, and SNR quality control metrics on a waveform.\nSeparates mandatory numerical checks from waveform-structure checks."
+      },
+      {
+        "name": "run_phase8",
+        "line": 128,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/improved_waveform_generator.py",
+    "sha256": "8f88de3fdd1342862dc588bd8f835e1dc963573a69cdd34648c59fdbbdbc96d8",
+    "doc": "Improved Physics-Informed Synthetic Seismic Waveform Generator\nModule: improved_waveform_generator.py\n\nKey Scientific Improvements (Phase 8):\n1. Frequency-dependent crustal quality factor Q(f) = Q_0 * (f / f_0)^eta to prevent\n   unphysical over-attenuation of regional shear waves.\n2. Physically scaled wave packet envelopes: rise time and coda decay constants dynamically\n   scale with earthquake magnitude M (source rupture duration) and hypocentral distance R\n   (scattering and dispersion).\n3. Multi-harmonic causal wave packet formulation with C^1 continuous gamma onset envelopes.\n4. Vertical-component (BHZ) realistic phase amplitude partitioning (compressional P-wave\n   vertical particle motion).\n5. Exact mathematical Signal-to-Noise Ratio (SNR) calibration across the pre-P measurement window.",
+    "symbols": [
+      {
+        "name": "ImprovedSimulationParameters",
+        "line": 25,
+        "doc": null
+      },
+      {
+        "name": "ImprovedWaveformGenerator",
+        "line": 61,
+        "doc": "Advanced Physics-Informed Seismic Waveform Simulator."
+      },
+      {
+        "name": "to_dict",
+        "line": 53,
+        "doc": null
+      },
+      {
+        "name": "save_json",
+        "line": 56,
+        "doc": null
+      },
+      {
+        "name": "__init__",
+        "line": 65,
+        "doc": null
+      },
+      {
+        "name": "calculate_effective_amplitudes",
+        "line": 82,
+        "doc": "Calculates source-scaled, geometrically spread, and anelastically attenuated amplitudes\nincorporating frequency-dependent crustal quality factor Q(f)."
+      },
+      {
+        "name": "generate_dynamic_envelopes",
+        "line": 124,
+        "doc": "Computes dynamic rise times and coda decay constants as functions of\nearthquake magnitude M (source rupture duration) and distance R (dispersion/scattering)."
+      },
+      {
+        "name": "generate_p_wave",
+        "line": 148,
+        "doc": "Generates P-wave packet with C^1 continuous gamma envelope and harmonic carrier."
+      },
+      {
+        "name": "generate_s_wave",
+        "line": 173,
+        "doc": "Generates S-wave packet with lower shear frequency and extended dispersive coda."
+      },
+      {
+        "name": "generate_synthesized_trace",
+        "line": 197,
+        "doc": "Synthesizes a complete seismic trace with exact mathematical pre-P SNR calibration."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase10_generate_classification_dataset.py",
+    "sha256": "25261dc3ae0021cb1e46edaf44d399dc7ff3c9a995a688fc6393b208acde5c41",
+    "doc": "Phase 10: Balanced Earthquake vs. Noise Classification Dataset Generation\nModule: phase10_generate_classification_dataset.py\n\nConstructs a balanced 16,178-sample seismic classification dataset:\n- Class 1 (Synthetic Earthquake): 8,089 records from Phase 9 (labels = 1)\n- Class 0 (Synthetic Noise-Only): 8,089 independent stochastic noise records (labels = 0)\n- Matched background noise RMS distribution based on empirical pre-P measurements\n- Multi-category realistic stochastic noise generation:\n    1. Band-limited Gaussian ambient noise (0.2\u201325 Hz)\n    2. Colored Pink (1/f) low-frequency crustal noise\n    3. Modulated non-stationary background noise\n    4. Ambient noise with occasional transient non-seismic disturbances\n- Full QC on all 16,178 samples with spectral, RMS, and numerical comparisons\n- Comprehensive visualization suite (7 publication-quality plots)\n- Detailed scientific report with dataset limitations and inspection commands",
+    "symbols": [
+      {
+        "name": "NoiseWaveformGenerator",
+        "line": 50,
+        "doc": "Generates independent stochastic seismic ambient noise waveforms matching catalog characteristics."
+      },
+      {
+        "name": "setup_directories",
+        "line": 124,
+        "doc": null
+      },
+      {
+        "name": "run_phase10",
+        "line": 129,
+        "doc": null
+      },
+      {
+        "name": "generate_phase10_visualizations",
+        "line": 403,
+        "doc": null
+      },
+      {
+        "name": "generate_phase10_reports",
+        "line": 604,
+        "doc": null
+      },
+      {
+        "name": "__init__",
+        "line": 53,
+        "doc": null
+      },
+      {
+        "name": "generate_noise",
+        "line": 61,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase11_split_and_preprocess.py",
+    "sha256": "171782a3037942082d8a373156ad4764b47cf633e810c4fc7dfe5a1c9ea25be3",
+    "doc": "Phase 11: Leakage-Safe Dataset Splitting, Preprocessing & Statistical Analysis\nModule: phase11_split_and_preprocess.py\n\nExecutes:\n1. Pair-Aware Stratified Splitting (70% Train, 15% Validation, 15% Test):\n   - Co-locates paired earthquake and noise samples in the same split to eliminate pairing leakage\n   - Stratifies by earthquake magnitude categories and QC pass status\n   - Preserves exact 50/50 earthquake vs. noise class balance in every split\n2. Preprocessing & Normalization:\n   - Per-waveform standardization (z-score per trace)\n   - Global training-set normalization (fitted strictly on training set only)\n   - Zero-phase linear detrending / DC baseline removal\n3. Comprehensive Statistical Analysis across each split\n4. Rigorous 5-point Leakage Audit:\n   - Paired noise-earthquake co-location verification\n   - Identifier non-overlap check\n   - Cross-split pairwise correlation check\n   - Data transformation leakage audit\n   - Class-specific preprocessing invariance\n5. Generation of train.h5, validation.h5, test.h5, mapping CSVs, and 7 publication plots",
+    "symbols": [
+      {
+        "name": "setup_directories",
+        "line": 59,
+        "doc": null
+      },
+      {
+        "name": "run_phase11",
+        "line": 64,
+        "doc": null
+      },
+      {
+        "name": "generate_phase11_visualizations",
+        "line": 433,
+        "doc": null
+      },
+      {
+        "name": "generate_phase11_reports",
+        "line": 605,
+        "doc": null
+      },
+      {
+        "name": "save_split_h5",
+        "line": 236,
+        "doc": null
+      },
+      {
+        "name": "max_cross_corr",
+        "line": 327,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase1_inspect_metadata.py",
+    "sha256": "c843e627aa6f52758ed2502a4f5dd8b854fca2336c766d9737eac7f30a78aa49",
+    "doc": "Phase 1: Metadata Inspection, Validation, and Exploratory Analysis\nModule: phase1_inspect_metadata.py",
+    "symbols": [
+      {
+        "name": "run_phase1",
+        "line": 19,
+        "doc": "Executes Phase 1 validation, calculates hypocentral distances, and generates plots."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase2_travel_time.py",
+    "sha256": "26ff57f59344c9dac3c68ad73859c228eb7207b47403b0ae91be637b8570bccd",
+    "doc": "Phase 2: Theoretical Seismic Travel-Time Calculations\nModule: phase2_travel_time.py",
+    "symbols": [
+      {
+        "name": "run_phase2",
+        "line": 19,
+        "doc": "Executes Phase 2 theoretical travel-time calculations and comparison with catalog."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase3_clean_synthesis.py",
+    "sha256": "6043fc25cf4183e63a6788caa5b73735821e31400b1c7856b21753411f243681",
+    "doc": "Phase 3: Mathematical P-Wave and S-Wave Synthesis Validation\nModule: phase3_clean_synthesis.py",
+    "symbols": [
+      {
+        "name": "run_phase3",
+        "line": 19,
+        "doc": "Executes Phase 3 clean P and S wave synthesis for 5 representative events."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase4_attenuation_noise.py",
+    "sha256": "be2a446b791f371a747a5d0e22d78d1a28a14967568add7460ee2f906850ccf7",
+    "doc": "Phase 4: Physical Attenuation, Magnitude Scaling, and Noise Validation\nModule: phase4_attenuation_noise.py",
+    "symbols": [
+      {
+        "name": "run_phase4",
+        "line": 19,
+        "doc": "Executes Phase 4 physical attenuation, magnitude scaling, and noise sensitivity suite."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase5_prototype_evaluation.py",
+    "sha256": "9fa6935b4973708f1ebc6e805fa864280a4e042a94e04667e3d221da88e9c0c2",
+    "doc": "Phase 5: Prototype 10-Record Waveform Generation and Quality Evaluation Module\nModule: phase5_prototype_evaluation.py",
+    "symbols": [
+      {
+        "name": "select_10_diverse_records",
+        "line": 20,
+        "doc": "Selects 10 diverse, representative records spanning:\n- Magnitudes (Low ~2.5, Moderate ~4.5, Strong ~7.0+)\n- Depths (Shallow <20km, Intermediate 30-70km, Deep >100km)\n- Distances (Short <100km, Medium 150-350km, Long >500km)\n- Multiple recording stations\n- Varying SNR levels"
+      },
+      {
+        "name": "run_phase5",
+        "line": 66,
+        "doc": "Executes Phase 5 prototype generation, saving, and quality evaluation."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase6_generate_full_dataset.py",
+    "sha256": "c239ecea800f8fc507955950971de80d1bb8b1096d26fe5a2c3d2d5266d10b27",
+    "doc": "Phase 6: Full-Dataset Synthetic Seismic Waveform Generation (HDF5 & Mapping)\nModule: phase6_generate_full_dataset.py\n\nGenerates synthetic vertical-component seismic waveforms for all eligible metadata\nrecords, saving in chunked, compressed HDF5 format with an associated mapping CSV.",
+    "symbols": [
+      {
+        "name": "run_phase6",
+        "line": 22,
+        "doc": "Executes Phase 6 batch generation of synthetic waveforms for all records into HDF5."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/phase9_generate_full_dataset.py",
+    "sha256": "bae21babd8c08d0bb941553fad18368ee92e5ec18ea37cb1363703790568f72f",
+    "doc": "Phase 9: Full Dataset Generation Using the Improved Phase 8 Simulator\nModule: phase9_generate_full_dataset.py\n\nGenerates synthetic vertical-component seismic waveforms for all 8,089 metadata\nrecords using the improved Phase 8 physical simulator:\n- Frequency-dependent Q(f) crustal attenuation\n- Smooth C1 Gamma onset envelopes with dynamic rupture and scattering scaling\n- Multi-harmonic P and S carrier waveforms\n- Calibrated BHZ vertical-component energy partitioning (S/P = 1.35)\n- Exact empirical pre-P noise calibration\n- Strict decoupled QC evaluation across the full 8,089 trace catalog",
+    "symbols": [
+      {
+        "name": "setup_directories",
+        "line": 47,
+        "doc": null
+      },
+      {
+        "name": "run_phase9_full_generation",
+        "line": 52,
+        "doc": null
+      },
+      {
+        "name": "generate_phase9_plots",
+        "line": 305,
+        "doc": null
+      },
+      {
+        "name": "generate_phase9_reports",
+        "line": 541,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/run_pipeline.py",
+    "sha256": "cbfce993c71d0a0bf4eb74e382b2eb58e07030a2410e907200e19415af4db02c",
+    "doc": "Unified Pipeline Orchestrator for Physics-Informed Synthetic Seismic Waveform Generation\nScript: run_pipeline.py\n\nUsage:\n    python run_pipeline.py --all\n    python run_pipeline.py --phase 1\n    python run_pipeline.py --phase 2\n    python run_pipeline.py --phase 3\n    python run_pipeline.py --phase 4\n    python run_pipeline.py --phase 5\n    python run_pipeline.py --phase 6",
+    "symbols": [
+      {
+        "name": "main",
+        "line": 29,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/waveform_generator.py",
+    "sha256": "ef53476492104987b8e481e712218923f6f81831b0d0833bc71cc42eb2befa35",
+    "doc": "Physics-Informed Synthetic Seismic Waveform Generator\nModule: waveform_generator.py\n\nImplements:\n1. Continuous time-axis generation.\n2. Damped oscillatory P-wave and S-wave packets with smooth onset envelopes.\n3. Magnitude scaling, geometric spreading, and anelastic attenuation (Q-factor).\n4. Band-limited colored ambient seismic noise.\n5. Calibrated Signal-to-Noise Ratio (SNR) scaling.",
+    "symbols": [
+      {
+        "name": "WaveformGenerator",
+        "line": 17,
+        "doc": "Physics-Informed Seismic Waveform Generator for simulating vertical-component (BHZ)\nseismic traces from earthquake metadata."
+      },
+      {
+        "name": "__init__",
+        "line": 22,
+        "doc": null
+      },
+      {
+        "name": "generate_time_axis",
+        "line": 62,
+        "doc": "Generates continuous time axis array."
+      },
+      {
+        "name": "calculate_effective_amplitudes",
+        "line": 67,
+        "doc": "Calculates physically scaled P and S wave amplitudes incorporating:\n- Source magnitude scaling: A(M) = A_0 * 10^(c * (M - M_ref))\n- Geometric spreading: G(R) = (R_0 / max(R, R_0))^gamma\n- Anelastic attenuation: kappa = exp(-pi * f * R / (Q * v))"
+      },
+      {
+        "name": "generate_p_wave",
+        "line": 105,
+        "doc": "Generates a smooth, continuous P-wave packet using a gamma-variate envelope\nmodulated by a damped sinusoid."
+      },
+      {
+        "name": "generate_s_wave",
+        "line": 136,
+        "doc": "Generates a smooth, continuous S-wave packet with lower frequency and\nlonger coda decay."
+      },
+      {
+        "name": "generate_background_noise",
+        "line": 164,
+        "doc": "Generates band-limited colored seismic ambient noise filtered between\nnoise_band[0] and noise_band[1] Hz."
+      },
+      {
+        "name": "combine_wave_components",
+        "line": 187,
+        "doc": "Combines P-wave, S-wave, and calibrates background noise to match target SNR (dB).\nSNR is defined as: SNR_dB = 20 * log10(Peak_Signal_Amplitude / Noise_RMS)\nReturns: (total_waveform, noise_array, noise_sigma)"
+      },
+      {
+        "name": "generate_single_event",
+        "line": 212,
+        "doc": "Full pipeline to generate one complete synthetic waveform trace for a given event."
+      }
+    ]
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/waveform_quality_control.py",
+    "sha256": "dfa00b2a0805d1de4003202425d218113635cc0b8570d1d71317634699323a32",
+    "doc": "Phase 7: Synthetic Seismic Waveform Quality Control (QC)\nScript: waveform_quality_control.py\n\nPerforms rigorous quality control on synthetic seismic waveforms stored in HDF5:\n1. Reproducible random selection of 50 traces (fixed seed).\n2. Calculation of key physical & numerical QC metrics (peak, RMS, pre-P RMS, P-window RMS, S-window RMS, SNR).\n3. Robust validation checks (bounds, ordering, finiteness, non-zeroness, energy jumps).\n4. Individual waveform plots, combined overview record-section, and Hilbert energy-envelope inspection.\n5. Tabular CSV reporting and markdown summary report with complete scientific disclaimers.",
+    "symbols": [
+      {
+        "name": "calculate_qc_metrics",
+        "line": 54,
+        "doc": "Computes numerical quality control metrics and physical energy indicators for a single waveform.\nDoes NOT alter, modify, or normalize the waveform."
+      },
+      {
+        "name": "main",
+        "line": 135,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "preprocess.py",
+    "sha256": "32cb3c559a8d1e73a676e7a701e6b2a38a390b99efde67060b97cb9a08fbcc86",
+    "doc": "Earthquake Dataset Preprocessing Pipeline\n==========================================\nReads: dataset_2.csv  (NEVER modified)\nWrites:\n  - preprocessed_cleaned.csv          -- general cleaning output\n  - preprocessed_eda.csv              -- EDA-ready (enriched features)\n  - preprocessed_ml.csv               -- ML-ready (encoded + scaled)\n  - preprocessed_dl.csv               -- DL-ready (normalized for waveform models)\n  - ml_scaler.pkl                     -- fitted StandardScaler (for inverse transforms)\n  - ml_label_encoders.pkl             -- fitted LabelEncoders for categorical cols\n  - preprocessing_report.txt          -- summary report\n\nAuthor: Auto-generated preprocessing pipeline",
+    "symbols": [
+      {
+        "name": "log",
+        "line": 36,
+        "doc": null
+      },
+      {
+        "name": "magnitude_category",
+        "line": 133,
+        "doc": null
+      },
+      {
+        "name": "depth_class",
+        "line": 153,
+        "doc": null
+      },
+      {
+        "name": "haversine",
+        "line": 176,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "preprocess_dl_temporal.py",
+    "sha256": "6b9b7de7474f35e111701f241daa6b29a4056cb978fcfb5779bfb353943ef71e",
+    "doc": "Temporal-Aware DL Preprocessing for Seismic Prediction\n=======================================================\nReads:  dataset_2.csv  (NEVER modified)\nWrites: preprocessed_dl_temporal.csv  \u2014 DL-ready with temporal features\n\nKey improvements over preprocessed_dl.csv:\n  1. Rich temporal features (year, month, hour, day_of_week, day_of_year)\n  2. Cyclical encoding for periodic features (sin/cos)\n  3. Inter-event time gap (critical for seismic sequences)\n  4. S-P travel time as engineered feature\n  5. All features MinMax normalized [0, 1]",
+    "symbols": []
+  },
+  {
+    "path": "cnn/cnn_1d_model.py",
+    "sha256": "61ebe79bb67506a909740a75d393c066380200922d61cd63e4fd5df21feadc9f",
+    "doc": "Pure 1D-CNN v2 for Seismic Activity Forecasting\n=================================================\nFramework: PyTorch (CUDA GPU Acceleration)\nRegion:    North-East India & Indo-Burma Subduction Zone\nDataset:   preprocessed_dl_temporal.csv (44 features)\nTarget:    Forecast significant earthquake (M >= 4.5) in next event\n\nLESSONS FROM v1:\n  - v1 had 735K params \u2192 severe overfitting (train AUC 0.90, val AUC 0.48)\n  - Model collapsed at epoch 6, never recovered\n  \nv2 IMPROVEMENTS:\n  1. MUCH smaller model (~30K params) to prevent overfitting on 5,651 samples\n  2. Depthwise-separable convolutions (more parameter efficient)\n  3. Dilated convolutions (larger receptive field without more params)\n  4. Stronger regularization (higher dropout, more weight decay)\n  5. Cosine annealing LR with warm restarts (better exploration)\n  6. Label smoothing in focal loss\n  7. Mixup augmentation on training data\n\nArchitecture (Efficient 1D-CNN):\n  1. Input: (Batch, 15, 44) -> Transposed to (Batch, 44, 15)\n  2. Conv1d(44->32, k=1, stride=1) channel reduction + BN + ReLU\n  3. Dilated Conv Block: Conv1d(32->32, k=3, dilation=1, pad=1) + BN + GELU + Drop(0.2)\n  4. Dilated Conv Block: Conv1d(32->48, k=3, dilation=2, pad=2) + BN + GELU + Drop(0.25)\n  5. Dilated Conv Block: Conv1d(48->64, k=3, dilation=4, pad=4) + BN + GELU + Drop(0.3)\n     (Effective receptive field covers entire 15-step window)\n  6. Global Average Pool -> (Batch, 64)\n  7. Classifier: Linear(64->32) + BN + GELU + Drop(0.4) -> Linear(32->1)\n  8. Focal Loss (label smoothing) + AdamW + Cosine Annealing + Early Stopping",
+    "symbols": [
+      {
+        "name": "create_sequences",
+        "line": 146,
+        "doc": null
+      },
+      {
+        "name": "DilatedConvBlock",
+        "line": 205,
+        "doc": "Conv1d with dilation for larger receptive field without extra parameters."
+      },
+      {
+        "name": "EfficientCNN1D",
+        "line": 225,
+        "doc": "Lean Dilated 1D-CNN designed for small seismic datasets.\n\nKey design choices:\n- Channel reduction first (44->32) to limit parameters\n- Dilated convolutions (d=1,2,4) give receptive field of 15 = full sequence\n- Residual connections for stable gradients\n- GELU activation (smoother than ReLU, better for small datasets)\n- Global Average Pooling (not flatten) avoids overfitting\n- Minimal but effective classifier head\n\nTotal params: ~35K (vs 735K in v1, vs 187K in hybrid)"
+      },
+      {
+        "name": "FocalLossSmoothed",
+        "line": 335,
+        "doc": "Focal Loss with optional label smoothing for regularization."
+      },
+      {
+        "name": "mixup_data",
+        "line": 369,
+        "doc": "Mixup augmentation: creates convex combinations of training samples."
+      },
+      {
+        "name": "__init__",
+        "line": 207,
+        "doc": null
+      },
+      {
+        "name": "forward",
+        "line": 216,
+        "doc": null
+      },
+      {
+        "name": "__init__",
+        "line": 239,
+        "doc": null
+      },
+      {
+        "name": "_init_weights",
+        "line": 276,
+        "doc": null
+      },
+      {
+        "name": "forward",
+        "line": 290,
+        "doc": null
+      },
+      {
+        "name": "__init__",
+        "line": 337,
+        "doc": null
+      },
+      {
+        "name": "forward",
+        "line": 343,
+        "doc": null
+      }
+    ]
+  },
+  {
+    "path": "cnn/generate_noisy_dataset.py",
+    "sha256": "e2fd8b6ba13c922988dbec87d3ae119d6a331f523fef7f3eac6d28a00b74da13",
+    "doc": "Seismic Dataset Noise Injection Pipeline for Pure 1D-CNN\n=========================================================\nPurpose:\n  Synthesize realistic seismic instrument noise, hypocenter location error,\n  and phase picking uncertainty into the preprocessed dataset.\n  \nGeophysical & Sensor Rationale:\n  - Epicenter coordinates (Lat, Long): Catalog location solutions in the Indo-Burma\n    subduction zone have standard error ellipses of \u00b15 to 15 km (~0.05\u00b0 - 0.15\u00b0).\n  - Focal Depth (Depth_km): Subduction zone depths exhibit \u00b15 to 20 km uncertainty.\n  - Magnitude (Magnitude_Value, log_energy): Catalog magnitudes carry standard\n    estimation errors of \u00b10.1 to 0.2 magnitude units.\n  - Phase Arrivals (p_arrival, s_arrival, sp_travel_time): Picker jitter of \u00b15-10 samples.\n  - SNR (snr_db): Ambient cultural and environmental noise fluctuations.\n  - Continuous Features: Injected with zero-mean Gaussian jitter N(0, sigma^2) where\n    sigma = 0.015 (1.5% of the normalized scale), with hard boundary clipping to [0, 1].\n  - Discrete One-Hot Encodings: Kept untouched to preserve categorical station/type validity.\n  - Ground Truth Target: Computed from original true magnitude BEFORE noise injection,\n    guaranteeing zero label noise or target corruption.\n\nOutput File:\n  cnn/preprocessed_dl_temporal_noisy.csv",
+    "symbols": []
+  }
+]

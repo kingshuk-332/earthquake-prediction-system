@@ -1,0 +1,11 @@
+# Phase 1 project instructions
+- At session start read `.agent-memory/project_context.md`, `checkpoint.md`, and `task_graph.md`.
+- Use `dataset_index.md` and saved audit reports before reopening analyzed sources; refresh entries when source hashes change.
+- Open only sources relevant to the current task; search filenames/symbols first and use targeted ranges.
+- Avoid dumping datasets, notebooks, complete source files or long logs into chat.
+- Save findings, decisions and milestone checkpoints in `.agent-memory/`; keep `cnn wave status.md` human-readable and current.
+- Preserve existing data and experiments. Only Phase 1 is authorized; do not implement later models.
+- For catalog forecasting, use pre-cutoff information, chronological splits and training-only preprocessing. For the newly authorized waveform detection experiment, verify and use Phase 11 pair-disjoint classification splits; never call same-event waveform detection or estimation future forecasting.
+- Preserve reproducibility and scientific correctness; never skip verification for token savings.
+- Use real framework state to resume training; Markdown alone is not a training checkpoint.
+- Do not repeat completed tasks or identical experiments unless inputs change, verification fails, or replication is intentional.

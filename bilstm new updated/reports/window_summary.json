@@ -1,0 +1,137 @@
+[
+  {
+    "partition": "train",
+    "duration_seconds": 1,
+    "post_p_samples": 100,
+    "shape": [
+      11324,
+      100,
+      1
+    ],
+    "earthquakes": 5662,
+    "noise": 5662,
+    "earthquake_cutoff_strictly_before_s_count": 5662,
+    "earthquake_cutoff_strictly_before_s_fraction": 1.0,
+    "earthquake_windows_containing_s_samples": 0
+  },
+  {
+    "partition": "train",
+    "duration_seconds": 3,
+    "post_p_samples": 300,
+    "shape": [
+      11324,
+      300,
+      1
+    ],
+    "earthquakes": 5662,
+    "noise": 5662,
+    "earthquake_cutoff_strictly_before_s_count": 5594,
+    "earthquake_cutoff_strictly_before_s_fraction": 0.9879901095019428,
+    "earthquake_windows_containing_s_samples": 68
+  },
+  {
+    "partition": "train",
+    "duration_seconds": 5,
+    "post_p_samples": 500,
+    "shape": [
+      11324,
+      500,
+      1
+    ],
+    "earthquakes": 5662,
+    "noise": 5662,
+    "earthquake_cutoff_strictly_before_s_count": 5404,
+    "earthquake_cutoff_strictly_before_s_fraction": 0.954433062522077,
+    "earthquake_windows_containing_s_samples": 258
+  },
+  {
+    "partition": "validation",
+    "duration_seconds": 1,
+    "post_p_samples": 100,
+    "shape": [
+      2426,
+      100,
+      1
+    ],
+    "earthquakes": 1213,
+    "noise": 1213,
+    "earthquake_cutoff_strictly_before_s_count": 1213,
+    "earthquake_cutoff_strictly_before_s_fraction": 1.0,
+    "earthquake_windows_containing_s_samples": 0
+  },
+  {
+    "partition": "validation",
+    "duration_seconds": 3,
+    "post_p_samples": 300,
+    "shape": [
+      2426,
+      300,
+      1
+    ],
+    "earthquakes": 1213,
+    "noise": 1213,
+    "earthquake_cutoff_strictly_before_s_count": 1202,
+    "earthquake_cutoff_strictly_before_s_fraction": 0.9909315746084089,
+    "earthquake_windows_containing_s_samples": 11
+  },
+  {
+    "partition": "validation",
+    "duration_seconds": 5,
+    "post_p_samples": 500,
+    "shape": [
+      2426,
+      500,
+      1
+    ],
+    "earthquakes": 1213,
+    "noise": 1213,
+    "earthquake_cutoff_strictly_before_s_count": 1166,
+    "earthquake_cutoff_strictly_before_s_fraction": 0.9612530915086562,
+    "earthquake_windows_containing_s_samples": 46
+  },
+  {
+    "partition": "test",
+    "duration_seconds": 1,
+    "post_p_samples": 100,
+    "shape": [
+      2428,
+      100,
+      1
+    ],
+    "earthquakes": 1214,
+    "noise": 1214,
+    "earthquake_cutoff_strictly_before_s_count": 1214,
+    "earthquake_cutoff_strictly_before_s_fraction": 1.0,
+    "earthquake_windows_containing_s_samples": 0
+  },
+  {
+    "partition": "test",
+    "duration_seconds": 3,
+    "post_p_samples": 300,
+    "shape": [
+      2428,
+      300,
+      1
+    ],
+    "earthquakes": 1214,
+    "noise": 1214,
+    "earthquake_cutoff_strictly_before_s_count": 1200,
+    "earthquake_cutoff_strictly_before_s_fraction": 0.9884678747940692,
+    "earthquake_windows_containing_s_samples": 14
+  },
+  {
+    "partition": "test",
+    "duration_seconds": 5,
+    "post_p_samples": 500,
+    "shape": [
+      2428,
+      500,
+      1
+    ],
+    "earthquakes": 1214,
+    "noise": 1214,
+    "earthquake_cutoff_strictly_before_s_count": 1165,
+    "earthquake_cutoff_strictly_before_s_fraction": 0.9596375617792422,
+    "earthquake_windows_containing_s_samples": 49
+  }
+]

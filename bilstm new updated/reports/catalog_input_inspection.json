@@ -1,0 +1,118 @@
+{
+  "rows": 8089,
+  "columns": 28,
+  "column_names": [
+    "year",
+    "origin_time_ist",
+    "origin_time_utc",
+    "Lat",
+    "Long",
+    "Depth_km",
+    "Magnitude_Value",
+    "Magnitude_Type",
+    "Magnitude",
+    "Country",
+    "State",
+    "Region",
+    "Location",
+    "source_latitude",
+    "source_longitude",
+    "source_depth_km",
+    "source_magnitude",
+    "source_magnitude_type",
+    "source_id",
+    "receiver_code",
+    "receiver_latitude",
+    "receiver_longitude",
+    "receiver_elevation_m",
+    "p_arrival_sample",
+    "s_arrival_sample",
+    "snr_db",
+    "trace_name",
+    "epicentral_dist_km"
+  ],
+  "missing_by_column": {
+    "year": 0,
+    "origin_time_ist": 0,
+    "origin_time_utc": 0,
+    "Lat": 0,
+    "Long": 0,
+    "Depth_km": 0,
+    "Magnitude_Value": 0,
+    "Magnitude_Type": 0,
+    "Magnitude": 0,
+    "Country": 0,
+    "State": 0,
+    "Region": 0,
+    "Location": 0,
+    "source_latitude": 0,
+    "source_longitude": 0,
+    "source_depth_km": 0,
+    "source_magnitude": 0,
+    "source_magnitude_type": 0,
+    "source_id": 0,
+    "receiver_code": 0,
+    "receiver_latitude": 0,
+    "receiver_longitude": 0,
+    "receiver_elevation_m": 0,
+    "p_arrival_sample": 0,
+    "s_arrival_sample": 0,
+    "snr_db": 0,
+    "trace_name": 0,
+    "epicentral_dist_km": 0
+  },
+  "invalid_timestamps": 0,
+  "duplicate_source_id_rows": 0,
+  "exact_duplicate_rows": 0,
+  "duplicate_physical_key_rows": 0,
+  "tied_timestamp_rows": 0,
+  "invalid_latitude_rows": 0,
+  "invalid_longitude_rows": 0,
+  "nonfinite_numeric_by_column": {
+    "Magnitude_Value": 0,
+    "source_magnitude": 0,
+    "Depth_km": 0,
+    "Lat": 0,
+    "Long": 0
+  },
+  "numeric_ranges": {
+    "Magnitude_Value": {
+      "min": 1.5,
+      "max": 8.6
+    },
+    "source_magnitude": {
+      "min": 1.5,
+      "max": 8.6
+    },
+    "Depth_km": {
+      "min": 1.0,
+      "max": 430.0
+    },
+    "Lat": {
+      "min": 20.0,
+      "max": 30.5
+    },
+    "Long": {
+      "min": 87.0,
+      "max": 98.5
+    }
+  },
+  "magnitude_value_type_counts": {
+    "ML": 7125,
+    "MB": 458,
+    "MW": 398,
+    "MC": 107,
+    "MS": 1
+  },
+  "source_magnitude_type_counts": {
+    "ML": 7629,
+    "MB": 298,
+    "MC": 132,
+    "MW": 30
+  },
+  "magnitude_value_disagreements": 540,
+  "type_disagreements": 553,
+  "maximum_magnitude_disagreement": 2.1000000000000005,
+  "negative_depth_rows": 0,
+  "source_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3"
+}

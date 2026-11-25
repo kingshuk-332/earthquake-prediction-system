@@ -1,0 +1,103 @@
+{
+  "features": [
+    "count",
+    "m4",
+    "m45",
+    "max_mag",
+    "mean_mag",
+    "mean_depth",
+    "mean_lat",
+    "mean_lon",
+    "cell_0_count",
+    "cell_1_count",
+    "cell_2_count",
+    "cell_3_count"
+  ],
+  "log1p_columns": [
+    "count",
+    "m4",
+    "m45",
+    "cell_0_count",
+    "cell_1_count",
+    "cell_2_count",
+    "cell_3_count"
+  ],
+  "mean": [
+    0.3428379020473686,
+    0.12567161757558404,
+    0.05009859375407205,
+    1.5159571819765973,
+    1.4619200244200259,
+    13.461408063349808,
+    10.063680579560682,
+    36.752241601467524,
+    0.04884925258809111,
+    0.16646157093398573,
+    0.09748522787464682,
+    0.06448337317357324
+  ],
+  "scale": [
+    0.46050555755797007,
+    0.28983922028150283,
+    0.18851089758771747,
+    1.926462804126271,
+    1.8517563698824229,
+    26.40184634224848,
+    12.526518297166437,
+    45.568103368163406,
+    0.18304085473047435,
+    0.33291231910742625,
+    0.27060124062044916,
+    0.21317993977231028
+  ],
+  "n_fit_days": 4017,
+  "fit_first_day": "2011-01-01 00:00:00+00:00",
+  "fit_last_day": "2021-12-30 00:00:00+00:00",
+  "empty_bin_value": 0,
+  "history_days": 90,
+  "targets": [
+    "M45_any_7d",
+    "M45_days_0_3",
+    "M45_days_3_7",
+    "M45_SW_7d",
+    "M45_SE_7d",
+    "M45_NW_7d",
+    "M45_NE_7d"
+  ],
+  "config": {
+    "seed": 42,
+    "start": "2011-01-01",
+    "history_days": 90,
+    "horizon_days": 7,
+    "stride_days": 7,
+    "magnitude_threshold": 4.5,
+    "train_fraction": 0.7,
+    "validation_fraction": 0.15,
+    "batch_size": 32,
+    "max_epochs": 100,
+    "patience": 15,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "filters": [
+      16,
+      32
+    ],
+    "kernels": [
+      5,
+      3
+    ],
+    "dropout": 0.25,
+    "grid_lat": [
+      20,
+      26,
+      32
+    ],
+    "grid_lon": [
+      86,
+      93,
+      100
+    ],
+    "version": "phase1-v1"
+  },
+  "dataset_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3"
+}

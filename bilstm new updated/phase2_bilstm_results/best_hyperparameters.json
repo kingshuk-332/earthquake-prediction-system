@@ -1,0 +1,16 @@
+{
+  "run_id": "1bd0faa814c714ba",
+  "selection_basis": "clean A validation MAE only",
+  "best_trial": 8,
+  "best_tuning_validation_mae": 0.4783026272142437,
+  "parameters": {
+    "hidden_size": 128,
+    "layers": 2,
+    "dropout": 0.3144753602375439,
+    "learning_rate": 0.0004549047669323766,
+    "weight_decay": 0.00012155233771053111,
+    "batch_size": 128
+  },
+  "completed_trials": 11,
+  "pruned_trials": 4
+}

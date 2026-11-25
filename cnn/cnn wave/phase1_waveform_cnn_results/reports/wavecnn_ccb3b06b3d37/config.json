@@ -1,0 +1,31 @@
+{
+  "version": "waveform-detection-v1",
+  "seed": 42,
+  "waveform_key": "waveforms_standardized",
+  "input_samples": 10000,
+  "sampling_hz": 100,
+  "batch_size": 32,
+  "hdf5_block_rows": 100,
+  "filters": [
+    8,
+    16,
+    32
+  ],
+  "kernels": [
+    9,
+    7,
+    5
+  ],
+  "strides": [
+    2,
+    2,
+    1
+  ],
+  "pool_size": 4,
+  "dropout": 0.3,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "max_epochs": 25,
+  "patience": 5,
+  "threshold": 0.5
+}

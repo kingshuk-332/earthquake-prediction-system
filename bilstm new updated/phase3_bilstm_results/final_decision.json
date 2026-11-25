@@ -1,0 +1,9 @@
+{
+  "verdict": "C",
+  "interpretation": "Neither established as adequately generalizing; preserve original and modern as research baselines",
+  "selected_modern_variant": "clean",
+  "checkpoint": "phase3_bilstm_results\\models\\clean\\best.pt",
+  "dataset_validity": "PASS",
+  "original_test_reused": false,
+  "no_operational_EEW_claim": true
+}

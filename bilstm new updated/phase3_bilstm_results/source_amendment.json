@@ -1,0 +1,7 @@
+{
+  "initial_source_sha256": "4bb3cf79cd23eae5f4759da6bad56a6f69fad07d8adf6bb950e26532239d9b60",
+  "executed_source_sha256": "17e27950bec3f185e3df57009be92a4071f116238d103dc71d8e5d76c6f7bd2b",
+  "change": "Allow torch.torch_version.TorchVersion metadata in weights_only loader; model/optimizer/evaluation cells byte-identical",
+  "resume": "Clean stopping state resumed without repeated optimization; weighted starts with same fixed settings",
+  "initial_run_configuration_retained": true
+}

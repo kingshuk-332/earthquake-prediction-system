@@ -1,0 +1,2118 @@
+{
+  "date": "2026-11-13",
+  "checks": {
+    "v2 regression controls": {
+      "status": "PASS",
+      "evidence": {
+        "noise": 361.7903289794922,
+        "coda": 99.57305908203125
+      }
+    },
+    "v3 earthquake causality": {
+      "status": "PASS",
+      "evidence": {
+        "cases": 15,
+        "tests": 135,
+        "max_difference": 0.0
+      }
+    },
+    "v3 noise causality": {
+      "status": "PASS",
+      "evidence": {
+        "tests": 48
+      }
+    },
+    "saved HDF5 arrays and source alignment": {
+      "status": "PASS",
+      "evidence": {
+        "failures": [],
+        "counts": {
+          "train": {
+            "total": 11324,
+            "earthquakes": 5662,
+            "noise": 5662
+          },
+          "validation": {
+            "total": 2426,
+            "earthquakes": 1213,
+            "noise": 1213
+          },
+          "test": {
+            "total": 2428,
+            "earthquakes": 1214,
+            "noise": 1214
+          }
+        },
+        "records": 16178,
+        "subnormal_values": 0
+      }
+    },
+    "eligible counts": {
+      "status": "PASS",
+      "evidence": {
+        "1": 8089,
+        "2": 8056,
+        "3": 7996
+      }
+    },
+    "split disjointness": {
+      "status": "PASS",
+      "evidence": {
+        "train/validation": {
+          "source_id": 0,
+          "pair_id": 0,
+          "combined_index": 0,
+          "parent_id": 0,
+          "background_id": 0,
+          "background_sha256": 0,
+          "actual_parent_hash": 0
+        },
+        "train/test": {
+          "source_id": 0,
+          "pair_id": 0,
+          "combined_index": 0,
+          "parent_id": 0,
+          "background_id": 0,
+          "background_sha256": 0,
+          "actual_parent_hash": 0
+        },
+        "validation/test": {
+          "source_id": 0,
+          "pair_id": 0,
+          "combined_index": 0,
+          "parent_id": 0,
+          "background_id": 0,
+          "background_sha256": 0,
+          "actual_parent_hash": 0
+        }
+      }
+    },
+    "saved simulator replay": {
+      "status": "PASS",
+      "evidence": {
+        "records": 66,
+        "max_difference": 0.0
+      }
+    },
+    "NPZ verification": {
+      "status": "UNKNOWN",
+      "evidence": "No NPZ archive exists in the v3 dataset directory. No v2 archive substituted."
+    },
+    "model input provenance": {
+      "status": "PASS",
+      "evidence": "Inspected generation path and exact saved-parent replay: inputs are waveform-only (record,time) arrays. Labels, magnitudes, IDs, P/S annotations and masks are separate datasets. Simulator source parameters affect physical synthetic signals; no target channels are concatenated. This is source-path evidence, not a guarantee against arbitrary statistical shortcuts."
+    },
+    "oracle alignment and scientific scope": {
+      "status": "PASS",
+      "evidence": "P reference is theoretical/oracle and occurs at window index 100. Context normalization uses only the preceding 100 samples. Horizon windows are half-open; eligible examples have reference+100*horizon < ceil(S_seconds*100). S timing is privileged eligibility metadata, never an input feature. This is synthetic post-trigger analysis, not a demonstrated streaming trigger or operational EEW system."
+    },
+    "regression masking contract": {
+      "status": "PASS",
+      "evidence": "All saved magnitude masks equal label==1; per-horizon masks additionally require pre-S eligibility. Noise targets are -1 and masked out. Ineligible EQ rows remain stored and MUST be excluded using horizon masks. No training consumer exists in this audit, so runtime enforcement by a future trainer is unverified."
+    },
+    "existing input preservation": {
+      "status": "PASS",
+      "evidence": {
+        "files": 26,
+        "changed": [],
+        "scope": "All read dependencies and v3 top-level/config/dataset/Gemini artifacts hashed before and after; no project-wide scan."
+      }
+    }
+  },
+  "environment": {
+    "python": "3.13.12",
+    "numpy": "2.3.4",
+    "h5py": "3.14.0"
+  },
+  "input_hashes": {
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\01_causal_simulator_v3.ipynb": "4a42a5520301b23b607d351816eb8fae1d65e857daa1b7fdc646b8cef819afd1",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\02_generate_dataset_v3.ipynb": "e86172f5645e811f63cd5ceec80297ac886e5291c94b839855c4cb7aa94804ac",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\03_dataset_validation_v3.ipynb": "56360f87a990f52ad1dc79aef72db2b7b9d6d05ed6811055b6e5ebff4256f074",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\artifact_hashes.json": "c433f5606d62ce094ee8a1a8e11b28e1a91f0cc2b190bdabbaf1e2c65a5a25bc",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\generation_manifest.json": "280f23f6457ab3309fa53f6b36960f85fe9a18503da115f4c853430648eb8466",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\generation_progress.json": "de46a680c9e5253132b91002d2d8d94f53f870b777f3c7cc324ce066fb5a9a89",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\pilot_gate.json": "a32549d2f504dee5ff29d724ff98db3cc6f6ea526137de5723cdb16b639738f0",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\protected_sources_after.json": "2ed1237382e0c558288cf4e464f7e3fd854a56ccd5e65b9e92f78c71fc20881a",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\protected_sources_before.json": "2ed1237382e0c558288cf4e464f7e3fd854a56ccd5e65b9e92f78c71fc20881a",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\simulation_v3.json": "8b90f3c64c51bd2b3389120865831e70b433f7fc8db3919afeffe5bdfceb6a24",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\split_manifest.csv": "2b29e5ee7ae1e7f8242b6c5b91441bb0ec85e6cc4fdd8d2d840dcb8646c86e42",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\test_generation_complete.json": "1388e06d9346ba51e14eaeb8afba0d00d9545461c0a6dccc27ce60e9dd86e123",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\train_generation_complete.json": "b30ddc390a5e037ee0d5bb052b8fcd9e6d45edde9b79db18e802e49bdf4fccbd",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\configs\\validation_generation_complete.json": "237af478efa3536f66d05a42e4401073dcacdc4d179ce40b7309fc45c3ebb28f",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\dataset\\eew_dataset_test.h5": "9db5018d5cabf51a417d17c92344e4184148b87264361d538cf962f350184d43",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\dataset\\eew_dataset_train.h5": "2f88d8c1b50c1d52d0814360d7a32beabb5c90a822e121940a0db875ad49be15",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\dataset\\eew_dataset_validation.h5": "c983d0fa42aabf107204b1e7261e8f0b4ee93a86aca64fdf7ce0a270877ec1d1",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\gemini_validation\\v3_saved_dataset_validation.ipynb": "46272912d0b294fe23545072cb88c3f827d0bf1684fb23b4a7544acf63fd87ba",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\gemini_validation\\v3_validation_report.md": "003745970aea64d3a97d6401747e181e6fe75decc54b2e1ba5a8f29f5605f51c",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\gemini_validation\\v3_validation_results.json": "cab9cd48879fe513a90f110abae39337ad0042dc8e57f97d9930ef992479f233",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v2\\02_generate_causal_eew_dataset.ipynb": "83a6f72a58c06fed34df6973a13a1c58a481c206108d6b654eaeebc55e5fd96a",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v2\\codex_independent_audit\\dataset_audit.ipynb": "6e018aa48e726ad7550a679a8986abed36ef7cb97f5eac315892942a1007f789",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v2\\codex_independent_audit\\audit_results.json": "4dfa633d4649a47ac4824aa56204cb398e5edfe4ca2684290765a2f0579cbfd6",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\data wave\\synthetic_waveform_simulator\\output\\phase2_travel_time\\metadata_with_theoretical_arrivals.csv": "856721964236390938c6940511c83e9d2c24370a840274fb069a2e3ab743d736",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\split_indices.csv": "74d13bfc9eb8524c70352b7656856a888316d7b93bfb3a64ce1b516c3b784ebd",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\data wave\\synthetic_waveform_simulator\\output\\phase10_classification_dataset\\earthquake_noise_mapping.csv": "3485b719981014316fc563232b89fe9e425e9687504829b1626b6377ba9adb07"
+  },
+  "v2_controls": [
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "noise": 361.7903289794922,
+      "coda": 99.57305908203125
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "noise": 4.782438278198242,
+      "coda": 1.307652235031128
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "noise": 0.7868546843528748,
+      "coda": 0.21597248315811157
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "noise": 0.4040406346321106,
+      "coda": 0.09056377410888672
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "noise": 27.678176879882812,
+      "coda": 5.616543769836426
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "noise": 42.395328521728516,
+      "coda": 11.525875568389893
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "noise": 4.065251588821411,
+      "coda": 1.10748291015625
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "noise": 0.23843806982040405,
+      "coda": 0.0646161437034607
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "noise": 11.64883804321289,
+      "coda": 2.2292885184288025
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "noise": 0.036837220191955566,
+      "coda": 0.009321808815002441
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "noise": 271.6854019165039,
+      "coda": 74.74932670593262
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "noise": 2.674875855445862,
+      "coda": 0.7234398126602173
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "noise": 0.07654335349798203,
+      "coda": 0.02029496431350708
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "noise": 0.32762593030929565,
+      "coda": 0.08827835321426392
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "noise": 26.955140113830566,
+      "coda": 5.244595289230347
+    }
+  ],
+  "earthquake_counterfactuals": [
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "S amplitude x4",
+      "stop_exclusive": 2199,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "future P coda",
+      "stop_exclusive": 941,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "future noise",
+      "stop_exclusive": 1341,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "future S coda",
+      "stop_exclusive": 2699,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07350",
+      "seed": 225,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "S amplitude x4",
+      "stop_exclusive": 3145,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "future P coda",
+      "stop_exclusive": 948,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "future noise",
+      "stop_exclusive": 1348,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "future S coda",
+      "stop_exclusive": 3645,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07547",
+      "seed": 422,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "S amplitude x4",
+      "stop_exclusive": 4219,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "future P coda",
+      "stop_exclusive": 1002,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "future noise",
+      "stop_exclusive": 1402,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "future S coda",
+      "stop_exclusive": 4719,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07722",
+      "seed": 597,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "S amplitude x4",
+      "stop_exclusive": 1139,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "future P coda",
+      "stop_exclusive": 872,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "future noise",
+      "stop_exclusive": 1272,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "future S coda",
+      "stop_exclusive": 1639,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_03736",
+      "seed": 4677,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "S amplitude x4",
+      "stop_exclusive": 457,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "future P coda",
+      "stop_exclusive": 744,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "future noise",
+      "stop_exclusive": 1144,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "future S coda",
+      "stop_exclusive": 957,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04712",
+      "seed": 5653,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "S amplitude x4",
+      "stop_exclusive": 3849,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "future P coda",
+      "stop_exclusive": 981,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "future noise",
+      "stop_exclusive": 1381,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "future S coda",
+      "stop_exclusive": 4349,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07240",
+      "seed": 115,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "S amplitude x4",
+      "stop_exclusive": 3132,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "future P coda",
+      "stop_exclusive": 1090,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "future noise",
+      "stop_exclusive": 1490,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "future S coda",
+      "stop_exclusive": 3632,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_00182",
+      "seed": 1125,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "S amplitude x4",
+      "stop_exclusive": 5243,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "future P coda",
+      "stop_exclusive": 794,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "future noise",
+      "stop_exclusive": 1194,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "future S coda",
+      "stop_exclusive": 5743,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_02463",
+      "seed": 3404,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "S amplitude x4",
+      "stop_exclusive": 721,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "future P coda",
+      "stop_exclusive": 996,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "future noise",
+      "stop_exclusive": 1396,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "future S coda",
+      "stop_exclusive": 1221,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04083",
+      "seed": 5024,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "S amplitude x4",
+      "stop_exclusive": 3737,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "future P coda",
+      "stop_exclusive": 700,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "future noise",
+      "stop_exclusive": 1100,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "future S coda",
+      "stop_exclusive": 4237,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04985",
+      "seed": 5926,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "S amplitude x4",
+      "stop_exclusive": 1364,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "future P coda",
+      "stop_exclusive": 1089,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "future noise",
+      "stop_exclusive": 1489,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "future S coda",
+      "stop_exclusive": 1864,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07316",
+      "seed": 191,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "S amplitude x4",
+      "stop_exclusive": 3466,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "future P coda",
+      "stop_exclusive": 861,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "future noise",
+      "stop_exclusive": 1261,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "future S coda",
+      "stop_exclusive": 3966,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_07576",
+      "seed": 451,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "S amplitude x4",
+      "stop_exclusive": 4648,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "future P coda",
+      "stop_exclusive": 863,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "future noise",
+      "stop_exclusive": 1263,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "future S coda",
+      "stop_exclusive": 5148,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_01018",
+      "seed": 1959,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "S amplitude x4",
+      "stop_exclusive": 6769,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "future P coda",
+      "stop_exclusive": 828,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "future noise",
+      "stop_exclusive": 1228,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "future S coda",
+      "stop_exclusive": 7269,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_03209",
+      "seed": 4150,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "S amplitude x4",
+      "stop_exclusive": 436,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "future P coda",
+      "stop_exclusive": 729,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "future noise",
+      "stop_exclusive": 1129,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "future S coda",
+      "stop_exclusive": 936,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": true
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "duration 12.0",
+      "stop_exclusive": 1200,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "duration 140.0",
+      "stop_exclusive": 10000,
+      "raw": 0.0,
+      "normalized": 0.0,
+      "changed_tail": null
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "normalization cutoff 1s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "normalization cutoff 2s",
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "source_id": "NCS_EV_04848",
+      "seed": 5789,
+      "test": "normalization cutoff 3s",
+      "raw": 0.0,
+      "normalized": 0.0
+    }
+  ],
+  "noise_counterfactuals": [
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 19,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 19,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 19,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 71,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 71,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 71,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 1234,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 1234,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 1234,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 9099,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 9099,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "gaussian_bandlimited",
+      "seed": 9099,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 19,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 19,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 19,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 71,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 71,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 71,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 1234,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 1234,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 1234,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 9099,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 9099,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "colored_pink",
+      "seed": 9099,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 19,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 19,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 19,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 71,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 71,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 71,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 1234,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 1234,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 1234,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 9099,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 9099,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "modulated_nonstationary",
+      "seed": 9099,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 19,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 19,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 19,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 71,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 71,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 71,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 1234,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 1234,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 1234,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 9099,
+      "duration": 12.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 9099,
+      "duration": 140.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    },
+    {
+      "profile": "transient_disturbances",
+      "seed": 9099,
+      "duration": 100.0,
+      "raw": 0.0,
+      "normalized": 0.0
+    }
+  ],
+  "saved_parent_replays": [
+    {
+      "split": "train",
+      "row": 126,
+      "source_id": "NCS_EV_07350",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 311,
+      "source_id": "NCS_EV_07624",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 392,
+      "source_id": "NCS_EV_07738",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 475,
+      "source_id": "NCS_EV_07863",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 617,
+      "source_id": "NCS_EV_08056",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 1287,
+      "source_id": "NCS_EV_00949",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 1290,
+      "source_id": "NCS_EV_00954",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 2624,
+      "source_id": "NCS_EV_02862",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 2672,
+      "source_id": "NCS_EV_02923",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 3169,
+      "source_id": "NCS_EV_03629",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 3243,
+      "source_id": "NCS_EV_03736",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 3490,
+      "source_id": "NCS_EV_04093",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 3691,
+      "source_id": "NCS_EV_04382",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 3928,
+      "source_id": "NCS_EV_04712",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5662,
+      "source_id": "NOISE_P1",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5663,
+      "source_id": "NOISE_P2",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5664,
+      "source_id": "NOISE_P4",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5665,
+      "source_id": "NOISE_P5",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5666,
+      "source_id": "NOISE_P6",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5667,
+      "source_id": "NOISE_P7",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5668,
+      "source_id": "NOISE_P8",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "train",
+      "row": 5671,
+      "source_id": "NOISE_P11",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 9,
+      "source_id": "NCS_EV_07240",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 102,
+      "source_id": "NCS_EV_07913",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 308,
+      "source_id": "NCS_EV_01153",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 380,
+      "source_id": "NCS_EV_01704",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 663,
+      "source_id": "NCS_EV_03552",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 724,
+      "source_id": "NCS_EV_03929",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 748,
+      "source_id": "NCS_EV_04083",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 813,
+      "source_id": "NCS_EV_04492",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 900,
+      "source_id": "NCS_EV_05000",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 907,
+      "source_id": "NCS_EV_05031",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 924,
+      "source_id": "NCS_EV_05163",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 995,
+      "source_id": "NCS_EV_05665",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1162,
+      "source_id": "NCS_EV_06839",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1199,
+      "source_id": "NCS_EV_07106",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1213,
+      "source_id": "NOISE_P0",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1214,
+      "source_id": "NOISE_P3",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1215,
+      "source_id": "NOISE_P24",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1216,
+      "source_id": "NOISE_P29",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1217,
+      "source_id": "NOISE_P41",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1219,
+      "source_id": "NOISE_P46",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1224,
+      "source_id": "NOISE_P94",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "validation",
+      "row": 1225,
+      "source_id": "NOISE_P95",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 26,
+      "source_id": "NCS_EV_07316",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 78,
+      "source_id": "NCS_EV_07608",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 432,
+      "source_id": "NCS_EV_01888",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 489,
+      "source_id": "NCS_EV_02219",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 578,
+      "source_id": "NCS_EV_02943",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 779,
+      "source_id": "NCS_EV_04286",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 787,
+      "source_id": "NCS_EV_04325",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 843,
+      "source_id": "NCS_EV_04797",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 853,
+      "source_id": "NCS_EV_04848",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 948,
+      "source_id": "NCS_EV_05483",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1030,
+      "source_id": "NCS_EV_05952",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1085,
+      "source_id": "NCS_EV_06327",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1154,
+      "source_id": "NCS_EV_06768",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1159,
+      "source_id": "NCS_EV_06804",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1214,
+      "source_id": "NOISE_P13",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1215,
+      "source_id": "NOISE_P16",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1216,
+      "source_id": "NOISE_P18",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1217,
+      "source_id": "NOISE_P26",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1218,
+      "source_id": "NOISE_P37",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1219,
+      "source_id": "NOISE_P48",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1220,
+      "source_id": "NOISE_P51",
+      "parent_max_difference": 0.0
+    },
+    {
+      "split": "test",
+      "row": 1223,
+      "source_id": "NOISE_P67",
+      "parent_max_difference": 0.0
+    }
+  ],
+  "decision": "CONDITIONAL \u2014 NPZ artifact verification remains outstanding",
+  "limitations": [
+    "No NPZ saved in v3 dataset directory; its equality, labels and masks cannot be verified.",
+    "HDF5 is suitable for controlled synthetic oracle-aligned CNN experiments if per-horizon masks are used; no operational EEW approval.",
+    "No training, dataset regeneration, or data repair performed. Only small in-memory counterfactual and saved-parent replay probes.",
+    "Saved array integrity exhaustive; generator causality tested across deterministic cases and inspected source, not every possible parameter setting.",
+    "Original v2 generator, audit case IDs, and catalog/split/noise dependencies were read only because required to reproduce controls and verify source associations."
+  ]
+}

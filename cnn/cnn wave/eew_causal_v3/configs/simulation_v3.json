@@ -1,0 +1,50 @@
+{
+  "version": "causal_eew_v3",
+  "source_v2_notebook_sha256": "83a6f72a58c06fed34df6973a13a1c58a481c206108d6b654eaeebc55e5fd96a",
+  "parameters": {
+    "sampling_rate_hz": 100.0,
+    "duration_seconds": 100.0,
+    "vp_km_s": 6.0,
+    "vs_km_s": 3.5,
+    "ref_magnitude": 4.0,
+    "ref_amplitude": 1.0,
+    "mag_scaling_coeff": 0.5,
+    "geometric_spreading_exp": 1.0,
+    "ref_distance_km": 10.0,
+    "qp_0": 350.0,
+    "qs_0": 300.0,
+    "q_eta": 0.7,
+    "q_ref_freq_hz": 1.0,
+    "p_dominant_freq_hz": 5.0,
+    "s_dominant_freq_hz": 2.2,
+    "sp_amp_ratio_bhz": 1.35,
+    "tau_p_base_s": 1.5,
+    "tau_s_base_s": 4.0,
+    "noise_band_hz": [
+      0.2,
+      25.0
+    ],
+    "ambient_noise_baseline_rms": 0.05,
+    "random_seed": 42
+  },
+  "sample_rate_hz": 100,
+  "horizons_s": [
+    1,
+    2,
+    3
+  ],
+  "pre_context_samples": 100,
+  "noise_gains": {
+    "band": 0.7043400785612605,
+    "pink": 1.3103644084803956
+  },
+  "gain_calibration": "fixed32768-sample filter impulse; tail convergence checked at16384",
+  "gamma_normalization": "analytic maximum at tau=2*tau_d; no sampled future maximum",
+  "RNG": "P offset legacy default_rng(seed) one draw; earthquake noise SeedSequence(seed,11,1); noise reference/background/profile independent roles (seed,22,0/1/2/3)",
+  "pink_change": "causal128-tap fractional-integration FIR; approximate colored pink-like spectrum, not exact FFT synthesis",
+  "arrival_policy": "P sampled at exact prescribed grid onset; continuous S unchanged; S index=ceil(S_seconds*100), first sample at/after onset",
+  "eligibility": "label==1 and reference_sample+100*tau < s_arrival_sample; noise pre_S false; classification_eligible=(label==0)|pre_S",
+  "regression": "magnitude_mask=(label==1), magnitude_mask_tau=magnitude_mask & pre_S_tau; noise magnitude sentinel=-1",
+  "scope": "synthetic oracle-aligned benchmark; no detected trigger or operational EEW claim",
+  "physical_units": "synthetic relative amplitude, not calibrated instrument displacement"
+}

@@ -1,0 +1,11 @@
+{
+  "stage_a_notebook_complete": true,
+  "gate_enforced": true,
+  "input_snapshot_hash_unchanged": true,
+  "source_generator_files_unchanged": true,
+  "candidate_dataset_roundtrip_passed": true,
+  "training_runs": 0,
+  "optuna_runs": 0,
+  "old_bilstm_artifacts_read": false,
+  "source_data_opened_read_only": true
+}

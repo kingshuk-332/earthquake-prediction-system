@@ -1,0 +1,56 @@
+===========================================================================
+PHASE 1 RESEARCH AUDIT REPORT: METADATA INSPECTION & VALIDATION
+Project: Physics-Informed Synthetic Seismic Waveform Generation
+===========================================================================
+Input File: /home/meghraj-dhakal/Downloads/Minor project(1)/Minor project/preprocessed_eda.csv
+Total Records: 8089
+Total Columns: 34
+Missing Values: 0 across all columns
+Duplicate Records: 0
+
+--- KEY METRIC DISTRIBUTIONS ---
+Magnitude Range:       [1.50, 8.60] | Median: 3.80 | Mean: 3.86
+Depth Range (km):      [1.0, 430.0] | Median: 20.0 | Mean: 34.7
+Epicentral Dist (km):  [1.6, 683.9] | Median: 153.3 | Mean: 202.9
+Hypocentral Dist (km): [8.9, 684.7] | Median: 167.6 | Mean: 211.4
+P-Arrival Sample:      [592, 607] | Mean: 600.00 (Anchored at ~6.0s buffer)
+S-Arrival Sample:      [706, 8751] | Median: 2595.0
+S-P Difference Sample: [106, 8151] | Range in time: [1.06s, 81.51s]
+SNR (dB) Range:        [1.50, 39.07] | Median: 8.37
+
+--- STATION DISTRIBUTION ---
+  Station IMP   :  2401 records (29.68%)
+  Station GHY   :  1961 records (24.24%)
+  Station TEZ   :   847 records (10.47%)
+  Station PASI  :   630 records ( 7.79%)
+  Station KOH   :   592 records ( 7.32%)
+  Station AGT   :   424 records ( 5.24%)
+  Station DBR   :   389 records ( 4.81%)
+  Station ITAN  :   304 records ( 3.76%)
+  Station SHL   :   282 records ( 3.49%)
+  Station SIL   :   259 records ( 3.20%)
+
+--- PHYSICAL PLAUSIBILITY AUDIT ---
+Records with Non-positive Depth:         0
+Records with Non-positive Distance:      0
+Records with S-arrival <= P-arrival:     0 (Violates wave propagation physics)
+Deep Subduction Events (Depth > 300 km): 2
+Ultra-shallow Events (Depth < 1 km):     0
+
+--- IDENTIFIED PROBLEMS & RESOLUTION STRATEGY FOR WAVEFORM SYNTHESIS ---
+1. Fixed P-Arrival Alignment vs Absolute Origin Time:
+   - The metadata's p_arrival_sample is uniformly clustered around ~600 (mean=600, std=2.04),
+     representing a pre-cut 6.0-second noise lead buffer rather than absolute propagation time from hypocenter origin.
+   - RESOLUTION: In the waveform simulator, the waveform time axis is defined relative to the recording window start.
+     The P-wave arrival is set at t_P = p_arrival_sample / fs (~6.0s), and the S-wave arrival is placed at
+     t_S = t_P + (t_S_theo - t_P_theo), exactly matching the physical S-P interval while maintaining standard STEAD/NCS window formatting.
+
+2. Maximum S-Arrival & Waveform Window Duration:
+   - The maximum s_arrival_sample in the dataset is 8,751 (87.51 seconds).
+   - RESOLUTION: To avoid truncated waveforms where the S-wave or its coda is cut off, every synthetic
+     waveform must have a duration of at least 100.0 seconds (10,000 samples at 100 Hz).
+
+3. Uniformity of Station Telemetry:
+   - 10 distinct stations are present (e.g., TEZ, SHL, KOH, GHY, PASI, DBR, ITAN, AGT, IMP, SIL).
+   - Station elevation and coordinate effects can be modeled through station-specific gain if desired.
+===========================================================================

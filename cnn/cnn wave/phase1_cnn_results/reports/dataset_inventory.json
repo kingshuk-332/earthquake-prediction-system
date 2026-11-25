@@ -1,0 +1,1851 @@
+[
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase10_classification_dataset/earthquake_noise_dataset.h5",
+    "bytes": 605015101,
+    "datasets": {
+      "depth_km": {
+        "shape": [
+          16178
+        ],
+        "dtype": "float32"
+      },
+      "hypocentral_distance_km": {
+        "shape": [
+          16178
+        ],
+        "dtype": "float32"
+      },
+      "labels": {
+        "shape": [
+          16178
+        ],
+        "dtype": "int8",
+        "counts": {
+          "1": 8089,
+          "0": 8089
+        }
+      },
+      "magnitude": {
+        "shape": [
+          16178
+        ],
+        "dtype": "float32"
+      },
+      "p_arrival_sample": {
+        "shape": [
+          16178
+        ],
+        "dtype": "int32"
+      },
+      "qc_pass": {
+        "shape": [
+          16178
+        ],
+        "dtype": "bool"
+      },
+      "receiver_code": {
+        "shape": [
+          16178
+        ],
+        "dtype": "object"
+      },
+      "s_arrival_sample": {
+        "shape": [
+          16178
+        ],
+        "dtype": "int32"
+      },
+      "sample_type": {
+        "shape": [
+          16178
+        ],
+        "dtype": "object"
+      },
+      "snr_db": {
+        "shape": [
+          16178
+        ],
+        "dtype": "float32"
+      },
+      "source_id": {
+        "shape": [
+          16178
+        ],
+        "dtype": "object"
+      },
+      "trace_name": {
+        "shape": [
+          16178
+        ],
+        "dtype": "object"
+      },
+      "waveforms": {
+        "shape": [
+          16178,
+          10000
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase10_classification_dataset/earthquake_noise_mapping.csv",
+    "bytes": 1577447,
+    "shape": [
+      16178,
+      10
+    ],
+    "columns": [
+      "combined_index",
+      "label",
+      "sample_type",
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "qc_pass",
+      "original_phase9_index",
+      "noise_profile_type",
+      "seed"
+    ],
+    "dtypes": {
+      "combined_index": "int64",
+      "label": "int64",
+      "sample_type": "str",
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "qc_pass": "bool",
+      "original_phase9_index": "int64",
+      "noise_profile_type": "str",
+      "seed": "int64"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase10_classification_dataset/phase10_dataset_qc.csv",
+    "bytes": 2793235,
+    "shape": [
+      16178,
+      13
+    ],
+    "columns": [
+      "combined_index",
+      "label",
+      "sample_type",
+      "is_finite",
+      "not_all_zero",
+      "min_amplitude",
+      "max_amplitude",
+      "peak_amplitude",
+      "rms_amplitude",
+      "pre_p_rms",
+      "std_amplitude",
+      "qc_pass",
+      "noise_type"
+    ],
+    "dtypes": {
+      "combined_index": "int64",
+      "label": "int64",
+      "sample_type": "str",
+      "is_finite": "bool",
+      "not_all_zero": "bool",
+      "min_amplitude": "float64",
+      "max_amplitude": "float64",
+      "peak_amplitude": "float64",
+      "rms_amplitude": "float64",
+      "pre_p_rms": "float64",
+      "std_amplitude": "float64",
+      "qc_pass": "bool",
+      "noise_type": "str"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/phase11_leakage_audit.csv",
+    "bytes": 1148,
+    "shape": [
+      5,
+      5
+    ],
+    "columns": [
+      "audit_check",
+      "description",
+      "target_expectation",
+      "measured_result",
+      "pass_fail"
+    ],
+    "dtypes": {
+      "audit_check": "str",
+      "description": "str",
+      "target_expectation": "str",
+      "measured_result": "str",
+      "pass_fail": "str"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/split_indices.csv",
+    "bytes": 1154113,
+    "shape": [
+      16178,
+      7
+    ],
+    "columns": [
+      "combined_index",
+      "split",
+      "label",
+      "sample_type",
+      "pair_id",
+      "source_id",
+      "trace_name"
+    ],
+    "dtypes": {
+      "combined_index": "int64",
+      "split": "str",
+      "label": "int64",
+      "sample_type": "str",
+      "pair_id": "int64",
+      "source_id": "str",
+      "trace_name": "str"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/test.h5",
+    "bytes": 271200372,
+    "datasets": {
+      "depth_km": {
+        "shape": [
+          2428
+        ],
+        "dtype": "float32"
+      },
+      "hypocentral_distance_km": {
+        "shape": [
+          2428
+        ],
+        "dtype": "float32"
+      },
+      "labels": {
+        "shape": [
+          2428
+        ],
+        "dtype": "int8",
+        "counts": {
+          "1": 1214,
+          "0": 1214
+        }
+      },
+      "magnitude": {
+        "shape": [
+          2428
+        ],
+        "dtype": "float32"
+      },
+      "p_arrival_sample": {
+        "shape": [
+          2428
+        ],
+        "dtype": "int32"
+      },
+      "pair_id": {
+        "shape": [
+          2428
+        ],
+        "dtype": "int32"
+      },
+      "qc_pass": {
+        "shape": [
+          2428
+        ],
+        "dtype": "bool"
+      },
+      "receiver_code": {
+        "shape": [
+          2428
+        ],
+        "dtype": "object"
+      },
+      "s_arrival_sample": {
+        "shape": [
+          2428
+        ],
+        "dtype": "int32"
+      },
+      "sample_type": {
+        "shape": [
+          2428
+        ],
+        "dtype": "object"
+      },
+      "snr_db": {
+        "shape": [
+          2428
+        ],
+        "dtype": "float32"
+      },
+      "source_id": {
+        "shape": [
+          2428
+        ],
+        "dtype": "object"
+      },
+      "trace_name": {
+        "shape": [
+          2428
+        ],
+        "dtype": "object"
+      },
+      "waveforms": {
+        "shape": [
+          2428,
+          10000
+        ],
+        "dtype": "float32"
+      },
+      "waveforms_global_norm": {
+        "shape": [
+          2428,
+          10000
+        ],
+        "dtype": "float32"
+      },
+      "waveforms_standardized": {
+        "shape": [
+          2428,
+          10000
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/train.h5",
+    "bytes": 1264629942,
+    "datasets": {
+      "depth_km": {
+        "shape": [
+          11324
+        ],
+        "dtype": "float32"
+      },
+      "hypocentral_distance_km": {
+        "shape": [
+          11324
+        ],
+        "dtype": "float32"
+      },
+      "labels": {
+        "shape": [
+          11324
+        ],
+        "dtype": "int8",
+        "counts": {
+          "1": 5662,
+          "0": 5662
+        }
+      },
+      "magnitude": {
+        "shape": [
+          11324
+        ],
+        "dtype": "float32"
+      },
+      "p_arrival_sample": {
+        "shape": [
+          11324
+        ],
+        "dtype": "int32"
+      },
+      "pair_id": {
+        "shape": [
+          11324
+        ],
+        "dtype": "int32"
+      },
+      "qc_pass": {
+        "shape": [
+          11324
+        ],
+        "dtype": "bool"
+      },
+      "receiver_code": {
+        "shape": [
+          11324
+        ],
+        "dtype": "object"
+      },
+      "s_arrival_sample": {
+        "shape": [
+          11324
+        ],
+        "dtype": "int32"
+      },
+      "sample_type": {
+        "shape": [
+          11324
+        ],
+        "dtype": "object"
+      },
+      "snr_db": {
+        "shape": [
+          11324
+        ],
+        "dtype": "float32"
+      },
+      "source_id": {
+        "shape": [
+          11324
+        ],
+        "dtype": "object"
+      },
+      "trace_name": {
+        "shape": [
+          11324
+        ],
+        "dtype": "object"
+      },
+      "waveforms": {
+        "shape": [
+          11324,
+          10000
+        ],
+        "dtype": "float32"
+      },
+      "waveforms_global_norm": {
+        "shape": [
+          11324,
+          10000
+        ],
+        "dtype": "float32"
+      },
+      "waveforms_standardized": {
+        "shape": [
+          11324,
+          10000
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/validation.h5",
+    "bytes": 270991791,
+    "datasets": {
+      "depth_km": {
+        "shape": [
+          2426
+        ],
+        "dtype": "float32"
+      },
+      "hypocentral_distance_km": {
+        "shape": [
+          2426
+        ],
+        "dtype": "float32"
+      },
+      "labels": {
+        "shape": [
+          2426
+        ],
+        "dtype": "int8",
+        "counts": {
+          "1": 1213,
+          "0": 1213
+        }
+      },
+      "magnitude": {
+        "shape": [
+          2426
+        ],
+        "dtype": "float32"
+      },
+      "p_arrival_sample": {
+        "shape": [
+          2426
+        ],
+        "dtype": "int32"
+      },
+      "pair_id": {
+        "shape": [
+          2426
+        ],
+        "dtype": "int32"
+      },
+      "qc_pass": {
+        "shape": [
+          2426
+        ],
+        "dtype": "bool"
+      },
+      "receiver_code": {
+        "shape": [
+          2426
+        ],
+        "dtype": "object"
+      },
+      "s_arrival_sample": {
+        "shape": [
+          2426
+        ],
+        "dtype": "int32"
+      },
+      "sample_type": {
+        "shape": [
+          2426
+        ],
+        "dtype": "object"
+      },
+      "snr_db": {
+        "shape": [
+          2426
+        ],
+        "dtype": "float32"
+      },
+      "source_id": {
+        "shape": [
+          2426
+        ],
+        "dtype": "object"
+      },
+      "trace_name": {
+        "shape": [
+          2426
+        ],
+        "dtype": "object"
+      },
+      "waveforms": {
+        "shape": [
+          2426,
+          10000
+        ],
+        "dtype": "float32"
+      },
+      "waveforms_global_norm": {
+        "shape": [
+          2426,
+          10000
+        ],
+        "dtype": "float32"
+      },
+      "waveforms_standardized": {
+        "shape": [
+          2426,
+          10000
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase1_eda/phase1_descriptive_statistics.csv",
+    "bytes": 948,
+    "shape": [
+      8,
+      11
+    ],
+    "columns": [
+      "Unnamed: 0",
+      "count",
+      "mean",
+      "std",
+      "min",
+      "25%",
+      "50%",
+      "75%",
+      "max",
+      "median",
+      "iqr"
+    ],
+    "dtypes": {
+      "Unnamed: 0": "str",
+      "count": "float64",
+      "mean": "float64",
+      "std": "float64",
+      "min": "float64",
+      "25%": "float64",
+      "50%": "float64",
+      "75%": "float64",
+      "max": "float64",
+      "median": "float64",
+      "iqr": "float64"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase2_travel_time/metadata_with_theoretical_arrivals.csv",
+    "bytes": 3579126,
+    "shape": [
+      8089,
+      42
+    ],
+    "columns": [
+      "year",
+      "origin_time_ist",
+      "origin_time_utc",
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "Magnitude_Type",
+      "Country",
+      "State",
+      "Region",
+      "Location",
+      "source_magnitude_type",
+      "source_id",
+      "receiver_code",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "trace_name",
+      "epicentral_dist_km",
+      "month",
+      "day_of_week",
+      "hour",
+      "day_of_year",
+      "decade",
+      "magnitude_category",
+      "depth_class",
+      "sp_travel_time_samples",
+      "log_magnitude",
+      "log_depth",
+      "src_recv_dist_km",
+      "hypocentral_distance_km",
+      "theoretical_p_arrival_seconds",
+      "theoretical_s_arrival_seconds",
+      "theoretical_sp_time_seconds",
+      "theoretical_p_arrival_sample",
+      "theoretical_s_arrival_sample",
+      "theoretical_sp_time_samples",
+      "window_aligned_theoretical_s_sample"
+    ],
+    "dtypes": {
+      "year": "int64",
+      "origin_time_ist": "str",
+      "origin_time_utc": "str",
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "Magnitude_Type": "str",
+      "Country": "str",
+      "State": "str",
+      "Region": "str",
+      "Location": "str",
+      "source_magnitude_type": "str",
+      "source_id": "str",
+      "receiver_code": "str",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "int64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "snr_db": "float64",
+      "trace_name": "str",
+      "epicentral_dist_km": "float64",
+      "month": "int64",
+      "day_of_week": "int64",
+      "hour": "int64",
+      "day_of_year": "int64",
+      "decade": "int64",
+      "magnitude_category": "str",
+      "depth_class": "str",
+      "sp_travel_time_samples": "int64",
+      "log_magnitude": "float64",
+      "log_depth": "float64",
+      "src_recv_dist_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "theoretical_p_arrival_seconds": "float64",
+      "theoretical_s_arrival_seconds": "float64",
+      "theoretical_sp_time_seconds": "float64",
+      "theoretical_p_arrival_sample": "int64",
+      "theoretical_s_arrival_sample": "int64",
+      "theoretical_sp_time_samples": "int64",
+      "window_aligned_theoretical_s_sample": "int64"
+    },
+    "missing": {},
+    "duplicate_rows": 0,
+    "start": "1906-08-31 14:57:30+00:00",
+    "end": "2026-10-06 09:03:32+00:00",
+    "invalid_dates": 0,
+    "sorted": true
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase5_prototype_10/prototype_10_metadata.csv",
+    "bytes": 1673,
+    "shape": [
+      10,
+      12
+    ],
+    "columns": [
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "magnitude",
+      "depth",
+      "epicentral_distance_km",
+      "hypocentral_distance_km",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "waveform_filename",
+      "sampling_rate",
+      "waveform_length"
+    ],
+    "dtypes": {
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "depth": "float64",
+      "epicentral_distance_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "waveform_filename": "str",
+      "sampling_rate": "float64",
+      "waveform_length": "int64"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase5_prototype_10/prototype_evaluation_metrics.csv",
+    "bytes": 2344,
+    "shape": [
+      10,
+      20
+    ],
+    "columns": [
+      "record_index",
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "magnitude",
+      "depth_km",
+      "epicentral_dist_km",
+      "hypocentral_distance_km",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "sp_sample_difference",
+      "sp_time_seconds",
+      "peak_amplitude",
+      "rms_amplitude",
+      "target_snr_db",
+      "measured_snr_db",
+      "dominant_frequency_hz",
+      "has_nan",
+      "has_inf",
+      "p_before_s"
+    ],
+    "dtypes": {
+      "record_index": "int64",
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "depth_km": "float64",
+      "epicentral_dist_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "sp_sample_difference": "int64",
+      "sp_time_seconds": "float64",
+      "peak_amplitude": "float64",
+      "rms_amplitude": "float64",
+      "target_snr_db": "float64",
+      "measured_snr_db": "float64",
+      "dominant_frequency_hz": "float64",
+      "has_nan": "bool",
+      "has_inf": "bool",
+      "p_before_s": "bool"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase6_full_dataset/failed_records.csv",
+    "bytes": 1,
+    "empty": true
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase6_full_dataset/synthetic_seismic_waveforms.h5",
+    "bytes": 302993012,
+    "datasets": {
+      "depth_km": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "hypocentral_distance_km": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "magnitude": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "p_arrival_sample": {
+        "shape": [
+          8089
+        ],
+        "dtype": "int32"
+      },
+      "receiver_code": {
+        "shape": [
+          8089
+        ],
+        "dtype": "object"
+      },
+      "s_arrival_sample": {
+        "shape": [
+          8089
+        ],
+        "dtype": "int32"
+      },
+      "snr_db": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "source_id": {
+        "shape": [
+          8089
+        ],
+        "dtype": "object"
+      },
+      "trace_name": {
+        "shape": [
+          8089
+        ],
+        "dtype": "object"
+      },
+      "waveforms": {
+        "shape": [
+          8089,
+          10000
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase6_full_dataset/synthetic_waveforms_mapping.csv",
+    "bytes": 1018873,
+    "shape": [
+      8089,
+      13
+    ],
+    "columns": [
+      "hdf5_index",
+      "catalog_row_index",
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "magnitude",
+      "depth_km",
+      "epicentral_dist_km",
+      "hypocentral_distance_km",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "status"
+    ],
+    "dtypes": {
+      "hdf5_index": "int64",
+      "catalog_row_index": "int64",
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "depth_km": "float64",
+      "epicentral_dist_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "snr_db": "float64",
+      "status": "str"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase7_quality_control/qc_measurements_50_traces.csv",
+    "bytes": 20712,
+    "shape": [
+      50,
+      32
+    ],
+    "columns": [
+      "qc_sample_id",
+      "hdf5_index",
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "magnitude",
+      "depth_km",
+      "hypocentral_distance_km",
+      "theoretical_p_arrival_sample",
+      "theoretical_s_arrival_sample",
+      "theoretical_p_time_seconds",
+      "theoretical_s_time_seconds",
+      "theoretical_sp_interval_seconds",
+      "target_snr_db",
+      "min_amplitude",
+      "max_amplitude",
+      "mean_amplitude",
+      "std_amplitude",
+      "peak_amplitude",
+      "rms_amplitude",
+      "pre_p_rms",
+      "p_window_rms",
+      "s_window_rms",
+      "measured_snr_db",
+      "p_in_bounds",
+      "s_in_bounds",
+      "p_before_s",
+      "is_finite",
+      "not_all_zero",
+      "p_energy_jump",
+      "s_energy_jump",
+      "overall_qc_passed"
+    ],
+    "dtypes": {
+      "qc_sample_id": "int64",
+      "hdf5_index": "int64",
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "depth_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "theoretical_p_arrival_sample": "int64",
+      "theoretical_s_arrival_sample": "int64",
+      "theoretical_p_time_seconds": "float64",
+      "theoretical_s_time_seconds": "float64",
+      "theoretical_sp_interval_seconds": "float64",
+      "target_snr_db": "float64",
+      "min_amplitude": "float64",
+      "max_amplitude": "float64",
+      "mean_amplitude": "float64",
+      "std_amplitude": "float64",
+      "peak_amplitude": "float64",
+      "rms_amplitude": "float64",
+      "pre_p_rms": "float64",
+      "p_window_rms": "float64",
+      "s_window_rms": "float64",
+      "measured_snr_db": "float64",
+      "p_in_bounds": "bool",
+      "s_in_bounds": "bool",
+      "p_before_s": "bool",
+      "is_finite": "bool",
+      "not_all_zero": "bool",
+      "p_energy_jump": "bool",
+      "s_energy_jump": "bool",
+      "overall_qc_passed": "bool"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase8_improved_simulation/old_vs_new_qc_comparison.csv",
+    "bytes": 9458,
+    "shape": [
+      50,
+      17
+    ],
+    "columns": [
+      "sample_id",
+      "hdf5_index",
+      "source_id",
+      "receiver_code",
+      "magnitude",
+      "distance_km",
+      "target_snr_db",
+      "old_measured_snr_db",
+      "new_measured_snr_db",
+      "old_snr_error_db",
+      "new_snr_error_db",
+      "old_p_energy_jump",
+      "new_p_energy_jump",
+      "old_s_energy_jump",
+      "new_s_energy_jump",
+      "old_overall_passed",
+      "new_overall_passed"
+    ],
+    "dtypes": {
+      "sample_id": "int64",
+      "hdf5_index": "int64",
+      "source_id": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "distance_km": "float64",
+      "target_snr_db": "float64",
+      "old_measured_snr_db": "float64",
+      "new_measured_snr_db": "float64",
+      "old_snr_error_db": "float64",
+      "new_snr_error_db": "float64",
+      "old_p_energy_jump": "bool",
+      "new_p_energy_jump": "bool",
+      "old_s_energy_jump": "bool",
+      "new_s_energy_jump": "bool",
+      "old_overall_passed": "bool",
+      "new_overall_passed": "bool"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase8_improved_simulation/qc_measurements_improved_50_traces.csv",
+    "bytes": 22220,
+    "shape": [
+      50,
+      35
+    ],
+    "columns": [
+      "qc_sample_id",
+      "hdf5_index",
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "magnitude",
+      "depth_km",
+      "hypocentral_distance_km",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "theoretical_p_sec",
+      "theoretical_s_sec",
+      "target_snr_db",
+      "min_amplitude",
+      "max_amplitude",
+      "std_amplitude",
+      "peak_amplitude",
+      "rms_amplitude",
+      "pre_p_rms",
+      "p_window_rms",
+      "s_window_rms",
+      "p_to_noise_energy_ratio",
+      "s_to_noise_energy_ratio",
+      "signal_peak_amplitude",
+      "measured_snr_db",
+      "p_in_bounds",
+      "s_in_bounds",
+      "p_before_s",
+      "is_finite",
+      "not_all_zero",
+      "p_energy_jump",
+      "s_energy_jump",
+      "mandatory_numerical_passed",
+      "structure_passed",
+      "overall_qc_passed"
+    ],
+    "dtypes": {
+      "qc_sample_id": "int64",
+      "hdf5_index": "int64",
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "depth_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "theoretical_p_sec": "float64",
+      "theoretical_s_sec": "float64",
+      "target_snr_db": "float64",
+      "min_amplitude": "float64",
+      "max_amplitude": "float64",
+      "std_amplitude": "float64",
+      "peak_amplitude": "float64",
+      "rms_amplitude": "float64",
+      "pre_p_rms": "float64",
+      "p_window_rms": "float64",
+      "s_window_rms": "float64",
+      "p_to_noise_energy_ratio": "float64",
+      "s_to_noise_energy_ratio": "float64",
+      "signal_peak_amplitude": "float64",
+      "measured_snr_db": "float64",
+      "p_in_bounds": "bool",
+      "s_in_bounds": "bool",
+      "p_before_s": "bool",
+      "is_finite": "bool",
+      "not_all_zero": "bool",
+      "p_energy_jump": "bool",
+      "s_energy_jump": "bool",
+      "mandatory_numerical_passed": "bool",
+      "structure_passed": "bool",
+      "overall_qc_passed": "bool"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase9_full_dataset/full_dataset_qc_metrics.csv",
+    "bytes": 3259617,
+    "shape": [
+      8089,
+      32
+    ],
+    "columns": [
+      "hdf5_index",
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "magnitude",
+      "depth_km",
+      "hypocentral_distance_km",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "target_snr_db",
+      "measured_snr_db",
+      "snr_error_db",
+      "abs_snr_error_db",
+      "min_amplitude",
+      "max_amplitude",
+      "peak_amplitude",
+      "rms_amplitude",
+      "pre_p_rms",
+      "p_window_rms",
+      "s_window_rms",
+      "p_to_noise_ratio",
+      "s_to_noise_ratio",
+      "p_in_bounds",
+      "s_in_bounds",
+      "p_before_s",
+      "is_finite",
+      "not_all_zero",
+      "mandatory_numerical_passed",
+      "p_energy_jump",
+      "s_energy_jump",
+      "structure_passed",
+      "overall_qc_passed"
+    ],
+    "dtypes": {
+      "hdf5_index": "int64",
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "depth_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "target_snr_db": "float64",
+      "measured_snr_db": "float64",
+      "snr_error_db": "float64",
+      "abs_snr_error_db": "float64",
+      "min_amplitude": "float64",
+      "max_amplitude": "float64",
+      "peak_amplitude": "float64",
+      "rms_amplitude": "float64",
+      "pre_p_rms": "float64",
+      "p_window_rms": "float64",
+      "s_window_rms": "float64",
+      "p_to_noise_ratio": "float64",
+      "s_to_noise_ratio": "float64",
+      "p_in_bounds": "bool",
+      "s_in_bounds": "bool",
+      "p_before_s": "bool",
+      "is_finite": "bool",
+      "not_all_zero": "bool",
+      "mandatory_numerical_passed": "bool",
+      "p_energy_jump": "bool",
+      "s_energy_jump": "bool",
+      "structure_passed": "bool",
+      "overall_qc_passed": "bool"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase9_full_dataset/synthetic_seismic_waveforms.h5",
+    "bytes": 302374513,
+    "datasets": {
+      "depth_km": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "hypocentral_distance_km": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "magnitude": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "p_arrival_sample": {
+        "shape": [
+          8089
+        ],
+        "dtype": "int32"
+      },
+      "receiver_code": {
+        "shape": [
+          8089
+        ],
+        "dtype": "object"
+      },
+      "s_arrival_sample": {
+        "shape": [
+          8089
+        ],
+        "dtype": "int32"
+      },
+      "snr_db": {
+        "shape": [
+          8089
+        ],
+        "dtype": "float32"
+      },
+      "source_id": {
+        "shape": [
+          8089
+        ],
+        "dtype": "object"
+      },
+      "trace_name": {
+        "shape": [
+          8089
+        ],
+        "dtype": "object"
+      },
+      "waveforms": {
+        "shape": [
+          8089,
+          10000
+        ],
+        "dtype": "float32"
+      }
+    }
+  },
+  {
+    "path": "cnn/cnn wave/data wave/synthetic_waveform_simulator/output/phase9_full_dataset/synthetic_waveforms_mapping.csv",
+    "bytes": 908292,
+    "shape": [
+      8089,
+      11
+    ],
+    "columns": [
+      "hdf5_index",
+      "source_id",
+      "trace_name",
+      "receiver_code",
+      "magnitude",
+      "depth_km",
+      "hypocentral_distance_km",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "target_snr_db",
+      "trace_seed"
+    ],
+    "dtypes": {
+      "hdf5_index": "int64",
+      "source_id": "str",
+      "trace_name": "str",
+      "receiver_code": "str",
+      "magnitude": "float64",
+      "depth_km": "float64",
+      "hypocentral_distance_km": "float64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "target_snr_db": "float64",
+      "trace_seed": "int64"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "cnn/preprocessed_dl_temporal_noisy.csv",
+    "bytes": 4380626,
+    "shape": [
+      8089,
+      45
+    ],
+    "columns": [
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "epicentral_dist_km",
+      "sp_travel_time",
+      "year_raw",
+      "month_sin",
+      "month_cos",
+      "dow_sin",
+      "dow_cos",
+      "hour_sin",
+      "hour_cos",
+      "doy_sin",
+      "doy_cos",
+      "time_diff_hours",
+      "log_time_diff",
+      "depth_mag_ratio",
+      "log_energy",
+      "Magnitude_Type_MB",
+      "Magnitude_Type_MC",
+      "Magnitude_Type_ML",
+      "Magnitude_Type_MS",
+      "Magnitude_Type_MW",
+      "source_magnitude_type_MB",
+      "source_magnitude_type_MC",
+      "source_magnitude_type_ML",
+      "source_magnitude_type_MW",
+      "receiver_code_AGT",
+      "receiver_code_DBR",
+      "receiver_code_GHY",
+      "receiver_code_IMP",
+      "receiver_code_ITAN",
+      "receiver_code_KOH",
+      "receiver_code_PASI",
+      "receiver_code_SHL",
+      "receiver_code_SIL",
+      "receiver_code_TEZ",
+      "target"
+    ],
+    "dtypes": {
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "float64",
+      "p_arrival_sample": "float64",
+      "s_arrival_sample": "float64",
+      "snr_db": "float64",
+      "epicentral_dist_km": "float64",
+      "sp_travel_time": "float64",
+      "year_raw": "float64",
+      "month_sin": "float64",
+      "month_cos": "float64",
+      "dow_sin": "float64",
+      "dow_cos": "float64",
+      "hour_sin": "float64",
+      "hour_cos": "float64",
+      "doy_sin": "float64",
+      "doy_cos": "float64",
+      "time_diff_hours": "float64",
+      "log_time_diff": "float64",
+      "depth_mag_ratio": "float64",
+      "log_energy": "float64",
+      "Magnitude_Type_MB": "float64",
+      "Magnitude_Type_MC": "float64",
+      "Magnitude_Type_ML": "float64",
+      "Magnitude_Type_MS": "float64",
+      "Magnitude_Type_MW": "float64",
+      "source_magnitude_type_MB": "float64",
+      "source_magnitude_type_MC": "float64",
+      "source_magnitude_type_ML": "float64",
+      "source_magnitude_type_MW": "float64",
+      "receiver_code_AGT": "float64",
+      "receiver_code_DBR": "float64",
+      "receiver_code_GHY": "float64",
+      "receiver_code_IMP": "float64",
+      "receiver_code_ITAN": "float64",
+      "receiver_code_KOH": "float64",
+      "receiver_code_PASI": "float64",
+      "receiver_code_SHL": "float64",
+      "receiver_code_SIL": "float64",
+      "receiver_code_TEZ": "float64",
+      "target": "int64"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "dataset_2.csv",
+    "bytes": 2275310,
+    "shape": [
+      8089,
+      28
+    ],
+    "columns": [
+      "year",
+      "origin_time_ist",
+      "origin_time_utc",
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "Magnitude_Type",
+      "Magnitude",
+      "Country",
+      "State",
+      "Region",
+      "Location",
+      "source_latitude",
+      "source_longitude",
+      "source_depth_km",
+      "source_magnitude",
+      "source_magnitude_type",
+      "source_id",
+      "receiver_code",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "trace_name",
+      "epicentral_dist_km"
+    ],
+    "dtypes": {
+      "year": "int64",
+      "origin_time_ist": "str",
+      "origin_time_utc": "str",
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "Magnitude_Type": "str",
+      "Magnitude": "str",
+      "Country": "str",
+      "State": "str",
+      "Region": "str",
+      "Location": "str",
+      "source_latitude": "float64",
+      "source_longitude": "float64",
+      "source_depth_km": "float64",
+      "source_magnitude": "float64",
+      "source_magnitude_type": "str",
+      "source_id": "str",
+      "receiver_code": "str",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "int64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "snr_db": "float64",
+      "trace_name": "str",
+      "epicentral_dist_km": "float64"
+    },
+    "missing": {},
+    "duplicate_rows": 0,
+    "start": "1906-08-31 14:57:30+00:00",
+    "end": "2026-10-06 09:03:32+00:00",
+    "invalid_dates": 0,
+    "sorted": true
+  },
+  {
+    "path": "preprocessed_cleaned.csv",
+    "bytes": 1969844,
+    "shape": [
+      8089,
+      23
+    ],
+    "columns": [
+      "year",
+      "origin_time_ist",
+      "origin_time_utc",
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "Magnitude_Type",
+      "Country",
+      "State",
+      "Region",
+      "Location",
+      "source_magnitude_type",
+      "source_id",
+      "receiver_code",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "trace_name",
+      "epicentral_dist_km"
+    ],
+    "dtypes": {
+      "year": "int64",
+      "origin_time_ist": "str",
+      "origin_time_utc": "str",
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "Magnitude_Type": "str",
+      "Country": "str",
+      "State": "str",
+      "Region": "str",
+      "Location": "str",
+      "source_magnitude_type": "str",
+      "source_id": "str",
+      "receiver_code": "str",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "int64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "snr_db": "float64",
+      "trace_name": "str",
+      "epicentral_dist_km": "float64"
+    },
+    "missing": {},
+    "duplicate_rows": 0,
+    "start": "1906-08-31 14:57:30+00:00",
+    "end": "2026-10-06 09:03:32+00:00",
+    "invalid_dates": 0,
+    "sorted": true
+  },
+  {
+    "path": "preprocessed_dl.csv",
+    "bytes": 2284228,
+    "shape": [
+      8089,
+      30
+    ],
+    "columns": [
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "epicentral_dist_km",
+      "Magnitude_Type_MB",
+      "Magnitude_Type_MC",
+      "Magnitude_Type_ML",
+      "Magnitude_Type_MS",
+      "Magnitude_Type_MW",
+      "source_magnitude_type_MB",
+      "source_magnitude_type_MC",
+      "source_magnitude_type_ML",
+      "source_magnitude_type_MW",
+      "receiver_code_AGT",
+      "receiver_code_DBR",
+      "receiver_code_GHY",
+      "receiver_code_IMP",
+      "receiver_code_ITAN",
+      "receiver_code_KOH",
+      "receiver_code_PASI",
+      "receiver_code_SHL",
+      "receiver_code_SIL",
+      "receiver_code_TEZ"
+    ],
+    "dtypes": {
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "float64",
+      "p_arrival_sample": "float64",
+      "s_arrival_sample": "float64",
+      "snr_db": "float64",
+      "epicentral_dist_km": "float64",
+      "Magnitude_Type_MB": "float64",
+      "Magnitude_Type_MC": "float64",
+      "Magnitude_Type_ML": "float64",
+      "Magnitude_Type_MS": "float64",
+      "Magnitude_Type_MW": "float64",
+      "source_magnitude_type_MB": "float64",
+      "source_magnitude_type_MC": "float64",
+      "source_magnitude_type_ML": "float64",
+      "source_magnitude_type_MW": "float64",
+      "receiver_code_AGT": "float64",
+      "receiver_code_DBR": "float64",
+      "receiver_code_GHY": "float64",
+      "receiver_code_IMP": "float64",
+      "receiver_code_ITAN": "float64",
+      "receiver_code_KOH": "float64",
+      "receiver_code_PASI": "float64",
+      "receiver_code_SHL": "float64",
+      "receiver_code_SIL": "float64",
+      "receiver_code_TEZ": "float64"
+    },
+    "missing": {},
+    "duplicate_rows": 41
+  },
+  {
+    "path": "preprocessed_dl_temporal.csv",
+    "bytes": 4247206,
+    "shape": [
+      8089,
+      44
+    ],
+    "columns": [
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "epicentral_dist_km",
+      "sp_travel_time",
+      "year_raw",
+      "month_sin",
+      "month_cos",
+      "dow_sin",
+      "dow_cos",
+      "hour_sin",
+      "hour_cos",
+      "doy_sin",
+      "doy_cos",
+      "time_diff_hours",
+      "log_time_diff",
+      "depth_mag_ratio",
+      "log_energy",
+      "Magnitude_Type_MB",
+      "Magnitude_Type_MC",
+      "Magnitude_Type_ML",
+      "Magnitude_Type_MS",
+      "Magnitude_Type_MW",
+      "source_magnitude_type_MB",
+      "source_magnitude_type_MC",
+      "source_magnitude_type_ML",
+      "source_magnitude_type_MW",
+      "receiver_code_AGT",
+      "receiver_code_DBR",
+      "receiver_code_GHY",
+      "receiver_code_IMP",
+      "receiver_code_ITAN",
+      "receiver_code_KOH",
+      "receiver_code_PASI",
+      "receiver_code_SHL",
+      "receiver_code_SIL",
+      "receiver_code_TEZ"
+    ],
+    "dtypes": {
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "float64",
+      "p_arrival_sample": "float64",
+      "s_arrival_sample": "float64",
+      "snr_db": "float64",
+      "epicentral_dist_km": "float64",
+      "sp_travel_time": "float64",
+      "year_raw": "float64",
+      "month_sin": "float64",
+      "month_cos": "float64",
+      "dow_sin": "float64",
+      "dow_cos": "float64",
+      "hour_sin": "float64",
+      "hour_cos": "float64",
+      "doy_sin": "float64",
+      "doy_cos": "float64",
+      "time_diff_hours": "float64",
+      "log_time_diff": "float64",
+      "depth_mag_ratio": "float64",
+      "log_energy": "float64",
+      "Magnitude_Type_MB": "float64",
+      "Magnitude_Type_MC": "float64",
+      "Magnitude_Type_ML": "float64",
+      "Magnitude_Type_MS": "float64",
+      "Magnitude_Type_MW": "float64",
+      "source_magnitude_type_MB": "float64",
+      "source_magnitude_type_MC": "float64",
+      "source_magnitude_type_ML": "float64",
+      "source_magnitude_type_MW": "float64",
+      "receiver_code_AGT": "float64",
+      "receiver_code_DBR": "float64",
+      "receiver_code_GHY": "float64",
+      "receiver_code_IMP": "float64",
+      "receiver_code_ITAN": "float64",
+      "receiver_code_KOH": "float64",
+      "receiver_code_PASI": "float64",
+      "receiver_code_SHL": "float64",
+      "receiver_code_SIL": "float64",
+      "receiver_code_TEZ": "float64"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  },
+  {
+    "path": "preprocessed_eda.csv",
+    "bytes": 2834117,
+    "shape": [
+      8089,
+      34
+    ],
+    "columns": [
+      "year",
+      "origin_time_ist",
+      "origin_time_utc",
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "Magnitude_Type",
+      "Country",
+      "State",
+      "Region",
+      "Location",
+      "source_magnitude_type",
+      "source_id",
+      "receiver_code",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "trace_name",
+      "epicentral_dist_km",
+      "month",
+      "day_of_week",
+      "hour",
+      "day_of_year",
+      "decade",
+      "magnitude_category",
+      "depth_class",
+      "sp_travel_time_samples",
+      "log_magnitude",
+      "log_depth",
+      "src_recv_dist_km"
+    ],
+    "dtypes": {
+      "year": "int64",
+      "origin_time_ist": "str",
+      "origin_time_utc": "str",
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "Magnitude_Type": "str",
+      "Country": "str",
+      "State": "str",
+      "Region": "str",
+      "Location": "str",
+      "source_magnitude_type": "str",
+      "source_id": "str",
+      "receiver_code": "str",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "int64",
+      "p_arrival_sample": "int64",
+      "s_arrival_sample": "int64",
+      "snr_db": "float64",
+      "trace_name": "str",
+      "epicentral_dist_km": "float64",
+      "month": "int64",
+      "day_of_week": "int64",
+      "hour": "int64",
+      "day_of_year": "int64",
+      "decade": "int64",
+      "magnitude_category": "str",
+      "depth_class": "str",
+      "sp_travel_time_samples": "int64",
+      "log_magnitude": "float64",
+      "log_depth": "float64",
+      "src_recv_dist_km": "float64"
+    },
+    "missing": {},
+    "duplicate_rows": 0,
+    "start": "1906-08-31 14:57:30+00:00",
+    "end": "2026-10-06 09:03:32+00:00",
+    "invalid_dates": 0,
+    "sorted": true
+  },
+  {
+    "path": "preprocessed_ml.csv",
+    "bytes": 3962346,
+    "shape": [
+      8089,
+      28
+    ],
+    "columns": [
+      "year",
+      "Lat",
+      "Long",
+      "Depth_km",
+      "Magnitude_Value",
+      "Magnitude_Type",
+      "Country",
+      "State",
+      "source_magnitude_type",
+      "receiver_code",
+      "receiver_latitude",
+      "receiver_longitude",
+      "receiver_elevation_m",
+      "p_arrival_sample",
+      "s_arrival_sample",
+      "snr_db",
+      "epicentral_dist_km",
+      "month",
+      "day_of_week",
+      "hour",
+      "day_of_year",
+      "decade",
+      "magnitude_category",
+      "depth_class",
+      "sp_travel_time_samples",
+      "log_magnitude",
+      "log_depth",
+      "src_recv_dist_km"
+    ],
+    "dtypes": {
+      "year": "float64",
+      "Lat": "float64",
+      "Long": "float64",
+      "Depth_km": "float64",
+      "Magnitude_Value": "float64",
+      "Magnitude_Type": "float64",
+      "Country": "float64",
+      "State": "float64",
+      "source_magnitude_type": "float64",
+      "receiver_code": "float64",
+      "receiver_latitude": "float64",
+      "receiver_longitude": "float64",
+      "receiver_elevation_m": "float64",
+      "p_arrival_sample": "float64",
+      "s_arrival_sample": "float64",
+      "snr_db": "float64",
+      "epicentral_dist_km": "float64",
+      "month": "float64",
+      "day_of_week": "float64",
+      "hour": "float64",
+      "day_of_year": "float64",
+      "decade": "float64",
+      "magnitude_category": "float64",
+      "depth_class": "float64",
+      "sp_travel_time_samples": "float64",
+      "log_magnitude": "float64",
+      "log_depth": "float64",
+      "src_recv_dist_km": "float64"
+    },
+    "missing": {},
+    "duplicate_rows": 0
+  }
+]

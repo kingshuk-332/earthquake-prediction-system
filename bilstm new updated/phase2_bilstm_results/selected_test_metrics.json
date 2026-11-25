@@ -1,0 +1,108 @@
+{
+  "run_id": "1bd0faa814c714ba",
+  "selected_variant": "C",
+  "selection_sha256": "adcaa0d697f75ef532bac280e2960c903371f53eb8fc2148b619ba8e059f53e9",
+  "metrics": {
+    "mae": 0.5476705028056652,
+    "rmse": 0.6696078672957082,
+    "r2": -0.08986382358779799,
+    "huber": 0.21490484945104285,
+    "high_count": 38,
+    "high_mae": 1.5217757036811428,
+    "high_underprediction_rate": 1.0,
+    "high_bias": -1.5217757036811428
+  },
+  "error_distribution": {
+    "residual_mean": 0.17054460544729189,
+    "residual_std": 0.6475254693810385,
+    "absolute_error_quantiles": {
+      "q50": 0.48166632652282715,
+      "q90": 1.0733978271484375,
+      "q95": 1.2201305389404293,
+      "q99": 1.6779239201545695
+    }
+  },
+  "magnitude_ranges": [
+    {
+      "magnitude_range": "<3",
+      "count": 490,
+      "mae": 0.7080242645983793,
+      "rmse": 0.7643587219763643,
+      "bias": 0.7080242645983793,
+      "underprediction_rate": 0.0
+    },
+    {
+      "magnitude_range": "3\u2013<4",
+      "count": 469,
+      "mae": 0.25143629655655003,
+      "rmse": 0.30614927459559177,
+      "bias": -0.0969123281141334,
+      "underprediction_rate": 0.5778251599147122
+    },
+    {
+      "magnitude_range": "4\u2013<4.5",
+      "count": 70,
+      "mae": 0.8811633859361921,
+      "rmse": 0.8943050536456496,
+      "bias": -0.8811633859361921,
+      "underprediction_rate": 1.0
+    },
+    {
+      "magnitude_range": "4.5\u2013<5",
+      "count": 30,
+      "mae": 1.3851560274759929,
+      "rmse": 1.3958541613650548,
+      "bias": -1.3851560274759929,
+      "underprediction_rate": 1.0
+    },
+    {
+      "magnitude_range": ">=5",
+      "count": 8,
+      "mae": 2.0340994894504547,
+      "rmse": 2.053685788371656,
+      "bias": -2.0340994894504547,
+      "underprediction_rate": 1.0
+    }
+  ],
+  "baselines": [
+    {
+      "model": "training_mean",
+      "mae": 1.0032095822308613,
+      "rmse": 1.1318977657801497,
+      "r2": -2.114193165446757,
+      "huber": 0.5716090907585425,
+      "high_count": 38,
+      "high_mae": 0.7556309246046191,
+      "high_underprediction_rate": 1.0,
+      "high_bias": -0.7556309246046191
+    },
+    {
+      "model": "training_median",
+      "mae": 0.9746954026575276,
+      "rmse": 1.1041796693252561,
+      "r2": -1.963538917220598,
+      "huber": 0.5476054334193624,
+      "high_count": 38,
+      "high_mae": 0.7894736716621801,
+      "high_underprediction_rate": 1.0,
+      "high_bias": -0.7894736716621801
+    },
+    {
+      "model": "recent_event_magnitude",
+      "mae": 0.6739456492496227,
+      "rmse": 0.8663824600741591,
+      "r2": -0.8245276306215468,
+      "huber": 0.33130272143834005,
+      "high_count": 38,
+      "high_mae": 1.5605263059816583,
+      "high_underprediction_rate": 1.0,
+      "high_bias": -1.5605263059816583
+    }
+  ],
+  "test_model_variants_evaluated": [
+    "C"
+  ],
+  "independent_sklearn_verification": "PASS",
+  "prediction_cache_sha256": "de915a125a907af71815e244146d3e35d241f17a9e51aec27daa8ff177a505ec",
+  "baseline_fitting": "training targets only; recent-event uses last historical input and saved train-fitted inverse scaler"
+}

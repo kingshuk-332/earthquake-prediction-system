@@ -1,0 +1,19 @@
+{
+  "run_id": "5bac5f6751913d99",
+  "training_ready": true,
+  "outputs": {
+    "augmentation_config.json": "b7db798c74ce789d01d4796fea497489f30e82c19d51e91d7517c5e5abe49fa7",
+    "sampler_manifest.json": "9de61373681ba271071c0a4990a25f0fdfa2e3eaec5c6ce827e952e2aed4b8de",
+    "sampling_plan.npz": "21fbdb5e58968fe688e5a11c739e5e75e93dcb5f3984fd0499b07aa9e869713c",
+    "parent_provenance.csv": "90b7b45b7ea7fa53998ad616515060a39e1009d214645a22b27fd215323bc1f3",
+    "distribution_comparison.json": "57b024601b9ea8f03d34fef4571924069dde7a53ba51cf7f809efab6a83e1e7f",
+    "distribution_comparison.csv": "147cb28b3508901dd45bab2330938123e62452bb7ecbad36f6ecb3a6827812ec",
+    "validation_results.json": "8fac3f1b9373e81ca5cbee855cfe9acda7c4b7e652f1cd532e4e32cd1691e62b",
+    "source_feature_audit.json": "01f9bb1a4549dbfb613aaf48215b5cbca01c8154ea06f54b221c70491c996b3a",
+    "training_distribution_comparison.png": "c976ebcf3bfbde93818e5a5ffd433ca05da03e8d0253e645500075eae71ffc6e",
+    "research_adaptation_notes.md": "91a9deff9da9dabaa1cf1cda8e1c1ac5ea0599fab84a073e7bb50c37221f99ed",
+    "final_report.md": "16e94a8961d8491aae8f27ed71e8e4ff11a05b254c642a357a3d7594ee81f36d"
+  },
+  "hash_convention": "File SHA-256; preview X/target hashes include dtype/shape and numerical bytes.",
+  "original_dataset_sha256": "97d357f71d6f83e3c7cbb5a163ca42b0ed40fbb2fc859c9e2076445c661c934f"
+}

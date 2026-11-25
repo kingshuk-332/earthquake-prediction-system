@@ -1,0 +1,77 @@
+{
+  "run_id": "945fdfac7b47cfb0",
+  "axis_order": [
+    "samples",
+    "historical_events",
+    "features"
+  ],
+  "feature_count": 10,
+  "sequence_length": 20,
+  "ordered_features": [
+    {
+      "index": 0,
+      "name": "historical_magnitude",
+      "units": "ML reported units",
+      "calculation": "Magnitude_Value of historical event j; never target event t"
+    },
+    {
+      "index": 1,
+      "name": "historical_depth_km",
+      "units": "km",
+      "calculation": "Depth_km of historical event j"
+    },
+    {
+      "index": 2,
+      "name": "historical_latitude_deg",
+      "units": "degrees north",
+      "calculation": "Lat of historical event j"
+    },
+    {
+      "index": 3,
+      "name": "historical_longitude_deg",
+      "units": "degrees east",
+      "calculation": "Long of historical event j"
+    },
+    {
+      "index": 4,
+      "name": "inter_event_days",
+      "units": "days",
+      "calculation": "(time(j)-time(j-1))/86400; first retained event is missing"
+    },
+    {
+      "index": 5,
+      "name": "event_rate_30d",
+      "units": "retained ML events/day",
+      "calculation": "Count of retained events in (time(j)-30 days,time(j)] divided by 30; initial history is left-censored"
+    },
+    {
+      "index": 6,
+      "name": "mean_magnitude_20",
+      "units": "ML reported units",
+      "calculation": "Mean magnitude over retained events max(0,j-19)..j"
+    },
+    {
+      "index": 7,
+      "name": "std_magnitude_20",
+      "units": "ML reported units",
+      "calculation": "Population magnitude standard deviation (ddof=0) over max(0,j-19)..j; singleton=0"
+    },
+    {
+      "index": 8,
+      "name": "mean_depth_20_km",
+      "units": "km",
+      "calculation": "Mean depth over retained events max(0,j-19)..j"
+    },
+    {
+      "index": 9,
+      "name": "std_depth_20_km",
+      "units": "km",
+      "calculation": "Population depth standard deviation (ddof=0) over max(0,j-19)..j; singleton=0"
+    }
+  ],
+  "operational_feature_availability": "UNKNOWN",
+  "excluded": "source/trace IDs, absolute timestamps, target-event attributes, synthetic arrivals/SNR, waveform and simulator fields",
+  "feature_dependency_provenance": "catalog_feature_events.csv intervals refer to catalog_events.csv event_index",
+  "raw_missing_policy": "Only undefined first inter-event gap expected; train-fitted median imputation",
+  "historical_scope": "Retained ML catalog only; rolling features may use older history than explicit 20-row window"
+}

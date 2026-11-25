@@ -1,0 +1,4 @@
+family,samples,false_positives,false_positive_rate,specificity,fpr_ci95_low,fpr_ci95_high,mean_earthquake_probability
+white_gaussian,256,0,0.0,1.0,0.0,0.014784391721725852,0.0002124669315541894
+lowpass_gaussian_5hz,256,0,0.0,1.0,0.0,0.014784391721725852,0.0008643742759055634
+impulsive_gaussian,256,0,0.0,1.0,0.0,0.014784391721725852,3.114006168561536e-06

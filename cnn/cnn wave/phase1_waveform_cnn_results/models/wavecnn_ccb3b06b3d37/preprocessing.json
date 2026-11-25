@@ -1,0 +1,31 @@
+{
+  "input_key": "waveforms_standardized",
+  "input_shape": [
+    10000,
+    1
+  ],
+  "pytorch_shape": [
+    1,
+    10000
+  ],
+  "labels": {
+    "0": "synthetic noise",
+    "1": "synthetic earthquake"
+  },
+  "normalization": {
+    "fitting_dataset": "train",
+    "training_sample_count": 11324,
+    "global_training_mean": 3.3349967752671628e-12,
+    "global_training_std": 0.06386265158653259,
+    "global_training_rms": 0.06386265158653259,
+    "epsilon": 1e-08,
+    "detrend_type": "linear",
+    "sampling_rate_hz": 100.0,
+    "duration_seconds": 100.0,
+    "samples_per_trace": 10000,
+    "approach_a_description": "Per-waveform standardization (z-score): x_std = (x - mean(x)) / (std(x) + eps)",
+    "approach_b_description": "Global training-set normalization: x_global = (x - mu_train) / (sigma_train + eps)"
+  },
+  "inference": "Linear detrend entire trace, subtract per-trace mean, divide by per-trace std + 1e-8.",
+  "metadata_inputs": false
+}

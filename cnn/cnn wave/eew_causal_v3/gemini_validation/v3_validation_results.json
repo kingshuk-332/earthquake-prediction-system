@@ -1,0 +1,72 @@
+{
+  "validation_timestamp": "2026-11-10 22:53:18",
+  "auditor": "Gemini Flash (Validation Completion Agent)",
+  "overall_status": "READY FOR INDEPENDENT VERIFICATION",
+  "deliverables_status": {
+    "01_causal_simulator_v3.ipynb": "EXISTS_AND_VALID",
+    "02_generate_dataset_v3.ipynb": "EXISTS_AND_VALID",
+    "03_dataset_validation_v3.ipynb": "EXISTS_AND_VALID",
+    "eew_dataset_train.h5": "EXISTS_AND_COMPLETE",
+    "eew_dataset_validation.h5": "EXISTS_AND_COMPLETE",
+    "eew_dataset_test.h5": "EXISTS_AND_COMPLETE"
+  },
+  "protected_baseline_files": {
+    "total_monitored": 44,
+    "verified_identical": 44,
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "counterfactual_regression_tests": {
+    "v2_noise_defect_reproduced_diff": 361.7903289794922,
+    "v2_coda_defect_reproduced_diff": 99.57305908203125,
+    "v3_s_amp_x4_diff": 0.0,
+    "v3_p_coda_x4_diff": 0.0,
+    "v3_noise_x4_diff": 0.0,
+    "v3_normalized_diff": 0.0,
+    "pilot_max_prefix_diff": 0.0,
+    "status": "PASS"
+  },
+  "saved_dataset_checks": {
+    "total_records": 16178,
+    "total_earthquakes": 8089,
+    "total_noise": 8089,
+    "split_counts": {
+      "train": 11324,
+      "validation": 2426,
+      "test": 2428
+    },
+    "shapes_valid": true,
+    "finite_values": true,
+    "parent_window_slice_match": true,
+    "normalization_match": true,
+    "no_duplicate_parents": true,
+    "source_disjoint": true,
+    "pair_disjoint": true,
+    "status": "PASS"
+  },
+  "boundary_and_eligibility": {
+    "NCS_EV_03038": {
+      "sp_samples": 201,
+      "pre_s_valid_2s": true,
+      "pre_s_valid_3s": false
+    },
+    "NCS_EV_03572": {
+      "sp_samples": 301,
+      "pre_s_valid_2s": true,
+      "pre_s_valid_3s": true
+    },
+    "exact_eligible_counts": {
+      "1s": 8089,
+      "2s": 8056,
+      "3s": 7996
+    },
+    "pre_s_strictly_before_s": true,
+    "status": "PASS"
+  },
+  "contracts": {
+    "noise_magnitude_sentinel": -1.0,
+    "magnitude_mask_enforced": true,
+    "classification_mask_enforced": true,
+    "no_future_metadata_in_waveform_arrays": true
+  }
+}

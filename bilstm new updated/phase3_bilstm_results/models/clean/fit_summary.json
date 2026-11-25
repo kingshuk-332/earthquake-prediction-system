@@ -1,0 +1,40 @@
+{
+  "run_hash": "fc6b167c0355d2a676d732ab7345c9fe08ad6005012352f5a90f4811b353fcb6",
+  "variant": "clean",
+  "best_epoch": 10,
+  "epochs_run": 18,
+  "training_seconds": 3.83051230001729,
+  "train": {
+    "n": 692,
+    "mae": 0.5145088937241218,
+    "rmse": 0.6579981748410593,
+    "r2": -0.04230835060727767,
+    "pred_mean": 3.3102403424378766,
+    "pred_sd": 0.07900536801775235,
+    "actual_mean": 3.4913294845922835,
+    "actual_sd": 0.6445054295634876,
+    "pred_actual_sd_ratio": 0.12258293630088007,
+    "high_n": 39,
+    "high_mae": 1.6002928477067213,
+    "high_underprediction_rate": 1.0,
+    "high_bias": -1.6002928477067213
+  },
+  "val": {
+    "n": 346,
+    "mae": 0.46519456915772717,
+    "rmse": 0.5913502329276593,
+    "r2": 0.013556748038139221,
+    "pred_mean": 3.261363730954297,
+    "pred_sd": 0.05527571730636148,
+    "actual_mean": 3.3080924832062912,
+    "actual_sd": 0.5953998475204803,
+    "pred_actual_sd_ratio": 0.0928379769268586,
+    "high_n": 13,
+    "high_mae": 1.5466164992405818,
+    "high_underprediction_rate": 1.0,
+    "high_bias": -1.5466164992405818
+  },
+  "initialization_sha256": "f59e851061f26c3274982137372563bae7b1fd324fefeed692b30d708bdabb4f",
+  "parameter_count": 538881,
+  "checkpoint_sha256": "bc8ca12501cc3e2f2beb0863058e80fefa948be35440778fe1c57d9f07497c04"
+}

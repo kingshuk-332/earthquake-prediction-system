@@ -1,0 +1,17 @@
+{
+  "status": "COMPLETE",
+  "record_count": 16178,
+  "definition_hash": "6c42ce6cab99f86d9184dde08ab8f4605b1ca0de3425786ad425e8f72bd40dfc",
+  "simulator_notebook_sha256": "4a42a5520301b23b607d351816eb8fae1d65e857daa1b7fdc646b8cef819afd1",
+  "configuration_sha256": "8b90f3c64c51bd2b3389120865831e70b433f7fc8db3919afeffe5bdfceb6a24",
+  "files": {
+    "train": "2f88d8c1b50c1d52d0814360d7a32beabb5c90a822e121940a0db875ad49be15",
+    "validation": "c983d0fa42aabf107204b1e7261e8f0b4ee93a86aca64fdf7ce0a270877ec1d1",
+    "test": "9db5018d5cabf51a417d17c92344e4184148b87264361d538cf962f350184d43"
+  },
+  "source_inputs": {
+    "data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\split_indices.csv": "74d13bfc9eb8524c70352b7656856a888316d7b93bfb3a64ce1b516c3b784ebd",
+    "data wave\\synthetic_waveform_simulator\\output\\phase2_travel_time\\metadata_with_theoretical_arrivals.csv": "856721964236390938c6940511c83e9d2c24370a840274fb069a2e3ab743d736",
+    "data wave\\synthetic_waveform_simulator\\output\\phase10_classification_dataset\\earthquake_noise_mapping.csv": "3485b719981014316fc563232b89fe9e425e9687504829b1626b6377ba9adb07"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "model": "Pure 1D-CNN v2 (Efficient Dilated)",
+  "framework": "PyTorch 2.6.0+cu124",
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "parameters": 27857,
+  "dataset": "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\preprocessed_dl_temporal_noisy.csv",
+  "n_features": 44,
+  "sequence_length": 15,
+  "train_samples": 7390,
+  "val_samples": 808,
+  "test_samples": 1615,
+  "best_epoch": 27,
+  "total_epochs": 62,
+  "best_val_auc": 0.6545698548941762,
+  "optimal_threshold": 0.27,
+  "techniques": [
+    "Gaussian sensor jitter augmentation (sigma=0.015) in cnn/preprocessed_dl_temporal_noisy.csv",
+    "SMOTE oversampling",
+    "Focal Loss (gamma=2.0, alpha=0.6, label_smoothing=0.05)",
+    "Dilated convolutions (d=1,2,4)",
+    "Squeeze-and-Excitation channel attention",
+    "Residual connections",
+    "Mixup augmentation (alpha=0.3)",
+    "Cosine annealing warm restarts",
+    "Gradient clipping (max_norm=1.0)"
+  ],
+  "test_metrics": {
+    "roc_auc": 0.5792868183998721,
+    "average_precision": 0.061925754696865655,
+    "f1_score": 0.08823529411764706,
+    "precision": 0.06030150753768844,
+    "recall": 0.1643835616438356,
+    "accuracy": 0.8464396284829722,
+    "mcc": 0.027248870787571742,
+    "confusion_matrix": {
+      "tn": 1355,
+      "fp": 187,
+      "fn": 61,
+      "tp": 12
+    }
+  }
+}

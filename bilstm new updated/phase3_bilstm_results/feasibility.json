@@ -1,0 +1,69 @@
+{
+  "protocol_hash": "c81efddc5c19f969d10040baa9591b463996a7fb2f35ab693e262bc5ff52e7d4",
+  "candidates": [
+    {
+      "year": 2020,
+      "n": 692,
+      "high": 39,
+      "unique": 41,
+      "mean": 3.491329479768786,
+      "half_mean_gap": 0.06820809248555015,
+      "half_sd_ratio": 0.9184329039455126,
+      "gates": {
+        "n>=500": true,
+        "high>=30": true,
+        "unique>=10": true,
+        "halves>=200": true,
+        "half_mean_difference<=0.35": true,
+        "half_sd_ratio_in_0.5_2": true
+      },
+      "pass_all": true
+    },
+    {
+      "year": 2015,
+      "n": 1370,
+      "high": 114,
+      "unique": 45,
+      "mean": 3.626861313868613,
+      "half_mean_gap": 0.2639416058394164,
+      "half_sd_ratio": 1.0947708553548732,
+      "gates": {
+        "n>=500": true,
+        "high>=30": true,
+        "unique>=10": true,
+        "halves>=200": true,
+        "half_mean_difference<=0.35": true,
+        "half_sd_ratio_in_0.5_2": true
+      },
+      "pass_all": true
+    },
+    {
+      "year": 2010,
+      "n": 2105,
+      "high": 185,
+      "unique": 46,
+      "mean": 3.610498812351544,
+      "half_mean_gap": 0.05616200679572092,
+      "half_sd_ratio": 1.0771080553488985,
+      "gates": {
+        "n>=500": true,
+        "high>=30": true,
+        "unique>=10": true,
+        "halves>=200": true,
+        "half_mean_difference<=0.35": true,
+        "half_sd_ratio_in_0.5_2": true
+      },
+      "pass_all": true
+    }
+  ],
+  "chosen_year": 2020,
+  "training_allowed": true,
+  "split_counts": {
+    "train": 692,
+    "val": 346,
+    "holdout": 366
+  },
+  "selection_basis": "Fixed training-only feasibility gates; validation/holdout structural counts only",
+  "limitations": "No proof of stationarity or completeness; heldout data previously in original training catalog.",
+  "reason": "PASS fixed data sufficiency checks"
+}

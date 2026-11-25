@@ -1,0 +1,17 @@
+{
+  "run_id": "1bd0faa814c714ba",
+  "files": {
+    "protocol.json": "47f954ae16d7e80ffa597a4803cfb948dcb523c605ca54649ff2e4f502b1da9e",
+    "best_hyperparameters.json": "430786e0ddd06cc6300965ea7b606853e093c5c8bea36635349904854f48c30b",
+    "validation_comparison.csv": "0e24f7c5068d388d6487c4667ff6f27bb4c65517e845c2d6306aefa488d67528",
+    "selection_lock.json": "adcaa0d697f75ef532bac280e2960c903371f53eb8fc2148b619ba8e059f53e9",
+    "selected_test_metrics.json": "920605850c4a2d390ec790b81bdb0ceb6014e67279b2972099a597cee65997ce",
+    "selected_test_predictions.npz": "de915a125a907af71815e244146d3e35d241f17a9e51aec27daa8ff177a505ec",
+    "verification.json": "4e8cf10222493d31b67e997b847797f2ed6981a12cf5ccbcf64c927f09202b93",
+    "final_report.md": "1b9197bdbe568a383cfbff3df18a76bab7304223a81fd7d65b6df019e3832d43",
+    "variants\\A\\best.pt": "9cc86ef8f5b1ddd76d5149f134f834ee19bfdcb7afb6bc545b1fbaf587840f9e",
+    "variants\\B\\best.pt": "a514f13fe5db315a931118decb2810fd722111f81c96820515c694e108dbf304",
+    "variants\\C\\best.pt": "6ba8162d7b2e22e9d4cd9fd44bd1165a408e176c123c0be9cc7a7c44e118fe73",
+    "variants\\D\\best.pt": "f834ef143c7706d4c324091732e1ca6b8eb6f792063ef0c6bc54f13e36ad42fc"
+  }
+}

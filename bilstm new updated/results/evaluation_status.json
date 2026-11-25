@@ -1,0 +1,35 @@
+{
+  "stage": "C",
+  "status": "NOT_RUN",
+  "run_id": "e64115e91298ee59",
+  "reason": "Stage A causality gate failed; no approved model exists.",
+  "test_inference_calls": 0,
+  "overfitting_assessment": null,
+  "observation_seconds": [
+    1,
+    3,
+    5
+  ],
+  "inference_latency_ms": null,
+  "target_site_warning_lead_time_seconds": null,
+  "detection": {
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "f1": null,
+    "roc_auc": null,
+    "pr_auc": null,
+    "confusion_matrix": null,
+    "false_alarms": null,
+    "missed_detections": null
+  },
+  "magnitude": {
+    "mae": null,
+    "rmse": null,
+    "r2": null,
+    "error_by_magnitude_range": null,
+    "larger_event_bias": null
+  },
+  "descriptive_window_statistics": "../reports/window_summary.json",
+  "timing_limit": "Observation duration starts at an oracle P pick; synthetic same-station S-minus-cutoff is not guaranteed target-site warning time."
+}

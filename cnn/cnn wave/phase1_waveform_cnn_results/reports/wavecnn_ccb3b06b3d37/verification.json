@@ -1,0 +1,25 @@
+{
+  "epochs": 25,
+  "best_epoch": 22,
+  "parameters": 4177,
+  "input_shape": [
+    1,
+    10000
+  ],
+  "output_shape": [
+    1
+  ],
+  "all_training_samples_once_per_epoch": true,
+  "saved_model_predictions_match": true,
+  "saved_metrics_recomputed": true,
+  "catalog_artifacts_unchanged": true,
+  "label_mapping_and_split_audit_passed": true,
+  "figures": 6,
+  "executed_notebook_valid": true,
+  "executed_code_cells": 10,
+  "source_files_rehashed_unchanged": true,
+  "original_catalog_files_verified": 42,
+  "external_test_metrics_recomputed": true,
+  "full_resume_state_verified": true,
+  "notebook_code_sha256": "b0617fb6c141a42a9f63c160d447f10bd998e287340bd85ad2beeb0fc6512aa9"
+}

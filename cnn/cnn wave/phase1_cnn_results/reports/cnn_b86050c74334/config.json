@@ -1,0 +1,35 @@
+{
+  "seed": 42,
+  "start": "2011-01-01",
+  "history_days": 90,
+  "horizon_days": 7,
+  "stride_days": 7,
+  "magnitude_threshold": 4.5,
+  "train_fraction": 0.7,
+  "validation_fraction": 0.15,
+  "batch_size": 32,
+  "max_epochs": 100,
+  "patience": 15,
+  "learning_rate": 0.001,
+  "weight_decay": 0.001,
+  "filters": [
+    16,
+    32
+  ],
+  "kernels": [
+    5,
+    3
+  ],
+  "dropout": 0.25,
+  "grid_lat": [
+    20,
+    26,
+    32
+  ],
+  "grid_lon": [
+    86,
+    93,
+    100
+  ],
+  "version": "phase1-v1"
+}

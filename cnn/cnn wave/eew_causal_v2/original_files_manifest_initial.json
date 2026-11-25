@@ -1,0 +1,19 @@
+{
+  "data wave/synthetic_waveform_simulator/improved_waveform_generator.py": "8F88DE3FDD1342862DC588BD8F835E1DC963573A69CDD34648C59FDBBDBC96D8",
+  ".agent-memory/checkpoint.md": "10AF32B1277C903F4F905CB412A110BDFEB81C5094250F0444D16DE685E05EEC",
+  "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/validation.h5": "2FD21DEBED351636CE56E6979FBF75BF9D77F5F2AD4DC8C1A0773685C93B7936",
+  "data wave/synthetic_waveform_simulator/phase10_generate_classification_dataset.py": "25261DC3AE0021CB1E46EDAF44D399DC7FF3C9A995A688FC6393B208ACDE5C41",
+  "data wave/synthetic_waveform_simulator/phase9_generate_full_dataset.py": "BAE21BABD8C08D0BB941553FAD18368EE92E5EC18EA37CB1363703790568F72F",
+  "cnn wave status.md": "7830DF31014AEA7A159DDBA20C96CE0E2F9B124ABA629095D0B4B5F0B90530C5",
+  "phase1_waveform_cnn_results/models/wavecnn_ccb3b06b3d37/best.pt": "22EBB9496E6051FC0D6164C079FC38BB832E53AA19E795AB4A9492907A32EEE8",
+  "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/test.h5": "E45958510D32224154CB078D09B001E3CEA58E7507D2B7E7CDF058461CF23E5D",
+  "data wave/synthetic_waveform_simulator/output/phase10_classification_dataset/earthquake_noise_dataset.h5": "32B6EC3D82702BA6324B65BD0C3474E9C9CEDD88513C2E3244220471BA8389F3",
+  "data wave/synthetic_waveform_simulator/output/phase2_travel_time/metadata_with_theoretical_arrivals.csv": "856721964236390938C6940511C83E9D2C24370A840274FB069A2E3AB743D736",
+  "cnn_eew_opus_handoff.md": "BB11168024FB432EB3ACEC350E1FE0A71585102F94753CFEC023186EBFADDB17",
+  "data wave/synthetic_waveform_simulator/improved_simulation_qc.py": "9B2BBA64262263141C8266BA3D3D18DB91A7D19C8CC546702D2CCB0EFC3F9E20",
+  "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/train.h5": "2A80C55BFD2D990EBFB737CBD55D0F2B4136CB5E4C6D016712021A6B2DE861DB",
+  "cnn_eew_feasibility_report.md": "04614DA0CC0A1A99A0E5DE0E9A20B58BA25B76BDC90DD80BC04CA1D19A2A0320",
+  "data wave/synthetic_waveform_simulator/phase11_split_and_preprocess.py": "171782A3037942082D8A373156AD4764B47CF633E810C4FC7DFE5A1C9EA25BE3",
+  "cnn_eew_second_review.md": "1B6D0D25F1DA5FB94FFB5012930B2C8CFFE9EB65C2158A53A95520DF50F7A0C4",
+  "phase1_waveform_cnn.ipynb": "CD0A7E1DCBE61CA88B7CEC890E9BB6B9FD36C06CE020528B76B3C9EDA1C58469"
+}

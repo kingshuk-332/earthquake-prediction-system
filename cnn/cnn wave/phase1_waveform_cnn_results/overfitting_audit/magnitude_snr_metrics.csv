@@ -1,0 +1,6 @@
+field,group,samples,errors,accuracy,interpretation
+magnitude,M<3,195,3,0.9846153846153847,Earthquake-only accuracy equals recall; noise has no physical event magnitude/SNR.
+magnitude,3<=M<5,888,0,1.0,Earthquake-only accuracy equals recall; noise has no physical event magnitude/SNR.
+magnitude,M>=5,131,0,1.0,Earthquake-only accuracy equals recall; noise has no physical event magnitude/SNR.
+snr_db,SNR<10,699,3,0.9957081545064378,Earthquake-only accuracy equals recall; noise has no physical event magnitude/SNR.
+snr_db,SNR>=10,515,0,1.0,Earthquake-only accuracy equals recall; noise has no physical event magnitude/SNR.

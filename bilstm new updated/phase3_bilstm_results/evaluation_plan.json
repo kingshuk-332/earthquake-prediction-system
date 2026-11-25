@@ -1,0 +1,25 @@
+{
+  "run_hash": "fc6b167c0355d2a676d732ab7345c9fe08ad6005012352f5a90f4811b353fcb6",
+  "selection": {
+    "run_hash": "fc6b167c0355d2a676d732ab7345c9fe08ad6005012352f5a90f4811b353fcb6",
+    "selected_variant": "clean",
+    "selected_checkpoint_sha256": "bc8ca12501cc3e2f2beb0863058e80fefa948be35440778fe1c57d9f07497c04",
+    "selection_metric": "validation MAE",
+    "validation_candidates": {
+      "clean": 0.46519456915772717,
+      "weighted": 0.46666163240554015
+    },
+    "dataset_sha256": "0179ce1a240bf210e3a6e880b12a6e47d05dae451c51982cc43e2c03fb817bb4",
+    "holdout_metrics_accessed_for_selection": false
+  },
+  "baseline_selected_on_validation": "recent20_mean",
+  "holdout_model_evaluations": "Only selected BiLSTM; losing model never evaluated on holdout",
+  "bootstrap": {
+    "seed": 42,
+    "replicates": 1000,
+    "block": 20,
+    "method": "paired moving-block percentile, conditional on frozen models"
+  },
+  "adequacy_rule": "Retain modern as research candidate only if val MAE beats best validation baseline, holdout R2>0, paired holdout MAE-difference CI upper<0, and high MAE no worse than that baseline. Otherwise C: neither established as adequate; keep research baselines.",
+  "uncertainty": "One seed and retrospective catalog reuse; intervals conditional, not deployment guarantees"
+}

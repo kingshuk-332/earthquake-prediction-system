@@ -1,0 +1,50 @@
+[
+  {
+    "rank": 1,
+    "category": "Loss function adjustment",
+    "evidence": "Validation C underpredicts all 75 high targets; 81.3% of their residuals exceed Huber delta 1.",
+    "expected_benefit": "Test whether increasing large-error influence reduces upper-tail shrinkage.",
+    "tradeoff": "May raise overall MAE/low-magnitude overprediction and amplify questionable extreme labels.",
+    "validation_only_experiment": "FIRST: fixed C parents, architecture, AdamW, seed and stopping; compare existing Huber delta=1 with delta=2 only. Report overall/high MAE, bias and prediction spread. No Optuna or test access; confirm across seeds before claiming a gain."
+  },
+  {
+    "rank": 2,
+    "category": "Feature engineering",
+    "evidence": "Strongest last-step |Spearman|: train 0.744, validation 0.217; correlations vary across periods.",
+    "expected_benefit": "Determine whether current historical summaries provide stable next-event information before adding complexity.",
+    "tradeoff": "New regional/context indicators can overfit or require unavailable reporting information.",
+    "validation_only_experiment": "Fit a small train-only regularized linear probe on existing last-step/window-mean features in a future task; compare recent-event baseline on validation, then test one justified causal feature at a time."
+  },
+  {
+    "rank": 3,
+    "category": "Magnitude-aware weighting",
+    "evidence": "C improves validation high MAE over A by 0.0973, yet high underprediction stays 100%.",
+    "expected_benefit": "Express upper-tail error cost directly instead of assuming sampling alone is sufficient.",
+    "tradeoff": "Worse overall calibration/MAE and disproportionate influence of uncertain high ML values.",
+    "validation_only_experiment": "After isolating the loss, keep the sampler fixed and compare no added loss weights versus a bounded high-target weight fixed from training only; evaluate the validation tradeoff."
+  },
+  {
+    "rank": 4,
+    "category": "Sampling strategy",
+    "evidence": "C averages 3124 unique parents and 1849 repeat draws per 4973-draw epoch.",
+    "expected_benefit": "Retain high-target exposure with less duplicate concentration.",
+    "tradeoff": "Capping repeats changes effective target exposure and may reduce tail gains.",
+    "validation_only_experiment": "Compare approved weighted draws with a conservative per-parent repeat cap, keeping epoch size fixed; record achieved exposure and validation results without changing loss simultaneously."
+  },
+  {
+    "rank": 5,
+    "category": "Regularization",
+    "evidence": "C/D show post-best train improvement while validation worsens; selected best checkpoints already limit this.",
+    "expected_benefit": "Reduce late memorization if it is material.",
+    "tradeoff": "May further compress predictions or worsen underfitting; early stopping already helps.",
+    "validation_only_experiment": "One fixed higher-dropout setting against current C, same loss/sampling; compare best-epoch validation and prediction spread."
+  },
+  {
+    "rank": 6,
+    "category": "Alternative architecture",
+    "evidence": "Current results show little stable explained validation variance; no evidence identifies BiLSTM structure as the cause.",
+    "expected_benefit": "Check whether a simpler sequence model generalizes as well with fewer parameters.",
+    "tradeoff": "Architecture search can consume validation information without fixing weak inputs or calibration.",
+    "validation_only_experiment": "One smaller unidirectional recurrent baseline under the same split/loss/sampling protocol, only after simpler ablations; no CNN/fusion."
+  }
+]

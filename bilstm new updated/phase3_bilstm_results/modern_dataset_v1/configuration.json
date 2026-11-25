@@ -1,0 +1,67 @@
+{
+  "protocol": {
+    "version": "phase3_modern_v1",
+    "source_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3",
+    "seed": 42,
+    "train_before": "2023-01-01T00:00:00+00:00",
+    "validation_before": "2024-01-01T00:00:00+00:00",
+    "holdout_through": "2024-12-20T09:43:29+00:00",
+    "candidate_years_newest_first": [
+      2020,
+      2015,
+      2010
+    ],
+    "cutoff_selection": "First newest candidate passing fixed training-only feasibility gates; never compare validation/holdout for cutoff",
+    "gates": {
+      "min_train": 500,
+      "min_train_high": 30,
+      "min_unique_magnitudes": 10,
+      "max_half_mean_difference": 0.35,
+      "min_half_std_ratio": 0.5,
+      "max_half_std_ratio": 2.0,
+      "min_half_samples": 200,
+      "min_validation_samples": 100,
+      "min_holdout_samples": 100
+    },
+    "gate_qualification": "Pragmatic exploratory sample/stability thresholds, not formal power or stationarity guarantees.",
+    "purge": "All input, target and rolling dependency source events confined to partition",
+    "sequence_length": 20,
+    "target": "Magnitude_Value ML, identity; no Mc censoring",
+    "mc": {
+      "widths": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "bootstrap": 200,
+      "block": 20,
+      "min_events": 100,
+      "min_tail": 100,
+      "method": "MAXC modal bin and GFT95 then GFT90; no automatic MAXC substitution for failed GFT",
+      "grid": "centers at multiples of width; lower-closed upper-open bins, ties to upper bin"
+    },
+    "model": {
+      "hidden_size": 128,
+      "layers": 2,
+      "dropout": 0.3144753602375439,
+      "learning_rate": 0.0004549047669323766,
+      "weight_decay": 0.00012155233771053111,
+      "batch_size": 128,
+      "optimizer": "AdamW",
+      "delta": 1.0,
+      "max_epochs": 50,
+      "patience": 8,
+      "gradient_clip": 1.0
+    },
+    "sampler": "weights=1+0.5*clip((train_y-4)/1.5,0,1); replacement; n_train draws; sorted parents; numpy SeedSequence([42,epoch])",
+    "selection": "Minimum validation MAE; ties favor clean; freeze before one holdout evaluation",
+    "historical_holdout_exposure": "New partition within old training catalog; not previously unseen external data. Do not evaluate old model on it or compare old/new scores as proof of improvement.",
+    "analysis_end": "2022-12-31; later target values never inform cutoff or preprocessing decisions"
+  },
+  "protocol_hash": "c81efddc5c19f969d10040baa9591b463996a7fb2f35ab693e262bc5ff52e7d4",
+  "chosen_cutoff_year": 2020,
+  "source_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3",
+  "source_eligibility": "Original CSV verified against retained ML provenance; unchanged exclusion rules",
+  "boundary_handling": "Drop targets until all20 inputs and rolling-feature dependency events lie in partition",
+  "holdout_history": "Previously used by original model during training; retrospective reuse disclosed"
+}

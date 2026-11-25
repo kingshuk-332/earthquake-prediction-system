@@ -1,0 +1,13 @@
+{
+  "signal_features": [
+    "log_post_pre",
+    "max_sta_lta",
+    "crest",
+    "spectral_flatness",
+    "peak_spectral_fraction"
+  ],
+  "sta_seconds": 1,
+  "lta_seconds": 10,
+  "sta_threshold": 1.5541371104850275,
+  "threshold_selection": "validation F1, training-quantile candidates"
+}

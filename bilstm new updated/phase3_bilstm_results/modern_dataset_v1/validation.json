@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "split_counts": {
+    "train": 692,
+    "val": 346,
+    "holdout": 366
+  },
+  "train_high": 39,
+  "input_and_target_and_dependency_disjoint": true,
+  "train_only_preprocessing": true,
+  "all_inputs_before_targets": true,
+  "finite_arrays": true,
+  "target_identity_preserved": true,
+  "roundtrip_npz_exact": true,
+  "holdout_label_summaries": "Deferred until model selection is locked",
+  "dataset_sha256": "0179ce1a240bf210e3a6e880b12a6e47d05dae451c51982cc43e2c03fb817bb4",
+  "scaler_sha256": "31dc46a8db84b0fb821216e3a8f636ad62e4b112d0f7a90837e37155953049e2"
+}

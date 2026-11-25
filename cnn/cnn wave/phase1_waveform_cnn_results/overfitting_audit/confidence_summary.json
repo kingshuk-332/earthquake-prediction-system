@@ -1,0 +1,23 @@
+[
+  {
+    "split": "train",
+    "mean_confidence": 0.996068066848867,
+    "errors": 30,
+    "errors_confidence_ge_099": 0,
+    "mean_error_confidence": 0.728527162844936
+  },
+  {
+    "split": "validation",
+    "mean_confidence": 0.9964069537626999,
+    "errors": 7,
+    "errors_confidence_ge_099": 1,
+    "mean_error_confidence": 0.7879557790500777
+  },
+  {
+    "split": "test",
+    "mean_confidence": 0.9964427257635003,
+    "errors": 4,
+    "errors_confidence_ge_099": 0,
+    "mean_error_confidence": 0.709204651415348
+  }
+]

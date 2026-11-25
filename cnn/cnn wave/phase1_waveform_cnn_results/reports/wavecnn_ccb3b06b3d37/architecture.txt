@@ -1,0 +1,23 @@
+WaveformCNN(
+  (conv): Sequential(
+    (0): Conv1d(1, 8, kernel_size=(9,), stride=(2,), padding=(4,))
+    (1): BatchNorm1d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+    (4): Conv1d(8, 16, kernel_size=(7,), stride=(2,), padding=(3,))
+    (5): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (6): ReLU()
+    (7): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+    (8): Conv1d(16, 32, kernel_size=(5,), stride=(1,), padding=(2,))
+    (9): ReLU()
+    (10): AdaptiveAvgPool1d(output_size=1)
+  )
+  (head): Sequential(
+    (0): Flatten(start_dim=1, end_dim=-1)
+    (1): Linear(in_features=32, out_features=16, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.3, inplace=False)
+    (4): Linear(in_features=16, out_features=1, bias=True)
+  )
+)
+Parameters: 4177

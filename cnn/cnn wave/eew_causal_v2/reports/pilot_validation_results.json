@@ -1,0 +1,43 @@
+{
+    "test_date": "2026-11-10 17:51:47",
+    "pilot_tests": {
+        "test1_s_wave_counterfactual": {
+            "status": "PASS",
+            "max_pre_p_change": 0.0,
+            "max_pre_s_change": 0.0,
+            "verdict": "Strict mathematical causality preserved; 0.00000000 leakage"
+        },
+        "test2_coda_counterfactual": {
+            "status": "PASS",
+            "max_pre_p_change": 0.0,
+            "max_pre_s_change": 0.0,
+            "verdict": "Coda modulation does not alter earlier samples"
+        },
+        "test3_causal_preprocessing": {
+            "status": "PASS",
+            "max_pre_p_norm_change": 0.0,
+            "max_post_p_norm_change": 0.0,
+            "verdict": "Pre-P buffer normalization isolates statistics from future energy"
+        },
+        "test4_variable_p_onset": {
+            "status": "PASS",
+            "p_onset_range_sec": [
+                2.63,
+                7.6
+            ],
+            "p_onset_std_sec": 1.562372874828541,
+            "verdict": "Fixed 6.0s arrival shortcut successfully eliminated"
+        },
+        "test5_pre_s_cutoff": {
+            "status": "PASS",
+            "min_sp_travel_time_sec": 3.9,
+            "verdict": "All 1/2/3s observation horizons terminate strictly prior to S-arrival"
+        },
+        "test6_split_integrity": {
+            "status": "PASS",
+            "source_disjoint": true,
+            "arrays_finite": true
+        }
+    },
+    "gate_decision": "APPROVED FOR FULL CAUSAL DATASET GENERATION"
+}

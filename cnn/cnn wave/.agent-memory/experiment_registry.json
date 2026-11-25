@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "experiments": [
+    {
+      "experiment_id": "cnn_b86050c74334",
+      "model_type": "1D CNN",
+      "dataset_version": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3",
+      "input_features": [
+        "count",
+        "m4",
+        "m45",
+        "max_mag",
+        "mean_mag",
+        "mean_depth",
+        "mean_lat",
+        "mean_lon",
+        "cell_0_count",
+        "cell_1_count",
+        "cell_2_count",
+        "cell_3_count"
+      ],
+      "forecast_horizon_days": 7,
+      "date_ranges": {
+        "train": {
+          "period_start": "2011-01-01 00:00:00+00:00",
+          "period_end_exclusive": "2022-01-12 00:00:00+00:00",
+          "first_issue": "2011-04-01 00:00:00+00:00",
+          "last_issue": "2021-12-31 00:00:00+00:00",
+          "last_target_end": "2022-01-07 00:00:00+00:00",
+          "samples": 562,
+          "catalog_events": 2390,
+          "target_events": 2373,
+          "target_m45_events": 296,
+          "positives": [
+            212,
+            103,
+            138,
+            15,
+            134,
+            51,
+            40
+          ],
+          "negative_primary": 350
+        },
+        "validation": {
+          "period_start": "2022-01-12 00:00:00+00:00",
+          "period_end_exclusive": "2024-05-25 00:00:00+00:00",
+          "first_issue": "2022-04-15 00:00:00+00:00",
+          "last_issue": "2024-05-17 00:00:00+00:00",
+          "last_target_end": "2024-05-24 00:00:00+00:00",
+          "samples": 110,
+          "catalog_events": 839,
+          "target_events": 761,
+          "target_m45_events": 33,
+          "positives": [
+            29,
+            15,
+            17,
+            5,
+            17,
+            2,
+            8
+          ],
+          "negative_primary": 81
+        },
+        "test": {
+          "period_start": "2024-05-25 00:00:00+00:00",
+          "period_end_exclusive": "2026-10-06 00:00:00+00:00",
+          "first_issue": "2024-08-23 00:00:00+00:00",
+          "last_issue": "2026-09-25 00:00:00+00:00",
+          "last_target_end": "2026-10-02 00:00:00+00:00",
+          "samples": 110,
+          "catalog_events": 2374,
+          "target_events": 2257,
+          "target_m45_events": 114,
+          "positives": [
+            62,
+            36,
+            37,
+            4,
+            46,
+            19,
+            8
+          ],
+          "negative_primary": 48
+        }
+      },
+      "hyperparameters": {
+        "seed": 42,
+        "start": "2011-01-01",
+        "history_days": 90,
+        "horizon_days": 7,
+        "stride_days": 7,
+        "magnitude_threshold": 4.5,
+        "train_fraction": 0.7,
+        "validation_fraction": 0.15,
+        "batch_size": 32,
+        "max_epochs": 100,
+        "patience": 15,
+        "learning_rate": 0.001,
+        "weight_decay": 0.001,
+        "filters": [
+          16,
+          32
+        ],
+        "kernels": [
+          5,
+          3
+        ],
+        "dropout": 0.25,
+        "grid_lat": [
+          20,
+          26,
+          32
+        ],
+        "grid_lon": [
+          86,
+          93,
+          100
+        ],
+        "version": "phase1-v1"
+      },
+      "random_seed": 42,
+      "model_checkpoint_path": "phase1_cnn_results\\models\\cnn_b86050c74334\\best.pt",
+      "metrics_path": "phase1_cnn_results\\metrics\\cnn_b86050c74334\\scores.csv",
+      "experiment_status": "completed_verified",
+      "epochs": 21,
+      "best_epoch": 6,
+      "trainable_parameters": 3223,
+      "results": [
+        {
+          "model": "CNN",
+          "primary_brier": 0.2816091130897884,
+          "primary_log_loss": 0.7580839442964729,
+          "primary_AP": 0.5677930666694424,
+          "time_mean_brier": 0.2345516834216894,
+          "spatial_mean_brier": 0.1312417825801689,
+          "all_output_brier": 0.18223994432197752
+        },
+        {
+          "model": "training_Poisson",
+          "primary_brier": 0.26945713428170975,
+          "primary_log_loss": 0.7325755415562124,
+          "primary_AP": 0.5636363636363636,
+          "time_mean_brier": 0.2323457453881733,
+          "spatial_mean_brier": 0.1294484226705805,
+          "all_output_brier": 0.17884890224862546
+        },
+        {
+          "model": "recent_Poisson",
+          "primary_brier": 0.24239012584856817,
+          "primary_log_loss": 0.6803874926788982,
+          "primary_AP": 0.6498727325304625,
+          "time_mean_brier": 0.2258232526728778,
+          "spatial_mean_brier": 0.1251996758304131,
+          "all_output_brier": 0.17069076207371087
+        },
+        {
+          "model": "training_prevalence",
+          "primary_brier": 0.28061865353555265,
+          "primary_log_loss": 0.755973110627084,
+          "primary_AP": 0.5636363636363636,
+          "time_mean_brier": 0.2360636493162501,
+          "spatial_mean_brier": 0.13187519948512744,
+          "all_output_brier": 0.18289239287265183
+        }
+      ],
+      "notebook_path": "phase1_cnn_forecasting.ipynb",
+      "notebook_code_sha256": "f9df5a17d8a5551920d6cc22d85f424523beb425ccb7bce5d914cb734e22fe09",
+      "verification_path": "phase1_cnn_results/reports/cnn_b86050c74334/verification.json",
+      "interpretation": "No CNN advantage over simple baselines; recent Poisson has lower primary test Brier/log loss and higher AP."
+    },
+    {
+      "experiment_id": "wavecnn_ccb3b06b3d37",
+      "model_type": "1D waveform CNN detection",
+      "dataset_version": "58cf18af7ebb818d3eb9d1221880bd157a6a2f2218e1b0d95563503ca731d60d",
+      "dataset_files": {
+        "train": "data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\train.h5",
+        "validation": "data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\validation.h5",
+        "test": "data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\test.h5"
+      },
+      "input_features": [
+        "standardized vertical waveform"
+      ],
+      "input_shape": [
+        10000,
+        1
+      ],
+      "output": "earthquake/noise probability",
+      "forecast_horizon": null,
+      "split_method": "provided Phase 11 paired stratified splits; not chronological",
+      "date_ranges": {
+        "train": [
+          "1908-12-12 12:54:09+00:00",
+          "2026-10-06 09:03:32+00:00"
+        ],
+        "validation": [
+          "1906-08-31 14:57:30+00:00",
+          "2026-10-05 22:57:25+00:00"
+        ],
+        "test": [
+          "1922-12-24 00:06:26+00:00",
+          "2026-10-05 22:53:47+00:00"
+        ]
+      },
+      "hyperparameters": {
+        "version": "waveform-detection-v1",
+        "seed": 42,
+        "waveform_key": "waveforms_standardized",
+        "input_samples": 10000,
+        "sampling_hz": 100,
+        "batch_size": 32,
+        "hdf5_block_rows": 100,
+        "filters": [
+          8,
+          16,
+          32
+        ],
+        "kernels": [
+          9,
+          7,
+          5
+        ],
+        "strides": [
+          2,
+          2,
+          1
+        ],
+        "pool_size": 4,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "max_epochs": 25,
+        "patience": 5,
+        "threshold": 0.5
+      },
+      "random_seed": 42,
+      "model_checkpoint_path": "phase1_waveform_cnn_results\\models\\wavecnn_ccb3b06b3d37\\best.pt",
+      "metrics_path": "phase1_waveform_cnn_results\\metrics\\wavecnn_ccb3b06b3d37\\detection_metrics.csv",
+      "experiment_status": "completed_verified",
+      "epochs": 25,
+      "best_epoch": 22,
+      "parameters": 4177,
+      "test_metrics": {
+        "samples": 2428,
+        "accuracy": 0.9983525535420099,
+        "precision": 0.9991749174917491,
+        "recall": 0.9975288303130149,
+        "f1": 0.998351195383347,
+        "roc_auc": 0.9999952503602941,
+        "average_precision": 0.9999952525895031,
+        "pr_auc_trapezoidal": 0.9999952506335319,
+        "log_loss": 0.0055624801207700926,
+        "tn": 1213,
+        "fp": 1,
+        "fn": 3,
+        "tp": 1211,
+        "threshold": 0.5
+      },
+      "optional_parameter_estimation": "investigated_not_trained",
+      "notebook_path": "phase1_waveform_cnn.ipynb",
+      "notebook_code_sha256": "b0617fb6c141a42a9f63c160d447f10bd998e287340bd85ad2beeb0fc6512aa9",
+      "verification_path": "phase1_waveform_cnn_results\\reports\\wavecnn_ccb3b06b3d37\\verification.json",
+      "shortcut_probe_metrics": [
+        {
+          "probe": "shift_25s",
+          "samples": 2428,
+          "accuracy": 0.9975288303130148,
+          "precision": 1.0,
+          "recall": 0.9950576606260296,
+          "f1": 0.9975227085053676,
+          "roc_auc": 0.999995928880252,
+          "average_precision": 0.9999959489021524,
+          "pr_auc_trapezoidal": 0.9999959472405044,
+          "log_loss": 0.0072707675828047,
+          "tn": 1214,
+          "fp": 0,
+          "fn": 6,
+          "tp": 1208,
+          "threshold": 0.5,
+          "all_noise_false_positive_rate": null,
+          "original_EQ_noise_false_positive_rate": null,
+          "original_noise_false_positive_rate": null
+        },
+        {
+          "probe": "time_reversal",
+          "samples": 2428,
+          "accuracy": 0.9971169686985172,
+          "precision": 0.999172870140612,
+          "recall": 0.9950576606260296,
+          "f1": 0.9971110193974412,
+          "roc_auc": 0.9999877866407562,
+          "average_precision": 0.9999878038618252,
+          "pr_auc_trapezoidal": 0.999987798841624,
+          "log_loss": 0.0083037909360358,
+          "tn": 1213,
+          "fp": 1,
+          "fn": 6,
+          "tp": 1208,
+          "threshold": 0.5,
+          "all_noise_false_positive_rate": null,
+          "original_EQ_noise_false_positive_rate": null,
+          "original_noise_false_positive_rate": null
+        },
+        {
+          "probe": "phase_randomized",
+          "samples": 2428,
+          "accuracy": 0.9419275123558484,
+          "precision": 0.8971132494448557,
+          "recall": 0.99835255354201,
+          "f1": 0.945029239766082,
+          "roc_auc": 0.973688692329196,
+          "average_precision": 0.9624885550417104,
+          "pr_auc_trapezoidal": 0.9693938694751476,
+          "log_loss": 0.5255714158858912,
+          "tn": 1075,
+          "fp": 139,
+          "fn": 2,
+          "tp": 1212,
+          "threshold": 0.5,
+          "all_noise_false_positive_rate": null,
+          "original_EQ_noise_false_positive_rate": null,
+          "original_noise_false_positive_rate": null
+        },
+        {
+          "probe": "pre_onset_noise_only",
+          "samples": 2428,
+          "accuracy": 0.5037067545304778,
+          "precision": 0.5272727272727272,
+          "recall": 0.07166392092257,
+          "f1": 0.126178390137781,
+          "roc_auc": 0.5636098890212756,
+          "average_precision": 0.5295059309382775,
+          "pr_auc_trapezoidal": 0.5286605305524773,
+          "log_loss": 4.273179157630155,
+          "tn": 1136,
+          "fp": 78,
+          "fn": 1127,
+          "tp": 87,
+          "threshold": 0.5,
+          "all_noise_false_positive_rate": 0.0679571663920922,
+          "original_EQ_noise_false_positive_rate": 0.07166392092257,
+          "original_noise_false_positive_rate": 0.0642504118616145
+        }
+      ]
+    }
+  ]
+}

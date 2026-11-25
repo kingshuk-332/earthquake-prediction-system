@@ -1,0 +1,14 @@
+Metric,Baseline (delta=1),Experiment (delta=2),Difference (delta=2 minus delta=1)
+Huber Delta (ML units),1.0,2.0,+1.0
+Validation MAE,0.4724,0.4698,-0.0026
+Validation RMSE,0.6242,0.6243,+0.0002
+Validation R2,0.0162,0.0158,-0.0005
+ML>=4.5 Validation MAE,1.4214,1.4658,+0.0443
+ML>=4.5 Underprediction Rate,100.0%,100.0%,+0.0%
+ML>=4.5 Signed Bias,-1.4214,-1.4658,-0.0443
+Prediction Mean,3.4853,3.4336,-0.0517
+Prediction Std Dev,0.1573,0.1248,-0.0325
+"Prediction Range [Min, Max]","[3.180, 3.910]","[3.136, 3.707]",Span: 0.571 vs 0.730
+Clean Train MAE,0.4309,0.4425,+0.0116
+Generalization Gap (Val - Train MAE),+0.0415,+0.0274,-0.0141
+Best Epoch / Total Epochs,12 / 20,11 / 19,-

@@ -1,0 +1,72 @@
+{
+  "experiment": "wavecnn_ccb3b06b3d37",
+  "paths": {
+    "train": "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\train.h5",
+    "validation": "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\validation.h5",
+    "test": "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\data wave\\synthetic_waveform_simulator\\output\\phase11_preprocessed_dataset\\test.h5"
+  },
+  "key": "waveforms_standardized",
+  "preprocessing": {
+    "input_key": "waveforms_standardized",
+    "input_shape": [
+      10000,
+      1
+    ],
+    "pytorch_shape": [
+      1,
+      10000
+    ],
+    "labels": {
+      "0": "synthetic noise",
+      "1": "synthetic earthquake"
+    },
+    "normalization": {
+      "fitting_dataset": "train",
+      "training_sample_count": 11324,
+      "global_training_mean": 3.3349967752671628e-12,
+      "global_training_std": 0.06386265158653259,
+      "global_training_rms": 0.06386265158653259,
+      "epsilon": 1e-08,
+      "detrend_type": "linear",
+      "sampling_rate_hz": 100.0,
+      "duration_seconds": 100.0,
+      "samples_per_trace": 10000,
+      "approach_a_description": "Per-waveform standardization (z-score): x_std = (x - mean(x)) / (std(x) + eps)",
+      "approach_b_description": "Global training-set normalization: x_global = (x - mu_train) / (sigma_train + eps)"
+    },
+    "inference": "Linear detrend entire trace, subtract per-trace mean, divide by per-trace std + 1e-8.",
+    "metadata_inputs": false
+  },
+  "cached_checks": {
+    "all_waveforms_finite_nonzero": true,
+    "all_labels_and_mapping_aligned": true,
+    "pairs_and_sources_disjoint": true,
+    "no_duplicate_event_keys": true,
+    "no_exact_raw_or_standardized_duplicates": true,
+    "all_standardized_moments_checked": true,
+    "normalization_formula_sampled_per_split": 12,
+    "upstream_waveform_alignment_sampled_per_split": 12,
+    "training_global_std_recomputed": 0.06386265174259409,
+    "origin_and_coordinate_join_complete_for_earthquakes": true,
+    "noise_metadata_missing_intentionally": true,
+    "near_duplicate_exhaustive_check": false
+  },
+  "cached_source_hashes": {
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/train.h5": "2a80c55bfd2d990ebfb737cbd55d0f2b4136cb5e4c6d016712021a6b2de861db",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/validation.h5": "2fd21debed351636ce56e6979fbf75bf9d77f5f2ad4dc8c1a0773685c93b7936",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/test.h5": "e45958510d32224154cb078d09b001e3cea58e7507d2b7e7cdf058461cf23e5d",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/split_indices.csv": "74d13bfc9eb8524c70352b7656856a888316d7b93bfb3a64ce1b516c3b784ebd",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/normalization_parameters.json": "c526609410fa42cf18ec550de62aa1f259f02f004c79f25e2ed4827da7af5229",
+    "data wave/synthetic_waveform_simulator/output/phase10_classification_dataset/earthquake_noise_mapping.csv": "3485b719981014316fc563232b89fe9e425e9687504829b1626b6377ba9adb07",
+    "data wave/synthetic_waveform_simulator/output/phase9_full_dataset/synthetic_waveforms_mapping.csv": "42494766cfddf752ef63faa0ae3bf691a235a0049ed4268761e86ff10fc2837f",
+    "data wave/synthetic_waveform_simulator/output/phase2_travel_time/metadata_with_theoretical_arrivals.csv": "856721964236390938c6940511c83e9d2c24370a840274fb069a2e3ab743d736"
+  },
+  "protected_hashes": {
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\phase1_waveform_cnn.ipynb": "cd0a7e1dcbe61ca88b7cec890e9bb6b9fd36c06ce020528b76b3c9eda1c58469",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\phase1_waveform_cnn_results\\models\\wavecnn_ccb3b06b3d37\\best.pt": "22ebb9496e6051fc0d6164c079fc38bb832e53aa19e795ab4a9492907a32eee8",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\phase1_waveform_cnn_results\\models\\wavecnn_ccb3b06b3d37\\last.pt": "37e686d9eafedf79214063fe2b6e4e834a211ba46cdac328a8ccc65d18bdd4c1",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\phase1_waveform_cnn_results\\models\\wavecnn_ccb3b06b3d37\\preprocessing.json": "4f452a323e8331ccc258fa55575a4e61c5514ac17a9d5a9eeea248c1258f241b",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\phase1_waveform_cnn_results\\models\\wavecnn_ccb3b06b3d37\\signal_baselines.pkl": "a84eb2f8c2ac43c241ce1701bdd792ff6d6b9783b1396580bd8b64568fa22bed"
+  },
+  "method": "Prior 2026-11-06 full hash verification reused; dataset size/mtime checked before and after this read-only audit."
+}

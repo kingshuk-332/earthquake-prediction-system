@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "training_ready": true,
+  "native_parsed_timestamp_dtype": "datetime64[us, UTC]",
+  "explicit_audit_timestamp_unit": "ns",
+  "incorrect_rate_feature_cells": 0,
+  "training_windows_with_incorrect_rate": 0,
+  "incorrect_training_gap_records": 0,
+  "other_feature_constraint_violations": {
+    "historical_magnitude": 0,
+    "historical_depth_km": 0,
+    "historical_latitude_deg": 0,
+    "historical_longitude_deg": 0,
+    "inter_event_days": 0,
+    "mean_magnitude_20": 0,
+    "std_magnitude_20": 0,
+    "mean_depth_20_km": 0,
+    "std_depth_20_km": 0
+  },
+  "gap_expected_divided_by_saved_min": 1.0,
+  "gap_expected_divided_by_saved_max": 1.0,
+  "strict_origin_chronology": "PASS",
+  "rate_examples": [],
+  "source_notebook_relevant_lines": [
+    "    return pd.to_datetime(series,utc=True).dt.as_unit(\"ns\").astype(\"int64\").to_numpy()"
+  ],
+  "cause": "V2 explicitly normalizes integer timestamps to ns; independent rate, gap and all-feature checks verify the correction.",
+  "correction_policy": "Use only dataset/v2_timestamp_fixed; original v1 datasets and scalers remain unchanged.",
+  "prior_validation_limit": "Previous prefix checks reused the same feature logic and could not detect a shared time-unit error.",
+  "operational_feature_availability": "UNKNOWN"
+}

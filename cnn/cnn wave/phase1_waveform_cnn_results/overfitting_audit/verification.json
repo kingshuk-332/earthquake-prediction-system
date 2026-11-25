@@ -1,0 +1,12 @@
+{
+  "original_notebook_and_model_hashes_unchanged": true,
+  "dataset_size_mtime_unchanged": true,
+  "datasets_opened_read_only": true,
+  "saved_validation_test_predictions_match": true,
+  "all_three_splits_evaluated": true,
+  "no_training": true,
+  "threshold": 0.5,
+  "figures": 4,
+  "device": "cuda",
+  "torch_version": "2.6.0+cu124"
+}

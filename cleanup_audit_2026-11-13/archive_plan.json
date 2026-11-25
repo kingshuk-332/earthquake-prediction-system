@@ -1,0 +1,10 @@
+[
+  {
+    "source": "C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated\\phase3_bilstm_results.zip",
+    "destination": "C:\\Users\\choud\\Desktop\\Minor project archive\\cleanup_2026-11-13\\bilstm new updated\\phase3_bilstm_results.zip",
+    "bytes": 16322280,
+    "sha256": "fda2e9082111395ded7133a64068f1313b040113c1a4388387c217b940178cac",
+    "reason": "Every ZIP member exactly matches retained extracted content; no literal source references, no registered protection, no unique experiment evidence. Packaging copy unnecessary for training or reproduction.",
+    "rollback": "Move destination back to source only if source is absent and destination SHA256 matches."
+  }
+]

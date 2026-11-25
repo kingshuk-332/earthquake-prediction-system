@@ -1,0 +1,190 @@
+from pathlib import Path
+import nbformat as nbf
+OUT=Path(__file__).resolve().parent
+cells=[]
+def cell(s): cells.append(nbf.v4.new_code_cell(s.strip()))
+cells.append(nbf.v4.new_markdown_cell('''# SHAP for the frozen 3s CNN + BiLSTM + Temporal Attention model
+Only the full fused model is explained. CPU, evaluation mode, frozen parameters. Paired expected gradients are model-input attributions, not causal or independent-modality effects.
+
+Predeclared protocol: seed 20261114; two independently drawn 48-record training backgrounds proportional to noise / earthquake M<4 / 4<=M<5 / M>=5 strata; 12 validation records (three per stratum), detection on all 12, magnitude on the nine earthquakes. Pilot: one noise and one earthquake, 128 draws. Final: 2048 draws; independent Monte Carlo repeat and alternative background at 2048 draws. Local examples: first selected earthquake for detection, first selected M>=5 for magnitude. No selection by prediction or explanation quality. Reconstruction screening tolerance per record: 0.1 + 0.1*abs(output - background mean); failures restrict numerical interpretation. No model tuning.
+'''))
+cell('''
+from pathlib import Path
+import sys, os, json, ast, hashlib, time
+ROOT=Path(r'C:/Users/choud/Desktop/Minor project')
+OUT=ROOT/'explainability/final_attention_shap_v1'
+sys.path.insert(0,str(OUT/'runtime'))
+os.environ['NUMBA_CACHE_DIR']=str(OUT/'runtime_cache')
+import numpy as np, torch, h5py, shap
+from torch import nn
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from scipy.stats import spearmanr
+torch.set_num_threads(4)
+torch.backends.cudnn.enabled=False
+torch.backends.mkldnn.enabled=False
+torch.manual_seed(20261114)
+V3=ROOT/'cnn/cnn wave/eew_causal_v3'; CR=V3/'cnn_eew_training'; BR=ROOT/'bilstm_eew/bilstm_training_v1'
+TAB=ROOT/'bilstm_eew/causal_tabular_v1/tabular_features.h5'
+AP=ROOT/'fusion/cnn_bilstm_attention_v1'
+def sha(p):
+ h=hashlib.sha256()
+ with p.open('rb') as f:
+  for chunk in iter(lambda:f.read(4194304),b''): h.update(chunk)
+ return h.hexdigest()
+paths=[AP/'models/attention_3s_best.pt',CR/'models/cnn_3s_best.pt',BR/'models/bilstm_3s_best.pt',TAB,CR/'01_cnn_training.ipynb',BR/'01_bilstm_training.ipynb',AP/'01_attention_training.ipynb',AP/'02_attention_evaluation.ipynb',AP/'final_attention_report.md']+[V3/'dataset'/f'eew_dataset_{s}.h5' for s in ['train','validation']]
+before={str(p):sha(p) for p in paths}
+ck=torch.load(paths[0],map_location='cpu',weights_only=False)
+for p in paths:
+ if str(p) in ck['input_hashes']: assert before[str(p)]==ck['input_hashes'][str(p)]
+def original_class(path,index,name):
+ tree=ast.parse(''.join(json.loads(path.read_text(encoding='utf-8'))['cells'][index]['source']))
+ node=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name==name)
+ exec(compile(ast.Module(body=[node],type_ignores=[]),str(path),'exec'),globals())
+original_class(CR/'01_cnn_training.ipynb',1,'EarlyCNN')
+original_class(BR/'01_bilstm_training.ipynb',0,'TabularBiLSTM')
+original_class(AP/'01_attention_training.ipynb',0,'AttentionHead')
+c=EarlyCNN(); b=TabularBiLSTM(); head=AttentionHead()
+cc=torch.load(paths[1],map_location='cpu',weights_only=False);bc=torch.load(paths[2],map_location='cpu',weights_only=False)
+assert ck['horizon']==cc['horizon_seconds']==bc['horizon']==3
+c.load_state_dict(cc['state_dict']);b.load_state_dict(bc['state_dict']);head.load_state_dict(ck['head_state'])
+class FullModel(nn.Module):
+ def __init__(self):
+  super().__init__();self.c=c;self.b=b;self.head=head
+  for k in ['cmean','cscale','smean','sscale']:self.register_buffer(k,ck[k].clone())
+ def forward(self,x,v):
+  x=x.unsqueeze(1);q=self.c.features(x.sign()*torch.log1p(x.abs()))
+  ce=self.c.shared(torch.cat([q.mean(-1),q.amax(-1)],1));s,_=self.b.lstm(v)
+  a,m,w=self.head((ce-self.cmean)/self.cscale,(s-self.smean)/self.sscale)
+  return a,m*ck['target_scale']+ck['target_center'],w
+full=FullModel().eval().requires_grad_(False)
+initial={k:v.clone() for k,v in full.state_dict().items()}
+class Scalar(nn.Module):
+ def __init__(self,index):super().__init__();self.model=full;self.index=index
+ def forward(self,x,v):return self.model(x,v)[self.index][:,None]
+models={'detection':Scalar(0).eval(),'magnitude':Scalar(1).eval()}
+print('Versions:',torch.__version__,shap.__version__,'CPU; cuDNN and MKLDNN disabled')
+print('Checkpoint SHA256:',before[str(paths[0])])
+''')
+cell('''
+def read(split):
+ with h5py.File(V3/'dataset'/f'eew_dataset_{split}.h5','r') as w,h5py.File(TAB,'r') as t:
+  g=t[split];wp=w['parent_id'].asstr()[:];tp=g['parent_id'].asstr()[:]
+  assert len(set(wp))==len(wp) and len(set(tp))==len(tp) and set(wp)==set(tp)
+  lookup={p:i for i,p in enumerate(tp)};ix=np.array([lookup[p] for p in wp])
+  for k in ['parent_id','source_id','labels','magnitude','magnitude_mask_3s','classification_mask_3s','pre_s_valid_3s']:
+   a=w[k].asstr()[:] if w[k].dtype.kind=='O' else w[k][:];z=g[k].asstr()[:] if g[k].dtype.kind=='O' else g[k][:]
+   assert np.array_equal(a,z[ix]),k
+  assert w.attrs['sampling_rate_hz']==t.attrs['sampling_rate_hz']==100
+  assert w.attrs['pre_context_samples']==t.attrs['pre_reference_samples']==100
+  assert g['3s'].attrs['last_bin_end_relative_sample_exclusive']==300
+  keep=w['classification_mask_3s'][:].astype(bool)
+  x=w['windows_3s_norm'][:][keep];v=g['3s/X'][:][ix][keep]
+  assert x.shape[1:]==(400,) and v.shape[1:]==(40,7) and np.isfinite(x).all() and np.isfinite(v).all()
+  return dict(x=torch.from_numpy(x),v=torch.from_numpy(v),y=w['labels'][:][keep],m=w['magnitude'][:][keep],reg=w['magnitude_mask_3s'][:][keep].astype(bool),ids=w['source_id'].asstr()[:][keep],parents=wp[keep],rows=np.flatnonzero(keep))
+tr=read('train');va=read('validation');assert not(set(tr['parents'])&set(va['parents']))
+with h5py.File(TAB,'r') as f:features=json.loads(f.attrs['feature_names']);schema={k:str(v) for k,v in f.attrs.items() if k!='input_hashes'}
+def strata(d):return np.where(d['y']==0,0,np.where(d['m']<4,1,np.where(d['m']<5,2,3)))
+def background(seed):
+ rng=np.random.default_rng(seed);s=strata(tr);counts=np.bincount(s,minlength=4);raw=48*counts/counts.sum();n=np.floor(raw).astype(int)
+ for j in np.argsort(-(raw-n))[:48-n.sum()]:n[j]+=1
+ return np.concatenate([rng.choice(np.flatnonzero(s==j),n[j],replace=False) for j in range(4)])
+bg=background(20261114);alt=background(20261115)
+rng=np.random.default_rng(20261114);vs=strata(va);sel=np.concatenate([rng.choice(np.flatnonzero(vs==j),3,replace=False) for j in range(4)])
+samples={'detection':sel,'magnitude':sel[va['reg'][sel]]}
+manifest={'seed':20261114,'strata':['noise','EQ M<4','EQ 4<=M<5','EQ M>=5'],'train_strata_counts':np.bincount(strata(tr)).tolist(),'background_ids':tr['ids'][bg].tolist(),'alternative_background_ids':tr['ids'][alt].tolist(),'validation_ids':{k:va['ids'][v].tolist() for k,v in samples.items()},'schema':schema}
+(OUT/'selection_manifest.json').write_text(json.dumps(manifest,indent=2))
+with torch.no_grad():
+ outputs=[full(va['x'][j:j+256],va['v'][j:j+256]) for j in range(0,len(va['y']),256)]
+ logits,mags,weights=[torch.cat([o[k] for o in outputs]) for k in range(3)]
+ y=torch.tensor(va['y'],dtype=torch.float32);reg=torch.tensor(va['reg']);m=torch.tensor(va['m'])
+ loss=nn.functional.binary_cross_entropy_with_logits(logits,y)+nn.functional.huber_loss((mags[reg]-ck['target_center'])/ck['target_scale'],(m[reg]-ck['target_center'])/ck['target_scale'])
+ loss_error=abs(float(loss)-ck['best_validation_loss']);assert loss_error<1e-6
+ # Original two-stage cached-embedding route, independently from scalar wrappers.
+ xx=va['x'][:32,None,:];q=c.features(xx.sign()*torch.log1p(xx.abs()));ce=c.shared(torch.cat([q.mean(-1),q.amax(-1)],1));states,_=b.lstm(va['v'][:32])
+ ra,rm,rw=head((ce-ck['cmean'])/ck['cscale'],(states-ck['smean'])/ck['sscale'])
+ reference_error=max(float((ra-logits[:32]).abs().max()),float((rm*ck['target_scale']+ck['target_center']-mags[:32]).abs().max()))
+ assert reference_error<1e-5
+ assert torch.allclose(weights.sum(1),torch.ones(len(weights)),atol=1e-6)
+print('Validation loss:',float(loss),'approved:',ck['best_validation_loss'],'error:',loss_error)
+print('Paired background counts:',np.bincount(strata(tr)[bg]),'validation counts:',np.bincount(vs[sel]))
+''')
+cell('''
+def explain(task,indices,background_indices,n,seed):
+ model=models[task];inputs=[va['x'][indices],va['v'][indices]];back=[tr['x'][background_indices],tr['v'][background_indices]]
+ explainer=shap.GradientExplainer(model,back,batch_size=64,local_smoothing=0)
+ raw=explainer.shap_values(inputs,nsamples=n,rseed=seed)
+ assert isinstance(raw,list) and len(raw)==2
+ values=[np.asarray(z)[...,0] if np.asarray(z).ndim==inputs[j].ndim+1 else np.asarray(z) for j,z in enumerate(raw)]
+ for z,x in zip(values,inputs):assert z.shape==tuple(x.shape) and np.isfinite(z).all()
+ with torch.no_grad():base=float(model(*back).mean());pred=model(*inputs).numpy().ravel()
+ total=sum(z.reshape(len(indices),-1).sum(1) for z in values);residual=pred-base-total
+ return dict(values=values,base=base,pred=pred,residual=residual)
+pilot={}
+for task,indices in samples.items():
+ chosen=indices[[0,3]] if task=='detection' else indices[:2]
+ t=time.time();pilot[task]=explain(task,chosen,bg,128,719)
+ print('PILOT',task,'shapes',[z.shape for z in pilot[task]['values']],'finite; residual',pilot[task]['residual'],'seconds',time.time()-t,flush=True)
+''')
+cell('''
+results={};validation={}
+for task,indices in samples.items():
+ t=time.time();a=explain(task,indices,bg,2048,720);repeat=explain(task,indices,bg,2048,721);other=explain(task,indices,alt,2048,720)
+ results[task]=a
+ def importance(r):return np.abs(r['values'][1]).mean(axis=(0,1))
+ def stability(r):
+  u=importance(a);v=importance(r)
+  aa=np.concatenate([z.reshape(len(indices),-1) for z in a['values']],axis=1);rr=np.concatenate([z.reshape(len(indices),-1) for z in r['values']],axis=1)
+  cosine=(aa*rr).sum(1)/(np.linalg.norm(aa,axis=1)*np.linalg.norm(rr,axis=1))
+  return {'feature_spearman':float(spearmanr(u,v).statistic),'feature_relative_L1':float(np.abs(u-v).sum()/u.sum()),'local_signed_cosine_min':float(cosine.min()),'local_signed_cosine_mean':float(cosine.mean()),'waveform_temporal_spearman':float(spearmanr(np.abs(a['values'][0]).mean(0),np.abs(r['values'][0]).mean(0)).statistic),'tabular_temporal_spearman':float(spearmanr(np.abs(a['values'][1]).mean((0,2)),np.abs(r['values'][1]).mean((0,2))).statistic)}
+ tol=.1+.1*np.abs(a['pred']-a['base'])
+ validation[task]={'n':len(indices),'shapes':[list(z.shape) for z in a['values']],'expected_output':a['base'],'max_abs_reconstruction_residual':float(np.abs(a['residual']).max()),'mean_abs_reconstruction_residual':float(np.abs(a['residual']).mean()),'reconstruction_passes':int((np.abs(a['residual'])<=tol).sum()),'repeat_stability':stability(repeat),'background_stability':stability(other),'alternative_expected_output':other['base'],'alternative_max_abs_residual':float(np.abs(other['residual']).max()),'feature_importance':dict(zip(features,importance(a).tolist()))}
+ np.savez_compressed(OUT/f'{task}_shap_values.npz',waveform=a['values'][0],tabular=a['values'][1],prediction=a['pred'],expected=a['base'],residual=a['residual'],repeat_waveform=repeat['values'][0],repeat_tabular=repeat['values'][1],alternative_waveform=other['values'][0],alternative_tabular=other['values'][1],alternative_prediction=other['pred'],alternative_residual=other['residual'],alternative_expected=other['base'],source_ids=va['ids'][indices],attention=weights[indices].numpy())
+ print(task,json.dumps(validation[task],indent=2),'seconds',time.time()-t,flush=True)
+''')
+cell('''
+(OUT/'plots').mkdir(exist_ok=True)
+def save(fig,name):fig.tight_layout();fig.savefig(OUT/'plots'/name,dpi=300,bbox_inches='tight');plt.close(fig)
+tw=np.arange(400)/100-1;tt=np.arange(40)/10-.95
+for task,indices in samples.items():
+ a=results[task];wave,tab=a['values'];units='logit' if task=='detection' else 'magnitude units'
+ fig,ax=plt.subplots(figsize=(10,4));ax.plot(tw,np.abs(wave).mean(0));ax.set(xlabel='Time relative to oracle reference (s)',ylabel=f'Mean |SHAP| ({units})',title=f'{task}: CNN waveform input');save(fig,f'{task}_waveform_shap.png')
+ fig,ax=plt.subplots(figsize=(10,4));ax.barh(features,np.abs(tab).mean((0,1)));ax.set(xlabel=f'Mean |SHAP| per feature-time input ({units})',title=f'{task}: seven BiLSTM input features');save(fig,f'{task}_feature_importance.png')
+ temporal=np.abs(tab).sum(2).mean(0)
+ fig,ax=plt.subplots(figsize=(10,4));ax.plot(tt,temporal);ax.set(xlabel='Completed-bin center (s)',ylabel=f'Mean sum of |SHAP| across features ({units})',title=f'{task}: 40-bin tabular importance');save(fig,f'{task}_temporal_importance.png')
+ fig,ax=plt.subplots(figsize=(11,4));im=ax.imshow(np.abs(tab).mean(0).T,aspect='auto',extent=[-1,3,6.5,-.5]);ax.set(yticks=range(7),yticklabels=features,xlabel='Time relative to reference (s)',title=f'{task}: mean absolute SHAP');fig.colorbar(im,ax=ax,label=units);save(fig,f'{task}_feature_time_heatmap.png')
+ local=int(np.flatnonzero(va['y'][indices]==1)[0]) if task=='detection' else int(np.flatnonzero(va['m'][indices]>=5)[0]);idx=indices[local]
+ fig,axs=plt.subplots(3,1,figsize=(11,9));axs[0].plot(tw,va['x'][idx]);axs[0].set(ylabel='Normalized waveform',title=f'{task}: {va["ids"][idx]} | true magnitude {va["m"][idx]:.2f}')
+ axs[1].plot(tw,wave[local]);axs[1].axhline(0,color='grey');axs[1].set(ylabel=f'Signed waveform SHAP ({units})',xlabel='Time (s)')
+ contributions=np.r_[wave[local].sum(),tab[local].sum(0)];axs[2].barh(['waveform (sum)']+features,contributions);axs[2].set(xlabel=f'Signed grouped SHAP ({units})',title=f'Expected {a["base"]:.4f} + SHAP {contributions.sum():.4f} + residual {a["residual"][local]:.4f} = output {a["pred"][local]:.4f}')
+ save(fig,f'{task}_local_explanation.png')
+ fig,axs=plt.subplots(2,1,figsize=(10,6),sharex=True);axs[0].plot(tt,weights[indices].numpy().mean(0),color='purple');axs[0].set(ylabel='Mean Attention weight',title=f'{task}: learned Attention (not SHAP)')
+ axs[1].plot(tt,temporal,color='teal');axs[1].set(xlabel='Bin center relative to reference (s)',ylabel=f'Mean sum |SHAP| ({units})',title='Input attribution through the entire fused model');save(fig,f'{task}_attention_vs_shap.png')
+print('Saved 12 separate 300-DPI plots, including both local explanations.')
+''')
+cell('''
+assert all(torch.equal(initial[k],v) for k,v in full.state_dict().items())
+assert all(not p.requires_grad and p.grad is None for p in full.parameters())
+assert all(not m.training for m in full.modules())
+assert all(sha(Path(p))==v for p,v in before.items())
+validation.update(verdict='CONDITIONAL',validation_loss=float(loss),approved_validation_loss=ck['best_validation_loss'],validation_loss_error=loss_error,reference_prediction_max_error=reference_error,weights_unchanged=True,source_files_unchanged=True,test_data_opened=False,device='CPU; cuDNN/MKLDNN disabled',torch=str(torch.__version__),shap=shap.__version__,input_sha256=before)
+(OUT/'validation_results.json').write_text(json.dumps(validation,indent=2))
+limitations='The seven tabular features are deterministic summaries of the same waveform; they are also internally dependent (energy = 10*RMS squared before normalization). Background endpoints are paired real training records. SHAP GradientExplainer uses a shared background row and interpolation coefficient for both tensors, but simultaneous straight-line interpolation generally does not preserve nonlinear feature-extraction identities. Thus intermediate points can be physically inconsistent even with paired endpoints. These are model-input expected-gradient attributions under the selected reference distribution, not unique physical contributions of independent modalities, conditional-distribution SHAP, or evidence of causality. Attention weights are learned hidden-state pooling weights, not SHAP values; bidirectional states mix information throughout the available window.'
+lines=['# SHAP explainability report','', '**VERDICT: CONDITIONAL**','', 'Only the frozen full 3s CNN + BiLSTM + Temporal Attention model is explained. The original checkpoint and referenced backbones were loaded strictly. Both scalar wrappers retain both branches, temporal Attention, original scalers and final prediction heads. Detection is explained in logit units; magnitude in original target units. No training or tuning.','', '## Sampling and computation','', 'Seed 20261114. Two 48-record paired training backgrounds with proportional class/magnitude strata. Validation: 12 records (3 noise, 3 EQ M<4, 3 EQ 4<=M<5, 3 EQ M>=5); magnitude uses only the 9 eligible earthquakes. Strong events are deliberately overrepresented in the small explanation cohort, so aggregate plots are descriptive, not population estimates. Selection precedes SHAP and uses no prediction quality or test observations. See selection_manifest.json. CPU evaluation mode with frozen weights avoids cuDNN evaluation-mode LSTM backward restrictions. GradientExplainer pilot: 128 draws; final and sensitivity runs: 2048 each, no smoothing.','',limitations]
+lines += ['', 'Both targets use the same mixed-class training backgrounds. The magnitude expected value therefore includes outputs on noise records: it is a mathematical model-output reference, not an average physical earthquake magnitude. Only eligible earthquakes are explained for magnitude.']
+for task in samples:
+ d=validation[task];order=sorted(d['feature_importance'],key=d['feature_importance'].get,reverse=True)
+ lines += ['',f'## {task.capitalize()}','',f'Top three tabular inputs by mean absolute attribution: {", ".join(order[:3])}. This ordering concerns normalized model inputs only. Expected output: {d["expected_output"]:.6f}. Reconstruction mean/max absolute residual: {d["mean_abs_reconstruction_residual"]:.6f}/{d["max_abs_reconstruction_residual"]:.6f}; {d["reconstruction_passes"]}/{d["n"]} satisfy the predeclared tolerance. Alternative-background feature rank correlation: {d["background_stability"]["feature_spearman"]:.3f}; relative L1 difference: {d["background_stability"]["feature_relative_L1"]:.3f}. These small-sample sensitivity results do not establish universal ranking stability.']
+lines+=['','## Limits of interpretation','', 'The dependency issue structurally prevents independent-modality conclusions; its effect size on real-world conclusions is not identifiable from this experiment. No off-manifold causal claims are made. The synthetic oracle-aligned window spans [-1,3) seconds (last waveform sample 2.99 s; last bin ends at 3 s). No future observations enter the inputs. This is completed-window inference, not an online prefix-invariant model. Existing train-fitted preprocessing is reused unchanged. No standalone model explanations or test-set inference were performed.','', '## Figures','']+[f'- [{p.name}](plots/{p.name}) (300 DPI)' for p in sorted((OUT/'plots').glob('*.png'))]
+(OUT/'shap_explainability_report.md').write_text('\\n'.join(lines),encoding='utf-8')
+(OUT/'shap_validation_report.md').write_text('# SHAP validation report\\n\\n**VERDICT: CONDITIONAL**\\n\\nFrozen full-validation loss reproduces the approved checkpoint within 1e-6. Scalar outputs agree with the original two-stage computation. Both input shapes, finite attributions, Attention normalization, paired identities, 3s endpoint, unchanged state tensors and input-file hashes were checked. Pilot and final arrays are genuine SHAP GradientExplainer expected gradients. Residuals are Monte Carlo approximation diagnostics, not exact local accuracy. Sensitivity includes an independent sampling-seed repeat and a distinct paired background; neither changes model parameters.\\n\\n'+limitations+'\\n\\n```json\\n'+json.dumps(validation,indent=2)+'\\n```\\n',encoding='utf-8')
+academic='## SHAP analysis of the final fused Attention model\\n\\nThe frozen 3-second CNN-BiLSTM-Temporal Attention network was explained using SHAP GradientExplainer with paired waveform (400 samples) and tabular (40 bins by seven features) inputs. Separate scalar wrappers represented earthquake-detection logits and predicted magnitudes in original units. A fixed-seed, stratified 48-record training background and a predeclared validation cohort (12 detection cases; nine eligible earthquakes for magnitude) were used. A 128-draw pilot preceded 2048-draw explanations, an independent Monte Carlo repeat, and a second 48-record background. All network modules remained in evaluation mode with unchanged weights on CPU. The approved validation loss was reproduced within 1e-6.\\n\\n'
+for task in samples:
+ d=validation[task];academic+=f'For {task}, mean absolute reconstruction error was {d["mean_abs_reconstruction_residual"]:.4f}, with maximum {d["max_abs_reconstruction_residual"]:.4f}. The feature-importance rank correlation across training backgrounds was {d["background_stability"]["feature_spearman"]:.3f}. '
+academic+='\\n\\n'+limitations+'\\n\\nThe verdict is CONDITIONAL. Figures describe this small, deliberately stratified validation cohort and do not support physical causality, independent sensor contributions, or operational earthquake-warning validity. Attention and SHAP are reported separately. No test selection, training, or tuning was performed.\\n'
+(OUT/'academic_shap_section.md').write_text(academic,encoding='utf-8')
+print('CONDITIONAL: SHAP computed and validated; dependent-input and small-cohort limits apply.')
+''')
+nb=nbf.v4.new_notebook(cells=cells,metadata={'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'}})
+nbf.write(nb,OUT/'01_final_attention_shap.ipynb')

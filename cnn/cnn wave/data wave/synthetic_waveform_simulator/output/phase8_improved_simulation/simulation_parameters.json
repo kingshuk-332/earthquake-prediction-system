@@ -1,0 +1,25 @@
+{
+    "sampling_rate_hz": 100.0,
+    "duration_seconds": 100.0,
+    "vp_km_s": 6.0,
+    "vs_km_s": 3.5,
+    "ref_magnitude": 4.0,
+    "ref_amplitude": 1.0,
+    "mag_scaling_coeff": 0.5,
+    "geometric_spreading_exp": 1.0,
+    "ref_distance_km": 10.0,
+    "qp_0": 350.0,
+    "qs_0": 300.0,
+    "q_eta": 0.7,
+    "q_ref_freq_hz": 1.0,
+    "p_dominant_freq_hz": 5.0,
+    "s_dominant_freq_hz": 2.2,
+    "sp_amp_ratio_bhz": 1.35,
+    "tau_p_base_s": 1.5,
+    "tau_s_base_s": 4.0,
+    "noise_band_hz": [
+        0.2,
+        25.0
+    ],
+    "random_seed": 42
+}

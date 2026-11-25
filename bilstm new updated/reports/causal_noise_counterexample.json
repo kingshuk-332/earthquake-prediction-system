@@ -1,0 +1,21 @@
+{
+  "source_id": "NCS_EV_07168",
+  "trace_name": "ND.DBR..BHZ__earthquake_local__NCS_EV_07168",
+  "source_trace_reproduced": true,
+  "source_max_abs_error": 0.0,
+  "fixed": "P-wave, target magnitude, S arrival, distance, SNR and random seed",
+  "counterfactual": "Multiply future S amplitude coefficient by four; no file changed",
+  "same_clean_signal_before_5s_cutoff": true,
+  "same_p_wave": true,
+  "changed_observed_early_window": true,
+  "early_window_max_abs_change": 0.5218406915664673,
+  "pre_p_max_abs_change": 0.5076061487197876,
+  "reference_noise_sigma": 0.05420965796412107,
+  "changed_noise_sigma": 0.2168358608698443,
+  "reference_full_signal_peak": 1.3169723806810143,
+  "changed_full_signal_peak": 5.267822204223828,
+  "S_arrival_seconds": 33.86,
+  "latest_observation_cutoff_seconds": 10.96,
+  "verdict": "FAIL: early ambient noise depends on unobserved future signal amplitude",
+  "source_lines": "improved_waveform_generator.py:224-243"
+}

@@ -1,0 +1,39 @@
+===========================================================================
+PHASE 3 MATHEMATICAL SPECIFICATION & WAVEFORM EQUATIONS
+===========================================================================
+Wave Packet Mathematical Formulation:
+
+1. Time Axis:
+   t in [0, T], dt = 1 / f_s (with f_s = 100.0 Hz)
+
+2. Envelope Onset Continuity (Gamma-Variate Envelope):
+   To avoid unphysical step discontinuities or sharp artificial spikes,
+   wave packets use a C^1 continuous gamma onset envelope:
+   
+   For tau = t - t_arrival >= 0:
+       E(tau) = (tau / tau_r)^2 * exp(-tau / tau_d)
+   For tau < 0:
+       E(tau) = 0.0
+
+   Properties:
+   - E(0) = 0.0 (strictly continuous at onset)
+   - dE/dtau(0) = 0.0 (smooth slope at arrival)
+   - tau_r = rise time constant
+   - tau_d = coda decay time constant
+
+3. P-Wave Signal Component:
+   w_P(t) = A_P * E_P(t - t_P) * sin(2 * pi * f_P * (t - t_P))
+   - Dominant frequency: f_P = 6.0 Hz (higher compressional frequency)
+   - Envelope decay: tau_d = 1.2 s
+
+4. S-Wave Signal Component:
+   w_S(t) = A_S * E_S(t - t_S) * sin(2 * pi * f_S * (t - t_S) + pi/4)
+   - Dominant frequency: f_S = 2.5 Hz (lower shear frequency)
+   - Envelope decay: tau_d = 3.5 s (extended coda)
+   - Amplitude ratio: A_S / A_P = 3.0
+
+5. Verification Results:
+   - All 5 sample signals exhibit strictly zero values prior to t_P.
+   - P-waves begin at t_P and transition smoothly into S-waves at t_S.
+   - No step discontinuities or unphysical spikes are present.
+===========================================================================

@@ -1,0 +1,104 @@
+# ───────────────────────────────────────────────────────────────
+# .gitignore — Earthquake Early Warning Project
+# GitHub hard limit: 100 MB per file / 2 GB per repo
+# ───────────────────────────────────────────────────────────────
+
+# ── Large dataset / waveform files ──────────────────────────────
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.parquet
+*.feather
+
+# ── Large CSV files (> ~10 MB) — keep small ones ────────────────
+cleanup_audit_2026-11-13/cleanup_manifest.csv
+cleanup_audit_2026-11-13/cleanup_manifest.json
+bilstm\ new\ updated/dataset/split_manifest.csv
+bilstm\ new\ updated/dataset/v2_timestamp_fixed/split_manifest.csv
+
+# ── Trained model weights ────────────────────────────────────────
+*.pth
+*.pt
+*.pkl
+*.joblib
+*.onnx
+*.tflite
+*.pb
+*.h5model
+saved_model/
+checkpoints/
+
+# ── Python virtual environments / notebook runtimes ─────────────
+venv/
+.venv/
+env/
+.env/
+*.notebook-runtime/
+.notebook-runtime/
+.notebook-state/
+.training-runtime/
+.ipython/
+.jupyter/
+.matplotlib/
+.cache/
+bilstm/.notebook-runtime/
+bilstm\ new\ updated/.notebook-runtime/
+bilstm\ new\ updated/.training-runtime/
+
+# ── Python cache ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Jupyter checkpoints ──────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ── OS / editor / lock artifacts ─────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.~lock.*#
+.idea/
+.vscode/
+*.code-workspace
+
+# ── Large compiled binaries (DLLs from explainability runtime) ───
+*.dll
+*.so
+*.dylib
+explainability/final_attention_shap_v1/runtime/
+
+# ── Specific oversized output directories ────────────────────────
+cnn/cnn\ wave/data\ wave/synthetic_waveform_simulator/output/phase6_full_dataset/
+cnn/cnn\ wave/data\ wave/synthetic_waveform_simulator/output/phase9_full_dataset/
+cnn/cnn\ wave/data\ wave/synthetic_waveform_simulator/output/phase10_classification_dataset/
+cnn/cnn\ wave/data\ wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/
+cnn/cnn\ wave/eew_causal_v2/dataset/
+cnn/cnn\ wave/eew_causal_v3/dataset/
+cnn/cnn\ wave/eew_causal_v3/cnn_eew_training/dataset/
+bilstm\ new\ updated/dataset/
+bilstm_eew/causal_tabular_v1/
+
+# ── Logs / temp ──────────────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+texput.pdf
+logs/
+tmp/
+
+# ── Environment / secrets ────────────────────────────────────────
+.env
+*.env
+secrets.json
+credentials.json

@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "best_epoch": 11,
+  "best_validation_mae": 0.46982661592008923,
+  "epochs_run": 19,
+  "training_seconds": 11.078315299935639,
+  "parameter_count": 538881,
+  "initialization_sha256": "f59e851061f26c3274982137372563bae7b1fd324fefeed692b30d708bdabb4f",
+  "best_checkpoint_sha256": "369c411a973e1241c5a7fc8662f00cf776425df44a4988c6e7ff224c47b6c3ff",
+  "huber_delta": 2.0
+}

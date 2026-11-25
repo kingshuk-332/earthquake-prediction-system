@@ -1,0 +1,490 @@
+{
+  "date": "2026-11-10",
+  "stage": "Phase 2E, not recovered Phase 2C execution",
+  "targeted_searches": [
+    {
+      "command": [
+        "rg",
+        "--files",
+        "--hidden",
+        "C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated",
+        "-g",
+        "*phase2c*",
+        "-g",
+        "*Phase2C*",
+        "-g",
+        "*feature*temporal*.ipynb",
+        "-g",
+        "!**/.training-runtime/**"
+      ],
+      "exit_code": 0,
+      "matches": [
+        "C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated\\phase2_bilstm_results\\error_diagnosis\\phase2c_feature_informativeness_report.md",
+        "C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated\\phase2_bilstm_results\\error_diagnosis\\phase2c_feature_audit.json"
+      ]
+    },
+    {
+      "command": [
+        "rg",
+        "-l",
+        "-i",
+        "--hidden",
+        "-g",
+        "*.ipynb",
+        "-g",
+        "!**/.training-runtime/**",
+        "-g",
+        "!phase2d_gemini_verification.ipynb",
+        "-g",
+        "!phase2e_report_corrections.ipynb",
+        "Phase 2C|Feature Informativeness|Feature.{0,30}Temporal.{0,20}Audit",
+        "C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated"
+      ],
+      "exit_code": 0,
+      "matches": [
+        "C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated\\phase2a_bilstm_error_diagnosis.ipynb"
+      ]
+    }
+  ],
+  "additional_search_locations": [
+    {
+      "directory": "C:\\Users\\choud\\Desktop\\Minor project",
+      "exists": true,
+      "matches": []
+    },
+    {
+      "directory": "C:\\Users\\choud\\Desktop\\Minor project\\.ipynb_checkpoints",
+      "exists": false,
+      "matches": []
+    },
+    {
+      "directory": "C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated\\.ipynb_checkpoints",
+      "exists": false,
+      "matches": []
+    }
+  ],
+  "phase2b_notebook_metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.13.12"
+    }
+  },
+  "saved_notebook_log_excerpts": [
+    {
+      "cell": 1,
+      "execution_count": 1,
+      "metadata": {},
+      "errors": [],
+      "log_excerpt": "[UNIT VERIFICATION] target_transform is identity (offset=0.0, scale=1.0).\n[UNIT VERIFICATION] Delta is measured in ORIGINAL magnitude units (ML).\n[UNIT VERIFICATION] Existing model used Huber delta=1.0 ML. New model uses Huber delta=2.0 ML.\n[DATA LOAD] Train: torch.Size([4973, 20, 10]), Val: torch.Size([1065, 20, 10]) (Test data strictly unread).\n[SETUP COMPLETE] Device: cuda Approved Variant C generator verified.\n"
+    },
+    {
+      "cell": 3,
+      "execution_count": 3,
+      "metadata": {},
+      "errors": [],
+      "log_excerpt": "[HYPERPARAMETERS LOADED]: {'hidden_size': 128, 'layers': 2, 'dropout': 0.3144753602375439, 'learning_rate': 0.0004549047669323766, 'weight_decay': 0.00012155233771053111, 'batch_size': 128}\n"
+    },
+    {
+      "cell": 5,
+      "execution_count": 5,
+      "metadata": {},
+      "errors": [],
+      "log_excerpt": "Epoch 18: Val MAE=0.5023, Val RMSE=0.6634, Val Pred Std=0.1369, High MAE=1.6168 \nEpoch 19: Val MAE=0.5066, Val RMSE=0.6704, Val Pred Std=0.1232, High MAE=1.6408 \n[TRAINING COMPLETE] Best Epoch: 11 Best Val MAE: 0.4698"
+    },
+    {
+      "cell": 7,
+      "execution_count": 7,
+      "metadata": {},
+      "errors": [],
+      "log_excerpt": "===========================================================================\nCONTROLLED HUBER LOSS EXPERIMENT: VALIDATION SET RESULTS (DELTA=1 vs DELTA=2)\n===========================================================================\n                              Metric Baseline (delta=1) Experiment (delta=2) Difference (delta=2 minus delta=1)\n              Huber Delta (ML units)                1.0                  2.0                               +1.0\n                      Validation MAE             0.4724               0.4698                            -0.0026\n                     Validation RMSE             0.6242               0.6243                            +0.0002\n                       Validation R2             0.0162               0.0158                            -0.0005\n              ML>=4.5 Validation MAE             1.4214               1.4658                            +0.044"
+    },
+    {
+      "cell": 9,
+      "execution_count": 9,
+      "metadata": {},
+      "errors": [],
+      "log_excerpt": "[PLOTS SAVED] Diagnostic figures saved to: C:\\Users\\choud\\Desktop\\Minor project\\bilstm new updated\\phase2_bilstm_results\\huber_experiment\\plots\n"
+    }
+  ],
+  "checkpoint_metadata": {
+    "delta1_best": {
+      "path": "phase2_bilstm_results\\variants\\C\\best.pt",
+      "sha256": "6ba8162d7b2e22e9d4cd9fd44bd1165a408e176c123c0be9cc7a7c44e118fe73",
+      "keys": [
+        "augmentation_run_id",
+        "augmentation_variant",
+        "best_epoch",
+        "consumer_source_sha256",
+        "dataset_sha256",
+        "dataset_version",
+        "fit_key",
+        "hyperparameters",
+        "initialization_sha256",
+        "loss",
+        "model_config",
+        "model_state",
+        "optimizer",
+        "parameter_count",
+        "run_id",
+        "seed",
+        "target_definition",
+        "validation_mae"
+      ],
+      "saved_metadata": {
+        "hyperparameters": {
+          "hidden_size": 128,
+          "layers": 2,
+          "dropout": 0.3144753602375439,
+          "learning_rate": 0.0004549047669323766,
+          "weight_decay": 0.00012155233771053111,
+          "batch_size": 128
+        },
+        "model_config": {
+          "hidden_size": 128,
+          "layers": 2,
+          "dropout": 0.3144753602375439
+        },
+        "dataset_version": "v2_timestamp_fixed",
+        "dataset_sha256": "97d357f71d6f83e3c7cbb5a163ca42b0ed40fbb2fc859c9e2076445c661c934f",
+        "consumer_source_sha256": "5975497597e70a89b9f7009b861963cb23b4ecc7f6f2b99db8273920489b3058",
+        "augmentation_variant": "C",
+        "target_definition": {
+          "run_id": "945fdfac7b47cfb0",
+          "primary": "Next retained ML catalog event's Magnitude_Value",
+          "column": "Magnitude_Value",
+          "type_column": "Magnitude_Type",
+          "allowed_type": "ML",
+          "choice_reason": "Use one explicitly recorded magnitude type; no unsupported conversion, averaging or source_magnitude substitution.",
+          "alternative_columns": "source_magnitude/source_magnitude_type used solely for discrepancy audit",
+          "filter_effect": "Next event means next ML-labeled event, not necessarily the next event in the unfiltered CSV.",
+          "conversion": "none",
+          "source_accuracy": "UNKNOWN; ML labels and unusually large values are preserved, not independently calibrated",
+          "binary_target": "1 iff raw target Magnitude_Value >= 4.5; otherwise 0",
+          "target_transform": {
+            "name": "identity",
+            "offset": 0.0,
+            "scale": 1.0
+          },
+          "forecast_task": "Retrospective next-event magnitude diagnostic, not operational EEW",
+          "availability": "UNKNOWN; origin times do not prove reporting availability"
+        },
+        "best_epoch": 12,
+        "validation_mae": 0.47240000017372097,
+        "seed": 42,
+        "parameter_count": 538881,
+        "initialization_sha256": "f59e851061f26c3274982137372563bae7b1fd324fefeed692b30d708bdabb4f",
+        "optimizer": "AdamW_all_trainable_weights_and_biases",
+        "loss": "Huber_delta1"
+      },
+      "inspection": "PASS: weights_only fake tensors; tensor storage not materialized; no model constructed"
+    },
+    "delta2_best": {
+      "path": "phase2_bilstm_results\\huber_experiment\\best.pt",
+      "sha256": "369c411a973e1241c5a7fc8662f00cf776425df44a4988c6e7ff224c47b6c3ff",
+      "keys": [
+        "augmentation_variant",
+        "best_epoch",
+        "dataset_sha256",
+        "dataset_version",
+        "hyperparameters",
+        "initialization_sha256",
+        "loss",
+        "model_config",
+        "model_state",
+        "optimizer",
+        "parameter_count",
+        "seed",
+        "target_definition",
+        "validation_mae"
+      ],
+      "saved_metadata": {
+        "hyperparameters": {
+          "hidden_size": 128,
+          "layers": 2,
+          "dropout": 0.3144753602375439,
+          "learning_rate": 0.0004549047669323766,
+          "weight_decay": 0.00012155233771053111,
+          "batch_size": 128
+        },
+        "model_config": {
+          "hidden_size": 128,
+          "layers": 2,
+          "dropout": 0.3144753602375439
+        },
+        "dataset_version": "v2_timestamp_fixed",
+        "dataset_sha256": "97d357f71d6f83e3c7cbb5a163ca42b0ed40fbb2fc859c9e2076445c661c934f",
+        "augmentation_variant": "C",
+        "target_definition": {
+          "run_id": "945fdfac7b47cfb0",
+          "primary": "Next retained ML catalog event's Magnitude_Value",
+          "column": "Magnitude_Value",
+          "type_column": "Magnitude_Type",
+          "allowed_type": "ML",
+          "choice_reason": "Use one explicitly recorded magnitude type; no unsupported conversion, averaging or source_magnitude substitution.",
+          "alternative_columns": "source_magnitude/source_magnitude_type used solely for discrepancy audit",
+          "filter_effect": "Next event means next ML-labeled event, not necessarily the next event in the unfiltered CSV.",
+          "conversion": "none",
+          "source_accuracy": "UNKNOWN; ML labels and unusually large values are preserved, not independently calibrated",
+          "binary_target": "1 iff raw target Magnitude_Value >= 4.5; otherwise 0",
+          "target_transform": {
+            "name": "identity",
+            "offset": 0.0,
+            "scale": 1.0
+          },
+          "forecast_task": "Retrospective next-event magnitude diagnostic, not operational EEW",
+          "availability": "UNKNOWN; origin times do not prove reporting availability"
+        },
+        "best_epoch": 11,
+        "validation_mae": 0.46982661592008923,
+        "seed": 42,
+        "parameter_count": 538881,
+        "initialization_sha256": "f59e851061f26c3274982137372563bae7b1fd324fefeed692b30d708bdabb4f",
+        "optimizer": "AdamW",
+        "loss": "Huber_delta2.0"
+      },
+      "inspection": "PASS: weights_only fake tensors; tensor storage not materialized; no model constructed"
+    },
+    "delta2_last": {
+      "path": "phase2_bilstm_results\\huber_experiment\\last.pt",
+      "sha256": "46617997ace5f9fb8db52ab578c4536716387f3afabbb2d98232058975c7abe4",
+      "keys": [
+        "best_epoch",
+        "best_mae",
+        "elapsed_seconds",
+        "epoch",
+        "history",
+        "initialization_sha256",
+        "model_state",
+        "optimizer_state",
+        "stale"
+      ],
+      "saved_metadata": {
+        "best_epoch": 11,
+        "initialization_sha256": "f59e851061f26c3274982137372563bae7b1fd324fefeed692b30d708bdabb4f",
+        "epoch": 19,
+        "best_mae": 0.46982661592008923,
+        "stale": 8
+      },
+      "optimizer_param_groups": [
+        {
+          "lr": 0.0004549047669323766,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.00012155233771053111,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        }
+      ],
+      "inspection": "PASS: weights_only fake tensors; tensor storage not materialized; no model constructed"
+    },
+    "delta1_last": {
+      "path": "phase2_bilstm_results\\variants\\C\\last.pt",
+      "sha256": "bdf689f100643e168c253d8e39e576da8db90f104494fecfc0077735dfc2db24",
+      "keys": [
+        "best_epoch",
+        "best_mae",
+        "cpu_rng",
+        "cuda_rng",
+        "elapsed_seconds",
+        "epoch",
+        "fit_key",
+        "history",
+        "initialization_sha256",
+        "model_state",
+        "optimizer_state",
+        "stale"
+      ],
+      "optimizer_param_groups": [
+        {
+          "lr": 0.0004549047669323766,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.00012155233771053111,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        }
+      ]
+    }
+  },
+  "protected_hashes_before": {
+    "dataset\\v2_timestamp_fixed\\augmentation_config.json": "6628059b1d51b66829d0a97ac138417fbd5e02d6e0bb5498e92fa5770b352886",
+    "dataset\\v2_timestamp_fixed\\bilstm_catalog_seq20.npz": "6eb76694e74ef037e62c30942a5a13b9b2b7890ca20d4b341d7c26df35aa4d2f",
+    "dataset\\v2_timestamp_fixed\\bilstm_catalog_seq20.pt": "97d357f71d6f83e3c7cbb5a163ca42b0ed40fbb2fc859c9e2076445c661c934f",
+    "dataset\\v2_timestamp_fixed\\catalog_artifact_hashes.json": "65a59b59112e23153d9028a53a0d5b5f4f2f5b4647fad5933cb107a38af77c03",
+    "dataset\\v2_timestamp_fixed\\catalog_context_overlap.json": "b4b4389388a8687e3836cc60a89d30953b21e710f3bbd3524d9e6feea8b42938",
+    "dataset\\v2_timestamp_fixed\\catalog_events.csv": "ab09464b9e07e7196d81cdbc911bc009bc1db982efe2108b2e4982f299f58b9c",
+    "dataset\\v2_timestamp_fixed\\catalog_feature_events.csv": "4d39657ca4699bf5d66e6dd6b2a1e3a4096de649dc82eb9103148f671aee38d3",
+    "dataset\\v2_timestamp_fixed\\catalog_magnitude_conflicts.csv": "1956622e38844083a7ef7bdd0a875b09fd7737dc2f0299f543b916f5ed5c85c6",
+    "dataset\\v2_timestamp_fixed\\catalog_record_disposition.csv": "10331f39eebb44e62584bd18c0a7c0755ad20be92f43582cc6de74984e9e72b7",
+    "dataset\\v2_timestamp_fixed\\catalog_scaler_fit_events.csv": "3db57100747ca452c809a01a159f2e6e4a640a6a35ce04e760d2485d1dc7de08",
+    "dataset\\v2_timestamp_fixed\\catalog_train_scalers.json": "30d2eea427bed1de6213b756d63c018fe856e4b31c7d05fa64fa8a5c545b55fc",
+    "dataset\\v2_timestamp_fixed\\dataset_validation.json": "2ade8d20b00ea7422091e8cd20455be3e8e3d9de5f52ae6abeb720b69533f00d",
+    "dataset\\v2_timestamp_fixed\\feature_schema.json": "840bc3300113508f1d3af17c7a922e975d21c0b72ed6b2fafc9650980150aede",
+    "dataset\\v2_timestamp_fixed\\preprocessing_config.json": "22464be4fb675844ccc56a2f3f3f9be8a0ed783a1dcc3d73b4b261f8a4d8a9d8",
+    "dataset\\v2_timestamp_fixed\\split_manifest.csv": "af9577357cd47bc5aa62f9d519784e247cf90c4b47df5938714ef5ddd0d33d06",
+    "dataset\\v2_timestamp_fixed\\target_definition.json": "b3ef9143a50d2fd97dead17f423c59e9c1dc0f7d69654333d45c65368577d890",
+    "dataset\\v2_timestamp_fixed\\timestamp_fix_impact.json": "00a42e401a3afb673b384e30385a6b9c1176c5534a41e7983c3e99eb0d66f30c",
+    "dataset\\v2_timestamp_fixed\\timestamp_unit_tests.json": "efd604e533ce02e7708a649401cf196bf8865001bee93c17a93be5496cb8d347",
+    "phase1b_imbalance_noise_preprocessing.ipynb": "c6400368c709d0465a92ecef1eaa1d7e31e74e22ae5716c7b8bcd13f088720d9",
+    "phase2_bilstm_results\\artifact_hashes.json": "a842537d4a751a4251ee2bc21ef86ac8b6ccea578487f7666611ab874628d89c",
+    "phase2_bilstm_results\\best_hyperparameters.json": "430786e0ddd06cc6300965ea7b606853e093c5c8bea36635349904854f48c30b",
+    "phase2_bilstm_results\\error_diagnosis\\feature_correlation_drift.png": "2f335f7a1dd9260e9d46d8ad835256db309f6be418171afd3a7aff5899cb1f35",
+    "phase2_bilstm_results\\error_diagnosis\\phase2c_feature_audit.json": "dd305c60dce56e0a496676e18e6a0a61a4047a9a7bcdcc54ebd53cde599203ca",
+    "phase2_bilstm_results\\error_diagnosis\\phase2c_feature_informativeness_report.md": "9eaf39fe259d0d5f1472925897dd39cf88d5a6f15bd8d1aab18e4d67f8254e60",
+    "phase2_bilstm_results\\error_diagnosis\\temporal_distribution_shift.png": "f22c2559f3dc173dd4dd6fb540938353b18902ed3f31f876aaf1d6f7aa439f38",
+    "phase2_bilstm_results\\final_report.md": "1b9197bdbe568a383cfbff3df18a76bab7304223a81fd7d65b6df019e3832d43",
+    "phase2_bilstm_results\\huber_experiment\\best.pt": "369c411a973e1241c5a7fc8662f00cf776425df44a4988c6e7ff224c47b6c3ff",
+    "phase2_bilstm_results\\huber_experiment\\fit_summary.json": "5f027b292e8929e5f26588b8b0d61f778d6d29a76d14e7048424430d6074c2b2",
+    "phase2_bilstm_results\\huber_experiment\\history.json": "ac63b21e6e74b3b4944b762e59f67b229ba875573cdad98a02543cdc4550683a",
+    "phase2_bilstm_results\\huber_experiment\\huber_delta2_metrics.json": "119b9618f53cf2fc146769261133cc6a71968188f10227a7920263e85d843b25",
+    "phase2_bilstm_results\\huber_experiment\\huber_experiment_report.md": "76d28aba22bb1aa4d91073120dec0494368a4e875d17e06e273f78547c408c87",
+    "phase2_bilstm_results\\huber_experiment\\huber_loss_comparison.csv": "6be37eecc9a4d791e6794eea9938f96ac6b6a18aa313fd3c801ae7a6dcfab6d2",
+    "phase2_bilstm_results\\huber_experiment\\last.pt": "46617997ace5f9fb8db52ab578c4536716387f3afabbb2d98232058975c7abe4",
+    "phase2_bilstm_results\\huber_experiment\\plots\\prediction_distribution_comparison.png": "42f5209611784f77eca05eb606346ae3295386e4d377a5063af3882461720944",
+    "phase2_bilstm_results\\huber_experiment\\plots\\training_validation_curves.png": "ea07d3bc31267677b9f1c735ac35e9c558997c88cd0c23f478b0b57aeaccd7af",
+    "phase2_bilstm_results\\huber_experiment\\validation_predictions.npz": "fa709872e7c0e138c78257cab5deb273fb38e25237481cd4f3471c4488876c70",
+    "phase2_bilstm_results\\optuna_study.sqlite3": "b9847fd88c1d49958b8cf9a971f54328aed6f5e310c2004b70aca99843ec9961",
+    "phase2_bilstm_results\\protocol.json": "47f954ae16d7e80ffa597a4803cfb948dcb523c605ca54649ff2e4f502b1da9e",
+    "phase2_bilstm_results\\selected_test_metrics.json": "920605850c4a2d390ec790b81bdb0ceb6014e67279b2972099a597cee65997ce",
+    "phase2_bilstm_results\\selected_test_predictions.npz": "de915a125a907af71815e244146d3e35d241f17a9e51aec27daa8ff177a505ec",
+    "phase2_bilstm_results\\selection_lock.json": "adcaa0d697f75ef532bac280e2960c903371f53eb8fc2148b619ba8e059f53e9",
+    "phase2_bilstm_results\\validation_comparison.csv": "0e24f7c5068d388d6487c4667ff6f27bb4c65517e845c2d6306aefa488d67528",
+    "phase2_bilstm_results\\variants\\A\\best.pt": "9cc86ef8f5b1ddd76d5149f134f834ee19bfdcb7afb6bc545b1fbaf587840f9e",
+    "phase2_bilstm_results\\variants\\B\\best.pt": "a514f13fe5db315a931118decb2810fd722111f81c96820515c694e108dbf304",
+    "phase2_bilstm_results\\variants\\C\\best.pt": "6ba8162d7b2e22e9d4cd9fd44bd1165a408e176c123c0be9cc7a7c44e118fe73",
+    "phase2_bilstm_results\\variants\\C\\fit_summary.json": "b9ca9202265b3260e4df8a9e5ccd19b38611c2a1ddd542da9820af6597fa8872",
+    "phase2_bilstm_results\\variants\\C\\history.json": "a3861044947d5106cfe008d4e65da3356280251112f0182d8fb97d3196be1991",
+    "phase2_bilstm_results\\variants\\C\\validation_predictions.npz": "6a34d302e6ed40c8ca6e6fdd29a748402a6f3f003a94f3dce36a7319f5c3dce6",
+    "phase2_bilstm_results\\variants\\D\\best.pt": "f834ef143c7706d4c324091732e1ca6b8eb6f792063ef0c6bc54f13e36ad42fc",
+    "phase2_bilstm_results\\verification.json": "4e8cf10222493d31b67e997b847797f2ed6981a12cf5ccbcf64c927f09202b93",
+    "phase2_bilstm_training.ipynb": "055b3ebd2e4385701347720ae91d477ea998631cc6144ec5bb9d51d4e2cf8df5",
+    "phase2b_huber_loss_experiment.ipynb": "20edf9bbeddd109afda9e2b61256299df1efb2c14eeace2ad28ecda6490078a8",
+    "phase2_bilstm_results\\gemini_verification\\verification_report.md": "48a59f39cf2f8fd00bae0087377510c16fa91d9ed76f38ae70a3241923099a6d",
+    "phase2_bilstm_results\\gemini_verification\\verification_metrics.json": "cf36108fe277f960bf5fa227c61df4ed82e7912e018346b335dca21a40ee3e30",
+    "phase2_bilstm_results\\gemini_verification\\discrepancy_table.csv": "3daa172d3c99c62ac8ec9094cc17c200267711ee7aa83275b28e332c1ff885ea",
+    "phase2_bilstm_results\\gemini_verification\\feature_verification.csv": "68304a317bf53fe8a226a7bb192fa208045b029c8202d89ba29d6c0048d9f42c",
+    "phase2_bilstm_results\\variants\\C\\last.pt": "bdf689f100643e168c253d8e39e576da8db90f104494fecfc0077735dfc2db24"
+  },
+  "candidate_reviews": [
+    {
+      "path": "phase2a_bilstm_error_diagnosis.ipynb",
+      "title": "# Phase 2A \u2014 saved-output diagnosis only\n\nSelected C is fixed. No checkpoint loading, inference, training, Optuna, preprocessing, loss/sampler changes or model selection. Saved predictions are sufficient. Test distributi",
+      "matching_lines": [
+        "## Loss and feature informativeness"
+      ],
+      "classification": "Phase 2A artifact, not recovered Phase 2C execution"
+    }
+  ],
+  "new_evidence": {
+    "matching_checkpoint_config_fields": {
+      "hyperparameters": true,
+      "model_config": true,
+      "dataset_version": true,
+      "dataset_sha256": true,
+      "augmentation_variant": true,
+      "target_definition": true,
+      "seed": true,
+      "parameter_count": true,
+      "initialization_sha256": true
+    },
+    "optimizer_groups_equal": true,
+    "losses": [
+      "Huber_delta1",
+      "Huber_delta2.0"
+    ],
+    "best_epochs": [
+      12,
+      11
+    ],
+    "best_epoch_val_mae_match_history": true,
+    "delta2_last_epoch": 19,
+    "delta2_stale_epochs": 8,
+    "interpretation": "Serialized controls and selection metadata support the comparison. Complete historical runtime equivalence and absolute test non-access remain UNKNOWN.",
+    "missing": "Original Phase2C execution; full delta2 runtime/environment snapshot and independent access log; delta2 checkpoint consumer_source_sha256."
+  },
+  "protected_hashes_after": {
+    "dataset\\v2_timestamp_fixed\\augmentation_config.json": "6628059b1d51b66829d0a97ac138417fbd5e02d6e0bb5498e92fa5770b352886",
+    "dataset\\v2_timestamp_fixed\\bilstm_catalog_seq20.npz": "6eb76694e74ef037e62c30942a5a13b9b2b7890ca20d4b341d7c26df35aa4d2f",
+    "dataset\\v2_timestamp_fixed\\bilstm_catalog_seq20.pt": "97d357f71d6f83e3c7cbb5a163ca42b0ed40fbb2fc859c9e2076445c661c934f",
+    "dataset\\v2_timestamp_fixed\\catalog_artifact_hashes.json": "65a59b59112e23153d9028a53a0d5b5f4f2f5b4647fad5933cb107a38af77c03",
+    "dataset\\v2_timestamp_fixed\\catalog_context_overlap.json": "b4b4389388a8687e3836cc60a89d30953b21e710f3bbd3524d9e6feea8b42938",
+    "dataset\\v2_timestamp_fixed\\catalog_events.csv": "ab09464b9e07e7196d81cdbc911bc009bc1db982efe2108b2e4982f299f58b9c",
+    "dataset\\v2_timestamp_fixed\\catalog_feature_events.csv": "4d39657ca4699bf5d66e6dd6b2a1e3a4096de649dc82eb9103148f671aee38d3",
+    "dataset\\v2_timestamp_fixed\\catalog_magnitude_conflicts.csv": "1956622e38844083a7ef7bdd0a875b09fd7737dc2f0299f543b916f5ed5c85c6",
+    "dataset\\v2_timestamp_fixed\\catalog_record_disposition.csv": "10331f39eebb44e62584bd18c0a7c0755ad20be92f43582cc6de74984e9e72b7",
+    "dataset\\v2_timestamp_fixed\\catalog_scaler_fit_events.csv": "3db57100747ca452c809a01a159f2e6e4a640a6a35ce04e760d2485d1dc7de08",
+    "dataset\\v2_timestamp_fixed\\catalog_train_scalers.json": "30d2eea427bed1de6213b756d63c018fe856e4b31c7d05fa64fa8a5c545b55fc",
+    "dataset\\v2_timestamp_fixed\\dataset_validation.json": "2ade8d20b00ea7422091e8cd20455be3e8e3d9de5f52ae6abeb720b69533f00d",
+    "dataset\\v2_timestamp_fixed\\feature_schema.json": "840bc3300113508f1d3af17c7a922e975d21c0b72ed6b2fafc9650980150aede",
+    "dataset\\v2_timestamp_fixed\\preprocessing_config.json": "22464be4fb675844ccc56a2f3f3f9be8a0ed783a1dcc3d73b4b261f8a4d8a9d8",
+    "dataset\\v2_timestamp_fixed\\split_manifest.csv": "af9577357cd47bc5aa62f9d519784e247cf90c4b47df5938714ef5ddd0d33d06",
+    "dataset\\v2_timestamp_fixed\\target_definition.json": "b3ef9143a50d2fd97dead17f423c59e9c1dc0f7d69654333d45c65368577d890",
+    "dataset\\v2_timestamp_fixed\\timestamp_fix_impact.json": "00a42e401a3afb673b384e30385a6b9c1176c5534a41e7983c3e99eb0d66f30c",
+    "dataset\\v2_timestamp_fixed\\timestamp_unit_tests.json": "efd604e533ce02e7708a649401cf196bf8865001bee93c17a93be5496cb8d347",
+    "phase1b_imbalance_noise_preprocessing.ipynb": "c6400368c709d0465a92ecef1eaa1d7e31e74e22ae5716c7b8bcd13f088720d9",
+    "phase2_bilstm_results\\artifact_hashes.json": "a842537d4a751a4251ee2bc21ef86ac8b6ccea578487f7666611ab874628d89c",
+    "phase2_bilstm_results\\best_hyperparameters.json": "430786e0ddd06cc6300965ea7b606853e093c5c8bea36635349904854f48c30b",
+    "phase2_bilstm_results\\error_diagnosis\\feature_correlation_drift.png": "2f335f7a1dd9260e9d46d8ad835256db309f6be418171afd3a7aff5899cb1f35",
+    "phase2_bilstm_results\\error_diagnosis\\phase2c_feature_audit.json": "dd305c60dce56e0a496676e18e6a0a61a4047a9a7bcdcc54ebd53cde599203ca",
+    "phase2_bilstm_results\\error_diagnosis\\phase2c_feature_informativeness_report.md": "9eaf39fe259d0d5f1472925897dd39cf88d5a6f15bd8d1aab18e4d67f8254e60",
+    "phase2_bilstm_results\\error_diagnosis\\temporal_distribution_shift.png": "f22c2559f3dc173dd4dd6fb540938353b18902ed3f31f876aaf1d6f7aa439f38",
+    "phase2_bilstm_results\\final_report.md": "1b9197bdbe568a383cfbff3df18a76bab7304223a81fd7d65b6df019e3832d43",
+    "phase2_bilstm_results\\huber_experiment\\best.pt": "369c411a973e1241c5a7fc8662f00cf776425df44a4988c6e7ff224c47b6c3ff",
+    "phase2_bilstm_results\\huber_experiment\\fit_summary.json": "5f027b292e8929e5f26588b8b0d61f778d6d29a76d14e7048424430d6074c2b2",
+    "phase2_bilstm_results\\huber_experiment\\history.json": "ac63b21e6e74b3b4944b762e59f67b229ba875573cdad98a02543cdc4550683a",
+    "phase2_bilstm_results\\huber_experiment\\huber_delta2_metrics.json": "119b9618f53cf2fc146769261133cc6a71968188f10227a7920263e85d843b25",
+    "phase2_bilstm_results\\huber_experiment\\huber_experiment_report.md": "76d28aba22bb1aa4d91073120dec0494368a4e875d17e06e273f78547c408c87",
+    "phase2_bilstm_results\\huber_experiment\\huber_loss_comparison.csv": "6be37eecc9a4d791e6794eea9938f96ac6b6a18aa313fd3c801ae7a6dcfab6d2",
+    "phase2_bilstm_results\\huber_experiment\\last.pt": "46617997ace5f9fb8db52ab578c4536716387f3afabbb2d98232058975c7abe4",
+    "phase2_bilstm_results\\huber_experiment\\plots\\prediction_distribution_comparison.png": "42f5209611784f77eca05eb606346ae3295386e4d377a5063af3882461720944",
+    "phase2_bilstm_results\\huber_experiment\\plots\\training_validation_curves.png": "ea07d3bc31267677b9f1c735ac35e9c558997c88cd0c23f478b0b57aeaccd7af",
+    "phase2_bilstm_results\\huber_experiment\\validation_predictions.npz": "fa709872e7c0e138c78257cab5deb273fb38e25237481cd4f3471c4488876c70",
+    "phase2_bilstm_results\\optuna_study.sqlite3": "b9847fd88c1d49958b8cf9a971f54328aed6f5e310c2004b70aca99843ec9961",
+    "phase2_bilstm_results\\protocol.json": "47f954ae16d7e80ffa597a4803cfb948dcb523c605ca54649ff2e4f502b1da9e",
+    "phase2_bilstm_results\\selected_test_metrics.json": "920605850c4a2d390ec790b81bdb0ceb6014e67279b2972099a597cee65997ce",
+    "phase2_bilstm_results\\selected_test_predictions.npz": "de915a125a907af71815e244146d3e35d241f17a9e51aec27daa8ff177a505ec",
+    "phase2_bilstm_results\\selection_lock.json": "adcaa0d697f75ef532bac280e2960c903371f53eb8fc2148b619ba8e059f53e9",
+    "phase2_bilstm_results\\validation_comparison.csv": "0e24f7c5068d388d6487c4667ff6f27bb4c65517e845c2d6306aefa488d67528",
+    "phase2_bilstm_results\\variants\\A\\best.pt": "9cc86ef8f5b1ddd76d5149f134f834ee19bfdcb7afb6bc545b1fbaf587840f9e",
+    "phase2_bilstm_results\\variants\\B\\best.pt": "a514f13fe5db315a931118decb2810fd722111f81c96820515c694e108dbf304",
+    "phase2_bilstm_results\\variants\\C\\best.pt": "6ba8162d7b2e22e9d4cd9fd44bd1165a408e176c123c0be9cc7a7c44e118fe73",
+    "phase2_bilstm_results\\variants\\C\\fit_summary.json": "b9ca9202265b3260e4df8a9e5ccd19b38611c2a1ddd542da9820af6597fa8872",
+    "phase2_bilstm_results\\variants\\C\\history.json": "a3861044947d5106cfe008d4e65da3356280251112f0182d8fb97d3196be1991",
+    "phase2_bilstm_results\\variants\\C\\validation_predictions.npz": "6a34d302e6ed40c8ca6e6fdd29a748402a6f3f003a94f3dce36a7319f5c3dce6",
+    "phase2_bilstm_results\\variants\\D\\best.pt": "f834ef143c7706d4c324091732e1ca6b8eb6f792063ef0c6bc54f13e36ad42fc",
+    "phase2_bilstm_results\\verification.json": "4e8cf10222493d31b67e997b847797f2ed6981a12cf5ccbcf64c927f09202b93",
+    "phase2_bilstm_training.ipynb": "055b3ebd2e4385701347720ae91d477ea998631cc6144ec5bb9d51d4e2cf8df5",
+    "phase2b_huber_loss_experiment.ipynb": "20edf9bbeddd109afda9e2b61256299df1efb2c14eeace2ad28ecda6490078a8",
+    "phase2_bilstm_results\\gemini_verification\\verification_report.md": "48a59f39cf2f8fd00bae0087377510c16fa91d9ed76f38ae70a3241923099a6d",
+    "phase2_bilstm_results\\gemini_verification\\verification_metrics.json": "cf36108fe277f960bf5fa227c61df4ed82e7912e018346b335dca21a40ee3e30",
+    "phase2_bilstm_results\\gemini_verification\\discrepancy_table.csv": "3daa172d3c99c62ac8ec9094cc17c200267711ee7aa83275b28e332c1ff885ea",
+    "phase2_bilstm_results\\gemini_verification\\feature_verification.csv": "68304a317bf53fe8a226a7bb192fa208045b029c8202d89ba29d6c0048d9f42c",
+    "phase2_bilstm_results\\variants\\C\\last.pt": "bdf689f100643e168c253d8e39e576da8db90f104494fecfc0077735dfc2db24"
+  },
+  "source_preservation_pass": true,
+  "corrected_feature_summary_count": 19,
+  "all_19_replacements_present": true,
+  "revisions": {
+    "phase2_bilstm_results\\huber_experiment\\huber_experiment_report_revision_v1.md": "7cfa0b5bf5c4e36489ad25274553ab95799cfbc7d8899a0390c829b5d41089b7",
+    "phase2_bilstm_results\\error_diagnosis\\phase2c_feature_informativeness_report_revision_v1.md": "e08ec6fd61353b2e8cffbfb4f1253da277d9e8a56eff3bda91a31d0914a9a154"
+  }
+}

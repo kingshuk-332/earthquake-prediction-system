@@ -1,0 +1,17 @@
+{
+  "run_id": "4793cab85df55b7a",
+  "training_ready": false,
+  "status": "DIAGNOSTIC_ONLY_SOURCE_INVALID",
+  "source_dataset": "../dataset/bilstm_catalog_seq20.pt",
+  "source_sha256": "bcbab453d564a5223c14029ed3c053f1f6cc58597aac6072f1b8c5fafda6951c",
+  "parameter_file": "augmentation_config.json",
+  "preview_epoch": 0,
+  "preview_plan": "sampling_plan.npz",
+  "epoch_implementation": "draw_parent_indices, coordinate_noise and prepare_training_epoch in ../phase1b_imbalance_noise_preprocessing.ipynb",
+  "numpy_version": "2.3.4",
+  "bit_generator": "PCG64 via default_rng/SeedSequence",
+  "historical_event_noise_indexing": "Sorted unique training input source IDs from original split manifest; IDs never added as model features.",
+  "new_earthquake_records": 0,
+  "interpolated_examples": 0,
+  "consumer_gate": "prepare_training_epoch refuses use when source validation fails; diagnostic previews are not training approval."
+}

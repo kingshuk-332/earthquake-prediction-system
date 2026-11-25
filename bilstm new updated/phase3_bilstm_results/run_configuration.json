@@ -1,0 +1,31 @@
+{
+  "protocol_hash": "c81efddc5c19f969d10040baa9591b463996a7fb2f35ab693e262bc5ff52e7d4",
+  "dataset_sha256": "0179ce1a240bf210e3a6e880b12a6e47d05dae451c51982cc43e2c03fb817bb4",
+  "scaler_sha256": "31dc46a8db84b0fb821216e3a8f636ad62e4b112d0f7a90837e37155953049e2",
+  "training_source_sha256": "4bb3cf79cd23eae5f4759da6bad56a6f69fad07d8adf6bb950e26532239d9b60",
+  "settings": {
+    "hidden_size": 128,
+    "layers": 2,
+    "dropout": 0.3144753602375439,
+    "learning_rate": 0.0004549047669323766,
+    "weight_decay": 0.00012155233771053111,
+    "batch_size": 128,
+    "optimizer": "AdamW",
+    "delta": 1.0,
+    "max_epochs": 50,
+    "patience": 8,
+    "gradient_clip": 1.0
+  },
+  "seed": 42,
+  "torch": "2.6.0+cu124",
+  "numpy": "2.3.4",
+  "python": "3.13.12",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "cuda": "12.4",
+  "cudnn": 90100,
+  "deterministic": true,
+  "TF32": false,
+  "sampler": "weights=1+0.5*clip((train_y-4)/1.5,0,1); replacement; n_train draws; sorted parents; numpy SeedSequence([42,epoch])",
+  "sampling_weights_sha256": "3fdc49b7d9aa772c48d0785241c8df90faa8a9329f0f440de7c620b0967775be"
+}

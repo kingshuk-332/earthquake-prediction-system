@@ -1,0 +1,35 @@
+===========================================================================
+PHASE 4 REPORT: PHYSICAL ATTENUATION, MAGNITUDE SCALING & NOISE MODEL
+===========================================================================
+1. Theoretical Ground Motion Amplitude Model:
+   A_effective = A_source(M) * G(R) * kappa(R, f, v, Q)
+
+   Where:
+   - Source Magnitude Scaling:
+     A_source(M) = A_0 * 10^(c * (M - M_ref))
+     Configured Parameters: A_0 = 1.0, M_ref = 4.0, c = 0.5
+     Validation: A magnitude unit increase (e.g. M 4.0 -> M 5.0) increases source amplitude by 10^0.5 ~= 3.16x.
+
+   - Geometric Spreading (Body Waves):
+     G(R) = (R_0 / max(R, R_0))^gamma
+     Configured Parameters: R_0 = 10.0 km, gamma = 1.0
+     Validation: Doubling hypocentral distance halves the body wave geometric amplitude.
+
+   - Anelastic Crustal Attenuation (Q Factor):
+     kappa(R, f, v, Q) = exp(-pi * f * R / (Q * v))
+     Configured Parameters:
+       * P-wave: f_P = 6.0 Hz, V_P = 6.0 km/s, Q_P = 300.0
+       * S-wave: f_S = 2.5 Hz, V_S = 3.5 km/s, Q_S = 150.0
+     Validation: Attenuation increases exponentially with distance and frequency. Higher frequencies attenuate faster.
+
+2. Ambient Seismic Noise Model:
+   - Band-limited Gaussian noise filtered through 4th-order Butterworth bandpass (0.2 Hz to 25.0 Hz).
+   - Calibrated noise standard deviation: sigma_noise = Peak_Signal / (10^(SNR_dB / 20)).
+   - Verification across 5, 10, 20, and 30 dB shows expected phase emergence.
+
+3. Outputs Generated:
+   - phase4_clean_vs_noisy_comparison.png
+   - phase4_distance_attenuation_comparison.png
+   - phase4_magnitude_scaling_comparison.png
+   - phase4_snr_comparison.png
+===========================================================================

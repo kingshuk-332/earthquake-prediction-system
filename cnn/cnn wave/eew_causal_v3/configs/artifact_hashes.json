@@ -1,0 +1,25 @@
+{
+  "files": {
+    "01_causal_simulator_v3.ipynb": "4a42a5520301b23b607d351816eb8fae1d65e857daa1b7fdc646b8cef819afd1",
+    "02_generate_dataset_v3.ipynb": "e86172f5645e811f63cd5ceec80297ac886e5291c94b839855c4cb7aa94804ac",
+    "configs/generation_manifest.json": "280f23f6457ab3309fa53f6b36960f85fe9a18503da115f4c853430648eb8466",
+    "configs/generation_progress.json": "de46a680c9e5253132b91002d2d8d94f53f870b777f3c7cc324ce066fb5a9a89",
+    "configs/pilot_gate.json": "a32549d2f504dee5ff29d724ff98db3cc6f6ea526137de5723cdb16b639738f0",
+    "configs/protected_sources_after.json": "2ed1237382e0c558288cf4e464f7e3fd854a56ccd5e65b9e92f78c71fc20881a",
+    "configs/protected_sources_before.json": "2ed1237382e0c558288cf4e464f7e3fd854a56ccd5e65b9e92f78c71fc20881a",
+    "configs/simulation_v3.json": "8b90f3c64c51bd2b3389120865831e70b433f7fc8db3919afeffe5bdfceb6a24",
+    "configs/split_manifest.csv": "2b29e5ee7ae1e7f8242b6c5b91441bb0ec85e6cc4fdd8d2d840dcb8646c86e42",
+    "configs/test_generation_complete.json": "1388e06d9346ba51e14eaeb8afba0d00d9545461c0a6dccc27ce60e9dd86e123",
+    "configs/train_generation_complete.json": "b30ddc390a5e037ee0d5bb052b8fcd9e6d45edde9b79db18e802e49bdf4fccbd",
+    "configs/validation_generation_complete.json": "237af478efa3536f66d05a42e4401073dcacdc4d179ce40b7309fc45c3ebb28f",
+    "dataset/eew_dataset_test.h5": "9db5018d5cabf51a417d17c92344e4184148b87264361d538cf962f350184d43",
+    "dataset/eew_dataset_train.h5": "2f88d8c1b50c1d52d0814360d7a32beabb5c90a822e121940a0db875ad49be15",
+    "dataset/eew_dataset_validation.h5": "c983d0fa42aabf107204b1e7261e8f0b4ee93a86aca64fdf7ce0a270877ec1d1",
+    "reports/v3_counterfactual_results.json": "ed665cb1c4bf1e252b43e629effb6f8cfb2668e34ae90527bb67846f3262eed3",
+    "reports/v3_independent_review_handoff.md": "ad2c706f8b779716d58c89f38a4ccc3c0ec4728d69eef6b5af405de15e95cf73",
+    "reports/v3_validation_report.md": "afdb962a103ccc1c0fb6f990b0ec10b99e15fb4d5c01aac6e2427020b5932a25",
+    "reports/v3_validation_results.json": "bcb1e58757053dff0dcb8328cfeabac86baf8571442fc9ea6f98b568ba55685c"
+  },
+  "validation_notebook_excluded_from_self_hash": "execution output finalization; code source hash is recorded below",
+  "validation_source_sha256": "185cba0c4f2f1669c4b5c7268a08bd50394122dea4f78d0e50cddbcbd536490b"
+}

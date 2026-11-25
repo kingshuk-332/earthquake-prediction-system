@@ -1,0 +1,23 @@
+[
+  {
+    "comparison": "CNN minus training_Poisson",
+    "mean_brier_difference": 0.012151978961783357,
+    "ci95_low": 0.005556640693832132,
+    "ci95_high": 0.019888764603806796,
+    "block_weeks": 4
+  },
+  {
+    "comparison": "CNN minus recent_Poisson",
+    "mean_brier_difference": 0.03921898739492502,
+    "ci95_low": -0.01191182452390377,
+    "ci95_high": 0.08998160619312238,
+    "block_weeks": 4
+  },
+  {
+    "comparison": "CNN minus training_prevalence",
+    "mean_brier_difference": 0.000990439672023058,
+    "ci95_low": 0.0004417883756104857,
+    "ci95_high": 0.0016022585332393646,
+    "block_weeks": 4
+  }
+]

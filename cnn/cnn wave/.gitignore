@@ -1,0 +1,4 @@
+.notebook-runtime/
+.notebook-state/
+__pycache__/
+.ipynb_checkpoints/

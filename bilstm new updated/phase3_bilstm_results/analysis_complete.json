@@ -1,0 +1,15 @@
+{
+  "protocol_hash": "c81efddc5c19f969d10040baa9591b463996a7fb2f35ab693e262bc5ff52e7d4",
+  "training_allowed": true,
+  "source_preservation": "PASS",
+  "source_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3",
+  "artifacts": {
+    "configuration.json": "3cf9c69a8fc71f8ef51b7390a61328644ac7717666f79c2dccb6ac7af6131d3c",
+    "feature_schema.json": "840bc3300113508f1d3af17c7a922e975d21c0b72ed6b2fafc9650980150aede",
+    "modern_catalog_seq20.npz": "0179ce1a240bf210e3a6e880b12a6e47d05dae451c51982cc43e2c03fb817bb4",
+    "scalers.json": "31dc46a8db84b0fb821216e3a8f636ad62e4b112d0f7a90837e37155953049e2",
+    "scaler_fit_events.csv": "fa49d42053d87ce7d40bfccea9b1fc82c2d55dffd835ce8423ca0609b2dd205a",
+    "split_manifest.csv": "090fe8be2e5e854f766dcd6de5cf6fd82cc468db396cb54f148a7594697943f2",
+    "validation.json": "caefdd7f69785131d8cab060af40cc9ddb9a3735e039bdc57a515146ff519fdd"
+  }
+}

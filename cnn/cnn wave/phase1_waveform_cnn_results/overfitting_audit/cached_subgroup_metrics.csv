@@ -1,0 +1,12 @@
+group,n,recall,false_positive_rate
+EQ_QC_pass,1033,0.9980638915779284,
+EQ_QC_fail,181,0.994475138121547,
+EQ_M_lt3,195,0.9846153846153848,
+EQ_M_3_5,888,1.0,
+EQ_M_ge5,131,1.0,
+EQ_SNR_lt10,699,0.9957081545064378,
+EQ_SNR_ge10,515,1.0,
+noise_colored_pink,306,,0.0
+noise_gaussian_bandlimited,292,,0.0
+noise_modulated_nonstationary,302,,0.0
+noise_transient_disturbances,314,,0.0031847133757961

@@ -1,0 +1,22 @@
+{
+  "fit_key": {
+    "run_id": "1bd0faa814c714ba",
+    "variant": "A",
+    "hyperparameters": {
+      "hidden_size": 128,
+      "layers": 2,
+      "dropout": 0.3504281700106513,
+      "learning_rate": 0.0007521931185294667,
+      "weight_decay": 0.00021978955708150145,
+      "batch_size": 128
+    }
+  },
+  "status": "COMPLETE",
+  "best_epoch": 10,
+  "best_validation_mae": 0.48655619352636204,
+  "epochs_run": 18,
+  "training_seconds": 9.709760399651714,
+  "parameter_count": 538881,
+  "initialization_sha256": "f59e851061f26c3274982137372563bae7b1fd324fefeed692b30d708bdabb4f",
+  "best_checkpoint_sha256": "88392357d6f394d42b2c49eb9008406fa3e4cd694c8c94cdd7964c107773fd60"
+}

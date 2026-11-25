@@ -1,0 +1,27 @@
+{
+  "stage": "A",
+  "status": "BLOCKED",
+  "training_allowed": false,
+  "checks": {
+    "trace_identity_to_catalog_and_generator_manifest": "PASS",
+    "P_S_annotation_identity_alignment": "PASS",
+    "sampling_and_window_bounds": "PASS",
+    "pair_event_and_noise_parent_split_integrity": "PASS",
+    "full_parent_exact_duplicates": "PASS_REUSED_HASH_MATCHED_AUDIT",
+    "candidate_exact_cross_split_duplicates": "PASS",
+    "direct_model_input_ends_at_cutoff": "PASS",
+    "full_trace_normalization_avoided": "PASS",
+    "noise_magnitude_targets_masked": "PASS",
+    "upstream_early_noise_independence_from_future_signal": "FAIL",
+    "real_recorded_waveform_validation": "UNAVAILABLE",
+    "oracle_P_pick_replaced_by_causal_detector": "NOT_IMPLEMENTED",
+    "target_site_warning_arrival_validation": "UNAVAILABLE"
+  },
+  "blocking_reason": "Verified source generator scales early ambient noise using the future full-trace clean-signal peak. A source-matched counterfactual changes future S amplitude and changes the observed pre-S prefix while its clean prefix remains identical.",
+  "evidence": "causal_noise_counterexample.json",
+  "run_id": "e64115e91298ee59",
+  "required_fix": "A separately versioned synthetic dataset whose ambient noise is sampled independently of target magnitude and future signal peaks, or aligned real recorded waveforms. Revalidate prefix invariance, identities, P/S and splits before training.",
+  "current_candidate_action": "Preserved for review only; do not train.",
+  "publication_time_policy": "Catalog origin ordering is retrospective only; reporting/revision availability UNVERIFIED; no assumed delay.",
+  "preserved_original_sources": true
+}

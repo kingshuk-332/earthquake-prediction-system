@@ -1,0 +1,23 @@
+{
+  "stage": "B",
+  "status": "BLOCKED",
+  "run_id": "e64115e91298ee59",
+  "reason": "Verified source generator scales early ambient noise using the future full-trace clean-signal peak. A source-matched counterfactual changes future S amplitude and changes the observed pre-S prefix while its clean prefix remains identical.",
+  "implementation": "Deferred after Stage A failure",
+  "model_fits": 0,
+  "optuna_trials": 0,
+  "scaler_fitted": false,
+  "augmentation_applied": false,
+  "best_hyperparameters": null,
+  "checkpoint": null,
+  "training_history": null,
+  "planned_protocol": {
+    "architecture": "BiLSTM only; concatenate final-layer forward/backward h_n[-2], h_n[-1]; dropout; task head",
+    "optimizer": "AdamW, all trainable parameters",
+    "tuner": "Optuna TPE, 15 initial trials",
+    "selection": "Validation only, early stopping, gradient clipping; untouched test until selection",
+    "comparison": "Clean versus training-only controlled noise; identical splits and validation/test inputs",
+    "augmentation": "Deferred; band-limited independent additive noise/amplitude perturbations confined to observed samples; settings and seeds must be fixed using training/validation only",
+    "magnitude": "Earthquakes only; resolve mixed magnitude-scale protocol before fitting"
+  }
+}

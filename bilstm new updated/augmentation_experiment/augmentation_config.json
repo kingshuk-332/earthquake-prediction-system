@@ -1,0 +1,55 @@
+{
+  "version": "phase1b_v1",
+  "source_run_id": "f0230d622ef74023",
+  "seed": 42,
+  "preview_epoch": 0,
+  "variants": {
+    "A": "clean",
+    "B": "coordinate_noise",
+    "C": "weighted_complete_windows",
+    "D": "weighted_complete_windows_plus_coordinate_noise"
+  },
+  "sampler": {
+    "replacement": true,
+    "epoch_size": 4973,
+    "sort_parent_indices": true,
+    "weight_formula": "1 + 0.5 * clip((training_target_ML - 4.0) / 1.5, 0, 1)",
+    "max_weight": 1.5,
+    "relevance_start": 4.0,
+    "relevance_saturation": 5.5,
+    "force_class_balance": false,
+    "neighbors": null,
+    "interpolation": null
+  },
+  "noise": {
+    "enabled_variants": [
+      "B",
+      "D"
+    ],
+    "sigma_standardized": 0.01,
+    "eligible_columns": [
+      2,
+      3
+    ],
+    "eligible_features": [
+      "historical_latitude_deg",
+      "historical_longitude_deg"
+    ],
+    "seed": 42,
+    "scope": "training only; deterministic per historical event and epoch, shared across B/D",
+    "physical_bounds": [
+      [
+        -90,
+        90
+      ],
+      [
+        -180,
+        180
+      ]
+    ],
+    "targets_perturbed": false
+  },
+  "source_feature_check_policy": "Reject training-ready use if source schema or provenance fails independent checks",
+  "selection_policy": "Settings fixed from user guidance and training targets only; no validation/test tuning",
+  "run_id": "4793cab85df55b7a"
+}

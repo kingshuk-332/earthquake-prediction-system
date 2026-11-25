@@ -1,0 +1,11 @@
+source_id,trace_name,receiver_code,magnitude,depth,epicentral_distance_km,hypocentral_distance_km,p_arrival_sample,s_arrival_sample,waveform_filename,sampling_rate,waveform_length
+NCS_EV_07167,ND.PASI..BHZ__earthquake_local__NCS_EV_07167,PASI,7.0,100.0,203.2,226.4734863068964,603,3299,waveform_proto_1_NCS_EV_07167.npy,100.0,10000
+NCS_EV_07168,ND.DBR..BHZ__earthquake_local__NCS_EV_07168,DBR,7.5,20.0,233.5,234.3549658104133,596,3386,waveform_proto_2_NCS_EV_07168.npy,100.0,10000
+NCS_EV_07169,ND.GHY..BHZ__earthquake_local__NCS_EV_07169,GHY,5.0,15.0,480.5,480.7340740991843,605,6328,waveform_proto_3_NCS_EV_07169.npy,100.0,10000
+NCS_EV_07198,ND.IMP..BHZ__earthquake_local__NCS_EV_07198,IMP,6.5,130.0,111.8,171.4620657754945,597,2638,waveform_proto_4_NCS_EV_07198.npy,100.0,10000
+NCS_EV_01067,ND.GHY..BHZ__earthquake_local__NCS_EV_01067,GHY,2.7,10.0,350.0,350.142828000232,601,4769,waveform_proto_5_NCS_EV_01067.npy,100.0,10000
+NCS_EV_07174,ND.GHY..BHZ__earthquake_local__NCS_EV_07174,GHY,5.0,11.0,30.8,32.70535124410071,601,991,waveform_proto_6_NCS_EV_07174.npy,100.0,10000
+NCS_EV_07179,ND.IMP..BHZ__earthquake_local__NCS_EV_07179,IMP,6.0,33.0,678.3,679.1022677034733,599,8683,waveform_proto_7_NCS_EV_07179.npy,100.0,10000
+NCS_EV_00001,ND.IMP..BHZ__earthquake_local__NCS_EV_00001,IMP,4.5,116.0,368.3,386.1358439720405,601,5197,waveform_proto_8_NCS_EV_00001.npy,100.0,10000
+NCS_EV_07287,ND.TEZ..BHZ__earthquake_local__NCS_EV_07287,TEZ,5.7,20.0,89.3,91.51223961853408,595,1684,waveform_proto_9_NCS_EV_07287.npy,100.0,10000
+NCS_EV_08067,ND.IMP..BHZ__earthquake_local__NCS_EV_08067,IMP,4.2,34.0,238.6,241.01029023674488,601,3470,waveform_proto_10_NCS_EV_08067.npy,100.0,10000

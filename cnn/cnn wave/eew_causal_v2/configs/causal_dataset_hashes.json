@@ -1,0 +1,22 @@
+{
+    "eew_dataset_test.h5": {
+        "sha256": "6391522D3EA52EE8212D22E7357B7F3B235AD54E201ABD5F5593F99FD510B98C",
+        "bytes": 22244618,
+        "mb": 21.21
+    },
+    "eew_dataset_train.h5": {
+        "sha256": "B2BB67D924C0D7406E00A7087B76B45A577E4E183C9067DDA86A89976FDC49D7",
+        "bytes": 103537791,
+        "mb": 98.74
+    },
+    "eew_dataset_validation.h5": {
+        "sha256": "A62B83FBFCFF3AB46C36E773A72CCDA5A4F36707C79A1DADC4ED5C396439AB67",
+        "bytes": 22222036,
+        "mb": 21.19
+    },
+    "eew_windows_multitask.npz": {
+        "sha256": "CF823320BBE572996634E8D847949FAECA8F9349EEFE1A0342C9AB5AF68F4684",
+        "bytes": 108029870,
+        "mb": 103.03
+    }
+}

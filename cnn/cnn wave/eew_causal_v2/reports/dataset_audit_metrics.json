@@ -1,0 +1,50 @@
+{
+    "train": {
+        "total_records": 11324,
+        "earthquakes": 5662,
+        "noise": 5662,
+        "mag_min": 1.5,
+        "mag_max": 8.600000381469727,
+        "mag_mean": 3.858494997024536,
+        "p_onset_min_s": 3.0,
+        "p_onset_max_s": 7.0,
+        "p_onset_mean_s": 4.992380784175203,
+        "p_onset_std_s": 1.1562410401023246,
+        "sp_min_s": 1.12,
+        "pre_s_valid_1s_pct": 100.0,
+        "pre_s_valid_2s_pct": 99.6114447191805,
+        "pre_s_valid_3s_pct": 98.78134934652067
+    },
+    "validation": {
+        "total_records": 2426,
+        "earthquakes": 1213,
+        "noise": 1213,
+        "mag_min": 1.5,
+        "mag_max": 7.599999904632568,
+        "mag_mean": 3.8631491661071777,
+        "p_onset_min_s": 3.0,
+        "p_onset_max_s": 7.0,
+        "p_onset_mean_s": 4.967947238252267,
+        "p_onset_std_s": 1.1422935045939233,
+        "sp_min_s": 1.25,
+        "pre_s_valid_1s_pct": 100.0,
+        "pre_s_valid_2s_pct": 99.67023907666942,
+        "pre_s_valid_3s_pct": 99.17559769167353
+    },
+    "test": {
+        "total_records": 2428,
+        "earthquakes": 1214,
+        "noise": 1214,
+        "mag_min": 2.0,
+        "mag_max": 7.199999809265137,
+        "mag_mean": 3.8706750869750977,
+        "p_onset_min_s": 3.0,
+        "p_onset_max_s": 7.0,
+        "p_onset_mean_s": 4.97668039538715,
+        "p_onset_std_s": 1.1341435025356492,
+        "sp_min_s": 1.06,
+        "pre_s_valid_1s_pct": 100.0,
+        "pre_s_valid_2s_pct": 99.42339373970346,
+        "pre_s_valid_3s_pct": 98.84678747940691
+    }
+}

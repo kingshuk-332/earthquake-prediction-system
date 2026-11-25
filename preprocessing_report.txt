@@ -1,0 +1,65 @@
+======================================================================
+EARTHQUAKE DATASET PREPROCESSING REPORT
+Run at: 2026-10-18 07:09:25
+Source file: dataset_2.csv (NOT modified)
+Original shape: (8089, 28)
+======================================================================
+
+── STEP 1: GENERAL CLEANING ──
+  Parsed datetime columns. Null IST: 0, Null UTC: 0
+  Dropped 0 exact duplicate rows
+  Stripped whitespace from 10 string columns
+  Invalid values found — Lat:0, Lon:0, Depth:0, Mag:0, SNR:0
+  Source column mismatches — Lat:0, Lon:0, Depth:0, Mag:540
+  Dropped 5 redundant columns: ['source_latitude', 'source_longitude', 'source_depth_km', 'source_magnitude', 'Magnitude']
+  Standardized magnitude types: ['ML', 'MB', 'MC', 'MW', 'MS']
+  Sorted by origin_time_utc
+  Cleaned shape: (8089, 23)
+  Saved → preprocessed_cleaned.csv
+
+── STEP 2: EDA-READY ENRICHMENT ──
+  Added temporal features: month, day_of_week, hour, day_of_year, decade
+  Added magnitude_category: {'Light (3-4)': 3293, 'Moderate (4-5)': 2623, 'Minor (<3)': 1300, 'Strong (5-6)': 657, 'Major (6-7)': 191, 'Great (7+)': 25}
+  Added depth_class: {'Shallow (0-70km)': 6809, 'Intermediate (70-300km)': 1278, 'Deep (300+km)': 2}
+  Added sp_travel_time_samples
+  Added log_magnitude, log_depth
+  Added src_recv_dist_km (Haversine)
+  EDA shape: (8089, 34)
+  Saved → preprocessed_eda.csv
+
+── STEP 3: ML-READY (ENCODED + SCALED) ──
+  Dropped non-ML columns: ['origin_time_ist', 'origin_time_utc', 'source_id', 'trace_name', 'Region', 'Location']
+  Label-encoded 'Magnitude_Type': 5 classes
+  Label-encoded 'Country': 6 classes
+  Label-encoded 'State': 49 classes
+  Label-encoded 'source_magnitude_type': 4 classes
+  Label-encoded 'receiver_code': 10 classes
+  Label-encoded 'magnitude_category': 6 classes
+  Label-encoded 'depth_class': 3 classes
+  Saved label encoders → ml_label_encoders.pkl
+  Outliers capped (IQR method): {'year': np.int64(444), 'Depth_km': np.int64(1080), 'Magnitude_Value': np.int64(60), 'Magnitude_Type': np.int64(964), 'Country': np.int64(578), 'source_magnitude_type': np.int64(460), 'p_arrival_sample': np.int64(231), 's_arrival_sample': np.int64(22), 'snr_db': np.int64(15), 'epicentral_dist_km': np.int64(18), 'decade': np.int64(484), 'depth_class': np.int64(1280), 'sp_travel_time_samples': np.int64(22), 'log_magnitude': np.int64(23), 'log_depth': np.int64(3), 'src_recv_dist_km': np.int64(18)}
+  StandardScaler applied to 27 columns
+  Saved scaler → ml_scaler.pkl
+  ML shape: (8089, 28)
+  Saved → preprocessed_ml.csv
+
+── STEP 4: DL-READY (NORMALIZED FOR WAVEFORM MODELS) ──
+  Kept 14 DL-relevant columns
+  One-hot encoded: ['Magnitude_Type', 'source_magnitude_type', 'receiver_code'] → 30 total columns
+  MinMaxScaler (0-1) applied to 30 columns
+  DL shape: (8089, 30)
+  Saved → preprocessed_dl.csv
+
+======================================================================
+SUMMARY OF OUTPUT FILES
+======================================================================
+  File                                Description
+  ─────────────────────────────────── ───────────────────────────────────
+  dataset_2.csv                       Original file (UNTOUCHED)
+  preprocessed_cleaned.csv            General cleaning output
+  preprocessed_eda.csv                EDA-ready (enriched features)
+  preprocessed_ml.csv                 ML-ready (encoded + scaled)
+  preprocessed_dl.csv                 DL-ready (normalized, one-hot)
+  ml_scaler.pkl                       Fitted StandardScaler
+  ml_label_encoders.pkl               Fitted LabelEncoders
+  preprocessing_report.txt            This report

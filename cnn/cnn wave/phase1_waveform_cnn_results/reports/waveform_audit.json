@@ -1,0 +1,473 @@
+{
+  "splits": {
+    "train": {
+      "path": "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/train.h5",
+      "shape": [
+        11324,
+        10000
+      ],
+      "sampling_hz": 100,
+      "labels": {
+        "0": 5662,
+        "1": 5662
+      },
+      "pairs": 5662,
+      "keys": {
+        "depth_km": {
+          "shape": [
+            11324
+          ],
+          "dtype": "float32"
+        },
+        "hypocentral_distance_km": {
+          "shape": [
+            11324
+          ],
+          "dtype": "float32"
+        },
+        "labels": {
+          "shape": [
+            11324
+          ],
+          "dtype": "int8"
+        },
+        "magnitude": {
+          "shape": [
+            11324
+          ],
+          "dtype": "float32"
+        },
+        "p_arrival_sample": {
+          "shape": [
+            11324
+          ],
+          "dtype": "int32"
+        },
+        "pair_id": {
+          "shape": [
+            11324
+          ],
+          "dtype": "int32"
+        },
+        "qc_pass": {
+          "shape": [
+            11324
+          ],
+          "dtype": "bool"
+        },
+        "receiver_code": {
+          "shape": [
+            11324
+          ],
+          "dtype": "object"
+        },
+        "s_arrival_sample": {
+          "shape": [
+            11324
+          ],
+          "dtype": "int32"
+        },
+        "sample_type": {
+          "shape": [
+            11324
+          ],
+          "dtype": "object"
+        },
+        "snr_db": {
+          "shape": [
+            11324
+          ],
+          "dtype": "float32"
+        },
+        "source_id": {
+          "shape": [
+            11324
+          ],
+          "dtype": "object"
+        },
+        "trace_name": {
+          "shape": [
+            11324
+          ],
+          "dtype": "object"
+        },
+        "waveforms": {
+          "shape": [
+            11324,
+            10000
+          ],
+          "dtype": "float32"
+        },
+        "waveforms_global_norm": {
+          "shape": [
+            11324,
+            10000
+          ],
+          "dtype": "float32"
+        },
+        "waveforms_standardized": {
+          "shape": [
+            11324,
+            10000
+          ],
+          "dtype": "float32"
+        }
+      },
+      "attributes": {
+        "created_at": "2026-11-05T00:23:08.791568",
+        "disclaimer": "Physics-informed synthetic seismic dataset. Not recorded field seismograms.",
+        "earthquake_count": 5662,
+        "global_train_mean": 3.3349967752671628e-12,
+        "global_train_std": 0.06386265158653259,
+        "noise_count": 5662,
+        "sample_count": 11324,
+        "sampling_rate_hz": 100.0,
+        "split_name": "train"
+      },
+      "origin_min": "1908-12-12 12:54:09+00:00",
+      "origin_max": "2026-10-06 09:03:32+00:00",
+      "standardized_max_abs_mean": 2.3841858265427618e-08,
+      "standardized_std_range": [
+        0.9999838471412659,
+        1.0000057220458984
+      ],
+      "sampled_normalization_max_error": 5.7220458984375e-06,
+      "p_arrival_range": [
+        592,
+        607
+      ]
+    },
+    "validation": {
+      "path": "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/validation.h5",
+      "shape": [
+        2426,
+        10000
+      ],
+      "sampling_hz": 100,
+      "labels": {
+        "0": 1213,
+        "1": 1213
+      },
+      "pairs": 1213,
+      "keys": {
+        "depth_km": {
+          "shape": [
+            2426
+          ],
+          "dtype": "float32"
+        },
+        "hypocentral_distance_km": {
+          "shape": [
+            2426
+          ],
+          "dtype": "float32"
+        },
+        "labels": {
+          "shape": [
+            2426
+          ],
+          "dtype": "int8"
+        },
+        "magnitude": {
+          "shape": [
+            2426
+          ],
+          "dtype": "float32"
+        },
+        "p_arrival_sample": {
+          "shape": [
+            2426
+          ],
+          "dtype": "int32"
+        },
+        "pair_id": {
+          "shape": [
+            2426
+          ],
+          "dtype": "int32"
+        },
+        "qc_pass": {
+          "shape": [
+            2426
+          ],
+          "dtype": "bool"
+        },
+        "receiver_code": {
+          "shape": [
+            2426
+          ],
+          "dtype": "object"
+        },
+        "s_arrival_sample": {
+          "shape": [
+            2426
+          ],
+          "dtype": "int32"
+        },
+        "sample_type": {
+          "shape": [
+            2426
+          ],
+          "dtype": "object"
+        },
+        "snr_db": {
+          "shape": [
+            2426
+          ],
+          "dtype": "float32"
+        },
+        "source_id": {
+          "shape": [
+            2426
+          ],
+          "dtype": "object"
+        },
+        "trace_name": {
+          "shape": [
+            2426
+          ],
+          "dtype": "object"
+        },
+        "waveforms": {
+          "shape": [
+            2426,
+            10000
+          ],
+          "dtype": "float32"
+        },
+        "waveforms_global_norm": {
+          "shape": [
+            2426,
+            10000
+          ],
+          "dtype": "float32"
+        },
+        "waveforms_standardized": {
+          "shape": [
+            2426,
+            10000
+          ],
+          "dtype": "float32"
+        }
+      },
+      "attributes": {
+        "created_at": "2026-11-05T00:24:53.783759",
+        "disclaimer": "Physics-informed synthetic seismic dataset. Not recorded field seismograms.",
+        "earthquake_count": 1213,
+        "global_train_mean": 3.3349967752671628e-12,
+        "global_train_std": 0.06386265158653259,
+        "noise_count": 1213,
+        "sample_count": 2426,
+        "sampling_rate_hz": 100.0,
+        "split_name": "validation"
+      },
+      "origin_min": "1906-08-31 14:57:30+00:00",
+      "origin_max": "2026-10-05 22:57:25+00:00",
+      "standardized_max_abs_mean": 1.363754265071293e-08,
+      "standardized_std_range": [
+        0.9999818205833435,
+        1.0000042915344238
+      ],
+      "sampled_normalization_max_error": 9.059906005859375e-06,
+      "p_arrival_range": [
+        594,
+        607
+      ]
+    },
+    "test": {
+      "path": "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/test.h5",
+      "shape": [
+        2428,
+        10000
+      ],
+      "sampling_hz": 100,
+      "labels": {
+        "0": 1214,
+        "1": 1214
+      },
+      "pairs": 1214,
+      "keys": {
+        "depth_km": {
+          "shape": [
+            2428
+          ],
+          "dtype": "float32"
+        },
+        "hypocentral_distance_km": {
+          "shape": [
+            2428
+          ],
+          "dtype": "float32"
+        },
+        "labels": {
+          "shape": [
+            2428
+          ],
+          "dtype": "int8"
+        },
+        "magnitude": {
+          "shape": [
+            2428
+          ],
+          "dtype": "float32"
+        },
+        "p_arrival_sample": {
+          "shape": [
+            2428
+          ],
+          "dtype": "int32"
+        },
+        "pair_id": {
+          "shape": [
+            2428
+          ],
+          "dtype": "int32"
+        },
+        "qc_pass": {
+          "shape": [
+            2428
+          ],
+          "dtype": "bool"
+        },
+        "receiver_code": {
+          "shape": [
+            2428
+          ],
+          "dtype": "object"
+        },
+        "s_arrival_sample": {
+          "shape": [
+            2428
+          ],
+          "dtype": "int32"
+        },
+        "sample_type": {
+          "shape": [
+            2428
+          ],
+          "dtype": "object"
+        },
+        "snr_db": {
+          "shape": [
+            2428
+          ],
+          "dtype": "float32"
+        },
+        "source_id": {
+          "shape": [
+            2428
+          ],
+          "dtype": "object"
+        },
+        "trace_name": {
+          "shape": [
+            2428
+          ],
+          "dtype": "object"
+        },
+        "waveforms": {
+          "shape": [
+            2428,
+            10000
+          ],
+          "dtype": "float32"
+        },
+        "waveforms_global_norm": {
+          "shape": [
+            2428,
+            10000
+          ],
+          "dtype": "float32"
+        },
+        "waveforms_standardized": {
+          "shape": [
+            2428,
+            10000
+          ],
+          "dtype": "float32"
+        }
+      },
+      "attributes": {
+        "created_at": "2026-11-05T00:25:11.466260",
+        "disclaimer": "Physics-informed synthetic seismic dataset. Not recorded field seismograms.",
+        "earthquake_count": 1214,
+        "global_train_mean": 3.3349967752671628e-12,
+        "global_train_std": 0.06386265158653259,
+        "noise_count": 1214,
+        "sample_count": 2428,
+        "sampling_rate_hz": 100.0,
+        "split_name": "test"
+      },
+      "origin_min": "1922-12-24 00:06:26+00:00",
+      "origin_max": "2026-10-05 22:53:47+00:00",
+      "standardized_max_abs_mean": 1.4877318932349226e-08,
+      "standardized_std_range": [
+        0.9999862909317017,
+        1.0000046491622925
+      ],
+      "sampled_normalization_max_error": 3.814697265625e-06,
+      "p_arrival_range": [
+        593,
+        606
+      ]
+    }
+  },
+  "normalization": {
+    "fitting_dataset": "train",
+    "training_sample_count": 11324,
+    "global_training_mean": 3.3349967752671628e-12,
+    "global_training_std": 0.06386265158653259,
+    "global_training_rms": 0.06386265158653259,
+    "epsilon": 1e-08,
+    "detrend_type": "linear",
+    "sampling_rate_hz": 100.0,
+    "duration_seconds": 100.0,
+    "samples_per_trace": 10000,
+    "approach_a_description": "Per-waveform standardization (z-score): x_std = (x - mean(x)) / (std(x) + eps)",
+    "approach_b_description": "Global training-set normalization: x_global = (x - mu_train) / (sigma_train + eps)"
+  },
+  "metadata_fields_absent_in_h5": [
+    "origin_time_utc",
+    "Lat",
+    "Long"
+  ],
+  "metadata_join_source": "data wave\\synthetic_waveform_simulator\\output\\phase2_travel_time\\metadata_with_theoretical_arrivals.csv",
+  "checks": {
+    "all_waveforms_finite_nonzero": true,
+    "all_labels_and_mapping_aligned": true,
+    "pairs_and_sources_disjoint": true,
+    "no_duplicate_event_keys": true,
+    "no_exact_raw_or_standardized_duplicates": true,
+    "all_standardized_moments_checked": true,
+    "normalization_formula_sampled_per_split": 12,
+    "upstream_waveform_alignment_sampled_per_split": 12,
+    "training_global_std_recomputed": 0.06386265174259409,
+    "origin_and_coordinate_join_complete_for_earthquakes": true,
+    "noise_metadata_missing_intentionally": true,
+    "near_duplicate_exhaustive_check": false
+  },
+  "source_hashes": {
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/train.h5": "2a80c55bfd2d990ebfb737cbd55d0f2b4136cb5e4c6d016712021a6b2de861db",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/validation.h5": "2fd21debed351636ce56e6979fbf75bf9d77f5f2ad4dc8c1a0773685c93b7936",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/test.h5": "e45958510d32224154cb078d09b001e3cea58e7507d2b7e7cdf058461cf23e5d",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/split_indices.csv": "74d13bfc9eb8524c70352b7656856a888316d7b93bfb3a64ce1b516c3b784ebd",
+    "data wave/synthetic_waveform_simulator/output/phase11_preprocessed_dataset/normalization_parameters.json": "c526609410fa42cf18ec550de62aa1f259f02f004c79f25e2ed4827da7af5229",
+    "data wave/synthetic_waveform_simulator/output/phase10_classification_dataset/earthquake_noise_mapping.csv": "3485b719981014316fc563232b89fe9e425e9687504829b1626b6377ba9adb07",
+    "data wave/synthetic_waveform_simulator/output/phase9_full_dataset/synthetic_waveforms_mapping.csv": "42494766cfddf752ef63faa0ae3bf691a235a0049ed4268761e86ff10fc2837f",
+    "data wave/synthetic_waveform_simulator/output/phase2_travel_time/metadata_with_theoretical_arrivals.csv": "856721964236390938c6940511c83e9d2c24370a840274fb069a2e3ab743d736"
+  },
+  "phase10_shape": [
+    16178,
+    10000
+  ],
+  "phase9_shape": [
+    8089,
+    10000
+  ],
+  "feasibility": {
+    "magnitude": "Verified earthquake magnitudes. Standardization removes absolute amplitude, but envelope depends on magnitude; regression would primarily invert simulator assumptions. Not implemented in this detection baseline.",
+    "origin_time": "UTC timestamps join successfully but absolute time is absent from waveform input; cannot identify calendar origin time.",
+    "relative_arrivals": "P/S indices verified; P is anchored near 6 s, so P prediction can be a trivial simulator prior. Separate picking benchmark deferred.",
+    "location": "Lat/Long join successfully. A single vertical trace without receiver context, azimuth or multiple stations cannot uniquely resolve epicenter; S-P can constrain modeled distance only. Geographic regression deferred."
+  }
+}

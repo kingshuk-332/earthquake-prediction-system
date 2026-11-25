@@ -1,0 +1,35 @@
+======================================================================
+PURE 1D-CNN v2 (EFFICIENT DILATED) - SEISMIC FORECASTING RESULTS
+======================================================================
+
+Device: CUDA - NVIDIA GeForce RTX 3050 Laptop GPU
+Framework: PyTorch 2.6.0+cu124
+Dataset: C:\Users\choud\Desktop\Minor project\cnn\preprocessed_dl_temporal_noisy.csv
+Parameters: 27,857
+
+TRAINING:
+  Best Epoch: 27/62
+  Best Val AUC: 0.6546
+  Optimal Threshold: 0.27
+
+TEST METRICS (threshold = 0.27):
+  ROC-AUC:           0.5793
+  Average Precision: 0.0619
+  F1 Score:          0.0882
+  Precision:         0.0603
+  Recall:            0.1644
+  Accuracy:          0.8464
+  MCC:               0.0272
+
+CONFUSION MATRIX:
+  TN=1355  FP=187
+  FN=61  TP=12
+
+                        precision    recall  f1-score   support
+
+No Significant (M<4.5)       0.96      0.88      0.92      1542
+  Significant (M>=4.5)       0.06      0.16      0.09        73
+
+              accuracy                           0.85      1615
+             macro avg       0.51      0.52      0.50      1615
+          weighted avg       0.92      0.85      0.88      1615

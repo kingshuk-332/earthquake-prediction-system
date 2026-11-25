@@ -1,0 +1,27 @@
+{
+  "notebook_cells_executed_to_final": true,
+  "actual_training_epochs": 21,
+  "best_epoch": 6,
+  "trainable_parameters": 3223,
+  "input_shape": [
+    782,
+    12,
+    90
+  ],
+  "output_shape": [
+    782,
+    7
+  ],
+  "all_labels_checked_against_raw_timestamps": true,
+  "full_history_and_target_partition_separation": true,
+  "training_only_scaler": true,
+  "reloaded_predictions_match": true,
+  "artifact_checks_passed": true,
+  "saved_notebook_valid": true,
+  "executed_code_cells": 12,
+  "required_sections": 20,
+  "independently_recomputed_test_scores": true,
+  "original_source_hashes_unchanged": true,
+  "inventoried_dataset_file_sizes_unchanged": true,
+  "notebook_code_sha256": "f9df5a17d8a5551920d6cc22d85f424523beb425ccb7bce5d914cb734e22fe09"
+}

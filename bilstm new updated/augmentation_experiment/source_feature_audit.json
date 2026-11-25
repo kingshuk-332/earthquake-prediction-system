@@ -1,0 +1,99 @@
+{
+  "status": "FAIL",
+  "training_ready": false,
+  "native_parsed_timestamp_dtype": "datetime64[us, UTC]",
+  "explicit_audit_timestamp_unit": "ns",
+  "incorrect_rate_feature_cells": 99459,
+  "training_windows_with_incorrect_rate": 4973,
+  "incorrect_training_gap_records": 4973,
+  "other_feature_constraint_violations": {
+    "historical_magnitude": 0,
+    "historical_depth_km": 0,
+    "historical_latitude_deg": 0,
+    "historical_longitude_deg": 0,
+    "inter_event_days": 0,
+    "mean_magnitude_20": 0,
+    "std_magnitude_20": 0,
+    "mean_depth_20_km": 0,
+    "std_depth_20_km": 0
+  },
+  "gap_expected_divided_by_saved_min": 999.9999999999999,
+  "gap_expected_divided_by_saved_max": 1000.0000000000001,
+  "strict_origin_chronology": "PASS",
+  "rate_examples": [
+    {
+      "training_parent_row": 0,
+      "input_step": 1,
+      "source_id": "NCS_EV_07168",
+      "event_time": "1908-12-12 12:54:09+00:00",
+      "saved_rate_per_day": 0.06666656309526786,
+      "expected_rate_per_day": 0.03333333333333333
+    },
+    {
+      "training_parent_row": 0,
+      "input_step": 2,
+      "source_id": "NCS_EV_07169",
+      "event_time": "1909-02-17 00:00:00+00:00",
+      "saved_rate_per_day": 0.10000093298782531,
+      "expected_rate_per_day": 0.03333333333333333
+    },
+    {
+      "training_parent_row": 0,
+      "input_step": 3,
+      "source_id": "NCS_EV_07170",
+      "event_time": "1911-12-07 00:00:00+00:00",
+      "saved_rate_per_day": 0.13333530288039697,
+      "expected_rate_per_day": 0.03333333333333333
+    },
+    {
+      "training_parent_row": 0,
+      "input_step": 4,
+      "source_id": "NCS_EV_07171",
+      "event_time": "1912-04-25 02:24:01+00:00",
+      "saved_rate_per_day": 0.16666417477364348,
+      "expected_rate_per_day": 0.03333333333333333
+    },
+    {
+      "training_parent_row": 0,
+      "input_step": 5,
+      "source_id": "NCS_EV_07172",
+      "event_time": "1912-05-23 02:24:06+00:00",
+      "saved_rate_per_day": 0.19999854466620093,
+      "expected_rate_per_day": 0.06666666666666667
+    },
+    {
+      "training_parent_row": 0,
+      "input_step": 6,
+      "source_id": "NCS_EV_07173",
+      "event_time": "1915-02-03 02:39:19+00:00",
+      "saved_rate_per_day": 0.2333329145587726,
+      "expected_rate_per_day": 0.03333333333333333
+    },
+    {
+      "training_parent_row": 0,
+      "input_step": 7,
+      "source_id": "NCS_EV_07174",
+      "event_time": "1915-11-14 00:00:00+00:00",
+      "saved_rate_per_day": 0.26666728445133003,
+      "expected_rate_per_day": 0.03333333333333333
+    },
+    {
+      "training_parent_row": 0,
+      "input_step": 8,
+      "source_id": "NCS_EV_07175",
+      "event_time": "1915-12-05 00:00:00+00:00",
+      "saved_rate_per_day": 0.3000016543439017,
+      "expected_rate_per_day": 0.06666666666666667
+    }
+  ],
+  "source_notebook_relevant_lines": [
+    "ns=catalog.time.astype(\"int64\").to_numpy()",
+    "thirty_days=int(pd.Timedelta(days=30).value)",
+    "    time_ns=cat.time.astype(\"int64\").to_numpy()",
+    "        \"input_to_target_gap_seconds\":float((ns[t]-ns[history[-1]])/1e9),"
+  ],
+  "cause": "Saved preprocessing combines native datetime integer units with nanosecond constants; source evidence and independent checks determine impact.",
+  "correction_policy": "No corrections applied here. User prohibited regenerating original preprocessing.",
+  "prior_validation_limit": "Previous prefix checks reused the same feature logic and could not detect a shared time-unit error.",
+  "operational_feature_availability": "UNKNOWN"
+}
