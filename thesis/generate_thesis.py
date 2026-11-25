@@ -503,41 +503,40 @@ body(doc, (
     "shaking arrives with virtually no warning — often in a matter of seconds to minutes from the moment "
     "of fault rupture. The Indo-Burma subduction zone and the Shillong Plateau in Northeast India "
     "constitute one of the world's highest seismic hazard regions, classified as Zone V under the "
-    "Bureau of Indian Standards seismic zonation map. Historical records document the 1897 Shillong "
-    "Earthquake (Mw 8.1), which claimed more than 1,500 lives and devastated the Brahmaputra valley, "
-    "and the 1950 Assam-Tibet Earthquake (Mw 8.6), one of the largest instrumentally recorded "
-    "earthquakes in human history."
+    "Bureau of Indian Standards seismic zonation map (Bureau of Indian Standards, 2016; Mittal et al., 2025). "
+    "Historical records document the 1897 Shillong Earthquake (Mw 8.1), which claimed more than 1,500 lives "
+    "and devastated the Brahmaputra valley, and the 1950 Assam-Tibet Earthquake (Mw 8.6), one of the "
+    "largest instrumentally recorded earthquakes in human history."
 ))
 body(doc, (
     "An Earthquake Early Warning (EEW) system exploits the difference in propagation velocity between "
-    "the faster primary (P) seismic wave and the slower but more destructive secondary (S) wave. By "
-    "detecting the P-wave at a seismic station and rapidly estimating the event magnitude, an EEW "
-    "system can issue a warning to populated areas several seconds before the arrival of the damaging "
-    "S-waves and surface waves. Even a few seconds of warning is sufficient to trigger automatic "
-    "protective actions — stopping trains, opening fire-station doors, alerting medical facilities, and "
-    "initiating emergency broadcasts — potentially saving thousands of lives."
+    "the faster primary (P) seismic wave and the slower but more destructive secondary (S) wave "
+    "(Allen & Kanamori, 2003; Kanamori, 2005). By detecting the P-wave at a seismic station and rapidly "
+    "estimating the event magnitude, an EEW system can issue a warning to populated areas several seconds "
+    "before the arrival of the damaging S-waves and surface waves (Allen & Melgar, 2019). Even a few "
+    "seconds of warning is sufficient to trigger automatic protective actions — stopping trains, opening "
+    "fire-station doors, alerting medical facilities, and initiating emergency broadcasts — potentially "
+    "saving thousands of lives."
 ))
 body(doc, (
     "The deployment of modern deep learning architectures for EEW has demonstrated remarkable progress "
-    "over the last decade. Convolutional neural networks (CNNs) are adept at capturing local spectral "
-    "patterns in seismic waveforms, while recurrent architectures such as Long Short-Term Memory (LSTM) "
-    "and its bidirectional variant (BiLSTM) excel at modeling temporal dependencies within sequential "
-    "signals. Attention mechanisms, originally developed for natural language processing, have more "
-    "recently been adapted for seismic signal analysis, allowing models to dynamically weight the "
-    "temporal segments most informative for a given prediction task."
+    "over the last decade (Perol et al., 2018; Zhu & Beroza, 2019; Mousavi et al., 2020). Convolutional "
+    "neural networks (CNNs) are adept at capturing local spectral patterns in seismic waveforms, while "
+    "recurrent architectures such as Long Short-Term Memory (LSTM; Hochreiter & Schmidhuber, 1997) "
+    "and its bidirectional variant (BiLSTM; Schuster & Paliwal, 1997) excel at modeling temporal dependencies "
+    "within sequential signals. Additive attention mechanisms (Bahdanau et al., 2015) have more recently "
+    "been adapted for seismic signal analysis, allowing models to dynamically weight the temporal segments "
+    "most informative for a given prediction task."
 ))
 body(doc, (
     "However, a critical bottleneck in the application of deep learning to EEW in Northeast India is "
     "the severe scarcity of labelled broadband seismic waveform recordings with reliable P-wave onset "
-    "picks. While global networks such as IRIS and GEOSCOPE maintain dense instrumentation, the "
-    "regional networks serving the Brahmaputra valley and the Indo-Burma arc remain sparse, and their "
-    "waveform archives are fragmented. This data deficit makes it extremely challenging to train and "
-    "evaluate data-hungry deep learning models in a scientifically rigorous manner. Physics-informed "
-    "synthetic data simulation offers a principled solution: by encoding known crustal physics — Brune "
-    "source spectra, geometric spreading, frequency-dependent attenuation, and realistic ambient noise "
-    "— into a generative simulator, researchers can produce large-scale, perfectly labelled training "
-    "and evaluation cohorts that faithfully reproduce the statistical characteristics of real "
-    "regional waveforms."
+    "picks (Mittal et al., 2025). While global networks maintain dense instrumentation, regional arrays "
+    "serving the Brahmaputra valley and the Indo-Burma arc remain sparse, and continuous waveform archives "
+    "are fragmented. Physics-informed synthetic data simulation offers a principled solution (Boore, 2003): "
+    "by encoding known crustal physics — Brune source spectra (Brune, 1970), geometric spreading, "
+    "frequency-dependent attenuation, and realistic ambient noise — into a forward simulator, researchers "
+    "can produce large-scale, perfectly labelled cohorts for controlled architectural benchmarking."
 ))
 
 add_section(doc, "1.2 Problem Statement")
@@ -621,118 +620,97 @@ add_chapter(doc, "CHAPTER 2\nLITERATURE REVIEW")
 
 add_section(doc, "2.1 Deep Learning for Seismic Signal Detection")
 body(doc, (
-    "The application of deep learning to seismic signal processing has expanded dramatically since the "
-    "publication of PhaseNet (Zhu and Beroza, 2019) and EQTransformer (Mousavi et al., 2020). "
-    "These seminal works demonstrated that transformer-based and encoder-decoder CNN architectures "
-    "could surpass traditional STA/LTA-based pickers in P-wave detection accuracy on global datasets. "
-    "EQTransformer, in particular, employed multi-task learning to simultaneously predict P-wave "
-    "onset probability, S-wave onset probability, and earthquake detection — establishing a paradigm "
-    "that has since been replicated and extended by numerous follow-on studies."
+    "The application of deep learning to seismic signal processing expanded rapidly following "
+    "ConvNetQuake (Perol et al., 2018), PhaseNet (Zhu & Beroza, 2019), and EQTransformer "
+    "(Mousavi et al., 2020). These seminal works demonstrated that convolutional and attention-based "
+    "neural architectures outperform traditional short-term-average over long-term-average (STA/LTA) "
+    "pickers in event detection and seismic phase arrival picking on large benchmark archives. "
+    "EQTransformer, in particular, unified hierarchical convolutional encoders with global self-attention "
+    "layers to jointly perform earthquake detection and P/S phase picking."
 ))
 body(doc, (
-    "Ahamad et al. (2025) conducted a comprehensive review of deep learning approaches for seismic "
-    "event detection and classification, finding that 1D CNN architectures consistently deliver "
-    "competitive performance relative to their computational cost — a crucial factor for edge EEW "
-    "deployment. Silva-Lopez and Baker (2022) demonstrated that neural networks trained on synthetic "
-    "seismic waveforms could generalize to real recordings when the synthetic generator faithfully "
-    "reproduced key spectral statistics, validating the synthetic benchmarking paradigm adopted in "
-    "this project. Panda et al. (2025) benchmarked six deep learning architectures for P-wave "
-    "detection across multiple regional networks and found that model performance varied substantially "
-    "with the available observation window length — a finding that motivates the multi-horizon "
-    "evaluation design of this project."
+    "Ahamad and Singh (2025) reviewed twenty recent deep learning studies for earthquake forecasting "
+    "and EEW systems, highlighting the complementary roles of CNNs, LSTMs, generative adversarial "
+    "networks (GANs), and Artificial Intelligence of Things (AIoT) edge architectures. Extending this "
+    "decentralized paradigm, Esposito et al. (2025) demonstrated an end-to-end AI-IoT seismic picking "
+    "and alerting architecture suitable for resource-constrained edge nodes, reducing dependence on "
+    "centralized telemetry backhauls that are vulnerable during severe ground shaking. In parallel, "
+    "Murray et al. (2025) applied semi-supervised Siamese networks to continuous seismic recordings, "
+    "showing that representation learning can track evolving microseismic frequency characteristics "
+    "across noisy field environments."
 ))
 body(doc, (
-    "Hamouda et al. (2025) investigated advanced signal processing techniques combined with deep "
-    "learning for seismic event characterization, reporting that pre-processing choices — particularly "
-    "bandpass filter cutoff frequencies and normalization schemes — exert a first-order influence on "
-    "detection F1-scores. Namin et al. (2024) automated the seismic data quality assessment pipeline "
-    "using machine learning, introducing SNR-based filtering criteria similar to the QC protocol "
-    "adopted in this project's Phase 9 waveform generation audit."
+    "Data curation and quality control also govern model generalization. Namin et al. (2025) automated "
+    "ground-motion record quality assessment using customized residual neural networks, achieving 93% "
+    "accuracy and a 95% F1-score on New Zealand strong-motion records, while observing accuracy decay to "
+    "74% under cross-database domain shift. This sensitivity underscores the necessity of automated, "
+    "leakage-free waveform validation and objective quality filtering prior to model benchmarking."
 ))
 
-add_section(doc, "2.2 Magnitude Estimation from P-waves")
+add_section(doc, "2.2 Magnitude Estimation and Regional EEW Calibration")
 body(doc, (
-    "Early magnitude estimation from P-wave characteristics is the second fundamental task of an EEW "
-    "system. Traditional methods rely on the period-dominant (tau-p) and peak displacement (Pd) "
-    "parameters measured in the first few seconds of the P-wave coda. Espinosa-Aranda et al. "
-    "established the theoretical basis for these scaling relationships, which have since been "
-    "calibrated for numerous regional networks worldwide."
+    "Rapid magnitude estimation from initial P-wave segments is the second core task of operational EEW. "
+    "Foundational studies by Allen and Kanamori (2003) and Kanamori (2005) established how dominant "
+    "period and initial displacement amplitudes within the first few seconds after P-wave arrival scale "
+    "with eventual earthquake magnitude. However, Allen and Melgar (2019) emphasized enduring physical "
+    "constraints, including near-source blind zones, telemetry delays, and rupture saturation when large "
+    "earthquakes exceed the duration of short observation windows."
 ))
 body(doc, (
-    "Xie et al. (2024) proposed a deep learning framework for magnitude estimation from short "
-    "P-wave windows that explicitly modeled the variance compression phenomenon — the tendency of "
-    "regression models to underpredict high magnitudes when trained on imbalanced magnitude "
-    "distributions. Their analysis demonstrated that this effect is fundamental to source-physics "
-    "constraints rather than a modeling artifact, corroborating the negative result documented in "
-    "Section 5.4 of this report. Chaudhary et al. (2025) introduced a physics-guided neural network "
-    "for joint detection and magnitude estimation, incorporating Brune source spectrum constraints "
-    "as differentiable physics layers within the network architecture."
+    "Across structural and earthquake engineering, Xie (2024) surveyed deep learning architectures—including "
+    "MLPs, CNNs, RNNs, GANs, autoencoders, transfer learning, and graph neural networks—identifying "
+    "uncertainty quantification and generalization under scarce strong-event records as open challenges. "
+    "Relatedly, Panda and Yadav (2025) demonstrated ensemble learning combining machine and deep learning "
+    "models for post-earthquake structural damage-grade prediction, while Silva-Lopez et al. (2022) built "
+    "neural network surrogate models coupled with LIME-based explanations to accelerate seismic risk "
+    "assessment for road networks."
 ))
 body(doc, (
-    "Mittal et al. (2025) characterized the magnitude estimation gap for the Indian subcontinent, "
-    "noting that published global EEW models systematically overpredict magnitudes for shallow "
-    "crustal earthquakes in the Indo-Gangetic plain due to differences in attenuation structure. "
-    "This calibration gap directly motivates the physics-informed approach adopted in this project, "
-    "wherein all attenuation parameters are derived from published Northeast Indian crustal models "
-    "rather than from global defaults."
-))
-
-add_section(doc, "2.3 Synthetic Seismic Benchmarks")
-body(doc, (
-    "The use of synthetically generated seismic records as training data for deep learning models "
-    "has gained significant traction as a strategy to overcome data scarcity in regions with limited "
-    "instrumentation. Arsenault et al. (2025) provided a comprehensive survey of synthetic data "
-    "generation methods for seismic deep learning, categorizing approaches into three families: "
-    "(1) stochastic simulation using random phase spectra combined with empirical Green's function "
-    "summation; (2) physics-based kinematic source modelling using finite-difference wave propagation "
-    "codes; and (3) hybrid generative adversarial network (GAN) augmentation from real recordings. "
-    "The approach adopted in this project belongs to the first family, using Brune source scaling "
-    "with analytically tractable crustal transfer functions."
-))
-body(doc, (
-    "Jena et al. (2023) demonstrated that transfer learning from synthetic to real seismic data "
-    "significantly improved detection accuracy in poorly instrumented regions, achieving an average "
-    "F1-score improvement of 12 percentage points over models trained exclusively on real data. "
-    "Their study confirmed that the key to successful synthetic-to-real transfer is accurate "
-    "noise characterization: models trained with physically realistic noise distributions "
-    "generalize substantially better than those trained on simple Gaussian noise."
-))
-body(doc, (
-    "Longo et al. (2024) examined the explainability of seismic deep learning models trained on "
-    "synthetic benchmarks, finding that SHAP feature attributions from synthetic-trained models "
-    "are qualitatively consistent with those from models trained on real recordings — provided the "
-    "simulator faithfully reproduces the dominant frequency content and temporal structure of "
-    "real P-wave arrivals."
+    "Within the Indian context, Mittal et al. (2025) reviewed national EEW developments and documented "
+    "a critical regional calibration gap: applying empirical P-Alert magnitude scaling relationships "
+    "derived in Taiwan directly to northern Indian crustal structures systematically underestimates local "
+    "magnitudes by 0.3 to 0.5 units. This finding directly motivates parameterizing synthetic benchmarks "
+    "with Indian crustal velocities and regional anelastic attenuation parameters."
 ))
 
-add_section(doc, "2.4 Explainable AI in Geophysics")
+add_section(doc, "2.3 Synthetic Seismic Simulation and Hybrid Generative Methods")
 body(doc, (
-    "The deployment of deep learning models in safety-critical geophysical applications necessitates "
-    "rigorous interpretability analysis. Mersha et al. (2024) demonstrated that SHAP-based "
-    "explainability tools applied to deep learning seismic classifiers revealed model reliance on "
-    "physically meaningful features — particularly pre-onset noise variance, peak P-wave displacement, "
-    "and spectral centroid frequency — validating model trustworthiness beyond aggregate accuracy metrics."
+    "Because broadband P-wave waveforms remain scarce in sparsely instrumented zones such as Northeast "
+    "India, synthetic ground-motion modeling provides an indispensable foundation for controlled benchmarking. "
+    "In engineering seismology, Brune (1970) formulated the canonical omega-squared shear-wave displacement "
+    "spectrum relating corner frequency to seismic moment and stress drop. Building on this source model, "
+    "Boore (2003) established the stochastic simulation framework, combining Brune source spectra with "
+    "geometric spreading, frequency-dependent crustal quality attenuation Q(f), and windowed stochastic "
+    "carriers to synthesize physically faithful acceleration time series."
 ))
 body(doc, (
-    "Chamola et al. (2023) reviewed the trustworthiness and explainability requirements for AI "
-    "systems in disaster management contexts, arguing that any EEW model proposed for operational "
-    "deployment must satisfy three XAI criteria: (1) alignment of attention/saliency maps with "
-    "physically expected signal regions; (2) consistency of feature rankings across random seeds "
-    "and training folds; and (3) absence of spurious shortcut features (e.g., background noise "
-    "statistics correlated with class labels through data leakage)."
+    "Modern data-driven augmentation has also been explored to address catalog sparsity and class imbalance. "
+    "Chaudhary et al. (2025) proposed a hybrid LSTM-GAN framework for earthquake prediction, and Hamouda "
+    "(2025) reviewed pre-earthquake signal processing and forecasting methods. Meanwhile, Jena et al. (2023) "
+    "integrated convolutional deep learning with transfer learning for regional earthquake-risk assessment "
+    "across the Eurasian belt. Unlike unconstrained black-box GAN generators that can introduce unphysical "
+    "spectral oscillations, forward-modeled simulation grounded in Brune scaling and calibrated pre-P noise "
+    "guarantees exact kinematic arrival times and physical amplitude relationships."
+))
+
+add_section(doc, "2.4 Explainable AI (XAI) in Safety-Critical Applications")
+body(doc, (
+    "As deep learning models enter safety-critical hazard monitoring, post-hoc transparency and validation "
+    "become essential. Lundberg and Lee (2017) introduced SHapley Additive exPlanations (SHAP), unifying "
+    "game-theoretic feature attribution across machine learning models, and Erion et al. (2021) formalized "
+    "Expected Gradients to estimate Shapley attributions efficiently across neural network input gradients "
+    "against training background distributions."
 ))
 body(doc, (
-    "Esposito et al. (2025) integrated AIoT hardware constraints with explainability requirements "
-    "for seismic early warning, demonstrating that model compression techniques (quantization, pruning) "
-    "can be applied to deep learning EEW models without significantly degrading SHAP attribution "
-    "quality. Their work provides the theoretical foundation for the edge-deployment profiling "
-    "analysis presented in Section 5.5 of this report."
-))
-body(doc, (
-    "Murray et al. (2025) characterized seismic signal quality and noise contamination in real "
-    "broadband network recordings, providing empirical reference distributions for SNR, spectral "
-    "flatness, and temporal stationarity that were used to validate the synthetic noise models "
-    "implemented in this project."
+    "Several broad surveys have articulated the requirements for trustworthy interpretability. Chamola et al. "
+    "(2023) reviewed trustworthy XAI frameworks across high-risk domains, highlighting robustness, fairness, "
+    "and accountability requirements, while Mersha et al. (2024) surveyed XAI needs, quantitative evaluation "
+    "metrics, and deep-learning attribution limitations across tabular, vision, and temporal modalities. "
+    "Focusing specifically on sequential forecasting, Arsenault et al. (2025) categorized time-series XAI "
+    "methods and noted that correlated temporal inputs complicate additive feature attributions. Pushing the "
+    "field forward, Longo et al. (2024) proposed the XAI 2.0 manifesto, calling for falsifiable, context-aware "
+    "explanations rather than unverified visual saliency maps—principles directly applied in the SHAP "
+    "sensitivity and reconstruction audit reported in Chapter 5."
 ))
 
 page_break(doc)
@@ -1011,9 +989,9 @@ body(doc, (
 add_section(doc, "4.5 Temporal Attention Fusion Network")
 body(doc, (
     "The Attention Fusion model extends the CNN-BiLSTM architecture by replacing "
-    "the fixed concatenation with a learned temporal attention mechanism. For each "
-    "time step i in the observation window, an attention weight alpha_i is computed "
-    "from the BiLSTM hidden states h_i:"
+    "the fixed concatenation with a learned additive temporal attention mechanism "
+    "(Bahdanau et al., 2015). For each time step i in the observation window, an attention weight "
+    "alpha_i is computed from the BiLSTM hidden states h_i:"
 ))
 body(doc, "    e_i = w^T tanh(W h_i + b)     (4.1)", indent=True)
 body(doc, "    alpha_i = exp(e_i) / sum_j exp(e_j)     (4.2)", indent=True)
@@ -1047,7 +1025,7 @@ add_results_table(doc,
 )
 body(doc, (
     "Model selection was performed by monitoring validation loss (detection: BCE; "
-    "magnitude: Huber loss). The epoch with the lowest validation loss was saved as "
+    "magnitude: Huber loss; Huber, 1964). The epoch with the lowest validation loss was saved as "
     "the best model checkpoint. For detection, two threshold policies are reported: "
     "fixed threshold (theta = 0.50) and validation-selected threshold (the value "
     "maximizing F1 on the validation set). All reported test-set metrics were computed "
@@ -1186,12 +1164,12 @@ body(doc, (
 
 add_section(doc, "5.5 Explainability Analysis (XAI)")
 body(doc, (
-    "SHAP (SHapley Additive exPlanations) Expected Gradients were computed for all four "
-    "models using 500 background reference samples drawn from the training set. For each "
-    "test record, SHAP values quantify the contribution of each of the seven features "
-    "to the model's output relative to the expected baseline prediction. Features with "
-    "consistently high absolute SHAP values across the test set are identified as the "
-    "primary discriminating features."
+    "SHAP (SHapley Additive exPlanations; Lundberg & Lee, 2017) Expected Gradients "
+    "(Erion et al., 2021) were computed using paired training background reference samples. "
+    "For each record, SHAP values quantify the contribution of each model input feature "
+    "relative to the expected baseline prediction. Features with consistently high "
+    "absolute SHAP values across the explanation cohort are identified as the "
+    "primary discriminating inputs."
 ))
 body(doc, (
     "For earthquake detection, RMS Amplitude (f1) and First-Difference Energy (f4) are "
@@ -1411,39 +1389,223 @@ for title, desc in future_work:
 page_break(doc)
 
 # ═══════════════════════════════════════════════════════════════
-# REFERENCES
+# REFERENCES (APA 7th Edition — 30 Verified Entries, Alphabetical)
 # ═══════════════════════════════════════════════════════════════
 add_chapter(doc, "REFERENCES")
-references = [
-    "[1] S. M. Mousavi, W. L. Ellsworth, W. Zhu, L. Y. Chuang, and G. C. Beroza, \"Earthquake transformer—an attentive deep-learning model for simultaneous earthquake detection and phase picking,\" Nature Communications, vol. 11, no. 1, p. 3952, 2020.",
-    "[2] W. Zhu and G. C. Beroza, \"PhaseNet: A deep-neural-network-based seismic arrival-time picking method,\" Geophysical Journal International, vol. 216, no. 1, pp. 261–273, 2019.",
-    "[3] J. Brune, \"Tectonic stress and the spectra of seismic shear waves from earthquakes,\" Journal of Geophysical Research, vol. 75, no. 26, pp. 4997–5009, 1970.",
-    "[4] S. Ahamad, et al., \"Deep learning-based earthquake event detection and classification,\" International Journal of Scientific Research in Science and Technology (IJSRST), vol. 12, no. 3, 2025.",
-    "[5] L. Arsenault, et al., \"A survey of synthetic data generation for seismic deep learning,\" ACM Computing Surveys, 2025.",
-    "[6] V. Chamola, et al., \"A review of trustworthy and explainable artificial intelligence (XAI),\" IEEE Access, vol. 11, 2023.",
-    "[7] P. Chaudhary, et al., \"An innovative method for earthquake prediction and early warning systems,\" in Advances in Computational Intelligence. CRC Press, 2025.",
-    "[8] F. Esposito, et al., \"An AIoT system for earthquake early warning on resource-constrained hardware,\" IEEE Internet of Things Journal, 2025.",
-    "[9] R. Jena, et al., \"Integration of deep learning and transfer learning for earthquake risk assessment in the Eurasian region,\" Remote Sensing, vol. 15, 2023.",
-    "[10] G. Longo, et al., \"Explainable deep learning for seismic signal classification,\" Information Fusion, vol. 104, 2024.",
-    "[11] M. Mersha, et al., \"Explainable AI for seismic event classification,\" Neurocomputing, 2024.",
-    "[12] R. Mittal, et al., \"Characterization of seismic hazard in India using deep learning,\" Surveys in Geophysics, 2025.",
-    "[13] R. Murray, et al., \"Characterisation of seismic noise and signal quality in broadband networks,\" Scientific Reports, 2025.",
-    "[14] H. Namin, et al., \"Automating seismic data quality assessment using machine learning,\" ASCE Journal of Computing in Civil Engineering, 2024.",
-    "[15] S. S. Panda, et al., \"Earthquake P-wave detection: A benchmark for deep learning architectures,\" arXiv:2506.22129, 2025.",
-    "[16] R. Silva-Lopez and J. W. Baker, \"Deep learning for seismic intensity prediction: A simulation-based approach,\" Journal of Computing in Civil Engineering, vol. 36, 2022.",
-    "[17] Z. Xie, et al., \"Deep learning for rapid magnitude estimation from P-wave observations,\" arXiv:2405.09021, 2024.",
-    "[18] Bureau of Indian Standards, IS 1893-1: Criteria for Earthquake Resistant Design of Structures, New Delhi, 2016.",
-    "[19] P. Somerville and N. Abrahamson, \"Ground motion prediction equations for the western United States,\" Pacific Earthquake Engineering Research Center, 2003.",
-    "[20] A. Zollo, et al., \"Earthquake early warning system in southern Italy: Methodologies and performance evaluation,\" Geophysical Research Letters, vol. 36, 2009.",
-]
-for ref in references:
+
+def add_apa_ref(doc, segments):
+    """Add a single APA 7th reference entry from [(text, is_italic), ...] segments."""
     p = doc.add_paragraph()
-    run = p.add_run(ref)
-    set_run_font(run, size_pt=12)
-    p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    p.paragraph_format.left_indent = Inches(0.25)
-    p.paragraph_format.first_line_indent = Inches(-0.25)
-    p.paragraph_format.space_after = Pt(4)
+    p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    p.paragraph_format.left_indent = Inches(0.5)
+    p.paragraph_format.first_line_indent = Inches(-0.5)
+    p.paragraph_format.space_before = Pt(0)
+    p.paragraph_format.space_after = Pt(6)
+    for text, is_italic in segments:
+        r = p.add_run(text)
+        set_run_font(r, size_pt=12, italic=is_italic)
+    return p
+
+apa_references = [
+    [
+        ("Ahamad, F., & Singh, V. K. (2025). Deep learning approaches for earthquake forecasting and early warning systems in seismically active regions. ", False),
+        ("International Journal of Scientific Research in Science and Technology", True),
+        (", ", False),
+        ("12", True),
+        ("(3), 922–930. https://doi.org/10.32628/IJSRST25123112", False),
+    ],
+    [
+        ("Allen, R. M., & Kanamori, H. (2003). The potential for earthquake early warning in Southern California. ", False),
+        ("Science", True),
+        (", ", False),
+        ("300", True),
+        ("(5620), 786–789. https://doi.org/10.1126/science.1080912", False),
+    ],
+    [
+        ("Allen, R. M., & Melgar, D. (2019). Earthquake early warning: Advances, scientific challenges, and societal needs. ", False),
+        ("Annual Review of Earth and Planetary Sciences", True),
+        (", ", False),
+        ("47", True),
+        (", 361–388. https://doi.org/10.1146/annurev-earth-053018-060457", False),
+    ],
+    [
+        ("Arsenault, P.-D., Wang, S., & Patenaude, J.-M. (2025). A survey of explainable artificial intelligence (XAI) in financial time series forecasting. ", False),
+        ("ACM Computing Surveys", True),
+        (", ", False),
+        ("57", True),
+        ("(10), Article 265. https://doi.org/10.1145/3729531", False),
+    ],
+    [
+        ("Bahdanau, D., Cho, K., & Bengio, Y. (2015). Neural machine translation by jointly learning to align and translate. ", False),
+        ("International Conference on Learning Representations (ICLR 2015)", True),
+        (". https://arxiv.org/abs/1409.0473", False),
+    ],
+    [
+        ("Boore, D. M. (2003). Simulation of ground motion using the stochastic method. ", False),
+        ("Pure and Applied Geophysics", True),
+        (", ", False),
+        ("160", True),
+        ("(3), 635–676. https://doi.org/10.1007/PL00012553", False),
+    ],
+    [
+        ("Brune, J. N. (1970). Tectonic stress and the spectra of seismic shear waves from earthquakes. ", False),
+        ("Journal of Geophysical Research", True),
+        (", ", False),
+        ("75", True),
+        ("(26), 4997–5009. https://doi.org/10.1029/JB075i026p04997", False),
+    ],
+    [
+        ("Bureau of Indian Standards. (2016). ", False),
+        ("Criteria for earthquake resistant design of structures: Part 1 General provisions and buildings", True),
+        (" (IS 1893-1, 6th rev.). Bureau of Indian Standards.", False),
+    ],
+    [
+        ("Chamola, V., Hassija, V., Sulthana, A. R., Ghosh, D., Dhingra, D., & Sikdar, B. (2023). A review of trustworthy and explainable artificial intelligence (XAI). ", False),
+        ("IEEE Access", True),
+        (", ", False),
+        ("11", True),
+        (", 78994–79015. https://doi.org/10.1109/ACCESS.2023.3294569", False),
+    ],
+    [
+        ("Chaudhary, D., Uppara, R. B., Kumar, S. S., Ambekar, R. V., Prasanth, P. P., & Pulugu, D. (2025). An innovative method for earthquake prediction system based on LSTM-GAN model. In S. P. J. Christydass, N. Nurhayati, & S. Kannadhasan (Eds.), ", False),
+        ("Hybrid and advanced technologies", True),
+        (" (pp. 113–118). CRC Press. https://doi.org/10.1201/9781003559115-20", False),
+    ],
+    [
+        ("Erion, G., Janizek, J. D., Sturmfels, P., Lundberg, S. M., & Lee, S.-I. (2021). Improving performance of deep learning models with axiomatic attribution priors and expected gradients. ", False),
+        ("Nature Machine Intelligence", True),
+        (", ", False),
+        ("3", True),
+        ("(7), 620–631. https://doi.org/10.1038/s42256-021-00343-w", False),
+    ],
+    [
+        ("Esposito, M., Belli, A., Falaschetti, L., Palma, L., & Pierleoni, P. (2025). An AI-IoT system for earthquake early warning on resource constrained devices. ", False),
+        ("IEEE Internet of Things Journal", True),
+        (". Advance online publication. https://doi.org/10.1109/JIOT.2025.3527750", False),
+    ],
+    [
+        ("Hamouda, S. A. (2025). Advanced techniques for pre-earthquake prediction. ", False),
+        ("Saudi Journal of Engineering and Technology", True),
+        (", ", False),
+        ("10", True),
+        ("(4), 200–205. https://doi.org/10.36348/sjet.2025.v10i04.010", False),
+    ],
+    [
+        ("Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. ", False),
+        ("Neural Computation", True),
+        (", ", False),
+        ("9", True),
+        ("(8), 1735–1780. https://doi.org/10.1162/neco.1997.9.8.1735", False),
+    ],
+    [
+        ("Huber, P. J. (1964). Robust estimation of a location parameter. ", False),
+        ("The Annals of Mathematical Statistics", True),
+        (", ", False),
+        ("35", True),
+        ("(1), 73–101. https://doi.org/10.1214/aoms/1177703732", False),
+    ],
+    [
+        ("Jena, R., Shanableh, A., Al-Ruzouq, R., Pradhan, B., Gibril, M. B. A., Ghorbanzadeh, O., Atzberger, C., Khalil, M. A., Mittal, H., & Ghamisi, P. (2023). An integration of deep learning and transfer learning for earthquake-risk assessment in the Eurasian region. ", False),
+        ("Remote Sensing", True),
+        (", ", False),
+        ("15", True),
+        ("(15), Article 3759. https://doi.org/10.3390/rs15153759", False),
+    ],
+    [
+        ("Kanamori, H. (2005). Real-time seismology and earthquake damage mitigation. ", False),
+        ("Annual Review of Earth and Planetary Sciences", True),
+        (", ", False),
+        ("33", True),
+        (", 195–214. https://doi.org/10.1146/annurev.earth.33.092203.122626", False),
+    ],
+    [
+        ("Longo, L., Brcic, M., Cabitza, F., Choi, J., Confalonieri, R., Del Ser, J., Guidotti, R., Hayashi, Y., Herrera, F., Holzinger, A., Jiang, R., Khosravi, H., Lecue, F., Malgieri, G., Páez, A., Samek, W., Schneider, J., Speith, T., & Stumpf, S. (2024). Explainable artificial intelligence (XAI) 2.0: A manifesto of open challenges and interdisciplinary research directions. ", False),
+        ("Information Fusion", True),
+        (", ", False),
+        ("106", True),
+        (", Article 102301. https://doi.org/10.1016/j.inffus.2024.102301", False),
+    ],
+    [
+        ("Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting model predictions. ", False),
+        ("Advances in Neural Information Processing Systems", True),
+        (", ", False),
+        ("30", True),
+        (", 4768–4777.", False),
+    ],
+    [
+        ("Mersha, M., Lam, K., Wood, J., AlShami, A. K., & Kalita, J. (2024). Explainable artificial intelligence: A survey of needs, techniques, applications, and future direction. ", False),
+        ("Neurocomputing", True),
+        (", ", False),
+        ("599", True),
+        (", Article 128111. https://doi.org/10.1016/j.neucom.2024.128111", False),
+    ],
+    [
+        ("Mittal, H., Pal, S., Kumar, R., Saini, A., Wu, Y.-M., Ammani, A., Patel, R. C., Sandeep, & Mishra, O. P. (2025). India's earthquake early warning systems: A review of developments and challenges. ", False),
+        ("Surveys in Geophysics", True),
+        (", ", False),
+        ("46", True),
+        ("(2), 529–553. https://doi.org/10.1007/s10712-025-09875-x", False),
+    ],
+    [
+        ("Mousavi, S. M., Ellsworth, W. L., Zhu, W., Chuang, L. Y., & Beroza, G. C. (2020). Earthquake transformer—an attentive deep-learning model for simultaneous earthquake detection and phase picking. ", False),
+        ("Nature Communications", True),
+        (", ", False),
+        ("11", True),
+        ("(1), Article 3952. https://doi.org/10.1038/s41467-020-17591-w", False),
+    ],
+    [
+        ("Murray, D., Stankovic, L., Stankovic, V., Pytharouli, S., White, A., Dashwood, B., & Chambers, J. (2025). Characterisation of precursory seismic activity towards early warning of landslides via semi-supervised learning. ", False),
+        ("Scientific Reports", True),
+        (", ", False),
+        ("15", True),
+        (", Article 1026. https://doi.org/10.1038/s41598-024-84067-y", False),
+    ],
+    [
+        ("Namin, A., Kottke, A., & Esteghamati, M. Z. (2025). Automating ground motion quality assessment using residual neural networks. In ", False),
+        ("Geo-Extreme 2025: Remote Sensing, Instrumentation, Big Data, and Decision Making", True),
+        (" (pp. 75–85). American Society of Civil Engineers. https://doi.org/10.1061/9780784486498.008", False),
+    ],
+    [
+        ("Panda, A., & Yadav, G. K. (2025). ", False),
+        ("Earthquake damage grades prediction using an ensemble approach integrating advanced machine and deep learning models", True),
+        (". arXiv. https://arxiv.org/abs/2506.22129", False),
+    ],
+    [
+        ("Perol, T., Gharbi, M., & Denolle, M. (2018). Convolutional neural network for earthquake detection and location. ", False),
+        ("Science Advances", True),
+        (", ", False),
+        ("4", True),
+        ("(2), Article e1700578. https://doi.org/10.1126/sciadv.1700578", False),
+    ],
+    [
+        ("Schuster, M., & Paliwal, K. K. (1997). Bidirectional recurrent neural networks. ", False),
+        ("IEEE Transactions on Signal Processing", True),
+        (", ", False),
+        ("45", True),
+        ("(11), 2673–2681. https://doi.org/10.1109/78.650093", False),
+    ],
+    [
+        ("Silva-Lopez, R., Baker, J. W., & Poulos, A. (2022). Deep learning–based retrofitting and seismic risk assessment of road networks. ", False),
+        ("Journal of Computing in Civil Engineering", True),
+        (", ", False),
+        ("36", True),
+        ("(2), Article 04021038. https://doi.org/10.1061/(ASCE)CP.1943-5487.0001006", False),
+    ],
+    [
+        ("Xie, Y. (2024). ", False),
+        ("Deep learning in earthquake engineering: A comprehensive review", True),
+        (". arXiv. https://arxiv.org/abs/2405.09021", False),
+    ],
+    [
+        ("Zhu, W., & Beroza, G. C. (2019). PhaseNet: A deep-neural-network-based seismic arrival-time picking method. ", False),
+        ("Geophysical Journal International", True),
+        (", ", False),
+        ("216", True),
+        ("(1), 261–273. https://doi.org/10.1093/gji/ggy423", False),
+    ],
+]
+for segments in apa_references:
+    add_apa_ref(doc, segments)
 
 page_break(doc)
 
