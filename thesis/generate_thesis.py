@@ -6,16 +6,13 @@ Format: Times New Roman, 14pt headings (bold), 12pt body text.
 Structure follows the USTM Minor Project sample.
 """
 
-import os
-import copy
 from pathlib import Path
+
 from docx import Document
-from docx.shared import Pt, Inches, Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.section import WD_SECTION
-from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
-import docx
+from docx.oxml.ns import qn
+from docx.shared import Inches, Pt
 
 # ─── Paths ───────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.parent  # /home/.../Earthquake_early_warning_and_prediction
