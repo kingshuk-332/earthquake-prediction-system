@@ -1,4 +1,4 @@
-# Physics-Informed Synthetic Benchmark for Deep Learning Earthquake Early Warning (Northeast India)
+# Explainable AI-Based Earthquake Early Warning System for Northeast India
 
 > **Controlled comparison of 1D-CNN, Tabular BiLSTM, Frozen Feature Fusion, and Temporal Attention on strictly causal, oracle-P aligned synthetic P-wave windows (1.0 s, 2.0 s, 3.0 s) calibrated to the Northeast India & Indo-Burma seismic zone.**
 
