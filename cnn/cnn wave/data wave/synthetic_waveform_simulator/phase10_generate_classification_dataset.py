@@ -17,7 +17,6 @@ Constructs a balanced 16,178-sample seismic classification dataset:
 """
 
 import os
-import sys
 import time
 import json
 from datetime import datetime

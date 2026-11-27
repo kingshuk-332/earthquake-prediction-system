@@ -1,0 +1,776 @@
+{
+  "checks": {
+    "1s_checkpoint": {
+      "status": "PASS",
+      "evidence": {
+        "path": "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_1s_best.pt",
+        "sha256": "6e58d0005b1f464345ec64b488197b371607c232e4a786919d3f9ba46bcb34ad"
+      }
+    },
+    "train_1s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "validation_1s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "test_1s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "1s_feature_scaler": {
+      "status": "PASS",
+      "evidence": "Checkpoint parameters exactly match approved HDF5 train-only scaler; no refit in training code. Reliance on prior feature validation explicitly retained."
+    },
+    "1s_target_scaler": {
+      "status": "PASS",
+      "evidence": {
+        "training_mean": 3.8584954738616943,
+        "training_sd": 0.9050084948539734
+      }
+    },
+    "1s_selection": {
+      "status": "PASS",
+      "evidence": {
+        "epoch": 18,
+        "validation_loss_delta": 4.4126109655096e-08,
+        "saved_threshold": 0.47,
+        "validation_reproduced_threshold": 0.47,
+        "validation_f1": 0.7303980699638118
+      }
+    },
+    "1s_common_cohort": {
+      "status": "PASS",
+      "evidence": {
+        "earthquakes": 1200,
+        "noise": 1214,
+        "ordered_source_id_sha256": "862b467ff6219c5193f4c99257a5971eea395581669302748d006faa78b78601",
+        "ordered_parent_id_sha256": "6f42c966174ffef247ed80442342e89e2fa2a93d64d3f729312eb002327b804f"
+      }
+    },
+    "1s_detection_confusion": {
+      "status": "PASS",
+      "evidence": [
+        [
+          315,
+          899
+        ],
+        [
+          1,
+          1213
+        ]
+      ]
+    },
+    "1s_fixed_05_detection_confusion": {
+      "status": "PASS",
+      "evidence": [
+        [
+          320,
+          894
+        ],
+        [
+          3,
+          1211
+        ]
+      ]
+    },
+    "1s_strong_bias": {
+      "status": "PASS",
+      "evidence": {
+        "n": 131,
+        "underprediction_percent": 97.70992366412213,
+        "mae": 1.4185908659723878,
+        "bias": -1.4095619434618767
+      }
+    },
+    "1s_full_precision_metrics": {
+      "status": "PASS",
+      "evidence": {
+        "max_abs_difference": 0.0,
+        "tolerance": 1e-06
+      }
+    },
+    "2s_checkpoint": {
+      "status": "PASS",
+      "evidence": {
+        "path": "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_2s_best.pt",
+        "sha256": "2b31d158df7b866b1049fd679dace6bfb26038f21d4f5b3ee0a0f4df0e94e681"
+      }
+    },
+    "train_2s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "validation_2s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "test_2s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "2s_feature_scaler": {
+      "status": "PASS",
+      "evidence": "Checkpoint parameters exactly match approved HDF5 train-only scaler; no refit in training code. Reliance on prior feature validation explicitly retained."
+    },
+    "2s_target_scaler": {
+      "status": "PASS",
+      "evidence": {
+        "training_mean": 3.860833168029785,
+        "training_sd": 0.9051623344421387
+      }
+    },
+    "2s_selection": {
+      "status": "PASS",
+      "evidence": {
+        "epoch": 27,
+        "validation_loss_delta": -2.9009174173921792e-08,
+        "saved_threshold": 0.36,
+        "validation_reproduced_threshold": 0.36,
+        "validation_f1": 0.7308507417499243
+      }
+    },
+    "2s_common_cohort": {
+      "status": "PASS",
+      "evidence": {
+        "earthquakes": 1200,
+        "noise": 1214,
+        "ordered_source_id_sha256": "862b467ff6219c5193f4c99257a5971eea395581669302748d006faa78b78601",
+        "ordered_parent_id_sha256": "6f42c966174ffef247ed80442342e89e2fa2a93d64d3f729312eb002327b804f"
+      }
+    },
+    "2s_detection_confusion": {
+      "status": "PASS",
+      "evidence": [
+        [
+          316,
+          898
+        ],
+        [
+          1,
+          1206
+        ]
+      ]
+    },
+    "2s_fixed_05_detection_confusion": {
+      "status": "PASS",
+      "evidence": [
+        [
+          905,
+          309
+        ],
+        [
+          479,
+          728
+        ]
+      ]
+    },
+    "2s_strong_bias": {
+      "status": "PASS",
+      "evidence": {
+        "n": 131,
+        "underprediction_percent": 93.12977099236642,
+        "mae": 1.2312072906785338,
+        "bias": -1.2026304106675942
+      }
+    },
+    "2s_full_precision_metrics": {
+      "status": "PASS",
+      "evidence": {
+        "max_abs_difference": 0.0,
+        "tolerance": 1e-06
+      }
+    },
+    "3s_checkpoint": {
+      "status": "PASS",
+      "evidence": {
+        "path": "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_3s_best.pt",
+        "sha256": "28a40646277f114e9a9bbb25763f765dadb47b6cfff602e250d4d8b5b743c1d0"
+      }
+    },
+    "train_3s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "validation_3s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "test_3s_masks": {
+      "status": "PASS",
+      "evidence": "Existing pre-S masks reused; only eligible rows supplied; no beyond-cutoff feature bins. Original arrival/feature audits not repeated."
+    },
+    "3s_feature_scaler": {
+      "status": "PASS",
+      "evidence": "Checkpoint parameters exactly match approved HDF5 train-only scaler; no refit in training code. Reliance on prior feature validation explicitly retained."
+    },
+    "3s_target_scaler": {
+      "status": "PASS",
+      "evidence": {
+        "training_mean": 3.865957498550415,
+        "training_sd": 0.9047956466674805
+      }
+    },
+    "3s_selection": {
+      "status": "PASS",
+      "evidence": {
+        "epoch": 26,
+        "validation_loss_delta": -3.162160400194125e-08,
+        "saved_threshold": 0.36,
+        "validation_reproduced_threshold": 0.36,
+        "validation_f1": 0.7412140575079872
+      }
+    },
+    "3s_common_cohort": {
+      "status": "PASS",
+      "evidence": {
+        "earthquakes": 1200,
+        "noise": 1214,
+        "ordered_source_id_sha256": "862b467ff6219c5193f4c99257a5971eea395581669302748d006faa78b78601",
+        "ordered_parent_id_sha256": "6f42c966174ffef247ed80442342e89e2fa2a93d64d3f729312eb002327b804f"
+      }
+    },
+    "3s_detection_confusion": {
+      "status": "PASS",
+      "evidence": [
+        [
+          408,
+          806
+        ],
+        [
+          43,
+          1157
+        ]
+      ]
+    },
+    "3s_fixed_05_detection_confusion": {
+      "status": "PASS",
+      "evidence": [
+        [
+          939,
+          275
+        ],
+        [
+          415,
+          785
+        ]
+      ]
+    },
+    "3s_strong_bias": {
+      "status": "PASS",
+      "evidence": {
+        "n": 131,
+        "underprediction_percent": 96.18320610687023,
+        "mae": 1.1527157521429863,
+        "bias": -1.1346164987287448
+      }
+    },
+    "3s_full_precision_metrics": {
+      "status": "PASS",
+      "evidence": {
+        "max_abs_difference": 0.0,
+        "tolerance": 1e-06
+      }
+    },
+    "train/validation_identity_isolation": {
+      "status": "PASS",
+      "evidence": "No source/parent identity overlap in feature metadata."
+    },
+    "train/test_identity_isolation": {
+      "status": "PASS",
+      "evidence": "No source/parent identity overlap in feature metadata."
+    },
+    "validation/test_identity_isolation": {
+      "status": "PASS",
+      "evidence": "No source/parent identity overlap in feature metadata."
+    },
+    "saved_protocol_no_test_tuning": {
+      "status": "PASS",
+      "evidence": "Training notebook optimization uses train; epoch/threshold selection uses validation only. Test inference appears only after all three frozen checkpoints exist. Grid/tie rule reproduced independently; no new thresholds adopted. Target metadata is outside model.forward. This verifies artifacts and saved code, not unrecorded historical actions."
+    },
+    "historical_execution_certainty": {
+      "status": "UNKNOWN",
+      "evidence": "No immutable external execution log. Existing test set was already used in prior CNN research, so this is exploratory comparison rather than fresh confirmatory evaluation."
+    },
+    "noise_family_shortcuts": {
+      "status": "UNKNOWN",
+      "evidence": "Feature file lacks noise-family labels. No labels fabricated; upstream dataset/feature validation not rerun."
+    },
+    "preservation": {
+      "status": "PASS",
+      "evidence": {
+        "files": 9,
+        "changed": []
+      }
+    }
+  },
+  "horizons": {
+    "1": {
+      "threshold": 0.47,
+      "epoch": 18,
+      "n": 2428,
+      "detection": {
+        "accuracy": 0.6293245469522241,
+        "precision": 0.5743371212121212,
+        "recall": 0.999176276771005,
+        "f1": 0.7294046903187011,
+        "false_positive_rate": 0.7405271828665568,
+        "roc_auc": 0.6770930305143996,
+        "pr_auc_ap": 0.658110894314985,
+        "confusion_matrix": [
+          [
+            315,
+            899
+          ],
+          [
+            1,
+            1213
+          ]
+        ]
+      },
+      "fixed_05_detection": {
+        "accuracy": 0.6305601317957167,
+        "precision": 0.5752969121140142,
+        "recall": 0.9975288303130149,
+        "f1": 0.7297378728532691,
+        "false_positive_rate": 0.7364085667215815,
+        "roc_auc": 0.6770930305143996,
+        "pr_auc_ap": 0.658110894314985,
+        "confusion_matrix": [
+          [
+            320,
+            894
+          ],
+          [
+            3,
+            1211
+          ]
+        ]
+      },
+      "magnitude": {
+        "mae": 0.678041924754713,
+        "rmse": 0.8332470473886122,
+        "r2": 0.14360165970224226,
+        "bias": -0.0602715537811229,
+        "actual_variance": 0.8107216108574445,
+        "predicted_variance": 0.10229093535408357,
+        "std_ratio": 0.3552079685792337,
+        "slope": 0.13712756724821926
+      },
+      "common": {
+        "detection": {
+          "accuracy": 0.6271748135874068,
+          "precision": 0.5714966634890372,
+          "recall": 0.9991666666666666,
+          "f1": 0.727107337780473,
+          "false_positive_rate": 0.7405271828665568,
+          "roc_auc": 0.6759157056562327,
+          "pr_auc_ap": 0.6518563098718889,
+          "confusion_matrix": [
+            [
+              315,
+              899
+            ],
+            [
+              1,
+              1199
+            ]
+          ]
+        },
+        "fixed_05_detection": {
+          "accuracy": 0.6284175642087821,
+          "precision": 0.5724533715925395,
+          "recall": 0.9975,
+          "f1": 0.7274384685505926,
+          "false_positive_rate": 0.7364085667215815,
+          "roc_auc": 0.6759157056562327,
+          "pr_auc_ap": 0.6518563098718889,
+          "confusion_matrix": [
+            [
+              320,
+              894
+            ],
+            [
+              3,
+              1197
+            ]
+          ]
+        },
+        "magnitude": {
+          "mae": 0.6702129632234574,
+          "rmse": 0.8242297777032527,
+          "r2": 0.15961480519523186,
+          "bias": -0.0767141725619634,
+          "actual_variance": 0.8083849294972121,
+          "predicted_variance": 0.09465369453389881,
+          "std_ratio": 0.3421839858609602,
+          "slope": 0.1419923562856427
+        }
+      },
+      "strong": {
+        "n": 131,
+        "underprediction_percent": 97.70992366412213,
+        "mae": 1.4185908659723878,
+        "bias": -1.4095619434618767
+      },
+      "discrepancies": {
+        "detection/accuracy": 0.0,
+        "detection/precision": 0.0,
+        "detection/recall": 0.0,
+        "detection/f1": 0.0,
+        "detection/roc_auc": 0.0,
+        "detection/pr_auc_ap": 0.0,
+        "fixed_05_detection/accuracy": 0.0,
+        "fixed_05_detection/precision": 0.0,
+        "fixed_05_detection/recall": 0.0,
+        "fixed_05_detection/f1": 0.0,
+        "fixed_05_detection/roc_auc": 0.0,
+        "fixed_05_detection/pr_auc_ap": 0.0,
+        "magnitude/mae": 0.0,
+        "magnitude/rmse": 0.0,
+        "magnitude/r2": 0.0,
+        "magnitude/bias": 0.0,
+        "magnitude/actual_variance": 0.0,
+        "magnitude/predicted_variance": 0.0,
+        "magnitude/std_ratio": 0.0,
+        "magnitude/slope": 0.0,
+        "common/detection/accuracy": 0.0,
+        "common/detection/precision": 0.0,
+        "common/detection/recall": 0.0,
+        "common/detection/f1": 0.0,
+        "common/detection/roc_auc": 0.0,
+        "common/detection/pr_auc_ap": 0.0,
+        "common/fixed_05_detection/accuracy": 0.0,
+        "common/fixed_05_detection/precision": 0.0,
+        "common/fixed_05_detection/recall": 0.0,
+        "common/fixed_05_detection/f1": 0.0,
+        "common/fixed_05_detection/roc_auc": 0.0,
+        "common/fixed_05_detection/pr_auc_ap": 0.0,
+        "common/magnitude/mae": 0.0,
+        "common/magnitude/rmse": 0.0,
+        "common/magnitude/r2": 0.0,
+        "common/magnitude/bias": 0.0,
+        "common/magnitude/actual_variance": 0.0,
+        "common/magnitude/predicted_variance": 0.0,
+        "common/magnitude/std_ratio": 0.0,
+        "common/magnitude/slope": 0.0
+      }
+    },
+    "2": {
+      "threshold": 0.36,
+      "epoch": 27,
+      "n": 2421,
+      "detection": {
+        "accuracy": 0.6286658405617513,
+        "precision": 0.5731939163498099,
+        "recall": 0.9991714995857498,
+        "f1": 0.7284808215040773,
+        "false_positive_rate": 0.7397034596375618,
+        "roc_auc": 0.7645066054822978,
+        "pr_auc_ap": 0.780146193049818,
+        "confusion_matrix": [
+          [
+            316,
+            898
+          ],
+          [
+            1,
+            1206
+          ]
+        ]
+      },
+      "fixed_05_detection": {
+        "accuracy": 0.674514663362247,
+        "precision": 0.7020250723240116,
+        "recall": 0.6031483015741508,
+        "f1": 0.6488413547237076,
+        "false_positive_rate": 0.2545304777594728,
+        "roc_auc": 0.7645066054822978,
+        "pr_auc_ap": 0.780146193049818,
+        "confusion_matrix": [
+          [
+            905,
+            309
+          ],
+          [
+            479,
+            728
+          ]
+        ]
+      },
+      "magnitude": {
+        "mae": 0.638255535519212,
+        "rmse": 0.7855251941142933,
+        "r2": 0.23775259950675465,
+        "bias": -0.0468101238750088,
+        "actual_variance": 0.8095138536241766,
+        "predicted_variance": 0.19214236774978052,
+        "std_ratio": 0.487191190126843,
+        "slope": 0.23890732490319158
+      },
+      "common": {
+        "detection": {
+          "accuracy": 0.6275890637945319,
+          "precision": 0.5717691940867906,
+          "recall": 0.9991666666666666,
+          "f1": 0.7273278738246891,
+          "false_positive_rate": 0.7397034596375618,
+          "roc_auc": 0.7631727073036794,
+          "pr_auc_ap": 0.7775338100583221,
+          "confusion_matrix": [
+            [
+              316,
+              898
+            ],
+            [
+              1,
+              1199
+            ]
+          ]
+        },
+        "fixed_05_detection": {
+          "accuracy": 0.6735708367854184,
+          "precision": 0.7,
+          "recall": 0.6008333333333333,
+          "f1": 0.6466367713004484,
+          "false_positive_rate": 0.2545304777594728,
+          "roc_auc": 0.7631727073036794,
+          "pr_auc_ap": 0.7775338100583221,
+          "confusion_matrix": [
+            [
+              905,
+              309
+            ],
+            [
+              479,
+              721
+            ]
+          ]
+        },
+        "magnitude": {
+          "mae": 0.6341219729185105,
+          "rmse": 0.7809729622197167,
+          "r2": 0.24550947764750186,
+          "bias": -0.05493990282217662,
+          "actual_variance": 0.8083849294972121,
+          "predicted_variance": 0.18797898592663384,
+          "std_ratio": 0.48222036448205485,
+          "slope": 0.24088990678608346
+        }
+      },
+      "strong": {
+        "n": 131,
+        "underprediction_percent": 93.12977099236642,
+        "mae": 1.2312072906785338,
+        "bias": -1.2026304106675942
+      },
+      "discrepancies": {
+        "detection/accuracy": 0.0,
+        "detection/precision": 0.0,
+        "detection/recall": 0.0,
+        "detection/f1": 0.0,
+        "detection/roc_auc": 0.0,
+        "detection/pr_auc_ap": 0.0,
+        "fixed_05_detection/accuracy": 0.0,
+        "fixed_05_detection/precision": 0.0,
+        "fixed_05_detection/recall": 0.0,
+        "fixed_05_detection/f1": 0.0,
+        "fixed_05_detection/roc_auc": 0.0,
+        "fixed_05_detection/pr_auc_ap": 0.0,
+        "magnitude/mae": 0.0,
+        "magnitude/rmse": 0.0,
+        "magnitude/r2": 0.0,
+        "magnitude/bias": 0.0,
+        "magnitude/actual_variance": 0.0,
+        "magnitude/predicted_variance": 0.0,
+        "magnitude/std_ratio": 0.0,
+        "magnitude/slope": 0.0,
+        "common/detection/accuracy": 0.0,
+        "common/detection/precision": 0.0,
+        "common/detection/recall": 0.0,
+        "common/detection/f1": 0.0,
+        "common/detection/roc_auc": 0.0,
+        "common/detection/pr_auc_ap": 0.0,
+        "common/fixed_05_detection/accuracy": 0.0,
+        "common/fixed_05_detection/precision": 0.0,
+        "common/fixed_05_detection/recall": 0.0,
+        "common/fixed_05_detection/f1": 0.0,
+        "common/fixed_05_detection/roc_auc": 0.0,
+        "common/fixed_05_detection/pr_auc_ap": 0.0,
+        "common/magnitude/mae": 0.0,
+        "common/magnitude/rmse": 0.0,
+        "common/magnitude/r2": 0.0,
+        "common/magnitude/bias": 0.0,
+        "common/magnitude/actual_variance": 0.0,
+        "common/magnitude/predicted_variance": 0.0,
+        "common/magnitude/std_ratio": 0.0,
+        "common/magnitude/slope": 0.0
+      }
+    },
+    "3": {
+      "threshold": 0.36,
+      "epoch": 26,
+      "n": 2414,
+      "detection": {
+        "accuracy": 0.648301574150787,
+        "precision": 0.5894039735099338,
+        "recall": 0.9641666666666666,
+        "f1": 0.7315839392981347,
+        "false_positive_rate": 0.6639209225700164,
+        "roc_auc": 0.8132420373421198,
+        "pr_auc_ap": 0.8346043836399112,
+        "confusion_matrix": [
+          [
+            408,
+            806
+          ],
+          [
+            43,
+            1157
+          ]
+        ]
+      },
+      "fixed_05_detection": {
+        "accuracy": 0.7141673570836785,
+        "precision": 0.7405660377358491,
+        "recall": 0.6541666666666667,
+        "f1": 0.6946902654867256,
+        "false_positive_rate": 0.22652388797364087,
+        "roc_auc": 0.8132420373421198,
+        "pr_auc_ap": 0.8346043836399112,
+        "confusion_matrix": [
+          [
+            939,
+            275
+          ],
+          [
+            415,
+            785
+          ]
+        ]
+      },
+      "magnitude": {
+        "mae": 0.6150817563136418,
+        "rmse": 0.7584208797158002,
+        "r2": 0.2884550295282664,
+        "bias": -0.08211152732372284,
+        "actual_variance": 0.8083849294972121,
+        "predicted_variance": 0.2152688049281349,
+        "std_ratio": 0.5160377175516065,
+        "slope": 0.28154520819618056
+      },
+      "common": {
+        "detection": {
+          "accuracy": 0.648301574150787,
+          "precision": 0.5894039735099338,
+          "recall": 0.9641666666666666,
+          "f1": 0.7315839392981347,
+          "false_positive_rate": 0.6639209225700164,
+          "roc_auc": 0.8132420373421198,
+          "pr_auc_ap": 0.8346043836399112,
+          "confusion_matrix": [
+            [
+              408,
+              806
+            ],
+            [
+              43,
+              1157
+            ]
+          ]
+        },
+        "fixed_05_detection": {
+          "accuracy": 0.7141673570836785,
+          "precision": 0.7405660377358491,
+          "recall": 0.6541666666666667,
+          "f1": 0.6946902654867256,
+          "false_positive_rate": 0.22652388797364087,
+          "roc_auc": 0.8132420373421198,
+          "pr_auc_ap": 0.8346043836399112,
+          "confusion_matrix": [
+            [
+              939,
+              275
+            ],
+            [
+              415,
+              785
+            ]
+          ]
+        },
+        "magnitude": {
+          "mae": 0.6150817563136418,
+          "rmse": 0.7584208797158002,
+          "r2": 0.2884550295282664,
+          "bias": -0.08211152732372284,
+          "actual_variance": 0.8083849294972121,
+          "predicted_variance": 0.2152688049281349,
+          "std_ratio": 0.5160377175516065,
+          "slope": 0.28154520819618056
+        }
+      },
+      "strong": {
+        "n": 131,
+        "underprediction_percent": 96.18320610687023,
+        "mae": 1.1527157521429863,
+        "bias": -1.1346164987287448
+      },
+      "discrepancies": {
+        "detection/accuracy": 0.0,
+        "detection/precision": 0.0,
+        "detection/recall": 0.0,
+        "detection/f1": 0.0,
+        "detection/roc_auc": 0.0,
+        "detection/pr_auc_ap": 0.0,
+        "fixed_05_detection/accuracy": 0.0,
+        "fixed_05_detection/precision": 0.0,
+        "fixed_05_detection/recall": 0.0,
+        "fixed_05_detection/f1": 0.0,
+        "fixed_05_detection/roc_auc": 0.0,
+        "fixed_05_detection/pr_auc_ap": 0.0,
+        "magnitude/mae": 0.0,
+        "magnitude/rmse": 0.0,
+        "magnitude/r2": 0.0,
+        "magnitude/bias": 0.0,
+        "magnitude/actual_variance": 0.0,
+        "magnitude/predicted_variance": 0.0,
+        "magnitude/std_ratio": 0.0,
+        "magnitude/slope": 0.0,
+        "common/detection/accuracy": 0.0,
+        "common/detection/precision": 0.0,
+        "common/detection/recall": 0.0,
+        "common/detection/f1": 0.0,
+        "common/detection/roc_auc": 0.0,
+        "common/detection/pr_auc_ap": 0.0,
+        "common/fixed_05_detection/accuracy": 0.0,
+        "common/fixed_05_detection/precision": 0.0,
+        "common/fixed_05_detection/recall": 0.0,
+        "common/fixed_05_detection/f1": 0.0,
+        "common/fixed_05_detection/roc_auc": 0.0,
+        "common/fixed_05_detection/pr_auc_ap": 0.0,
+        "common/magnitude/mae": 0.0,
+        "common/magnitude/rmse": 0.0,
+        "common/magnitude/r2": 0.0,
+        "common/magnitude/bias": 0.0,
+        "common/magnitude/actual_variance": 0.0,
+        "common/magnitude/predicted_variance": 0.0,
+        "common/magnitude/std_ratio": 0.0,
+        "common/magnitude/slope": 0.0
+      }
+    }
+  },
+  "input_hashes": {
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\causal_tabular_v1\\tabular_features.h5": "8905cfa29770a3a59d52fe26b766c5060be8dfcccc99c7c13caeef14525f08fe",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\cnn_eew_training\\codex_performance_audit\\cnn_performance_audit_results.json": "58cadae483be48911671653fb714d168fa801b81078fde373b4bd02e4c9c815d",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\final_bilstm_eew_report.md": "e6d42302de5fa8306f47003ebaa820d251e5a206bb13b31a3005a9d191741756",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\01_bilstm_training.ipynb": "2df085de20bd88b75ab8dfcdd21de7fc5be8680edaaad4c54a901f74617b7f18",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\02_bilstm_evaluation.ipynb": "33957d8c75fc0825746fedad06d42cef9e0b8076d9b1887b9a375745e6b195b6",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\causal_tabular_v1\\feature_validation_report.md": "685028d898d7487729a8d67a007c065e9c8679e6e3d47bb38882e55d61fd13a8",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_1s_best.pt": "6e58d0005b1f464345ec64b488197b371607c232e4a786919d3f9ba46bcb34ad",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_2s_best.pt": "2b31d158df7b866b1049fd679dace6bfb26038f21d4f5b3ee0a0f4df0e94e681",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_3s_best.pt": "28a40646277f114e9a9bbb25763f765dadb47b6cfff602e250d4d8b5b743c1d0"
+  },
+  "verdict": "APPROVED",
+  "scope": "Verified standalone synthetic benchmark reporting and controlled comparison; suitable baseline for a separately designed fusion experiment, not evidence that fusion improves performance or authorization to begin it."
+}

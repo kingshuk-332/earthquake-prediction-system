@@ -48,9 +48,15 @@ def run_phase1(config: SimulationConfig = DEFAULT_CONFIG) -> pd.DataFrame:
     print(f"Columns with missing values: {n_missing_cols}")
     print(f"Exact duplicate records: {n_duplicates}")
 
-    # 4. Calculate Hypocentral Distance: R = sqrt(D^2 + h^2)
-    # D: epicentral_dist_km, h: Depth_km
-    df['hypocentral_distance_km'] = np.sqrt(df['epicentral_dist_km']**2 + df['Depth_km']**2)
+    # 4. Calculate 3D Spherical Chord Hypocentral Distance (eliminates flat-earth curvature error)
+    # R_sph = sqrt(R_e^2 + (R_e - h)^2 - 2 * R_e * (R_e - h) * cos(D / R_e))
+    r_earth_km = 6371.0
+    theta_rad = df['epicentral_dist_km'].astype(float) / r_earth_km
+    r_sub_km = r_earth_km - df['Depth_km'].astype(float)
+    df['hypocentral_distance_flat_km'] = np.sqrt(df['epicentral_dist_km']**2 + df['Depth_km']**2)
+    df['hypocentral_distance_km'] = np.sqrt(
+        np.maximum(r_earth_km**2 + r_sub_km**2 - 2.0 * r_earth_km * r_sub_km * np.cos(theta_rad), 0.0)
+    )
 
     # Calculate S-P sample difference
     df['sp_sample_difference'] = df['s_arrival_sample'] - df['p_arrival_sample']
@@ -124,7 +130,7 @@ def run_phase1(config: SimulationConfig = DEFAULT_CONFIG) -> pd.DataFrame:
     plt.figure(figsize=(8, 5))
     plt.hist(df['hypocentral_distance_km'], bins=35, color='#1b9e77', edgecolor='black', alpha=0.85)
     plt.axvline(df['hypocentral_distance_km'].median(), color='red', linestyle='--', linewidth=2, label=f"Median: {df['hypocentral_distance_km'].median():.1f} km")
-    plt.title("Hypocentral Distance ($R = \sqrt{D^2 + h^2}$) Distribution", fontsize=13, weight='bold')
+    plt.title(r"Spherical Hypocentral Distance ($R_{\mathrm{sph}}$) Distribution", fontsize=13, weight='bold')
     plt.xlabel("Hypocentral Distance (km)", fontsize=11)
     plt.ylabel("Frequency (Event Count)", fontsize=11)
     plt.legend()

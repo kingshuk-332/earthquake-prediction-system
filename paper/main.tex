@@ -328,27 +328,27 @@ E(\tau) =
 \end{equation}
 where $\tau = t - t_{\text{arrival}}$ represents elapsed time post-arrival, $\tau_r$ denotes source rise time, and $\tau_d$ denotes coda decay time. The peak-normalized envelope $\bar{E}(\tau) = E(\tau) / \max E(\tau)$ reaches its maximum of $1.0$ exactly at $\tau_{\text{peak}} = 2\tau_d$.
 
-The rise and decay constants scale dynamically with source magnitude $M$ (representing physical fault rupture duration) and hypocentral distance $R$ (representing crustal scattering and path dispersion):
+The rise and decay constants scale dynamically with source magnitude $M$ (representing physical fault rupture duration) and effective hypocentral distance $R_{\text{eff}} = \max(R, R_{\text{ref}})$ (representing crustal scattering and path dispersion):
 \begin{equation}
-\tau_{r,P} = 0.20 \cdot 10^{0.10 (M - M_{\text{ref}})}
-\end{equation}
-\begin{equation}
-\tau_{r,S} = 0.40 \cdot 10^{0.10 (M - M_{\text{ref}})}
-\end{equation}
-\begin{equation}
-\tau_{d,P} = \tau_{P0} \cdot 10^{0.15 (M - M_{\text{ref}})} \cdot \left( 1 + 0.30 \frac{R}{R_{\text{ref}}} \right)^{0.5}
+\tau_{d,P} = \max\left(\tau_{P0} \left[1 + 0.12 (M - M_{\text{ref}})\right] \left[1 + 0.0010 R_{\text{eff}}\right], \; 0.60\text{ s}\right)
 \label{eq:tau_dp}
 \end{equation}
 \begin{equation}
-\tau_{d,S} = \tau_{S0} \cdot 10^{0.15 (M - M_{\text{ref}})} \cdot \left( 1 + 0.50 \frac{R}{R_{\text{ref}}} \right)^{0.5}
+\tau_{r,P} = 0.28 \, \tau_{d,P}
+\end{equation}
+\begin{equation}
+\tau_{d,S} = \max\left(\tau_{S0} \left[1 + 0.18 (M - M_{\text{ref}})\right] \left[1 + 0.0015 R_{\text{eff}}\right], \; 1.50\text{ s}\right)
 \label{eq:tau_ds}
 \end{equation}
-The underlying carrier oscillations are synthesized as multi-harmonic sinusoids reflecting the complex spectral resonances of crustal propagation:
 \begin{equation}
-w_P(t) = \sum_{k=1}^3 \frac{1}{k} \sin(2\pi \cdot k f_P \cdot (t - t_P) + \phi_k)
+\tau_{r,S} = 0.22 \, \tau_{d,S}
+\end{equation}
+The underlying carrier oscillations are synthesized as two-tone harmonic sinusoids reflecting primary body-wave modes and crustal dispersion harmonics:
+\begin{equation}
+w_P(t) = 0.85 \sin(2\pi f_P (t - t_P)) + 0.15 \sin(4\pi f_P (t - t_P))
 \end{equation}
 \begin{equation}
-w_S(t) = \sum_{k=1}^3 \frac{1}{k} \sin(2\pi \cdot k f_S \cdot (t - t_S) + \psi_k)
+w_S(t) = 0.80 \sin\left(2\pi f_S (t - t_S) + \frac{\pi}{4}\right) + 0.20 \sin(3\pi f_S (t - t_S))
 \end{equation}
 The composite clean seismic waveform $s_{\text{clean}}(t)$ is the superposition of both arrival packets:
 \begin{equation}
@@ -533,9 +533,9 @@ The standalone waveform model, termed \textit{EarlyCNN}, operates directly on ra
     \tilde{y}(t) = \text{sign}(y(t)) \cdot \ln(1 + |y(t)|)
     \label{eq:signed_log}
     \end{equation}
-    \item \textbf{Convolutional Feature Extractor:} Three sequential 1D convolutional blocks with channels $1 \to 16 \to 32 \to 48$. Each block incorporates a strided Conv1D layer, Batch Normalization, and LeakyReLU activation ($\alpha = 0.10$).
+    \item \textbf{Convolutional Feature Extractor:} Three sequential 1D convolutional blocks with channels $1 \to 16 \to 32 \to 48$ (kernels $9, 7, 5$; stride $2$). Each block applies a strided Conv1D layer followed by SiLU activation without Batch Normalization, preserving single-trace amplitude scaling.
     \item \textbf{Temporal Pooling:} A dual global pooling layer concatenating global average pooling and global max pooling along the temporal axis, yielding a $96$-dimensional feature vector.
-    \item \textbf{Shared Dense Projection:} A linear projection layer mapping $96 \to 32$ dimensions with LeakyReLU activation.
+    \item \textbf{Shared Dense Projection:} A linear projection layer mapping $96 \to 32$ dimensions with SiLU activation.
     \item \textbf{Dual Output Heads:} Two parallel output projections:
     \begin{equation}
     \hat{y}_{\text{det}} = \mathbf{w}_{\text{det}}^T \mathbf{z}_{\text{CNN}} + b_{\text{det}} \quad (\text{Detection Logit})

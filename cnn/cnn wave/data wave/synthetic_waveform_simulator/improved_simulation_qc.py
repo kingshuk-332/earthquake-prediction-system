@@ -5,9 +5,8 @@ Module: improved_simulation_qc.py
 
 import os
 import sys
-import json
 from datetime import datetime
-from typing import Optional, Dict, Any
+from typing import Optional
 import numpy as np
 import pandas as pd
 import h5py

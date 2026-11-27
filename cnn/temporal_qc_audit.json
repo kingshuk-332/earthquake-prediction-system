@@ -1,0 +1,12 @@
+{
+  "verified_file": "preprocessed_dl_temporal.csv",
+  "total_raw": 8089,
+  "valid": 4407,
+  "flagged": 3682,
+  "record_conservation_verified": true,
+  "non_finite_rows": 0,
+  "below_mc_rows": 3682,
+  "max_trigonometric_residual": 0.0,
+  "max_sp_kinematic_residual": 0.0,
+  "synthetic_noise_injected": false
+}

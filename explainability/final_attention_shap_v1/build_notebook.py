@@ -11,7 +11,7 @@ Predeclared protocol: seed 20261114; two independently drawn 48-record training 
 cell('''
 from pathlib import Path
 import sys, os, json, ast, hashlib, time
-ROOT=Path(r'C:/Users/choud/Desktop/Minor project')
+ROOT=next(p for p in [Path.cwd().resolve(), *Path.cwd().resolve().parents] if (p/'dataset_2.csv').is_file())
 OUT=ROOT/'explainability/final_attention_shap_v1'
 sys.path.insert(0,str(OUT/'runtime'))
 os.environ['NUMBA_CACHE_DIR']=str(OUT/'runtime_cache')

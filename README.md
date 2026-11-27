@@ -50,7 +50,7 @@ Source modules live in [`cnn/cnn wave/data wave/synthetic_waveform_simulator/`](
 
 | Component | Formulation / Specification |
 | :--- | :--- |
-| **Catalog Domain** | 8,089 events ($D \in [1.0, 486.2]\text{ km}$, $h \in [5.0, 70.0]\text{ km}$, $R \in [5.1, 488.5]\text{ km}$, $M \in [2.0, 7.2]$) |
+| **Catalog Domain** | 8,089 events ($D \in [1.6, 683.9]\text{ km}$, $h \in [1.0, 430.0]\text{ km}$, $R_{\text{sph}} \in [8.9, 684.7]\text{ km}$, $M \in [1.5, 8.6]$, $\hat{M}_c = 3.7$) |
 | **Sampling & Duration** | $f_s = 100.0\text{ Hz}$, $T = 100.0\text{ s}$ ($10,000$ samples/trace) |
 | **Crustal Kinematics** | 1D homogeneous model: $V_P = 6.0\text{ km/s}$, $V_S = 3.5\text{ km/s}$ ($t_P = R/V_P$, $t_S = R/V_S$) |
 | **Source & Spreading** | $A_{\text{source}}(M) = 10^{0.50(M - 4.0)}$, spherical spreading $\mathcal{G}(R) = (10.0 / \max(R, 10.0))^{1.0}$ |
@@ -69,7 +69,7 @@ All models are trained in PyTorch (`AdamW`, `lr = 1e-3`, `weight_decay = 1e-4`, 
 
 | Model | Input Representation | Architecture Summary | Trainable Params | Code / Report |
 | :--- | :--- | :--- | :---: | :--- |
-| **1D-CNN (`EarlyCNN`)** | Raw normalized waveform, $\text{sign}(x)\log(1+\lvert x \rvert)$ (`200`/`300`/`400` samples) | 3 strided `Conv1d` blocks (`1→16→32→48`, BN, ReLU) + Global Avg/Max Pool (`96D→32D`) + Dual Heads | **14,674** | [`cnn/cnn wave/eew_causal_v3/cnn_eew_training/`](cnn/cnn%20wave/eew_causal_v3/cnn_eew_training/) |
+| **1D-CNN (`EarlyCNN`)** | Raw pre-$P$-normalized waveform, $\text{sign}(x)\log(1+\lvert x \rvert)$ (`200`/`300`/`400` samples) | 3 strided `Conv1d` blocks (`1→16→32→48`, `SiLU`, no BatchNorm) + Global Avg/Max Pool (`96D→32D`) + Dual Heads | **14,674** | [`cnn/cnn wave/eew_causal_v3/cnn_eew_training/`](cnn/cnn%20wave/eew_causal_v3/cnn_eew_training/) |
 | **Tabular BiLSTM** | 7 features across consecutive `0.1 s` bins (`20`/`30`/`40` steps): `rms`, `mean_abs`, `peak_abs`, `variance`, `energy`, `zcr`, `first_diff_energy` | 2-layer BiLSTM (`32` hidden/dir → `64D`) + temporal mean pool + `64→32` SiLU + Dual Heads | **37,730** | [`bilstm_eew/bilstm_training_v1/`](bilstm_eew/bilstm_training_v1/) |
 | **Feature Fusion (`v1`)** | Frozen `32D` CNN + frozen `32D` BiLSTM penultimate embeddings (`64D`, train-standardized) | `Linear(64, 32)` → SiLU → `Dropout(0.2)` + Dual Heads | **2,146** *(backbones frozen)* | [`fusion/cnn_bilstm_v1/`](fusion/cnn_bilstm_v1/) |
 | **Attention Fusion (`v1`)** | Frozen `32D` CNN embedding + all frozen `64D` BiLSTM hidden states (`20`/`30`/`40` steps) | Additive Attention (`Linear(64,32) → tanh → Linear(32,1) → softmax`) + concat (`96D→32D` SiLU) + Dual Heads | **5,282** *(backbones frozen)* | [`fusion/cnn_bilstm_attention_v1/`](fusion/cnn_bilstm_attention_v1/) |

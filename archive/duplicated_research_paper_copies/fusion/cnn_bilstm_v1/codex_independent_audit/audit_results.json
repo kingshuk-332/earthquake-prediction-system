@@ -1,0 +1,1246 @@
+{
+  "checks": {
+    "train_pairing": {
+      "status": "PASS",
+      "evidence": {
+        "records": 11324,
+        "mismatches": [],
+        "permutation_nonidentity_rows": 0
+      }
+    },
+    "train_1s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "train_1s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "train_2s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "train_2s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "train_3s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "train_3s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "validation_pairing": {
+      "status": "PASS",
+      "evidence": {
+        "records": 2426,
+        "mismatches": [],
+        "permutation_nonidentity_rows": 0
+      }
+    },
+    "validation_1s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "validation_1s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "validation_2s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "validation_2s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "validation_3s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "validation_3s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "test_pairing": {
+      "status": "PASS",
+      "evidence": {
+        "records": 2428,
+        "mismatches": [],
+        "permutation_nonidentity_rows": 0
+      }
+    },
+    "test_1s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "test_1s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "test_2s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "test_2s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "test_3s_masks_cutoff": {
+      "status": "PASS",
+      "evidence": "Labels/first-S eligibility/noise sentinel; only observed horizon enters models."
+    },
+    "test_3s_feature_scaling_metadata": {
+      "status": "PASS",
+      "evidence": "Approved precomputed feature scaler provenance reused; feature extraction not rerun."
+    },
+    "train/validation_parent_isolation": {
+      "status": "PASS",
+      "evidence": 0
+    },
+    "train/test_parent_isolation": {
+      "status": "PASS",
+      "evidence": 0
+    },
+    "validation/test_parent_isolation": {
+      "status": "PASS",
+      "evidence": 0
+    },
+    "1s_backbone_checkpoint_preservation": {
+      "status": "PASS",
+      "evidence": {
+        "source_hashes_match_training_snapshot": true,
+        "fusion_checkpoint": "head-only weights; original backbone files used",
+        "scope": "Saved training source uses inference-mode cached embeddings, eval frozen backbones, head-only optimizer and tensor-exact end checks. No historical optimizer trace exists beyond these artifacts."
+      }
+    },
+    "1s_train_only_fusion_scalers": {
+      "status": "PASS",
+      "evidence": {
+        "embedding_mean_max_difference": 0.0,
+        "embedding_scale_max_difference": 0.0,
+        "target_center": 3.8584954738616943,
+        "target_scale": 0.9050084948539734
+      }
+    },
+    "1s_validation_epoch_thresholds": {
+      "status": "PASS",
+      "evidence": {
+        "epoch": 2,
+        "epochs_run": 9,
+        "validation_loss_delta": 1.1301788394035839e-09,
+        "threshold": 0.42,
+        "low_fpr_threshold": 0.6743693351745605,
+        "stale_epochs": 7
+      }
+    },
+    "1s_common_cohort": {
+      "status": "PASS",
+      "evidence": {
+        "source_order_sha256": "862b467ff6219c5193f4c99257a5971eea395581669302748d006faa78b78601",
+        "parent_order_sha256": "6f42c966174ffef247ed80442342e89e2fa2a93d64d3f729312eb002327b804f",
+        "earthquakes": 1200,
+        "noise": 1214
+      }
+    },
+    "1s_fixed_05_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          686,
+          528
+        ],
+        [
+          310,
+          890
+        ]
+      ]
+    },
+    "1s_validation_selected_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          347,
+          867
+        ],
+        [
+          20,
+          1180
+        ]
+      ]
+    },
+    "1s_validation_low_fpr_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          1163,
+          51
+        ],
+        [
+          920,
+          280
+        ]
+      ]
+    },
+    "1s_fusion_metrics": {
+      "status": "PASS",
+      "evidence": {
+        "max_difference": 0.0,
+        "tolerance": 1e-06
+      }
+    },
+    "1s_CNN_policy": {
+      "status": "PASS",
+      "evidence": "Identical parent-keyed records; fixed .5 for all three models."
+    },
+    "1s_paired_CNN": {
+      "status": "PASS",
+      "evidence": {
+        "f1_difference_ci95": [
+          -0.023792306807676085,
+          -3.167606590949191e-05
+        ],
+        "mae_difference_ci95": [
+          -0.0034688999352511015,
+          0.0017248650634428485
+        ]
+      }
+    },
+    "1s_BiLSTM_policy": {
+      "status": "PASS",
+      "evidence": "Identical parent-keyed records; fixed .5 for all three models."
+    },
+    "1s_paired_BiLSTM": {
+      "status": "PASS",
+      "evidence": {
+        "f1_difference_ci95": [
+          -0.06428662499380051,
+          -0.03231501238265269
+        ],
+        "mae_difference_ci95": [
+          -0.015197540121152996,
+          0.0032984839810524117
+        ]
+      }
+    },
+    "2s_backbone_checkpoint_preservation": {
+      "status": "PASS",
+      "evidence": {
+        "source_hashes_match_training_snapshot": true,
+        "fusion_checkpoint": "head-only weights; original backbone files used",
+        "scope": "Saved training source uses inference-mode cached embeddings, eval frozen backbones, head-only optimizer and tensor-exact end checks. No historical optimizer trace exists beyond these artifacts."
+      }
+    },
+    "2s_train_only_fusion_scalers": {
+      "status": "PASS",
+      "evidence": {
+        "embedding_mean_max_difference": 0.0,
+        "embedding_scale_max_difference": 0.0,
+        "target_center": 3.860833168029785,
+        "target_scale": 0.9051623344421387
+      }
+    },
+    "2s_validation_epoch_thresholds": {
+      "status": "PASS",
+      "evidence": {
+        "epoch": 15,
+        "epochs_run": 22,
+        "validation_loss_delta": -2.5359695010607197e-08,
+        "threshold": 0.41,
+        "low_fpr_threshold": 0.7120206356048584,
+        "stale_epochs": 7
+      }
+    },
+    "2s_common_cohort": {
+      "status": "PASS",
+      "evidence": {
+        "source_order_sha256": "862b467ff6219c5193f4c99257a5971eea395581669302748d006faa78b78601",
+        "parent_order_sha256": "6f42c966174ffef247ed80442342e89e2fa2a93d64d3f729312eb002327b804f",
+        "earthquakes": 1200,
+        "noise": 1214
+      }
+    },
+    "2s_fixed_05_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          966,
+          248
+        ],
+        [
+          392,
+          808
+        ]
+      ]
+    },
+    "2s_validation_selected_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          790,
+          424
+        ],
+        [
+          248,
+          952
+        ]
+      ]
+    },
+    "2s_validation_low_fpr_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          1159,
+          55
+        ],
+        [
+          642,
+          558
+        ]
+      ]
+    },
+    "2s_fusion_metrics": {
+      "status": "PASS",
+      "evidence": {
+        "max_difference": 0.0,
+        "tolerance": 1e-06
+      }
+    },
+    "2s_CNN_policy": {
+      "status": "PASS",
+      "evidence": "Identical parent-keyed records; fixed .5 for all three models."
+    },
+    "2s_paired_CNN": {
+      "status": "PASS",
+      "evidence": {
+        "f1_difference_ci95": [
+          -0.0051605001703711765,
+          0.014231114089397819
+        ],
+        "mae_difference_ci95": [
+          -0.004587645235005766,
+          0.005602469923906027
+        ]
+      }
+    },
+    "2s_BiLSTM_policy": {
+      "status": "PASS",
+      "evidence": "Identical parent-keyed records; fixed .5 for all three models."
+    },
+    "2s_paired_BiLSTM": {
+      "status": "PASS",
+      "evidence": {
+        "f1_difference_ci95": [
+          0.04497768064970756,
+          0.09491167683694436
+        ],
+        "mae_difference_ci95": [
+          -0.0046189094544388356,
+          0.008094231225550173
+        ]
+      }
+    },
+    "3s_backbone_checkpoint_preservation": {
+      "status": "PASS",
+      "evidence": {
+        "source_hashes_match_training_snapshot": true,
+        "fusion_checkpoint": "head-only weights; original backbone files used",
+        "scope": "Saved training source uses inference-mode cached embeddings, eval frozen backbones, head-only optimizer and tensor-exact end checks. No historical optimizer trace exists beyond these artifacts."
+      }
+    },
+    "3s_train_only_fusion_scalers": {
+      "status": "PASS",
+      "evidence": {
+        "embedding_mean_max_difference": 0.0,
+        "embedding_scale_max_difference": 0.0,
+        "target_center": 3.865957498550415,
+        "target_scale": 0.9047956466674805
+      }
+    },
+    "3s_validation_epoch_thresholds": {
+      "status": "PASS",
+      "evidence": {
+        "epoch": 27,
+        "epochs_run": 34,
+        "validation_loss_delta": -4.544512499649045e-08,
+        "threshold": 0.36,
+        "low_fpr_threshold": 0.6921972632408142,
+        "stale_epochs": 7
+      }
+    },
+    "3s_common_cohort": {
+      "status": "PASS",
+      "evidence": {
+        "source_order_sha256": "862b467ff6219c5193f4c99257a5971eea395581669302748d006faa78b78601",
+        "parent_order_sha256": "6f42c966174ffef247ed80442342e89e2fa2a93d64d3f729312eb002327b804f",
+        "earthquakes": 1200,
+        "noise": 1214
+      }
+    },
+    "3s_fixed_05_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          1050,
+          164
+        ],
+        [
+          386,
+          814
+        ]
+      ]
+    },
+    "3s_validation_selected_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          836,
+          378
+        ],
+        [
+          223,
+          977
+        ]
+      ]
+    },
+    "3s_validation_low_fpr_counts": {
+      "status": "PASS",
+      "evidence": [
+        [
+          1157,
+          57
+        ],
+        [
+          511,
+          689
+        ]
+      ]
+    },
+    "3s_fusion_metrics": {
+      "status": "PASS",
+      "evidence": {
+        "max_difference": 0.0,
+        "tolerance": 1e-06
+      }
+    },
+    "3s_CNN_policy": {
+      "status": "PASS",
+      "evidence": "Identical parent-keyed records; fixed .5 for all three models."
+    },
+    "3s_paired_CNN": {
+      "status": "PASS",
+      "evidence": {
+        "f1_difference_ci95": [
+          -0.02269079653232397,
+          -0.000400259480366555
+        ],
+        "mae_difference_ci95": [
+          -0.011949946149252355,
+          0.0021605384710710472
+        ]
+      }
+    },
+    "3s_BiLSTM_policy": {
+      "status": "PASS",
+      "evidence": "Identical parent-keyed records; fixed .5 for all three models."
+    },
+    "3s_paired_BiLSTM": {
+      "status": "PASS",
+      "evidence": {
+        "f1_difference_ci95": [
+          0.031601839949213034,
+          0.0756103546455666
+        ],
+        "mae_difference_ci95": [
+          -0.014054152299650013,
+          0.001418869048939083
+        ]
+      }
+    },
+    "saved_protocol_no_test_tuning": {
+      "status": "PASS",
+      "evidence": "Reviewed training/evaluation cells: only training embeddings/scalers and validation losses/F1/negative-score quantiles select heads/thresholds; all three saved before test inference. Test bootstrap is descriptive only. No new threshold or training performed by audit."
+    },
+    "historical_execution_certainty": {
+      "status": "UNKNOWN",
+      "evidence": "Saved code, history, source hashes, scaler replay and frozen loss reproduction support protocol; no immutable independent log of every past action. Previously examined test cohort is exploratory, not untouched confirmatory evidence."
+    },
+    "noise_family_shortcuts": {
+      "status": "UNKNOWN",
+      "evidence": "No new family audit conducted; both branches share synthetic observations, so fusion does not establish independent information or shortcut removal."
+    },
+    "preservation": {
+      "status": "PASS",
+      "evidence": {
+        "original_files_hashed": 20,
+        "changed": []
+      }
+    }
+  },
+  "horizons": {
+    "1": {
+      "epoch": 2,
+      "threshold": 0.42,
+      "low_fpr_threshold": 0.6743693351745605,
+      "fixed_05": {
+        "accuracy": 0.6528583264291632,
+        "precision": 0.6276445698166432,
+        "recall": 0.7416666666666667,
+        "f1": 0.6799083269671505,
+        "false_positive_rate": 0.43492586490939045,
+        "roc_auc": 0.746583607907743,
+        "pr_auc_ap": 0.7448651905693098,
+        "confusion_matrix": [
+          [
+            686,
+            528
+          ],
+          [
+            310,
+            890
+          ]
+        ]
+      },
+      "validation_selected": {
+        "accuracy": 0.6325600662800331,
+        "precision": 0.5764533463605276,
+        "recall": 0.9833333333333333,
+        "f1": 0.7268247613181398,
+        "false_positive_rate": 0.714168039538715,
+        "roc_auc": 0.746583607907743,
+        "pr_auc_ap": 0.7448651905693098,
+        "confusion_matrix": [
+          [
+            347,
+            867
+          ],
+          [
+            20,
+            1180
+          ]
+        ]
+      },
+      "validation_low_fpr": {
+        "accuracy": 0.5977630488815244,
+        "precision": 0.8459214501510574,
+        "recall": 0.23333333333333334,
+        "f1": 0.36577400391900716,
+        "false_positive_rate": 0.042009884678747944,
+        "roc_auc": 0.746583607907743,
+        "pr_auc_ap": 0.7448651905693098,
+        "confusion_matrix": [
+          [
+            1163,
+            51
+          ],
+          [
+            920,
+            280
+          ]
+        ]
+      },
+      "magnitude": {
+        "mae": 0.6642395887772242,
+        "rmse": 0.8173578412873941,
+        "r2": 0.17356964938781316,
+        "bias": -0.07487517058849334,
+        "actual_variance": 0.8083849294972121,
+        "predicted_variance": 0.1265931723180357,
+        "std_ratio": 0.3957273231039049,
+        "slope": 0.16855246945375862,
+        "strong_n": 131,
+        "strong_underprediction_percent": 98.47328244274809,
+        "strong_bias": -1.3645059771210182
+      },
+      "reported_differences": {
+        "fixed_05/accuracy": 0.0,
+        "fixed_05/precision": 0.0,
+        "fixed_05/recall": 0.0,
+        "fixed_05/f1": 0.0,
+        "fixed_05/false_positive_rate": 0.0,
+        "fixed_05/roc_auc": 0.0,
+        "fixed_05/pr_auc_ap": 0.0,
+        "validation_selected/accuracy": 0.0,
+        "validation_selected/precision": 0.0,
+        "validation_selected/recall": 0.0,
+        "validation_selected/f1": 0.0,
+        "validation_selected/false_positive_rate": 0.0,
+        "validation_selected/roc_auc": 0.0,
+        "validation_selected/pr_auc_ap": 0.0,
+        "validation_low_fpr/accuracy": 0.0,
+        "validation_low_fpr/precision": 0.0,
+        "validation_low_fpr/recall": 0.0,
+        "validation_low_fpr/f1": 0.0,
+        "validation_low_fpr/false_positive_rate": 0.0,
+        "validation_low_fpr/roc_auc": 0.0,
+        "validation_low_fpr/pr_auc_ap": 0.0,
+        "magnitude/mae": 0.0,
+        "magnitude/rmse": 0.0,
+        "magnitude/r2": 0.0,
+        "magnitude/bias": 0.0,
+        "magnitude/actual_variance": 0.0,
+        "magnitude/predicted_variance": 0.0,
+        "magnitude/std_ratio": 0.0,
+        "magnitude/slope": 0.0,
+        "magnitude/strong_n": 0,
+        "magnitude/strong_underprediction_percent": 0.0,
+        "magnitude/strong_bias": 0.0
+      },
+      "baselines": {
+        "CNN": {
+          "detection": {
+            "accuracy": 0.6611433305716653,
+            "precision": 0.6306429548563611,
+            "recall": 0.7683333333333333,
+            "f1": 0.6927122464312547,
+            "false_positive_rate": 0.44481054365733114,
+            "roc_auc": 0.7487239154310819,
+            "pr_auc_ap": 0.7472576176009302,
+            "confusion_matrix": [
+              [
+                674,
+                540
+              ],
+              [
+                278,
+                922
+              ]
+            ]
+          },
+          "magnitude": {
+            "mae": 0.6650200092792511,
+            "rmse": 0.8218944400551338,
+            "r2": 0.1643702820960723,
+            "bias": -0.10166003902753194,
+            "actual_variance": 0.8083849294972121,
+            "predicted_variance": 0.13666959768247441,
+            "std_ratio": 0.4111751445269636,
+            "slope": 0.17310987000666828,
+            "strong_n": 131,
+            "strong_underprediction_percent": 97.70992366412213,
+            "strong_bias": -1.3813914979687174
+          }
+        },
+        "BiLSTM": {
+          "detection": {
+            "accuracy": 0.6284175642087821,
+            "precision": 0.5724533715925395,
+            "recall": 0.9975,
+            "f1": 0.7274384685505926,
+            "false_positive_rate": 0.7364085667215815,
+            "roc_auc": 0.6759157056562328,
+            "pr_auc_ap": 0.651856309871889,
+            "confusion_matrix": [
+              [
+                320,
+                894
+              ],
+              [
+                3,
+                1197
+              ]
+            ]
+          },
+          "magnitude": {
+            "mae": 0.6702129632234574,
+            "rmse": 0.8242297777032527,
+            "r2": 0.15961480519523186,
+            "bias": -0.0767141725619634,
+            "actual_variance": 0.8083849294972121,
+            "predicted_variance": 0.09465369453389881,
+            "std_ratio": 0.3421839858609602,
+            "slope": 0.1419923562856427,
+            "strong_n": 131,
+            "strong_underprediction_percent": 97.70992366412213,
+            "strong_bias": -1.4095619434618767
+          }
+        }
+      },
+      "paired": {
+        "CNN": {
+          "f1_delta": -0.012803919464104196,
+          "mae_delta": -0.0007804205020268684,
+          "f1_difference_ci95": [
+            -0.023792306807676085,
+            -3.167606590949191e-05
+          ],
+          "mae_difference_ci95": [
+            -0.0034688999352511015,
+            0.0017248650634428485
+          ]
+        },
+        "BiLSTM": {
+          "f1_delta": -0.04753014158344204,
+          "mae_delta": -0.005973374446233137,
+          "f1_difference_ci95": [
+            -0.06428662499380051,
+            -0.03231501238265269
+          ],
+          "mae_difference_ci95": [
+            -0.015197540121152996,
+            0.0032984839810524117
+          ]
+        }
+      }
+    },
+    "2": {
+      "epoch": 15,
+      "threshold": 0.41,
+      "low_fpr_threshold": 0.7120206356048584,
+      "fixed_05": {
+        "accuracy": 0.7348798674399337,
+        "precision": 0.7651515151515151,
+        "recall": 0.6733333333333333,
+        "f1": 0.7163120567375887,
+        "false_positive_rate": 0.2042833607907743,
+        "roc_auc": 0.8319961559582647,
+        "pr_auc_ap": 0.8492995205727536,
+        "confusion_matrix": [
+          [
+            966,
+            248
+          ],
+          [
+            392,
+            808
+          ]
+        ]
+      },
+      "validation_selected": {
+        "accuracy": 0.7216238608119304,
+        "precision": 0.6918604651162791,
+        "recall": 0.7933333333333333,
+        "f1": 0.7391304347826086,
+        "false_positive_rate": 0.34925864909390447,
+        "roc_auc": 0.8319961559582647,
+        "pr_auc_ap": 0.8492995205727536,
+        "confusion_matrix": [
+          [
+            790,
+            424
+          ],
+          [
+            248,
+            952
+          ]
+        ]
+      },
+      "validation_low_fpr": {
+        "accuracy": 0.7112676056338029,
+        "precision": 0.9102773246329527,
+        "recall": 0.465,
+        "f1": 0.6155543298400441,
+        "false_positive_rate": 0.045304777594728174,
+        "roc_auc": 0.8319961559582647,
+        "pr_auc_ap": 0.8492995205727536,
+        "confusion_matrix": [
+          [
+            1159,
+            55
+          ],
+          [
+            642,
+            558
+          ]
+        ]
+      },
+      "magnitude": {
+        "mae": 0.6358787045876185,
+        "rmse": 0.78332360405291,
+        "r2": 0.24096077712869313,
+        "bias": -0.06704320053259531,
+        "actual_variance": 0.8083849294972121,
+        "predicted_variance": 0.19396078441340306,
+        "std_ratio": 0.4898327986906324,
+        "slope": 0.2432285793764195,
+        "strong_n": 131,
+        "strong_underprediction_percent": 93.89312977099237,
+        "strong_bias": -1.2182269296573318
+      },
+      "reported_differences": {
+        "fixed_05/accuracy": 0.0,
+        "fixed_05/precision": 0.0,
+        "fixed_05/recall": 0.0,
+        "fixed_05/f1": 0.0,
+        "fixed_05/false_positive_rate": 0.0,
+        "fixed_05/roc_auc": 0.0,
+        "fixed_05/pr_auc_ap": 0.0,
+        "validation_selected/accuracy": 0.0,
+        "validation_selected/precision": 0.0,
+        "validation_selected/recall": 0.0,
+        "validation_selected/f1": 0.0,
+        "validation_selected/false_positive_rate": 0.0,
+        "validation_selected/roc_auc": 0.0,
+        "validation_selected/pr_auc_ap": 0.0,
+        "validation_low_fpr/accuracy": 0.0,
+        "validation_low_fpr/precision": 0.0,
+        "validation_low_fpr/recall": 0.0,
+        "validation_low_fpr/f1": 0.0,
+        "validation_low_fpr/false_positive_rate": 0.0,
+        "validation_low_fpr/roc_auc": 0.0,
+        "validation_low_fpr/pr_auc_ap": 0.0,
+        "magnitude/mae": 0.0,
+        "magnitude/rmse": 0.0,
+        "magnitude/r2": 0.0,
+        "magnitude/bias": 0.0,
+        "magnitude/actual_variance": 0.0,
+        "magnitude/predicted_variance": 0.0,
+        "magnitude/std_ratio": 0.0,
+        "magnitude/slope": 0.0,
+        "magnitude/strong_n": 0,
+        "magnitude/strong_underprediction_percent": 0.0,
+        "magnitude/strong_bias": 0.0
+      },
+      "baselines": {
+        "CNN": {
+          "detection": {
+            "accuracy": 0.7245236122618062,
+            "precision": 0.7407740774077408,
+            "recall": 0.6858333333333333,
+            "f1": 0.7122457810471657,
+            "false_positive_rate": 0.2372322899505766,
+            "roc_auc": 0.8255271828665569,
+            "pr_auc_ap": 0.8455008164565294,
+            "confusion_matrix": [
+              [
+                926,
+                288
+              ],
+              [
+                377,
+                823
+              ]
+            ]
+          },
+          "magnitude": {
+            "mae": 0.6352955295642218,
+            "rmse": 0.783163981207754,
+            "r2": 0.2412700941336703,
+            "bias": -0.06579678634802501,
+            "actual_variance": 0.8083849294972121,
+            "predicted_variance": 0.23993120480157107,
+            "std_ratio": 0.5447964427161235,
+            "slope": 0.27171432439033805,
+            "strong_n": 131,
+            "strong_underprediction_percent": 94.65648854961832,
+            "strong_bias": -1.162960511127501
+          }
+        },
+        "BiLSTM": {
+          "detection": {
+            "accuracy": 0.6735708367854184,
+            "precision": 0.7,
+            "recall": 0.6008333333333333,
+            "f1": 0.6466367713004484,
+            "false_positive_rate": 0.2545304777594728,
+            "roc_auc": 0.7631727073036794,
+            "pr_auc_ap": 0.7775338100583221,
+            "confusion_matrix": [
+              [
+                905,
+                309
+              ],
+              [
+                479,
+                721
+              ]
+            ]
+          },
+          "magnitude": {
+            "mae": 0.6341219729185105,
+            "rmse": 0.7809729622197167,
+            "r2": 0.24550947764750186,
+            "bias": -0.05493990282217662,
+            "actual_variance": 0.8083849294972121,
+            "predicted_variance": 0.18797898592663384,
+            "std_ratio": 0.48222036448205485,
+            "slope": 0.24088990678608346,
+            "strong_n": 131,
+            "strong_underprediction_percent": 93.12977099236642,
+            "strong_bias": -1.2026304106675942
+          }
+        }
+      },
+      "paired": {
+        "CNN": {
+          "f1_delta": 0.004066275690422949,
+          "mae_delta": 0.0005831750233967758,
+          "f1_difference_ci95": [
+            -0.0051605001703711765,
+            0.014231114089397819
+          ],
+          "mae_difference_ci95": [
+            -0.004587645235005766,
+            0.005602469923906027
+          ]
+        },
+        "BiLSTM": {
+          "f1_delta": 0.0696752854371403,
+          "mae_delta": 0.0017567316691080581,
+          "f1_difference_ci95": [
+            0.04497768064970756,
+            0.09491167683694436
+          ],
+          "mae_difference_ci95": [
+            -0.0046189094544388356,
+            0.008094231225550173
+          ]
+        }
+      }
+    },
+    "3": {
+      "epoch": 27,
+      "threshold": 0.36,
+      "low_fpr_threshold": 0.6921972632408142,
+      "fixed_05": {
+        "accuracy": 0.772162386081193,
+        "precision": 0.8323108384458078,
+        "recall": 0.6783333333333333,
+        "f1": 0.7474747474747475,
+        "false_positive_rate": 0.13509060955518945,
+        "roc_auc": 0.8634150192202087,
+        "pr_auc_ap": 0.8860976972692773,
+        "confusion_matrix": [
+          [
+            1050,
+            164
+          ],
+          [
+            386,
+            814
+          ]
+        ]
+      },
+      "validation_selected": {
+        "accuracy": 0.7510356255178128,
+        "precision": 0.7210332103321033,
+        "recall": 0.8141666666666667,
+        "f1": 0.764774951076321,
+        "false_positive_rate": 0.3113673805601318,
+        "roc_auc": 0.8634150192202087,
+        "pr_auc_ap": 0.8860976972692773,
+        "confusion_matrix": [
+          [
+            836,
+            378
+          ],
+          [
+            223,
+            977
+          ]
+        ]
+      },
+      "validation_low_fpr": {
+        "accuracy": 0.7647058823529411,
+        "precision": 0.9235924932975871,
+        "recall": 0.5741666666666667,
+        "f1": 0.7081192189105858,
+        "false_positive_rate": 0.04695222405271829,
+        "roc_auc": 0.8634150192202087,
+        "pr_auc_ap": 0.8860976972692773,
+        "confusion_matrix": [
+          [
+            1157,
+            57
+          ],
+          [
+            511,
+            689
+          ]
+        ]
+      },
+      "magnitude": {
+        "mae": 0.6082151192426681,
+        "rmse": 0.753054914220647,
+        "r2": 0.2984880307150485,
+        "bias": -0.061756018996238705,
+        "actual_variance": 0.8083849294972121,
+        "predicted_variance": 0.2625674167193923,
+        "std_ratio": 0.5699166059782849,
+        "slope": 0.3140053888577295,
+        "strong_n": 131,
+        "strong_underprediction_percent": 92.36641221374046,
+        "strong_bias": -1.0472708840406577
+      },
+      "reported_differences": {
+        "fixed_05/accuracy": 0.0,
+        "fixed_05/precision": 0.0,
+        "fixed_05/recall": 0.0,
+        "fixed_05/f1": 0.0,
+        "fixed_05/false_positive_rate": 0.0,
+        "fixed_05/roc_auc": 0.0,
+        "fixed_05/pr_auc_ap": 0.0,
+        "validation_selected/accuracy": 0.0,
+        "validation_selected/precision": 0.0,
+        "validation_selected/recall": 0.0,
+        "validation_selected/f1": 0.0,
+        "validation_selected/false_positive_rate": 0.0,
+        "validation_selected/roc_auc": 0.0,
+        "validation_selected/pr_auc_ap": 0.0,
+        "validation_low_fpr/accuracy": 0.0,
+        "validation_low_fpr/precision": 0.0,
+        "validation_low_fpr/recall": 0.0,
+        "validation_low_fpr/f1": 0.0,
+        "validation_low_fpr/false_positive_rate": 0.0,
+        "validation_low_fpr/roc_auc": 0.0,
+        "validation_low_fpr/pr_auc_ap": 0.0,
+        "magnitude/mae": 0.0,
+        "magnitude/rmse": 0.0,
+        "magnitude/r2": 0.0,
+        "magnitude/bias": 0.0,
+        "magnitude/actual_variance": 0.0,
+        "magnitude/predicted_variance": 0.0,
+        "magnitude/std_ratio": 0.0,
+        "magnitude/slope": 0.0,
+        "magnitude/strong_n": 0,
+        "magnitude/strong_underprediction_percent": 0.0,
+        "magnitude/strong_bias": 0.0
+      },
+      "baselines": {
+        "CNN": {
+          "detection": {
+            "accuracy": 0.7667771333885667,
+            "precision": 0.7836153161175423,
+            "recall": 0.7333333333333333,
+            "f1": 0.7576409814894532,
+            "false_positive_rate": 0.200164744645799,
+            "roc_auc": 0.8584740527182867,
+            "pr_auc_ap": 0.882497776373032,
+            "confusion_matrix": [
+              [
+                971,
+                243
+              ],
+              [
+                320,
+                880
+              ]
+            ]
+          },
+          "magnitude": {
+            "mae": 0.6130052047967911,
+            "rmse": 0.7577022528451374,
+            "r2": 0.2898028117326791,
+            "bias": -0.09076991856098175,
+            "actual_variance": 0.8083849294972121,
+            "predicted_variance": 0.21333789166312078,
+            "std_ratio": 0.5137181325619806,
+            "slope": 0.2819506392782616,
+            "strong_n": 131,
+            "strong_underprediction_percent": 96.94656488549617,
+            "strong_bias": -1.1642182965315024
+          }
+        },
+        "BiLSTM": {
+          "detection": {
+            "accuracy": 0.7141673570836785,
+            "precision": 0.7405660377358491,
+            "recall": 0.6541666666666667,
+            "f1": 0.6946902654867256,
+            "false_positive_rate": 0.22652388797364087,
+            "roc_auc": 0.8132420373421198,
+            "pr_auc_ap": 0.8346043836399112,
+            "confusion_matrix": [
+              [
+                939,
+                275
+              ],
+              [
+                415,
+                785
+              ]
+            ]
+          },
+          "magnitude": {
+            "mae": 0.6150817563136418,
+            "rmse": 0.7584208797158002,
+            "r2": 0.2884550295282664,
+            "bias": -0.08211152732372284,
+            "actual_variance": 0.8083849294972121,
+            "predicted_variance": 0.2152688049281349,
+            "std_ratio": 0.5160377175516065,
+            "slope": 0.28154520819618056,
+            "strong_n": 131,
+            "strong_underprediction_percent": 96.18320610687023,
+            "strong_bias": -1.1346164987287448
+          }
+        }
+      },
+      "paired": {
+        "CNN": {
+          "f1_delta": -0.010166234014705733,
+          "mae_delta": -0.004790085554122969,
+          "f1_difference_ci95": [
+            -0.02269079653232397,
+            -0.000400259480366555
+          ],
+          "mae_difference_ci95": [
+            -0.011949946149252355,
+            0.0021605384710710472
+          ]
+        },
+        "BiLSTM": {
+          "f1_delta": 0.05278448198802188,
+          "mae_delta": -0.00686663707097368,
+          "f1_difference_ci95": [
+            0.031601839949213034,
+            0.0756103546455666
+          ],
+          "mae_difference_ci95": [
+            -0.014054152299650013,
+            0.001418869048939083
+          ]
+        }
+      }
+    }
+  },
+  "input_hashes": {
+    "C:\\Users\\choud\\Desktop\\Minor project\\fusion\\cnn_bilstm_v1\\final_fusion_report.md": "f9aa2d12a97cfa7edc3e231bf9bb7181bc0b044f747092b731ba0e30e2ca9fd7",
+    "C:\\Users\\choud\\Desktop\\Minor project\\fusion\\cnn_bilstm_v1\\01_fusion_training.ipynb": "333b0b0bb04b01518a3ac85ea08b77a2f239ec2a9ab762247f6bafb2977fc318",
+    "C:\\Users\\choud\\Desktop\\Minor project\\fusion\\cnn_bilstm_v1\\02_fusion_evaluation.ipynb": "9e93b36eb3e5c2fe4a44d15083fbb77e1fbab3a94e69dbe1a5c2d65c90c20e4a",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\causal_tabular_v1\\tabular_features.h5": "8905cfa29770a3a59d52fe26b766c5060be8dfcccc99c7c13caeef14525f08fe",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\cnn_eew_training\\01_cnn_training.ipynb": "20003e98aa1718dc2d6f545b6353b203bb9e725114cf630667f4048bf6635e54",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\01_bilstm_training.ipynb": "2df085de20bd88b75ab8dfcdd21de7fc5be8680edaaad4c54a901f74617b7f18",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\cnn_eew_training\\codex_performance_audit\\cnn_performance_audit_results.json": "58cadae483be48911671653fb714d168fa801b81078fde373b4bd02e4c9c815d",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\codex_independent_audit\\audit_results.json": "cb548791209a5b77cec7c05f66a75f10a9cc73d5b824370c09a67b88dc3b278f",
+    "C:\\Users\\choud\\Desktop\\Minor project\\fusion\\cnn_bilstm_v1\\models\\fusion_1s_best.pt": "e917397e277f48463d4396fa1f8a08e6b5f0007c7b136902267a88ed8d17f71a",
+    "C:\\Users\\choud\\Desktop\\Minor project\\fusion\\cnn_bilstm_v1\\models\\fusion_2s_best.pt": "0edb3c671ac65c3379b0f9c415b4b4d955ddb02e6057f8999d18bcbfe5b93f31",
+    "C:\\Users\\choud\\Desktop\\Minor project\\fusion\\cnn_bilstm_v1\\models\\fusion_3s_best.pt": "342835cac66598496aea8e67fa464e5f6275fa69e7eec054318339bc1c00ed4a",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\cnn_eew_training\\models\\cnn_1s_best.pt": "43b2099c8a3f64e94a528ca32eb3874828bc5a0d3cc0b1c18b63d67c298399b4",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_1s_best.pt": "6e58d0005b1f464345ec64b488197b371607c232e4a786919d3f9ba46bcb34ad",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\cnn_eew_training\\models\\cnn_2s_best.pt": "cf414ddd4b13e61466b407dc7d5e2f998e3ee6f5d53f973b8e214103cac667d5",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_2s_best.pt": "2b31d158df7b866b1049fd679dace6bfb26038f21d4f5b3ee0a0f4df0e94e681",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\cnn_eew_training\\models\\cnn_3s_best.pt": "f7e7617552bc35cf5620f12b32e53bf2232efaf0d1a14e345cf220eb64ce287a",
+    "C:\\Users\\choud\\Desktop\\Minor project\\bilstm_eew\\bilstm_training_v1\\models\\bilstm_3s_best.pt": "28a40646277f114e9a9bbb25763f765dadb47b6cfff602e250d4d8b5b743c1d0",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\dataset\\eew_dataset_train.h5": "2f88d8c1b50c1d52d0814360d7a32beabb5c90a822e121940a0db875ad49be15",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\dataset\\eew_dataset_validation.h5": "c983d0fa42aabf107204b1e7261e8f0b4ee93a86aca64fdf7ce0a270877ec1d1",
+    "C:\\Users\\choud\\Desktop\\Minor project\\cnn\\cnn wave\\eew_causal_v3\\dataset\\eew_dataset_test.h5": "9db5018d5cabf51a417d17c92344e4184148b87264361d538cf962f350184d43"
+  },
+  "epoch2_review": {
+    "status": "PASS_WITH_LIMITATION",
+    "history": [
+      {
+        "epoch": 1,
+        "train": {
+          "total": 0.9220203681280148,
+          "detection": 0.5543294271282491,
+          "magnitude": 0.3676909409997658
+        },
+        "validation": {
+          "total": 0.9363566128950127,
+          "detection": 0.560429386727002,
+          "magnitude": 0.3759272261680106
+        }
+      },
+      {
+        "epoch": 2,
+        "train": {
+          "total": 0.9060212993992381,
+          "detection": 0.5418913075545785,
+          "magnitude": 0.36412999184465966
+        },
+        "validation": {
+          "total": 0.9279767859601227,
+          "detection": 0.5532565513919034,
+          "magnitude": 0.3747202345682193
+        }
+      },
+      {
+        "epoch": 3,
+        "train": {
+          "total": 0.9012924756569224,
+          "detection": 0.5362694594431412,
+          "magnitude": 0.3650230162137812
+        },
+        "validation": {
+          "total": 0.9305529048004528,
+          "detection": 0.5527457844984993,
+          "magnitude": 0.37780712030195346
+        }
+      },
+      {
+        "epoch": 4,
+        "train": {
+          "total": 0.8975277361369562,
+          "detection": 0.534209955458673,
+          "magnitude": 0.3633177806782832
+        },
+        "validation": {
+          "total": 0.9288537858049435,
+          "detection": 0.5528967968216634,
+          "magnitude": 0.3759569889832801
+        }
+      },
+      {
+        "epoch": 5,
+        "train": {
+          "total": 0.8962299487734802,
+          "detection": 0.5330508285005031,
+          "magnitude": 0.363179120272977
+        },
+        "validation": {
+          "total": 0.9302542482833673,
+          "detection": 0.5530455668701776,
+          "magnitude": 0.3772086814131898
+        }
+      },
+      {
+        "epoch": 6,
+        "train": {
+          "total": 0.894244276563509,
+          "detection": 0.532106902817457,
+          "magnitude": 0.36213737374605204
+        },
+        "validation": {
+          "total": 0.9308668704241244,
+          "detection": 0.5535216587000609,
+          "magnitude": 0.37734521172406355
+        }
+      },
+      {
+        "epoch": 7,
+        "train": {
+          "total": 0.8937827158799572,
+          "detection": 0.5318374589996177,
+          "magnitude": 0.36194525688033946
+        },
+        "validation": {
+          "total": 0.9307448913121361,
+          "detection": 0.5532166495956081,
+          "magnitude": 0.377528241716528
+        }
+      },
+      {
+        "epoch": 8,
+        "train": {
+          "total": 0.8937863008330038,
+          "detection": 0.5316613944163806,
+          "magnitude": 0.36212490641662315
+        },
+        "validation": {
+          "total": 0.9324207824807667,
+          "detection": 0.5537690699641015,
+          "magnitude": 0.3786517125166652
+        }
+      },
+      {
+        "epoch": 9,
+        "train": {
+          "total": 0.8929417887074247,
+          "detection": 0.5309910722016362,
+          "magnitude": 0.3619507165057884
+        },
+        "validation": {
+          "total": 0.9322145907031734,
+          "detection": 0.5537094405536699,
+          "magnitude": 0.3785051501495034
+        }
+      }
+    ],
+    "finding": "Epoch2 is selected by recorded validation loss and reproduced frozen loss; training stopped after seven non-improving epochs at epoch9. Early selection alone is not an error. Limited single-seed head adaptation/validation fluctuations do not establish optimal convergence."
+  },
+  "verdict": "APPROVED",
+  "scope": "Valid synthetic oracle-aligned fusion benchmark reporting and controlled comparison, not operational EEW or a claim of improved performance. Attention not implemented or started."
+}

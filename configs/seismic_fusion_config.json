@@ -1,0 +1,47 @@
+{
+  "dataset_rel_path": "dataset_2.csv",
+  "output_dir_rel_path": "seismic_fusion/outputs",
+  "geophysics": {
+    "earth_radius_km": 6371.0,
+    "vp_km_s": 6.0,
+    "vs_km_s": 3.5,
+    "sampling_rate_hz": 100.0,
+    "mc_completeness": 3.7,
+    "lat_bounds": [-90.0, 90.0],
+    "lon_bounds": [-180.0, 180.0],
+    "depth_bounds_km": [0.0, 700.0],
+    "magnitude_bounds": [0.0, 10.0],
+    "snr_min_db": 0.0,
+    "geodesic_kernel_length_km": 200.0
+  },
+  "model": {
+    "lookback_events": 16,
+    "kinematic_channels": 6,
+    "gnn_node_dim": 9,
+    "phys_feature_dim": 12,
+    "hidden_dim": 64,
+    "dropout": 0.15,
+    "modality_dropout_prob": 0.30,
+    "ensemble_seeds": [42, 1337, 2026],
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 128,
+    "max_epochs": 24,
+    "patience": 5,
+    "tail_alpha": 0.75
+  },
+  "validation": {
+    "modern_catalog_start_utc": "1990-01-01 00:00:00",
+    "forecast_horizon_days": 30.0,
+    "embargo_days": 30.0,
+    "n_walk_forward_folds": 5,
+    "target_mw_threshold": 5.0,
+    "evaluation_mw_thresholds": [4.0, 4.5, 5.0, 5.5],
+    "min_positives_for_metric": 5,
+    "holdout_stations": ["KOH", "SHL"],
+    "spatial_holdout_lon_min": 93.5,
+    "spatial_buffer_deg": 0.5,
+    "ece_bins": 10,
+    "random_seed": 42
+  }
+}

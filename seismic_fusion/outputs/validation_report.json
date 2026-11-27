@@ -1,0 +1,1206 @@
+{
+  "audit_manifest_summary": {
+    "total_raw": 8089,
+    "valid": 4407,
+    "flagged": 3682,
+    "record_conservation_verified": true,
+    "modern_anchor_samples": 6760,
+    "causality_boundary_proof": {
+      "max_feature_timestamp_minus_origin_sec": 0.0,
+      "min_target_event_minus_origin_sec": 1.0,
+      "branch_a_features": [
+        "past_mw_homogenized",
+        "past_log1p_depth_km",
+        "past_log1p_hypo_sph_km",
+        "past_log1p_sp_sec",
+        "past_snr_db",
+        "past_log1p_interevent_hours"
+      ],
+      "branch_b_features": [
+        "station_ecef_x_norm",
+        "station_ecef_y_norm",
+        "station_ecef_z_norm",
+        "station_elev_km",
+        "station_log1p_count_30d",
+        "station_log1p_count_90d",
+        "station_max_mw_90d",
+        "station_mean_snr_90d_scaled",
+        "station_log1p_days_since_last_eq"
+      ],
+      "branch_c_features": [
+        "gr_b_value_180d",
+        "log1p_benioff_30d",
+        "log1p_benioff_180d",
+        "log1p_etas_intensity",
+        "log1p_rate_above_mc_7d",
+        "log1p_rate_above_mc_30d",
+        "sub_mc_fraction_30d",
+        "origin_event_mw",
+        "origin_event_log1p_depth_km",
+        "origin_doy_sin",
+        "origin_doy_cos",
+        "origin_above_mc_flag"
+      ]
+    },
+    "threshold_summary": {
+      "Mw>=4.0": {
+        "positives": 6705,
+        "positive_rate": 0.991864
+      },
+      "Mw>=4.5": {
+        "positives": 6175,
+        "positive_rate": 0.913462
+      },
+      "Mw>=5.0": {
+        "positives": 3742,
+        "positive_rate": 0.55355
+      },
+      "Mw>=5.5": {
+        "positives": 1337,
+        "positive_rate": 0.197781
+      }
+    },
+    "waveform_archive_status": {
+      "recorded_seismograms_in_catalog": false,
+      "branch_a_active_representation": "16-step_causal_catalog_kinematic_sequence",
+      "branch_a_channels": [
+        "past_mw_homogenized",
+        "past_log1p_depth_km",
+        "past_log1p_hypo_sph_km",
+        "past_log1p_sp_sec",
+        "past_snr_db",
+        "past_log1p_interevent_hours"
+      ],
+      "eew_h5_archives_present_on_disk": [],
+      "eew_h5_archives_missing_on_disk": [
+        "cnn/cnn wave/eew_causal_v3/dataset/eew_dataset_train.h5",
+        "bilstm_eew/causal_tabular_v1/tabular_features.h5"
+      ]
+    },
+    "remediated_sha256_manifest": "configs/remediated_sources_sha256.json"
+  },
+  "validation": {
+    "primary_target": "Probabilistic exceedance Mw >= 5.0 within forward 30-day horizon",
+    "evaluated_thresholds": [
+      "Mw>=4.0",
+      "Mw>=4.5",
+      "Mw>=5.0",
+      "Mw>=5.5"
+    ],
+    "target_completion_and_embargo_enforced": true,
+    "embargo_days_post_target_completion": 30.0,
+    "ensemble_members": 3,
+    "walk_forward_folds": [
+      {
+        "fold": 1,
+        "train_size": 366,
+        "inner_train_size": 285,
+        "inner_cal_size": 73,
+        "val_size": 403,
+        "origin_gap_days": 63.239,
+        "post_target_completion_embargo_days": 33.239,
+        "calibrated_temperatures": [
+          [
+            1.1871,
+            1.3164,
+            0.4793,
+            0.9722
+          ],
+          [
+            0.7427,
+            0.8901,
+            0.9738,
+            1.053
+          ],
+          [
+            1.255,
+            1.2071,
+            0.8488,
+            1.063
+          ]
+        ],
+        "primary_threshold_metrics": {
+          "n_samples": 403,
+          "positives": 232,
+          "negatives": 171,
+          "positive_rate": 0.575682,
+          "brier_score": 0.352842,
+          "brier_poisson_null": 0.291691,
+          "ece": 0.319345,
+          "status": "valid",
+          "brier_skill_score": -0.209644,
+          "brier_etas": 0.29308,
+          "bss_vs_etas": -0.203912,
+          "igpe_bits_per_eq": -0.389691,
+          "log_likelihood_ratio_nats": -62.6662,
+          "pr_auc": 0.528632,
+          "roc_auc": 0.422439,
+          "mag_mae": 0.383661,
+          "mag_sd_ratio": 0.319984,
+          "strong_mw_ge_5_count": 232,
+          "strong_mw_ge_5_mae": 0.320966,
+          "picp_90": 0.847716
+        },
+        "multi_threshold_metrics": {
+          "Mw>=4.0": {
+            "n_samples": 403,
+            "positives": 384,
+            "negatives": 19,
+            "positive_rate": 0.952854,
+            "brier_score": 0.045042,
+            "brier_poisson_null": 0.045709,
+            "ece": 0.023276,
+            "status": "valid",
+            "brier_skill_score": 0.014583,
+            "brier_etas": 0.045709,
+            "bss_vs_etas": 0.014583,
+            "igpe_bits_per_eq": 0.020647,
+            "log_likelihood_ratio_nats": 5.4956,
+            "pr_auc": 0.969168,
+            "roc_auc": 0.607867
+          },
+          "Mw>=4.5": {
+            "n_samples": 403,
+            "positives": 363,
+            "negatives": 40,
+            "positive_rate": 0.900744,
+            "brier_score": 0.092105,
+            "brier_poisson_null": 0.089444,
+            "ece": 0.04945,
+            "status": "valid",
+            "brier_skill_score": -0.029745,
+            "brier_etas": 0.09095,
+            "bss_vs_etas": -0.012702,
+            "igpe_bits_per_eq": -0.01765,
+            "log_likelihood_ratio_nats": -4.441,
+            "pr_auc": 0.909191,
+            "roc_auc": 0.531267
+          },
+          "Mw>=5.0": {
+            "n_samples": 403,
+            "positives": 232,
+            "negatives": 171,
+            "positive_rate": 0.575682,
+            "brier_score": 0.352842,
+            "brier_poisson_null": 0.291691,
+            "ece": 0.319345,
+            "status": "valid",
+            "brier_skill_score": -0.209644,
+            "brier_etas": 0.29308,
+            "bss_vs_etas": -0.203912,
+            "igpe_bits_per_eq": -0.389691,
+            "log_likelihood_ratio_nats": -62.6662,
+            "pr_auc": 0.528632,
+            "roc_auc": 0.422439
+          },
+          "Mw>=5.5": {
+            "n_samples": 403,
+            "positives": 77,
+            "negatives": 326,
+            "positive_rate": 0.191067,
+            "brier_score": 0.160807,
+            "brier_poisson_null": 0.15503,
+            "ece": 0.064078,
+            "status": "valid",
+            "brier_skill_score": -0.037264,
+            "brier_etas": 0.176763,
+            "bss_vs_etas": 0.090267,
+            "igpe_bits_per_eq": -0.141874,
+            "log_likelihood_ratio_nats": -7.5722,
+            "pr_auc": 0.153661,
+            "roc_auc": 0.384989
+          }
+        }
+      },
+      {
+        "fold": 2,
+        "train_size": 770,
+        "inner_train_size": 613,
+        "inner_cal_size": 154,
+        "val_size": 353,
+        "origin_gap_days": 83.897,
+        "post_target_completion_embargo_days": 53.897,
+        "calibrated_temperatures": [
+          [
+            1.3438,
+            1.1785,
+            0.9462,
+            1.1245
+          ],
+          [
+            1.0587,
+            1.0524,
+            1.2597,
+            1.2323
+          ],
+          [
+            0.8452,
+            0.9396,
+            1.1068,
+            1.0623
+          ]
+        ],
+        "primary_threshold_metrics": {
+          "n_samples": 353,
+          "positives": 217,
+          "negatives": 136,
+          "positive_rate": 0.614731,
+          "brier_score": 0.236729,
+          "brier_poisson_null": 0.257746,
+          "ece": 0.015327,
+          "status": "valid",
+          "brier_skill_score": 0.081542,
+          "brier_etas": 0.289083,
+          "bss_vs_etas": 0.181104,
+          "igpe_bits_per_eq": 0.099261,
+          "log_likelihood_ratio_nats": 14.9302,
+          "pr_auc": 0.624886,
+          "roc_auc": 0.523922,
+          "mag_mae": 0.335172,
+          "mag_sd_ratio": 0.124572,
+          "strong_mw_ge_5_count": 217,
+          "strong_mw_ge_5_mae": 0.208979,
+          "picp_90": 0.913043
+        },
+        "multi_threshold_metrics": {
+          "Mw>=4.0": {
+            "n_samples": 353,
+            "positives": 338,
+            "negatives": 15,
+            "positive_rate": 0.957507,
+            "brier_score": 0.043569,
+            "brier_poisson_null": 0.040816,
+            "ece": 0.056025,
+            "status": "valid",
+            "brier_skill_score": -0.067464,
+            "brier_etas": 0.041735,
+            "bss_vs_etas": -0.043943,
+            "igpe_bits_per_eq": -0.028071,
+            "log_likelihood_ratio_nats": -6.5766,
+            "pr_auc": 0.967829,
+            "roc_auc": 0.6
+          },
+          "Mw>=4.5": {
+            "n_samples": 353,
+            "positives": 307,
+            "negatives": 46,
+            "positive_rate": 0.869688,
+            "brier_score": 0.114205,
+            "brier_poisson_null": 0.114172,
+            "ece": 0.00941,
+            "status": "valid",
+            "brier_skill_score": -0.000286,
+            "brier_etas": 0.121033,
+            "bss_vs_etas": 0.056418,
+            "igpe_bits_per_eq": 0.00107,
+            "log_likelihood_ratio_nats": 0.2276,
+            "pr_auc": 0.818656,
+            "roc_auc": 0.401997
+          },
+          "Mw>=5.0": {
+            "n_samples": 353,
+            "positives": 217,
+            "negatives": 136,
+            "positive_rate": 0.614731,
+            "brier_score": 0.236729,
+            "brier_poisson_null": 0.257746,
+            "ece": 0.015327,
+            "status": "valid",
+            "brier_skill_score": 0.081542,
+            "brier_etas": 0.289083,
+            "bss_vs_etas": 0.181104,
+            "igpe_bits_per_eq": 0.099261,
+            "log_likelihood_ratio_nats": 14.9302,
+            "pr_auc": 0.624886,
+            "roc_auc": 0.523922
+          },
+          "Mw>=5.5": {
+            "n_samples": 353,
+            "positives": 33,
+            "negatives": 320,
+            "positive_rate": 0.093484,
+            "brier_score": 0.09987,
+            "brier_poisson_null": 0.09232,
+            "ece": 0.124272,
+            "status": "valid",
+            "brier_skill_score": -0.08178,
+            "brier_etas": 0.111205,
+            "bss_vs_etas": 0.101928,
+            "igpe_bits_per_eq": -0.364177,
+            "log_likelihood_ratio_nats": -8.3301,
+            "pr_auc": 0.141743,
+            "roc_auc": 0.561174
+          }
+        }
+      },
+      {
+        "fold": 3,
+        "train_size": 1118,
+        "inner_train_size": 893,
+        "inner_cal_size": 223,
+        "val_size": 828,
+        "origin_gap_days": 91.974,
+        "post_target_completion_embargo_days": 61.974,
+        "calibrated_temperatures": [
+          [
+            0.9078,
+            0.9652,
+            1.1008,
+            0.8733
+          ],
+          [
+            0.9526,
+            0.9881,
+            1.0037,
+            0.9264
+          ],
+          [
+            0.9411,
+            0.9465,
+            1.1364,
+            0.8743
+          ]
+        ],
+        "primary_threshold_metrics": {
+          "n_samples": 828,
+          "positives": 484,
+          "negatives": 344,
+          "positive_rate": 0.584541,
+          "brier_score": 0.247882,
+          "brier_poisson_null": 0.247177,
+          "ece": 0.060601,
+          "status": "valid",
+          "brier_skill_score": -0.002851,
+          "brier_etas": 0.302571,
+          "bss_vs_etas": 0.180749,
+          "igpe_bits_per_eq": -0.005252,
+          "log_likelihood_ratio_nats": -1.7621,
+          "pr_auc": 0.55532,
+          "roc_auc": 0.43532,
+          "mag_mae": 0.530364,
+          "mag_sd_ratio": 0.183528,
+          "strong_mw_ge_5_count": 484,
+          "strong_mw_ge_5_mae": 0.628923,
+          "picp_90": 0.68
+        },
+        "multi_threshold_metrics": {
+          "Mw>=4.0": {
+            "n_samples": 828,
+            "positives": 818,
+            "negatives": 10,
+            "positive_rate": 0.987923,
+            "brier_score": 0.015319,
+            "brier_poisson_null": 0.012493,
+            "ece": 0.055262,
+            "status": "valid",
+            "brier_skill_score": -0.226209,
+            "brier_etas": 0.026219,
+            "bss_vs_etas": 0.415714,
+            "igpe_bits_per_eq": -0.039484,
+            "log_likelihood_ratio_nats": -22.3871,
+            "pr_auc": 0.978663,
+            "roc_auc": 0.352445
+          },
+          "Mw>=4.5": {
+            "n_samples": 828,
+            "positives": 749,
+            "negatives": 79,
+            "positive_rate": 0.904589,
+            "brier_score": 0.087702,
+            "brier_poisson_null": 0.086472,
+            "ece": 0.025039,
+            "status": "valid",
+            "brier_skill_score": -0.014224,
+            "brier_etas": 0.099394,
+            "bss_vs_etas": 0.117638,
+            "igpe_bits_per_eq": -0.008072,
+            "log_likelihood_ratio_nats": -4.1909,
+            "pr_auc": 0.906779,
+            "roc_auc": 0.470315
+          },
+          "Mw>=5.0": {
+            "n_samples": 828,
+            "positives": 484,
+            "negatives": 344,
+            "positive_rate": 0.584541,
+            "brier_score": 0.247882,
+            "brier_poisson_null": 0.247177,
+            "ece": 0.060601,
+            "status": "valid",
+            "brier_skill_score": -0.002851,
+            "brier_etas": 0.302571,
+            "bss_vs_etas": 0.180749,
+            "igpe_bits_per_eq": -0.005252,
+            "log_likelihood_ratio_nats": -1.7621,
+            "pr_auc": 0.55532,
+            "roc_auc": 0.43532
+          },
+          "Mw>=5.5": {
+            "n_samples": 828,
+            "positives": 266,
+            "negatives": 562,
+            "positive_rate": 0.321256,
+            "brier_score": 0.262024,
+            "brier_poisson_null": 0.246077,
+            "ece": 0.21141,
+            "status": "valid",
+            "brier_skill_score": -0.064804,
+            "brier_etas": 0.257662,
+            "bss_vs_etas": -0.016929,
+            "igpe_bits_per_eq": -0.316548,
+            "log_likelihood_ratio_nats": -58.3643,
+            "pr_auc": 0.358475,
+            "roc_auc": 0.570479
+          }
+        }
+      },
+      {
+        "fold": 4,
+        "train_size": 1943,
+        "inner_train_size": 1514,
+        "inner_cal_size": 388,
+        "val_size": 1141,
+        "origin_gap_days": 62.47,
+        "post_target_completion_embargo_days": 32.47,
+        "calibrated_temperatures": [
+          [
+            0.6723,
+            1.1462,
+            1.1825,
+            1.392
+          ],
+          [
+            0.6388,
+            1.012,
+            1.337,
+            1.1865
+          ],
+          [
+            0.7529,
+            1.1248,
+            1.2754,
+            1.406
+          ]
+        ],
+        "primary_threshold_metrics": {
+          "n_samples": 1141,
+          "positives": 729,
+          "negatives": 412,
+          "positive_rate": 0.638913,
+          "brier_score": 0.234069,
+          "brier_poisson_null": 0.239324,
+          "ece": 0.065596,
+          "status": "valid",
+          "brier_skill_score": 0.021959,
+          "brier_etas": 0.288285,
+          "bss_vs_etas": 0.188064,
+          "igpe_bits_per_eq": 0.024109,
+          "log_likelihood_ratio_nats": 12.1822,
+          "pr_auc": 0.663638,
+          "roc_auc": 0.549488,
+          "mag_mae": 0.403537,
+          "mag_sd_ratio": 0.078867,
+          "strong_mw_ge_5_count": 729,
+          "strong_mw_ge_5_mae": 0.327884,
+          "picp_90": 0.954426
+        },
+        "multi_threshold_metrics": {
+          "Mw>=4.0": {
+            "n_samples": 1141,
+            "positives": 1138,
+            "negatives": 3,
+            "positive_rate": 0.997371,
+            "brier_score": 0.002825,
+            "brier_poisson_null": 0.00318,
+            "ece": 0.01344,
+            "status": "insufficient_positives",
+            "brier_skill_score": "insufficient_positives",
+            "bss_vs_etas": "insufficient_positives",
+            "igpe_bits_per_eq": "insufficient_positives",
+            "log_likelihood_ratio_nats": "insufficient_positives",
+            "pr_auc": "insufficient_positives",
+            "roc_auc": "insufficient_positives"
+          },
+          "Mw>=4.5": {
+            "n_samples": 1141,
+            "positives": 1029,
+            "negatives": 112,
+            "positive_rate": 0.90184,
+            "brier_score": 0.088983,
+            "brier_poisson_null": 0.088564,
+            "ece": 0.028715,
+            "status": "valid",
+            "brier_skill_score": -0.004728,
+            "brier_etas": 0.088471,
+            "bss_vs_etas": -0.005781,
+            "igpe_bits_per_eq": -0.003057,
+            "log_likelihood_ratio_nats": -2.1805,
+            "pr_auc": 0.927595,
+            "roc_auc": 0.567303
+          },
+          "Mw>=5.0": {
+            "n_samples": 1141,
+            "positives": 729,
+            "negatives": 412,
+            "positive_rate": 0.638913,
+            "brier_score": 0.234069,
+            "brier_poisson_null": 0.239324,
+            "ece": 0.065596,
+            "status": "valid",
+            "brier_skill_score": 0.021959,
+            "brier_etas": 0.288285,
+            "bss_vs_etas": 0.188064,
+            "igpe_bits_per_eq": 0.024109,
+            "log_likelihood_ratio_nats": 12.1822,
+            "pr_auc": 0.663638,
+            "roc_auc": 0.549488
+          },
+          "Mw>=5.5": {
+            "n_samples": 1141,
+            "positives": 231,
+            "negatives": 910,
+            "positive_rate": 0.202454,
+            "brier_score": 0.172366,
+            "brier_poisson_null": 0.161925,
+            "ece": 0.101364,
+            "status": "valid",
+            "brier_skill_score": -0.064477,
+            "brier_etas": 0.166544,
+            "bss_vs_etas": -0.034956,
+            "igpe_bits_per_eq": -0.187606,
+            "log_likelihood_ratio_nats": -30.039,
+            "pr_auc": 0.247959,
+            "roc_auc": 0.475546
+          }
+        }
+      },
+      {
+        "fold": 5,
+        "train_size": 3027,
+        "inner_train_size": 2412,
+        "inner_cal_size": 605,
+        "val_size": 3662,
+        "origin_gap_days": 61.17,
+        "post_target_completion_embargo_days": 31.17,
+        "calibrated_temperatures": [
+          [
+            1.0,
+            1.0113,
+            0.5718,
+            0.9298
+          ],
+          [
+            1.0,
+            0.9671,
+            0.8674,
+            0.9384
+          ],
+          [
+            1.0,
+            0.9954,
+            0.8529,
+            0.974
+          ]
+        ],
+        "primary_threshold_metrics": {
+          "n_samples": 3662,
+          "positives": 1949,
+          "negatives": 1713,
+          "positive_rate": 0.532223,
+          "brier_score": 0.280614,
+          "brier_poisson_null": 0.250305,
+          "ece": 0.17347,
+          "status": "valid",
+          "brier_skill_score": -0.121085,
+          "brier_etas": 0.252639,
+          "bss_vs_etas": -0.110732,
+          "igpe_bits_per_eq": -0.184358,
+          "log_likelihood_ratio_nats": -249.0578,
+          "pr_auc": 0.484774,
+          "roc_auc": 0.459787,
+          "mag_mae": 0.504257,
+          "mag_sd_ratio": 0.137102,
+          "strong_mw_ge_5_count": 1949,
+          "strong_mw_ge_5_mae": 0.316134,
+          "picp_90": 0.937193
+        },
+        "multi_threshold_metrics": {
+          "Mw>=4.0": {
+            "n_samples": 3662,
+            "positives": 3661,
+            "negatives": 1,
+            "positive_rate": 0.999727,
+            "brier_score": 0.0031,
+            "brier_poisson_null": 0.000582,
+            "ece": 0.052765,
+            "status": "insufficient_positives",
+            "brier_skill_score": "insufficient_positives",
+            "bss_vs_etas": "insufficient_positives",
+            "igpe_bits_per_eq": "insufficient_positives",
+            "log_likelihood_ratio_nats": "insufficient_positives",
+            "pr_auc": "insufficient_positives",
+            "roc_auc": "insufficient_positives"
+          },
+          "Mw>=4.5": {
+            "n_samples": 3662,
+            "positives": 3394,
+            "negatives": 268,
+            "positive_rate": 0.926816,
+            "brier_score": 0.070427,
+            "brier_poisson_null": 0.068823,
+            "ece": 0.050902,
+            "status": "valid",
+            "brier_skill_score": -0.023311,
+            "brier_etas": 0.06506,
+            "bss_vs_etas": -0.082501,
+            "igpe_bits_per_eq": -0.012081,
+            "log_likelihood_ratio_nats": -28.4212,
+            "pr_auc": 0.900577,
+            "roc_auc": 0.415127
+          },
+          "Mw>=5.0": {
+            "n_samples": 3662,
+            "positives": 1949,
+            "negatives": 1713,
+            "positive_rate": 0.532223,
+            "brier_score": 0.280614,
+            "brier_poisson_null": 0.250305,
+            "ece": 0.17347,
+            "status": "valid",
+            "brier_skill_score": -0.121085,
+            "brier_etas": 0.252639,
+            "bss_vs_etas": -0.110732,
+            "igpe_bits_per_eq": -0.184358,
+            "log_likelihood_ratio_nats": -249.0578,
+            "pr_auc": 0.484774,
+            "roc_auc": 0.459787
+          },
+          "Mw>=5.5": {
+            "n_samples": 3662,
+            "positives": 668,
+            "negatives": 2994,
+            "positive_rate": 0.182414,
+            "brier_score": 0.159039,
+            "brier_poisson_null": 0.150629,
+            "ece": 0.087967,
+            "status": "valid",
+            "brier_skill_score": -0.055834,
+            "brier_etas": 0.159541,
+            "bss_vs_etas": 0.003148,
+            "igpe_bits_per_eq": -0.171176,
+            "log_likelihood_ratio_nats": -79.2582,
+            "pr_auc": 0.161904,
+            "roc_auc": 0.457818
+          }
+        }
+      }
+    ],
+    "pooled_out_of_sample_primary": {
+      "n_samples": 6387,
+      "positives": 3611,
+      "negatives": 2776,
+      "positive_rate": 0.565367,
+      "brier_score": 0.270187,
+      "brier_poisson_null": 0.250961,
+      "ece": 0.13985,
+      "status": "valid",
+      "brier_skill_score": -0.076613,
+      "brier_etas": 0.270046,
+      "bss_vs_etas": -0.000525,
+      "igpe_bits_per_eq": -0.114414,
+      "log_likelihood_ratio_nats": -286.3737,
+      "pr_auc": 0.515147,
+      "roc_auc": 0.446767,
+      "mag_mae": 0.472966,
+      "mag_sd_ratio": 0.331202,
+      "strong_mw_ge_5_count": 3611,
+      "strong_mw_ge_5_mae": 0.354302,
+      "picp_90": 0.90011
+    },
+    "pooled_multi_threshold_fusion": {
+      "Mw>=4.0": {
+        "n_samples": 6387,
+        "positives": 6339,
+        "negatives": 48,
+        "positive_rate": 0.992485,
+        "brier_score": 0.009518,
+        "brier_poisson_null": 0.007661,
+        "ece": 0.044166,
+        "status": "valid",
+        "brier_skill_score": -0.242361,
+        "brier_etas": 0.009354,
+        "bss_vs_etas": -0.017476,
+        "igpe_bits_per_eq": -0.03335,
+        "log_likelihood_ratio_nats": -146.5373,
+        "pr_auc": 0.996184,
+        "roc_auc": 0.770513
+      },
+      "Mw>=4.5": {
+        "n_samples": 6387,
+        "positives": 5842,
+        "negatives": 545,
+        "positive_rate": 0.91467,
+        "brier_score": 0.079769,
+        "brier_poisson_null": 0.078445,
+        "ece": 0.039502,
+        "status": "valid",
+        "brier_skill_score": -0.016875,
+        "brier_etas": 0.07842,
+        "bss_vs_etas": -0.017196,
+        "igpe_bits_per_eq": -0.009633,
+        "log_likelihood_ratio_nats": -39.0059,
+        "pr_auc": 0.910152,
+        "roc_auc": 0.498629
+      },
+      "Mw>=5.0": {
+        "n_samples": 6387,
+        "positives": 3611,
+        "negatives": 2776,
+        "positive_rate": 0.565367,
+        "brier_score": 0.270187,
+        "brier_poisson_null": 0.250961,
+        "ece": 0.13985,
+        "status": "valid",
+        "brier_skill_score": -0.076613,
+        "brier_etas": 0.270046,
+        "bss_vs_etas": -0.000525,
+        "igpe_bits_per_eq": -0.114414,
+        "log_likelihood_ratio_nats": -286.3737,
+        "pr_auc": 0.515147,
+        "roc_auc": 0.446767
+      },
+      "Mw>=5.5": {
+        "n_samples": 6387,
+        "positives": 1275,
+        "negatives": 5112,
+        "positive_rate": 0.199624,
+        "brier_score": 0.171612,
+        "brier_poisson_null": 0.162076,
+        "ece": 0.10662,
+        "status": "valid",
+        "brier_skill_score": -0.058838,
+        "brier_etas": 0.171928,
+        "bss_vs_etas": 0.001836,
+        "igpe_bits_per_eq": -0.207707,
+        "log_likelihood_ratio_nats": -183.5637,
+        "pr_auc": 0.17812,
+        "roc_auc": 0.444605
+      }
+    },
+    "pooled_multi_threshold_etas_baseline": {
+      "Mw>=4.0": {
+        "n_samples": 6387,
+        "positives": 6339,
+        "negatives": 48,
+        "positive_rate": 0.992485,
+        "brier_score": 0.009354,
+        "brier_poisson_null": 0.007661,
+        "ece": 0.013667,
+        "status": "valid",
+        "brier_skill_score": -0.221022,
+        "igpe_bits_per_eq": -0.001272,
+        "log_likelihood_ratio_nats": -5.5911,
+        "pr_auc": 0.997339,
+        "roc_auc": 0.731852
+      },
+      "Mw>=4.5": {
+        "n_samples": 6387,
+        "positives": 5842,
+        "negatives": 545,
+        "positive_rate": 0.91467,
+        "brier_score": 0.07842,
+        "brier_poisson_null": 0.078445,
+        "ece": 0.016759,
+        "status": "valid",
+        "brier_skill_score": 0.000316,
+        "igpe_bits_per_eq": 0.014996,
+        "log_likelihood_ratio_nats": 60.726,
+        "pr_auc": 0.955456,
+        "roc_auc": 0.666597
+      },
+      "Mw>=5.0": {
+        "n_samples": 6387,
+        "positives": 3611,
+        "negatives": 2776,
+        "positive_rate": 0.565367,
+        "brier_score": 0.270046,
+        "brier_poisson_null": 0.250961,
+        "ece": 0.135004,
+        "status": "valid",
+        "brier_skill_score": -0.076048,
+        "igpe_bits_per_eq": -0.109667,
+        "log_likelihood_ratio_nats": -274.4906,
+        "pr_auc": 0.536343,
+        "roc_auc": 0.454223
+      },
+      "Mw>=5.5": {
+        "n_samples": 6387,
+        "positives": 1275,
+        "negatives": 5112,
+        "positive_rate": 0.199624,
+        "brier_score": 0.171928,
+        "brier_poisson_null": 0.162076,
+        "ece": 0.11634,
+        "status": "valid",
+        "brier_skill_score": -0.060786,
+        "igpe_bits_per_eq": -0.237449,
+        "log_likelihood_ratio_nats": -209.8488,
+        "pr_auc": 0.232164,
+        "roc_auc": 0.504196
+      }
+    },
+    "modality_ablation_final_fold": {
+      "full_multimodal": {
+        "n_samples": 3662,
+        "positives": 1949,
+        "negatives": 1713,
+        "positive_rate": 0.532223,
+        "brier_score": 0.280614,
+        "brier_poisson_null": 0.250305,
+        "ece": 0.17347,
+        "status": "valid",
+        "brier_skill_score": -0.121085,
+        "igpe_bits_per_eq": -0.184358,
+        "log_likelihood_ratio_nats": -249.0578,
+        "pr_auc": 0.484774,
+        "roc_auc": 0.459787,
+        "mag_mae": 0.504257,
+        "mag_sd_ratio": 0.137102,
+        "strong_mw_ge_5_count": 1949,
+        "strong_mw_ge_5_mae": 0.316134,
+        "picp_90": 0.937193,
+        "mean_gate_weights": [
+          0.7342,
+          0.157,
+          0.1088
+        ]
+      },
+      "ablate_branch_a_kinematic_wf": {
+        "n_samples": 3662,
+        "positives": 1949,
+        "negatives": 1713,
+        "positive_rate": 0.532223,
+        "brier_score": 0.272869,
+        "brier_poisson_null": 0.250305,
+        "ece": 0.150495,
+        "status": "valid",
+        "brier_skill_score": -0.090143,
+        "igpe_bits_per_eq": -0.134539,
+        "log_likelihood_ratio_nats": -181.7544,
+        "pr_auc": 0.494942,
+        "roc_auc": 0.475434,
+        "mag_mae": 0.581453,
+        "mag_sd_ratio": 0.12651,
+        "strong_mw_ge_5_count": 1949,
+        "strong_mw_ge_5_mae": 0.352138,
+        "picp_90": 0.941562,
+        "mean_gate_weights": [
+          0.0,
+          0.5821,
+          0.4179
+        ]
+      },
+      "ablate_branch_b_spatial_gnn": {
+        "n_samples": 3662,
+        "positives": 1949,
+        "negatives": 1713,
+        "positive_rate": 0.532223,
+        "brier_score": 0.285661,
+        "brier_poisson_null": 0.250305,
+        "ece": 0.186768,
+        "status": "valid",
+        "brier_skill_score": -0.14125,
+        "igpe_bits_per_eq": -0.218452,
+        "log_likelihood_ratio_nats": -295.1167,
+        "pr_auc": 0.483998,
+        "roc_auc": 0.458492,
+        "mag_mae": 0.501011,
+        "mag_sd_ratio": 0.156457,
+        "strong_mw_ge_5_count": 1949,
+        "strong_mw_ge_5_mae": 0.315759,
+        "picp_90": 0.933643,
+        "mean_gate_weights": [
+          0.8621,
+          0.0,
+          0.1379
+        ]
+      },
+      "ablate_branch_c_catalog_etas": {
+        "n_samples": 3662,
+        "positives": 1949,
+        "negatives": 1713,
+        "positive_rate": 0.532223,
+        "brier_score": 0.277452,
+        "brier_poisson_null": 0.250305,
+        "ece": 0.166092,
+        "status": "valid",
+        "brier_skill_score": -0.108455,
+        "igpe_bits_per_eq": -0.163572,
+        "log_likelihood_ratio_nats": -220.9764,
+        "pr_auc": 0.496346,
+        "roc_auc": 0.482369,
+        "mag_mae": 0.486496,
+        "mag_sd_ratio": 0.142853,
+        "strong_mw_ge_5_count": 1949,
+        "strong_mw_ge_5_mae": 0.310303,
+        "picp_90": 0.936374,
+        "mean_gate_weights": [
+          0.8167,
+          0.1833,
+          0.0
+        ]
+      }
+    },
+    "tectonic_subzone_spatial_holdout": {
+      "train_region": "West_Shillong_Himalayan (Long <= 93.00E)",
+      "buffer_excluded_region": "Buffer (93.00E < Long < 93.50E)",
+      "eval_region": "East_Indo_Burma_Subduction (Long >= 93.50E)",
+      "train_size": 2296,
+      "eval_size": 541,
+      "multi_threshold_metrics": {
+        "Mw>=4.0": {
+          "n_samples": 541,
+          "positives": 541,
+          "negatives": 0,
+          "positive_rate": 1.0,
+          "brier_score": 0.002987,
+          "brier_poisson_null": 0.000138,
+          "ece": 0.054612,
+          "status": "insufficient_positives",
+          "brier_skill_score": "insufficient_positives",
+          "bss_vs_etas": "insufficient_positives",
+          "igpe_bits_per_eq": "insufficient_positives",
+          "log_likelihood_ratio_nats": "insufficient_positives",
+          "pr_auc": "insufficient_positives",
+          "roc_auc": "insufficient_positives"
+        },
+        "Mw>=4.5": {
+          "n_samples": 541,
+          "positives": 534,
+          "negatives": 7,
+          "positive_rate": 0.987061,
+          "brier_score": 0.022785,
+          "brier_poisson_null": 0.021081,
+          "ece": 0.100152,
+          "status": "valid",
+          "brier_skill_score": -0.080821,
+          "brier_etas": 0.015881,
+          "bss_vs_etas": -0.434683,
+          "igpe_bits_per_eq": -0.012778,
+          "log_likelihood_ratio_nats": -4.7296,
+          "pr_auc": 0.993196,
+          "roc_auc": 0.613697
+        },
+        "Mw>=5.0": {
+          "n_samples": 541,
+          "positives": 304,
+          "negatives": 237,
+          "positive_rate": 0.561922,
+          "brier_score": 0.245342,
+          "brier_poisson_null": 0.246624,
+          "ece": 0.018145,
+          "status": "valid",
+          "brier_skill_score": 0.005201,
+          "brier_etas": 0.281007,
+          "bss_vs_etas": 0.126919,
+          "igpe_bits_per_eq": 0.006582,
+          "log_likelihood_ratio_nats": 1.387,
+          "pr_auc": 0.565363,
+          "roc_auc": 0.536712
+        },
+        "Mw>=5.5": {
+          "n_samples": 541,
+          "positives": 133,
+          "negatives": 408,
+          "positive_rate": 0.245841,
+          "brier_score": 0.190297,
+          "brier_poisson_null": 0.189253,
+          "ece": 0.068913,
+          "status": "valid",
+          "brier_skill_score": -0.005517,
+          "brier_etas": 0.189662,
+          "bss_vs_etas": -0.003348,
+          "igpe_bits_per_eq": -0.020968,
+          "log_likelihood_ratio_nats": -1.933,
+          "pr_auc": 0.245807,
+          "roc_auc": 0.474034
+        }
+      }
+    },
+    "station_spatial_holdout": {
+      "holdout_stations": [
+        "KOH",
+        "SHL"
+      ],
+      "train_non_holdout_size": 4139,
+      "eval_holdout_future_size": 132,
+      "multi_threshold_metrics": {
+        "Mw>=4.0": {
+          "n_samples": 132,
+          "positives": 132,
+          "negatives": 0,
+          "positive_rate": 1.0,
+          "brier_score": 0.001795,
+          "brier_poisson_null": 0.00014,
+          "ece": 0.042257,
+          "status": "insufficient_positives",
+          "brier_skill_score": "insufficient_positives",
+          "bss_vs_etas": "insufficient_positives",
+          "igpe_bits_per_eq": "insufficient_positives",
+          "log_likelihood_ratio_nats": "insufficient_positives",
+          "pr_auc": "insufficient_positives",
+          "roc_auc": "insufficient_positives"
+        },
+        "Mw>=4.5": {
+          "n_samples": 132,
+          "positives": 131,
+          "negatives": 1,
+          "positive_rate": 0.992424,
+          "brier_score": 0.051763,
+          "brier_poisson_null": 0.021116,
+          "ece": 0.210071,
+          "status": "insufficient_positives",
+          "brier_skill_score": "insufficient_positives",
+          "bss_vs_etas": "insufficient_positives",
+          "igpe_bits_per_eq": "insufficient_positives",
+          "log_likelihood_ratio_nats": "insufficient_positives",
+          "pr_auc": "insufficient_positives",
+          "roc_auc": "insufficient_positives"
+        },
+        "Mw>=5.0": {
+          "n_samples": 132,
+          "positives": 77,
+          "negatives": 55,
+          "positive_rate": 0.583333,
+          "brier_score": 0.289853,
+          "brier_poisson_null": 0.249545,
+          "ece": 0.221079,
+          "status": "valid",
+          "brier_skill_score": -0.161528,
+          "brier_etas": 0.258295,
+          "bss_vs_etas": -0.12218,
+          "igpe_bits_per_eq": -0.205368,
+          "log_likelihood_ratio_nats": -10.961,
+          "pr_auc": 0.751906,
+          "roc_auc": 0.676269
+        },
+        "Mw>=5.5": {
+          "n_samples": 132,
+          "positives": 28,
+          "negatives": 104,
+          "positive_rate": 0.212121,
+          "brier_score": 0.192925,
+          "brier_poisson_null": 0.16851,
+          "ece": 0.156989,
+          "status": "valid",
+          "brier_skill_score": -0.14489,
+          "brier_etas": 0.168037,
+          "bss_vs_etas": -0.148109,
+          "igpe_bits_per_eq": -1.031514,
+          "log_likelihood_ratio_nats": -20.0197,
+          "pr_auc": 0.172143,
+          "roc_auc": 0.387706
+        }
+      }
+    },
+    "generated_figures": [
+      "reliability_calibration_curves.png",
+      "pr_curves_multi_threshold.png",
+      "gate_weight_distributions.png"
+    ]
+  },
+  "xai_summary": {
+    "evaluated_split": "held_out_final_walk_forward_test_fold",
+    "explained_target": "Mw>=5.0",
+    "mean_completeness_mae_logit": 0.0001,
+    "stratified_modality_gate_weights": {
+      "all_heldout": {
+        "count": 3662,
+        "mean": {
+          "branch_a_kinematic_seq": 0.73423,
+          "branch_b_geodesic_gnn": 0.15696,
+          "branch_c_catalog_etas": 0.10881
+        },
+        "std": {
+          "branch_a_kinematic_seq": 0.02019,
+          "branch_b_geodesic_gnn": 0.00876,
+          "branch_c_catalog_etas": 0.01661
+        },
+        "median": {
+          "branch_a_kinematic_seq": 0.73079,
+          "branch_b_geodesic_gnn": 0.15791,
+          "branch_c_catalog_etas": 0.11179
+        }
+      },
+      "Mw_lt_4.5": {
+        "count": 268,
+        "mean": {
+          "branch_a_kinematic_seq": 0.75003,
+          "branch_b_geodesic_gnn": 0.157,
+          "branch_c_catalog_etas": 0.09297
+        },
+        "std": {
+          "branch_a_kinematic_seq": 0.01858,
+          "branch_b_geodesic_gnn": 0.00997,
+          "branch_c_catalog_etas": 0.01443
+        },
+        "median": {
+          "branch_a_kinematic_seq": 0.75276,
+          "branch_b_geodesic_gnn": 0.15853,
+          "branch_c_catalog_etas": 0.09031
+        }
+      },
+      "4.5_le_Mw_lt_5.0": {
+        "count": 1445,
+        "mean": {
+          "branch_a_kinematic_seq": 0.73546,
+          "branch_b_geodesic_gnn": 0.15728,
+          "branch_c_catalog_etas": 0.10726
+        },
+        "std": {
+          "branch_a_kinematic_seq": 0.02055,
+          "branch_b_geodesic_gnn": 0.00881,
+          "branch_c_catalog_etas": 0.01657
+        },
+        "median": {
+          "branch_a_kinematic_seq": 0.73181,
+          "branch_b_geodesic_gnn": 0.15785,
+          "branch_c_catalog_etas": 0.11025
+        }
+      },
+      "Mw_ge_5.0": {
+        "count": 1949,
+        "mean": {
+          "branch_a_kinematic_seq": 0.73114,
+          "branch_b_geodesic_gnn": 0.15671,
+          "branch_c_catalog_etas": 0.11214
+        },
+        "std": {
+          "branch_a_kinematic_seq": 0.01899,
+          "branch_b_geodesic_gnn": 0.00853,
+          "branch_c_catalog_etas": 0.01545
+        },
+        "median": {
+          "branch_a_kinematic_seq": 0.72717,
+          "branch_b_geodesic_gnn": 0.15788,
+          "branch_c_catalog_etas": 0.11451
+        }
+      }
+    },
+    "top_branch_a": {
+      "past_mw_homogenized": 0.085098,
+      "past_log1p_interevent_hours": 0.080163,
+      "past_snr_db": 0.078765
+    },
+    "top_branch_b": {
+      "station_log1p_days_since_last_eq": 0.061224,
+      "station_elev_km": 0.045185,
+      "station_mean_snr_90d_scaled": 0.022838
+    },
+    "top_branch_c": {
+      "sub_mc_fraction_30d": 0.038695,
+      "origin_above_mc_flag": 0.018313,
+      "log1p_benioff_30d": 0.018064
+    }
+  }
+}

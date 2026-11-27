@@ -29,8 +29,14 @@ def run_phase2(config: SimulationConfig = DEFAULT_CONFIG) -> pd.DataFrame:
     # Load metadata
     df = pd.read_csv(config.INPUT_METADATA_PATH)
 
-    # 1. Calculate Hypocentral Distance R = sqrt(D^2 + h^2)
-    df['hypocentral_distance_km'] = np.sqrt(df['epicentral_dist_km']**2 + df['Depth_km']**2)
+    # 1. Calculate 3D Spherical Chord Hypocentral Distance (eliminates flat-earth curvature distortion)
+    r_earth_km = 6371.0
+    theta_rad = df['epicentral_dist_km'].astype(float) / r_earth_km
+    r_sub_km = r_earth_km - df['Depth_km'].astype(float)
+    df['hypocentral_distance_flat_km'] = np.sqrt(df['epicentral_dist_km']**2 + df['Depth_km']**2)
+    df['hypocentral_distance_km'] = np.sqrt(
+        np.maximum(r_earth_km**2 + r_sub_km**2 - 2.0 * r_earth_km * r_sub_km * np.cos(theta_rad), 0.0)
+    )
 
     # 2. Calculate Theoretical Travel Times from Origin (seconds)
     df['theoretical_p_arrival_seconds'] = df['hypocentral_distance_km'] / config.VP_KM_S

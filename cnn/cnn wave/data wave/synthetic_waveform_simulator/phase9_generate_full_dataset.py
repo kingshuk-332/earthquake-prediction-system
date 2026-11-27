@@ -15,9 +15,8 @@ records using the improved Phase 8 physical simulator:
 import os
 import sys
 import time
-import json
 from datetime import datetime
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List
 
 import numpy as np
 import pandas as pd

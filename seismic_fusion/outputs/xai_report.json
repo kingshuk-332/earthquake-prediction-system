@@ -1,0 +1,117 @@
+{
+  "evaluated_split": "held_out_final_walk_forward_test_fold",
+  "explained_target": "Mw>=5.0",
+  "stratified_modality_gate_weights": {
+    "all_heldout": {
+      "count": 3662,
+      "mean": {
+        "branch_a_kinematic_seq": 0.73423,
+        "branch_b_geodesic_gnn": 0.15696,
+        "branch_c_catalog_etas": 0.10881
+      },
+      "std": {
+        "branch_a_kinematic_seq": 0.02019,
+        "branch_b_geodesic_gnn": 0.00876,
+        "branch_c_catalog_etas": 0.01661
+      },
+      "median": {
+        "branch_a_kinematic_seq": 0.73079,
+        "branch_b_geodesic_gnn": 0.15791,
+        "branch_c_catalog_etas": 0.11179
+      }
+    },
+    "Mw_lt_4.5": {
+      "count": 268,
+      "mean": {
+        "branch_a_kinematic_seq": 0.75003,
+        "branch_b_geodesic_gnn": 0.157,
+        "branch_c_catalog_etas": 0.09297
+      },
+      "std": {
+        "branch_a_kinematic_seq": 0.01858,
+        "branch_b_geodesic_gnn": 0.00997,
+        "branch_c_catalog_etas": 0.01443
+      },
+      "median": {
+        "branch_a_kinematic_seq": 0.75276,
+        "branch_b_geodesic_gnn": 0.15853,
+        "branch_c_catalog_etas": 0.09031
+      }
+    },
+    "4.5_le_Mw_lt_5.0": {
+      "count": 1445,
+      "mean": {
+        "branch_a_kinematic_seq": 0.73546,
+        "branch_b_geodesic_gnn": 0.15728,
+        "branch_c_catalog_etas": 0.10726
+      },
+      "std": {
+        "branch_a_kinematic_seq": 0.02055,
+        "branch_b_geodesic_gnn": 0.00881,
+        "branch_c_catalog_etas": 0.01657
+      },
+      "median": {
+        "branch_a_kinematic_seq": 0.73181,
+        "branch_b_geodesic_gnn": 0.15785,
+        "branch_c_catalog_etas": 0.11025
+      }
+    },
+    "Mw_ge_5.0": {
+      "count": 1949,
+      "mean": {
+        "branch_a_kinematic_seq": 0.73114,
+        "branch_b_geodesic_gnn": 0.15671,
+        "branch_c_catalog_etas": 0.11214
+      },
+      "std": {
+        "branch_a_kinematic_seq": 0.01899,
+        "branch_b_geodesic_gnn": 0.00853,
+        "branch_c_catalog_etas": 0.01545
+      },
+      "median": {
+        "branch_a_kinematic_seq": 0.72717,
+        "branch_b_geodesic_gnn": 0.15788,
+        "branch_c_catalog_etas": 0.11451
+      }
+    }
+  },
+  "integrated_gradients": {
+    "evaluated_heldout_records": 256,
+    "riemann_steps": 32,
+    "mean_completeness_mae_logit": 0.0001,
+    "branch_a_channel_importance": {
+      "past_mw_homogenized": 0.085098,
+      "past_log1p_interevent_hours": 0.080163,
+      "past_snr_db": 0.078765,
+      "past_log1p_depth_km": 0.071731,
+      "past_log1p_hypo_sph_km": 0.046158,
+      "past_log1p_sp_sec": 0.03161
+    },
+    "branch_b_station_feature_importance": {
+      "station_log1p_days_since_last_eq": 0.061224,
+      "station_elev_km": 0.045185,
+      "station_mean_snr_90d_scaled": 0.022838,
+      "station_log1p_count_90d": 0.016239,
+      "station_log1p_count_30d": 0.015379,
+      "station_ecef_x_norm": 0.012897,
+      "station_ecef_y_norm": 0.00798,
+      "station_ecef_z_norm": 0.005408,
+      "station_max_mw_90d": 0.002845
+    },
+    "branch_c_physics_feature_importance": {
+      "sub_mc_fraction_30d": 0.038695,
+      "origin_above_mc_flag": 0.018313,
+      "log1p_benioff_30d": 0.018064,
+      "origin_event_log1p_depth_km": 0.013963,
+      "log1p_rate_above_mc_7d": 0.012677,
+      "gr_b_value_180d": 0.012166,
+      "origin_event_mw": 0.010488,
+      "log1p_rate_above_mc_30d": 0.007016,
+      "log1p_etas_intensity": 0.006983,
+      "log1p_benioff_180d": 0.006763,
+      "origin_doy_cos": 0.00593,
+      "origin_doy_sin": 0.004935
+    }
+  },
+  "figure_exported": "xai_feature_and_gate_attributions.png"
+}

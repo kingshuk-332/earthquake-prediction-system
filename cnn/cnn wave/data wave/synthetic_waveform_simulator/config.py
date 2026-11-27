@@ -4,8 +4,7 @@ Research Title: Physics-Informed Synthetic Seismic Waveform Generation for Earth
 """
 
 import os
-from dataclasses import dataclass, field
-from typing import Dict, Any
+from dataclasses import dataclass
 
 @dataclass
 class SimulationConfig:
@@ -13,10 +12,10 @@ class SimulationConfig:
     # 1. File and Directory Paths
     # -------------------------------------------------------------
     BASE_DIR: str = os.path.dirname(os.path.abspath(__file__))
-    PROJECT_ROOT: str = os.path.abspath(os.path.join(BASE_DIR, ".."))
+    PROJECT_ROOT: str = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "..", ".."))
     
-    # Metadata paths (checks both relative to package and root)
-    INPUT_METADATA_PATH: str = os.path.join(PROJECT_ROOT, "Minor project", "preprocessed_eda.csv")
+    # Metadata paths (dynamically resolved to repository root dataset_2.csv)
+    INPUT_METADATA_PATH: str = os.path.join(PROJECT_ROOT, "dataset_2.csv")
     OUTPUT_BASE_DIR: str = os.path.join(BASE_DIR, "output")
     
     # Subdirectories for phases

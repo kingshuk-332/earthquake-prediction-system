@@ -1,0 +1,105 @@
+{
+  "generated_at_utc": "2026-11-27T10:15:29.717743Z",
+  "dataset_path": "dataset_2.csv",
+  "dataset_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3",
+  "total_raw": 8089,
+  "valid": 4407,
+  "flagged": 3682,
+  "record_conservation_verified": true,
+  "causality_boundary_proof": {
+    "max_feature_timestamp_minus_origin_sec": 0.0,
+    "min_target_event_minus_origin_sec": 1.0,
+    "branch_a_features": [
+      "past_mw_homogenized",
+      "past_log1p_depth_km",
+      "past_log1p_hypo_sph_km",
+      "past_log1p_sp_sec",
+      "past_snr_db",
+      "past_log1p_interevent_hours"
+    ],
+    "branch_b_features": [
+      "station_ecef_x_norm",
+      "station_ecef_y_norm",
+      "station_ecef_z_norm",
+      "station_elev_km",
+      "station_log1p_count_30d",
+      "station_log1p_count_90d",
+      "station_max_mw_90d",
+      "station_mean_snr_90d_scaled",
+      "station_log1p_days_since_last_eq"
+    ],
+    "branch_c_features": [
+      "gr_b_value_180d",
+      "log1p_benioff_30d",
+      "log1p_benioff_180d",
+      "log1p_etas_intensity",
+      "log1p_rate_above_mc_7d",
+      "log1p_rate_above_mc_30d",
+      "sub_mc_fraction_30d",
+      "origin_event_mw",
+      "origin_event_log1p_depth_km",
+      "origin_doy_sin",
+      "origin_doy_cos",
+      "origin_above_mc_flag"
+    ]
+  },
+  "anomaly_counts": {
+    "exact_duplicates": 0,
+    "missing_timestamps": 0,
+    "out_of_range_geometry": 0,
+    "out_of_range_magnitude": 0,
+    "phase_or_snr_anomaly": 0,
+    "below_mc": 3682
+  },
+  "mc_completeness": 3.7,
+  "station_count": 10,
+  "station_vocab": [
+    "AGT",
+    "DBR",
+    "GHY",
+    "IMP",
+    "ITAN",
+    "KOH",
+    "PASI",
+    "SHL",
+    "SIL",
+    "TEZ"
+  ],
+  "modern_anchor_samples": 6760,
+  "threshold_summary": {
+    "Mw>=4.0": {
+      "positives": 6705,
+      "positive_rate": 0.991864
+    },
+    "Mw>=4.5": {
+      "positives": 6175,
+      "positive_rate": 0.913462
+    },
+    "Mw>=5.0": {
+      "positives": 3742,
+      "positive_rate": 0.55355
+    },
+    "Mw>=5.5": {
+      "positives": 1337,
+      "positive_rate": 0.197781
+    }
+  },
+  "waveform_archive_status": {
+    "recorded_seismograms_in_catalog": false,
+    "branch_a_active_representation": "16-step_causal_catalog_kinematic_sequence",
+    "branch_a_channels": [
+      "past_mw_homogenized",
+      "past_log1p_depth_km",
+      "past_log1p_hypo_sph_km",
+      "past_log1p_sp_sec",
+      "past_snr_db",
+      "past_log1p_interevent_hours"
+    ],
+    "eew_h5_archives_present_on_disk": [],
+    "eew_h5_archives_missing_on_disk": [
+      "cnn/cnn wave/eew_causal_v3/dataset/eew_dataset_train.h5",
+      "bilstm_eew/causal_tabular_v1/tabular_features.h5"
+    ]
+  },
+  "synthetic_records_fabricated": 0
+}

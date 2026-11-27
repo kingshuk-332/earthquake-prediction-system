@@ -14,7 +14,6 @@ Key Scientific Improvements (Phase 8):
 5. Exact mathematical Signal-to-Noise Ratio (SNR) calibration across the pre-P measurement window.
 """
 
-import os
 import json
 from dataclasses import dataclass, asdict
 from typing import Tuple, Dict, Any, Optional
@@ -39,9 +38,11 @@ class ImprovedSimulationParameters:
     q_eta: float = 0.70
     q_ref_freq_hz: float = 1.0
 
-    # Spectral parameters
+    # Spectral parameters (supports optional Brune corner-frequency scaling)
     p_dominant_freq_hz: float = 5.0
     s_dominant_freq_hz: float = 2.2
+    use_brune_corner_freq: bool = False
+    stress_drop_mpa: float = 3.0
     sp_amp_ratio_bhz: float = 1.35  # Realistic vertical component (BHZ) S/P amplitude ratio
 
     # Dynamic envelope parameters
@@ -145,12 +146,28 @@ class ImprovedWaveformGenerator:
 
         return float(tau_r_p), float(tau_d_p), float(tau_r_s), float(tau_d_s)
 
+    def brune_corner_frequencies(self, magnitude: float) -> Tuple[float, float]:
+        """
+        Brune (1970) source corner-frequency scaling f_c = 0.4906 * beta * (Delta_sigma / M_0)^(1/3),
+        resolving spectral non-identifiability across magnitudes when use_brune_corner_freq=True.
+        """
+        if not self.params.use_brune_corner_freq:
+            return self.params.p_dominant_freq_hz, self.params.s_dominant_freq_hz
+        m0_dyne_cm = 10.0 ** (1.5 * magnitude + 16.05)
+        stress_drop_bars = self.params.stress_drop_mpa * 10.0
+        beta_km_s = self.params.vs_km_s
+        fc_s = 4.906e6 * beta_km_s * ((stress_drop_bars / m0_dyne_cm) ** (1.0 / 3.0))
+        fc_s = float(np.clip(fc_s, 0.25, 8.0))
+        fc_p = float(np.clip(fc_s * (self.params.vp_km_s / self.params.vs_km_s), 0.40, 15.0))
+        return fc_p, fc_s
+
     def generate_p_wave(
         self,
         p_arrival_sec: float,
         amplitude: float,
         tau_r: float,
-        tau_d: float
+        tau_d: float,
+        freq_hz: Optional[float] = None
     ) -> np.ndarray:
         """
         Generates P-wave packet with C^1 continuous gamma envelope and harmonic carrier.
@@ -164,7 +181,7 @@ class ImprovedWaveformGenerator:
         envelope = envelope / max_env
 
         # Multi-frequency carrier with primary tone and subtle dispersion harmonic
-        fp = self.params.p_dominant_freq_hz
+        fp = freq_hz if freq_hz is not None else self.params.p_dominant_freq_hz
         carrier = 0.85 * np.sin(2.0 * np.pi * fp * tau) + 0.15 * np.sin(4.0 * np.pi * fp * tau)
 
         pw[mask] = amplitude * envelope * carrier
@@ -175,7 +192,8 @@ class ImprovedWaveformGenerator:
         s_arrival_sec: float,
         amplitude: float,
         tau_r: float,
-        tau_d: float
+        tau_d: float,
+        freq_hz: Optional[float] = None
     ) -> np.ndarray:
         """
         Generates S-wave packet with lower shear frequency and extended dispersive coda.
@@ -188,7 +206,7 @@ class ImprovedWaveformGenerator:
         max_env = np.max(envelope) if len(envelope) > 0 and np.max(envelope) > 0 else 1.0
         envelope = envelope / max_env
 
-        fs = self.params.s_dominant_freq_hz
+        fs = freq_hz if freq_hz is not None else self.params.s_dominant_freq_hz
         carrier = 0.80 * np.sin(2.0 * np.pi * fs * tau + np.pi / 4.0) + 0.20 * np.sin(3.0 * np.pi * fs * tau)
 
         sw[mask] = amplitude * envelope * carrier
@@ -214,10 +232,11 @@ class ImprovedWaveformGenerator:
         # 1. Calculate physical amplitudes and dynamic envelope constants
         amp_p, amp_s, diag = self.calculate_effective_amplitudes(magnitude, hypocentral_distance_km)
         tau_r_p, tau_d_p, tau_r_s, tau_d_s = self.generate_dynamic_envelopes(magnitude, hypocentral_distance_km)
+        fp_eff, fs_eff = self.brune_corner_frequencies(magnitude)
 
         # 2. Synthesize clean P and S waves
-        pw = self.generate_p_wave(tp_sec, amp_p, tau_r_p, tau_d_p)
-        sw = self.generate_s_wave(ts_sec, amp_s, tau_r_s, tau_d_s)
+        pw = self.generate_p_wave(tp_sec, amp_p, tau_r_p, tau_d_p, freq_hz=fp_eff)
+        sw = self.generate_s_wave(ts_sec, amp_s, tau_r_s, tau_d_s, freq_hz=fs_eff)
         clean_signal = pw + sw
 
         # 3. Exact Mathematical SNR Calibration

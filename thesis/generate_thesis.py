@@ -34,18 +34,6 @@ def set_run_font(run, name="Times New Roman", size_pt=12, bold=False, italic=Fal
     rFonts.set(qn('w:cs'), name)
     rPr.insert(0, rFonts)
 
-# ─── Helper: add a styled paragraph ─────────────────────────────────────────
-def add_para(doc, text, style='Normal', font_pt=12, bold=False, italic=False,
-             align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_before=0, space_after=6):
-    p = doc.add_paragraph(style=style)
-    p.paragraph_format.alignment = align
-    p.paragraph_format.space_before = Pt(space_before)
-    p.paragraph_format.space_after = Pt(space_after)
-    if text:
-        run = p.add_run(text)
-        set_run_font(run, size_pt=font_pt, bold=bold, italic=italic)
-    return p
-
 # ─── Helper: add chapter heading ────────────────────────────────────────────
 def add_chapter(doc, title):
     p = doc.add_paragraph()

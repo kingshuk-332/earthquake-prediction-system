@@ -5,7 +5,6 @@ Module: phase3_clean_synthesis.py
 
 import os
 import sys
-import numpy as np
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')

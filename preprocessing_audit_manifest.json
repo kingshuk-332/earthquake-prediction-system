@@ -1,0 +1,31 @@
+{
+  "schema_version": "2.0.0",
+  "generated_at_utc": "2026-11-27T10:15:30.836904Z",
+  "source_file": "dataset_2.csv",
+  "source_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3",
+  "total_raw": 8089,
+  "valid": 4407,
+  "flagged": 3682,
+  "record_conservation_verified": true,
+  "flag_breakdown": {
+    "exact_duplicates": 0,
+    "missing_timestamps": 0,
+    "out_of_range_geometry": 0,
+    "out_of_range_magnitude": 0,
+    "phase_or_snr_anomaly": 0,
+    "below_mc_completeness": 3682
+  },
+  "mc_completeness_threshold": 3.7,
+  "above_mc_count": 4407,
+  "chronological_splits": {
+    "train": 5662,
+    "validation": 1213,
+    "test": 1214,
+    "train_end_utc": "2024-04-09 08:02:06",
+    "val_start_utc": "2024-04-09 08:15:37",
+    "test_start_utc": "2025-12-10 20:55:14"
+  },
+  "iqr_target_clipping_applied": false,
+  "scalers_fit_strictly_on_train": true,
+  "hard_defect_records": []
+}

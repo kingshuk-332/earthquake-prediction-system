@@ -1,0 +1,18 @@
+{
+  "schema_version": "2.0.0",
+  "generated_at_utc": "2026-11-27T10:15:31.370427Z",
+  "source_file": "dataset_2.csv",
+  "source_sha256": "5cfebe7268a87940ec9489d4f72b45381e2c940cc3f38d96d60b4575355d8bf3",
+  "output_file": "preprocessed_dl_temporal.csv",
+  "total_raw": 8089,
+  "valid": 4407,
+  "flagged": 3682,
+  "record_conservation_verified": true,
+  "removed_target_leakage_columns": [
+    "log_energy",
+    "depth_mag_ratio"
+  ],
+  "scaler_fit_split": "train",
+  "train_rows": 5662,
+  "predictor_count": 43
+}

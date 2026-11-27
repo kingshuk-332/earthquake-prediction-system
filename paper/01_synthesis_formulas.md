@@ -12,17 +12,17 @@
 
 ## 1. Kinematic Travel-Time Constraints & Phase Arrival Modeling
 
-For each event in the earthquake metadata catalog ($N = 8,089$), hypocentral distance $R$ is derived from epicentral distance $D$ and focal depth $h$:
+For each event in the earthquake metadata catalog ($N = 8,089$), 3D spherical chord hypocentral distance $R$ is derived from epicentral arc distance $D$, focal depth $h$, and Earth radius $R_\oplus = 6371.0\text{ km}$ (eliminating up to $9.013\text{ km}$ of flat-earth $\sqrt{D^2 + h^2}$ curvature error):
 
 \begin{equation}
-R = \sqrt{D^2 + h^2}
+R = \sqrt{R_\oplus^2 + (R_\oplus - h)^2 - 2 R_\oplus (R_\oplus - h)\cos(D / R_\oplus)}
 \label{eq:hypocentral_distance}
 \end{equation}
 
 where:
-- $D$: Epicentral distance in kilometers ($\text{km}$), range: $[1.0, 486.2]\text{ km}$.
-- $h$: Focal depth in kilometers ($\text{km}$), range: $[5.0, 70.0]\text{ km}$.
-- $R$: Hypocentral distance ($\text{km}$), range: $[5.1, 488.5]\text{ km}$.
+- $D$: Epicentral distance in kilometers ($\text{km}$), empirical catalog range: $[1.6, 683.9]\text{ km}$.
+- $h$: Focal depth in kilometers ($\text{km}$), empirical catalog range: $[1.0, 430.0]\text{ km}$.
+- $R$: Hypocentral distance ($\text{km}$), empirical range: $[8.93, 684.70]\text{ km}$.
 
 Theoretical compressional (P) and shear (S) wave arrival times ($t_P, t_S$) and their discrete sample indices ($P_{\text{sample}}, S_{\text{sample}}$) are computed under a homogeneous 1D crustal velocity model:
 
@@ -66,7 +66,7 @@ A_{\text{source}}(M) = A_{\text{ref}} \cdot 10^{\gamma (M - M_{\text{ref}})}
 \end{equation}
 
 where:
-- $M$: Earthquake magnitude (catalog range: $[2.0, 7.2]$).
+- $M$: Earthquake magnitude (empirical catalog range: $[1.5, 8.6]$, $\hat{M}_c = 3.7$).
 - $M_{\text{ref}} = 4.0$: Reference normalization magnitude.
 - $A_{\text{ref}} = 1.0$: Reference amplitude.
 - $\gamma = 0.50$: Empirical scaling exponent.
@@ -217,7 +217,7 @@ A_{\text{signal}} = \max_{t \in W_{\text{signal}}} |s_{\text{clean}}(t)|
 \label{eq:signal_peak}
 \end{equation}
 
-Given the target catalog signal-to-noise ratio $\text{SNR}_{\text{target, dB}} \in [1.50, 20.00]\text{ dB}$:
+Given the target catalog signal-to-noise ratio $\text{SNR}_{\text{target, dB}} \in [1.50, 39.07]\text{ dB}$ (note: in the strictly causal `eew_causal_v3` benchmark, per-trace catalog SNR scaling was replaced by a fixed ambient noise floor $\sigma_{\text{noise}} = 0.05$ normalized via impulse response gain `GAINS['band']` to prevent pre-$P$ variance shortcut leakage):
 
 \begin{equation}
 \sigma_{\text{target}} = \frac{A_{\text{signal}}}{10^{\text{SNR}_{\text{target, dB}} / 20}}
@@ -337,15 +337,15 @@ y_{\text{noise}, 4}(t) = \tilde{n}_4(t) \cdot \frac{\sigma_{\text{target}}}{\tex
 
 ## 6. Preprocessing, Waveform Transformation & Normalization
 
-### 6.1 Per-Trace Standardization (Z-score Normalization)
-For each 100 s trace $y(t)$:
+### 6.1 Strictly Causal Pre-P Context Standardization (`eew_causal_v3`)
+To prevent future S-wave and late P-coda energy from leaking into pre-S causal observation windows via full-trace statistics, each observation window in `CausalEEWGeneratorV3` is standardized exclusively using moments computed over the $1.0\text{ s}$ ($N_{\text{pre}} = 100$ samples) pre-P context interval $W_{\text{pre}} = [P_{\text{sample}} - 100, P_{\text{sample}})$:
 
 \begin{equation}
-y_{\text{norm}}(t) = \frac{y(t) - \mu_y}{\sigma_y + \epsilon}
+y_{\text{norm}}(t) = \frac{y(t) - \mu_{\text{pre}}}{\sigma_{\text{pre}} + \epsilon}
 \label{eq:z_score}
 \end{equation}
 
-where $\mu_y = \frac{1}{N}\sum y(t)$, $\sigma_y = \sqrt{\frac{1}{N}\sum (y(t) - \mu_y)^2}$, and $\epsilon = 10^{-8}$.
+where $\mu_{\text{pre}} = \frac{1}{N_{\text{pre}}}\sum_{t \in W_{\text{pre}}} y(t)$, $\sigma_{\text{pre}} = \sqrt{\frac{1}{N_{\text{pre}}}\sum_{t \in W_{\text{pre}}} (y(t) - \mu_{\text{pre}})^2}$, and $\epsilon = 10^{-8}$.
 
 ### 6.2 Pointwise Signed-Logarithmic Transform (CNN Input)
 To compress dynamic range while preserving polarity across orders of seismic amplitude:
